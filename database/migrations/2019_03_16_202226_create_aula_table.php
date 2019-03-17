@@ -14,14 +14,16 @@ class CreateAulaTable extends Migration
     public function up()
     {
         Schema::create('aula', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('aula_tipo')->unique();
+            $table->increments('id');
+            $table->unsignedInteger('aula_tipo');
             $table->date('data');
             $table->text('sumario')->nullable();
             $table->timestamps();
-            
-            // table foreign key constrains
-            $table->foreign('aula_tipo')->references('id')->on('cadeira');
+        });
+
+         // table foreign key constrains
+         Schema::table('aula', function (Blueprint $table) {
+            $table->foreign('aula_tipo')->references('id')->on('aula_tipo');
         });
     }
 

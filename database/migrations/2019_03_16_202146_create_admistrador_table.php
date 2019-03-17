@@ -14,11 +14,13 @@ class CreateAdmistradorTable extends Migration
     public function up()
     {
         Schema::create('admistrador', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('id_utilizador')->unique();
+            $table->increments('id');
+            $table->unsignedInteger('id_utilizador')->unique();
             $table->timestamps();
+        });
 
-            // table foreign key constrains
+         // table foreign key constrains
+         Schema::table('admistrador', function (Blueprint $table) {
             $table->foreign('id_utilizador')->references('id')->on('utilizador')->onDelete('cascade');
         });
     }

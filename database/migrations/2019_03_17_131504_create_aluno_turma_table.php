@@ -14,13 +14,15 @@ class CreateAlunoTurmaTable extends Migration
     public function up()
     {
         Schema::create('aluno_turma', function (Blueprint $table) {
-            $table->integer('aluno');
-            $table->integer('turma');
+            $table->unsignedInteger('aluno');
+            $table->unsignedInteger('turma');
             $table->timestamps();
 
-            $table->primary('aluno', 'turma');
-            
-            // table foreign key constrains
+            $table->primary('aluno', 'turma');            
+        });
+
+         // table foreign key constrains
+         Schema::table('aluno_turma', function (Blueprint $table) {
             $table->foreign('aluno')->references('id')->on('aluno');
             $table->foreign('turma')->references('id')->on('turma');
         });

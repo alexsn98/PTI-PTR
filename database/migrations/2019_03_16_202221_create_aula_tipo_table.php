@@ -14,15 +14,17 @@ class CreateAulaTipoTable extends Migration
     public function up()
     {
         Schema::create('aula_tipo', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('turma')->unique();
-            $table->integer('sala');
-            $table->integer('dia_semana');
+            $table->increments('id');
+            $table->unsignedInteger('turma');
+            $table->unsignedInteger('sala');
+            $table->unsignedInteger('dia_semana');
             $table->time('inicio');
             $table->time('fim');
-            $table->timestamps();
-        
-            // table foreign key constrains
+            $table->timestamps(); 
+        });
+
+         // table foreign key constrains
+         Schema::table('aula_tipo', function (Blueprint $table) {
             $table->foreign('turma')->references('id')->on('turma')->onDelete('cascade');
         });
     }

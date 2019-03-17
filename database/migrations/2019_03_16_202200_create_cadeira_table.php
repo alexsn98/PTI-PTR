@@ -14,16 +14,18 @@ class CreateCadeiraTable extends Migration
     public function up()
     {
         Schema::create('cadeira', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('nome');
-            $table->integer('ETCS');
-            $table->integer('regente');
-            $table->integer('curso')->nullable();
-            $table->integer('semestre')->nullable();
-            $table->integer('ciclo');
+            $table->unsignedInteger('ETCS');
+            $table->unsignedInteger('regente');
+            $table->unsignedInteger('curso')->nullable();
+            $table->unsignedInteger('semestre')->nullable();
+            $table->unsignedInteger('ciclo');
             $table->timestamps();
+        });
 
-            // table foreign key constrains
+         // table foreign key constrains
+         Schema::table('cadeira', function (Blueprint $table) {
             $table->foreign('regente')->references('id')->on('docente');
             $table->foreign('curso')->references('id')->on('curso');
         });

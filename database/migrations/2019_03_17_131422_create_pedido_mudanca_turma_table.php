@@ -11,17 +11,21 @@ class CreatePedidoMudancaTurmaTable extends Migration
      *
      * @return void
      */
-    public function up() {
+    public function up() 
+    {
         Schema::create('pedido_mudanca_turma', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('utilizador_abrir');
-            $table->integer('utilizador_fechar');
-            $table->integer('turma_pedida');
+            $table->increments('id');
+            $table->unsignedInteger('utilizador_abrir');
+            $table->unsignedInteger('utilizador_fechar');
+            $table->unsignedInteger('turma_pedida');
             $table->timestamps();
+        });
 
-            // table foreign key constrains
+         // table foreign key constrains
+         Schema::table('pedido_mudanca_turma', function (Blueprint $table) {
             $table->foreign('utilizador_abrir')->references('id')->on('aluno');
             $table->foreign('utilizador_fechar')->references('id')->on('docente');
+            $table->foreign('turma_pedida')->references('id')->on('turma');
         });
     }
 

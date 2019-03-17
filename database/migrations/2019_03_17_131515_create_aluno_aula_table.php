@@ -14,14 +14,16 @@ class CreateAlunoAulaTable extends Migration
     public function up()
     {
         Schema::create('aluno_aula', function (Blueprint $table) {
-            $table->integer('aluno');
-            $table->integer('aula')->unique();
+            $table->unsignedInteger('aluno');
+            $table->unsignedInteger('aula')->unique();
             $table->boolean('presente');
             $table->timestamps();
 
             $table->primary('aluno', 'aula');
-            
-            // table foreign key constrains
+        });
+
+         // table foreign key constrains
+         Schema::table('aluno_aula', function (Blueprint $table) {
             $table->foreign('aluno')->references('id')->on('aluno');
             $table->foreign('aula')->references('id')->on('turma');
         });

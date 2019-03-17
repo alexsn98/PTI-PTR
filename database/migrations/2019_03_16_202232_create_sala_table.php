@@ -14,13 +14,13 @@ class CreateSalaTable extends Migration
     public function up()
     {
         Schema::create('sala', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('edificio');
-            $table->integer('piso');
-            $table->integer('num_sala');
+            $table->increments('id');
+            $table->unsignedInteger('edificio');
+            $table->unsignedInteger('piso');
+            $table->unsignedInteger('num_sala');
             $table->time('abertura')->nullable();
             $table->time('encerramento')->nullable();
-            $table->integer('num_lugares');
+            $table->unsignedInteger('num_lugares');
             $table->timestamps();
         });
     }

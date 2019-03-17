@@ -14,14 +14,16 @@ class CreateTurmaTable extends Migration
     public function up()
     {
         Schema::create('turma', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('numero');
-            $table->integer('cadeira')->unique();
-            $table->integer('docente')->unique();
+            $table->increments('id');
+            $table->unsignedInteger('numero');
+            $table->unsignedInteger('cadeira');
+            $table->unsignedInteger('docente');
             $table->string('estado');
             $table->timestamps();
+        });
 
-            // table foreign key constrains
+         // table foreign key constrains
+         Schema::table('turma', function (Blueprint $table) {
             $table->foreign('cadeira')->references('id')->on('cadeira')->onDelete('cascade');
             $table->foreign('docente')->references('id')->on('docente');
         });

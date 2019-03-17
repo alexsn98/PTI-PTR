@@ -14,11 +14,13 @@ class CreateCursoTable extends Migration
     public function up()
     {
         Schema::create('curso', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('coordenador')->unique();
-            $table->timestamps();
+            $table->increments('id');
+            $table->unsignedInteger('coordenador')->unique();
+            $table->timestamps();            
+        });
 
-            // table foreign key constrains
+        // table foreign key constrains
+        Schema::table('curso', function (Blueprint $table) {
             $table->foreign('coordenador')->references('id')->on('docente');
         });
     }
