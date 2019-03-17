@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAulasTipoTable extends Migration
+class CreateAlunoTurmaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateAulasTipoTable extends Migration
      */
     public function up()
     {
-        Schema::create('aulas_tipo', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('aluno_turma', function (Blueprint $table) {
+            $table->integer('aluno');
             $table->integer('turma');
-            $table->integer('sala');
-            $table->integer('dia_semana');
-            $table->time('inicio');
-            $table->time('fim');
             $table->timestamps();
+
+            $table->primary('aluno', 'turma');
+            
+            // table foreign key constrains
+            $table->foreign('aluno')->references('id')->on('aluno');
+            $table->foreign('turma')->references('id')->on('turma');
         });
     }
 
@@ -31,6 +33,6 @@ class CreateAulasTipoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aulas_tipo');
+        Schema::dropIfExists('aluno_turma');
     }
 }

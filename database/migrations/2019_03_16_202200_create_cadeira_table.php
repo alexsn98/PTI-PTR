@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCadeirasTable extends Migration
+class CreateCadeiraTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,19 @@ class CreateCadeirasTable extends Migration
      */
     public function up()
     {
-        Schema::create('cadeiras', function (Blueprint $table) {
+        Schema::create('cadeira', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
             $table->integer('ETCS');
             $table->integer('regente');
-            $table->integer('curso');
-            $table->integer('semestre');
+            $table->integer('curso')->nullable();
+            $table->integer('semestre')->nullable();
             $table->integer('ciclo');
             $table->timestamps();
+
+            // table foreign key constrains
+            $table->foreign('regente')->references('id')->on('docente');
+            $table->foreign('curso')->references('id')->on('curso');
         });
     }
 
@@ -32,6 +36,6 @@ class CreateCadeirasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cadeiras');
+        Schema::dropIfExists('cadeira');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCursoTable extends Migration
+class CreateAulaTipoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,17 @@ class CreateCursoTable extends Migration
      */
     public function up()
     {
-        Schema::create('curso', function (Blueprint $table) {
+        Schema::create('aula_tipo', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('coordenador')->unique();
+            $table->integer('turma')->unique();
+            $table->integer('sala');
+            $table->integer('dia_semana');
+            $table->time('inicio');
+            $table->time('fim');
             $table->timestamps();
-
+        
             // table foreign key constrains
-            $table->foreign('coordenador')->references('id')->on('docente');
+            $table->foreign('turma')->references('id')->on('turma')->onDelete('cascade');
         });
     }
 
@@ -30,6 +34,6 @@ class CreateCursoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('curso');
+        Schema::dropIfExists('aula_tipo');
     }
 }
