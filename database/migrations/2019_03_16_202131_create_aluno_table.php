@@ -17,7 +17,7 @@ class CreateAlunoTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('id_utilizador')->unique();
             $table->unsignedInteger('id_curso');
-            $table->unsignedInteger('numero');
+            $table->unsignedInteger('numero')->unique();
             $table->timestamps();
         });
 

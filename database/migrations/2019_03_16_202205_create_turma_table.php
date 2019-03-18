@@ -18,7 +18,7 @@ class CreateTurmaTable extends Migration
             $table->unsignedInteger('numero');
             $table->unsignedInteger('cadeira');
             $table->unsignedInteger('docente');
-            $table->string('estado');
+            $table->unsignedInteger('numVagas');
             $table->timestamps();
         });
 

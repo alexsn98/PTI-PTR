@@ -23,8 +23,8 @@ class CreateAlunoTurmaTable extends Migration
 
          // table foreign key constrains
          Schema::table('aluno_turma', function (Blueprint $table) {
-            $table->foreign('aluno')->references('id')->on('aluno');
-            $table->foreign('turma')->references('id')->on('turma');
+            $table->foreign('aluno')->references('id')->on('aluno')->onDelete('cascade');
+            $table->foreign('turma')->references('id')->on('turma')->onDelete('cascade');
         });
     }
 
