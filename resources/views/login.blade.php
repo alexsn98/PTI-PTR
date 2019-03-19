@@ -18,13 +18,23 @@
             @csrf
             
             <div class="form-group">
-                <input type="email" class="form-control" name="email" placeholder="Email">
+                <input type="email" class="form-control" name="email" placeholder="Email" required>
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" name="password" placeholder="Palavra-passe">
             </div>
             <button type="submit" class="btn btn-primary">Entrar</button>
         </form>
+        <br>
+        @if ($errors->any())
+            <div class="alert alert-warning">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li> {{ $error }} </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </div>
 
 </body>

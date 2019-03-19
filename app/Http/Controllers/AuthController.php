@@ -17,7 +17,10 @@ class AuthController extends Controller
     }
 
     public function login() {
-        $credenciais = ['email' => request('email'), 'password' => request('password')];
+        $credenciais = request()->validate([
+            'email'=> 'required',
+            'password'=> ['required', 'alpha-num']
+        ]);
         
         if (Auth::attempt($credenciais)) {
             return redirect('home');
