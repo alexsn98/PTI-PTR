@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-use App\Utilizador;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -23,7 +23,21 @@ class AuthController extends Controller
         ]);
         
         if (Auth::attempt($credenciais)) {
-            return redirect('home');
+            $id = (Auth::id());
+
+            if (DB::table('admistrador')->where('id_utilizador', $id)->count() > 0) {
+                return redirect('home/admin');
+            }
+            
+            else if (DB::table('aluno')->where('id_utilizador', $id)->count() > 0) {
+                return redirect('home/aluno');
+            }
+
+            else if (DB::table('docente')->where('id_utilizador', $id)->count() > 0) {
+                return redirect('home/docente');
+            }
+            dd($id);
+            //dd(DB::table('docente')->where('id_utilizador', 1)->count());
         }
         else {
             return redirect()->back();

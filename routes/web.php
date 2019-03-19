@@ -17,8 +17,10 @@ Route::post('/', 'AuthController@login');
 Route::get('/registar', 'AuthController@getRegistar');
 Route::post('/registar', 'AuthController@registar');
 
-Route::get('/home', function() {
-    return view('home');
-});
-
 Route::get('/logout', 'AuthController@logout')-> name('logout'); 
+
+Route::get('/home/admin', function() {return view('adminHome');});
+
+Route::get('/home/aluno', function() {return view('alunoHome');});
+
+Route::get('/home/docente', function() {return view('docenteHome');});
