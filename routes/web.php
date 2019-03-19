@@ -20,3 +20,5 @@ Route::post('/registar', 'AuthController@registar');
 Route::get('/home', function() {
     return view('home');
 });
+
+Route::get('/logout', 'AuthController@logout')-> name('logout'); 

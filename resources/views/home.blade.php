@@ -8,5 +8,9 @@
 </head>
 <body>
     <h1>Hello world!</h1>
+
+    <br>
+
+    <a href={{ route('logout') }}> Log out </a>
 </body>
 </html>
