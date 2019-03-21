@@ -39,7 +39,7 @@ class AuthController extends Controller
         }
         
         else {
-            return redirect()->back();
+            return redirect()->back()->withErrors("Email ou Palavra-Passe errada");
         }
     }
 

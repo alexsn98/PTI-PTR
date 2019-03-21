@@ -19,8 +19,10 @@ Route::post('/registar', 'AuthController@registar');
 
 Route::get('/logout', 'AuthController@logout')->name('logout'); 
 
-Route::get('/home/admin', function() {return view('adminHome');})->middleware('auth');
+Route::view('home/admin', 'adminHome')->middleware('admin');
+Route::view('home/aluno', 'alunoHome')->middleware('aluno');
+Route::view('home/docente', 'docenteHome')->middleware('docente');
 
-Route::get('/home/aluno', function() {return view('alunoHome');})->middleware('auth');
-
-Route::get('/home/docente', function() {return view('docenteHome');})->middleware('auth');;
+//Route::get('/home/admin', function() {return view('adminHome');})->middleware('admin');
+//Route::get('/home/aluno', function() {return view('alunoHome');})->middleware('aluno');
+//Route::get('/home/docente', function() {return view('docenteHome');})->middleware('docente');
