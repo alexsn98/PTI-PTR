@@ -77,6 +77,6 @@ class Authenticate
      */
     protected function redirectTo($request)
     {
-        //
+        return router('login');
     }
 }

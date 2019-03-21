@@ -1,0 +1,21 @@
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0; 
+}
+
+header {
+    border-bottom: 1px solid black;
+    height: 5em;
+}
+
+header h4 {
+    display: inline;
+}
+
+header a {
+    float: right;
+    margin-top: 0.5em;
+    margin-right: 2em;
+    font-size: 2em;
+}
