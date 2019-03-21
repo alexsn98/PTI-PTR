@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Utilizador;
 use Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -25,16 +26,16 @@ class AuthController extends Controller
         if (Auth::attempt($credenciais)) {
             $id = (Auth::id());
 
-            if (DB::table('admistrador')->where('id_utilizador', $id)->count() > 0) {
+            if (Utilizador::isAdmin($id)) {
                 return redirect('home/admin');
             }
             
-            else if (DB::table('aluno')->where('id_utilizador', $id)->count() > 0) {
-                return redirect('home/aluno');
-            }
-
-            else if (DB::table('docente')->where('id_utilizador', $id)->count() > 0) {
+            else if (Utilizador::isDocente($id)) {
                 return redirect('home/docente');
+            }
+            
+            else if (Utilizador::isAluno($id)) {
+                return redirect('home/aluno');
             }
         }
         

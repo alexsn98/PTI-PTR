@@ -7,4 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Docente extends Model
 {
     protected $table = "docente";
+
+    public function utilizador() {
+        return $this->belongsTo('App\Utilizador');
+    }
 }

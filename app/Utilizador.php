@@ -15,4 +15,16 @@ class Utilizador extends Authenticatable
         'email',
         'password'
     ];
+
+    public static function isAdmin($id) {
+        return (Admistrador::where('id_utilizador', $id)->count() > 0);
+    }
+
+    public static function isDocente($id) {
+        return (Docente::where('id_utilizador', $id)->count() > 0);
+    }
+
+    public static function isAluno($id) {
+        return (Aluno::where('id_utilizador', $id)->count() > 0);
+    }
 }
