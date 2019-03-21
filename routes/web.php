@@ -11,16 +11,16 @@
 |
 */
 
-Route::get('/', 'AuthController@getLogin');
+Route::get('/', 'AuthController@getLogin')->name('login');
 Route::post('/', 'AuthController@login');
 
 Route::get('/registar', 'AuthController@getRegistar');
 Route::post('/registar', 'AuthController@registar');
 
-Route::get('/logout', 'AuthController@logout')-> name('logout'); 
+Route::get('/logout', 'AuthController@logout')->name('logout'); 
 
-Route::get('/home/admin', function() {return view('adminHome');});
+Route::get('/home/admin', function() {return view('adminHome');})->middleware('auth');
 
-Route::get('/home/aluno', function() {return view('alunoHome');});
+Route::get('/home/aluno', function() {return view('alunoHome');})->middleware('auth');
 
-Route::get('/home/docente', function() {return view('docenteHome');});
+Route::get('/home/docente', function() {return view('docenteHome');})->middleware('auth');;

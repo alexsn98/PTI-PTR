@@ -36,9 +36,8 @@ class AuthController extends Controller
             else if (DB::table('docente')->where('id_utilizador', $id)->count() > 0) {
                 return redirect('home/docente');
             }
-            dd($id);
-            //dd(DB::table('docente')->where('id_utilizador', 1)->count());
         }
+        
         else {
             return redirect()->back();
         }
