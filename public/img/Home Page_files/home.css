@@ -63,12 +63,3 @@ header {
     float: left;
     background-color: yellow;  
 }
-
-#logout{
-    width: 80%;
-    height: 60%;
-    margin-left: 10%;
-    margin-top: 8%;
-    text-align: center;
-    background-color: red;
-}

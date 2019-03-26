@@ -22,6 +22,6 @@ class Docente
             return $next($request);
         }
 
-        return redirect('/');
+        return abort(401);
     }
 }

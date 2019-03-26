@@ -16,8 +16,8 @@ class CreateTurmaTable extends Migration
         Schema::create('turma', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('numero');
-            $table->unsignedInteger('cadeira');
-            $table->unsignedInteger('docente');
+            $table->unsignedInteger('cadeira_id');
+            $table->unsignedInteger('docente_id');
             $table->unsignedInteger('numVagas');
             $table->timestamps();
         });

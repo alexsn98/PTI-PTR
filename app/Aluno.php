@@ -11,4 +11,8 @@ class Aluno extends Model
     public function utilizador() {
         return $this->belongsTo('App\Utilizador');
     }
+
+    public function turmas() {
+        return $this->belongsToMany('App\Turma');
+    }
 }

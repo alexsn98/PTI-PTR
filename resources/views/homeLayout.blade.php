@@ -25,14 +25,16 @@
                 <h5>fc50011</h5>
             </div>
             <div id="logoutDiv">
-                
+                <a href="/logout">
+                    <div id="logout">
+                        <p> logout </p>
+                    </div>
+                </a>
             </div>
-
-
-
-
         </div>
     </header>
-
+    <div>
+        @yield('content')
+    </div>
 </body>
 </html>
