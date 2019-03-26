@@ -11,4 +11,8 @@ class Docente extends Model
     public function utilizador() {
         return $this->belongsTo('App\Utilizador');
     }
+
+    public function turmas() {
+        return $this->hasMany('App\Turma');
+    }
 }

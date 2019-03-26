@@ -9,9 +9,7 @@
 
 <ul>
     @foreach ($turmas as $turma)
-
         <li> <a href="cadeira/{{ $turma->cadeira->id }}"> {{ $turma->cadeira->nome }} </a> </li>
-
     @endforeach
 </ul>
 
