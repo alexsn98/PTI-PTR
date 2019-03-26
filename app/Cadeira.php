@@ -9,11 +9,11 @@ class Cadeira extends Model
     protected $table = "cadeira";
 
     public function curso() {
-        $this->hasOne('\App\Curso');
+        return $this->hasOne('\App\Curso');
     }
 
     public function turmas() {
-        $this->hasMany('\App\Turma');
+        return $this->hasMany('\App\Turma');
     }
 
     public function regente() {

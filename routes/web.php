@@ -19,9 +19,11 @@ Route::post('/registar', 'AuthController@registar');
 
 Route::get('/logout', 'AuthController@logout')->name('logout'); 
 
-Route::get('home/admin', 'HomeController@adminHome')->middleware('admin');
-Route::get('home/aluno', 'HomeController@alunoHome')->middleware('aluno');
-Route::get('home/docente', 'HomeController@docenteHome')->middleware('docente');
+Route::get('home/admin', 'HomeController@getAdminHome')->middleware('admin');
+Route::get('home/aluno', 'HomeController@getAlunoHome')->middleware('aluno');
+Route::get('home/docente', 'HomeController@getDocenteHome')->middleware('docente');
 
-Route::get('/inscreverTurma', 'turmaController@getInscrever')->middleware('aluno');
-Route::post('/inscreverTurma', 'turmaController@inscrever')->middleware('aluno');
+Route::get('home/cadeira/{id}', 'CadeiraController@getCadeira')->middleware('aluno');
+
+Route::get('/inscreverTurma', 'TurmaController@getInscrever')->middleware('aluno');
+Route::post('/inscreverTurma', 'TurmaController@inscrever')->middleware('aluno');

@@ -8,14 +8,11 @@
 <h1> Aluno </h1>
 
 <ul>
+    @foreach ($turmas as $turma)
 
-    {{ $cadeiras }}
-    {{-- @foreach ($cadeiras as $cadeira)
+        <li> <a href="cadeira/{{ $turma->cadeira->id }}"> {{ $turma->cadeira->nome }} </a> </li>
 
-        <li> {{ $cadeira }} </li>
-
-    @endforeach --}}
-
+    @endforeach
 </ul>
 
 

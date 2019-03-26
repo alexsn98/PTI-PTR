@@ -8,19 +8,19 @@ use Auth;
 
 class HomeController extends Controller
 {
-    public function adminHome() {
+    public function getAdminHome() {
         return view('adminHome');
     }
 
-    public function alunoHome() {
+    public function getAlunoHome() {
         $id = (Auth::id());
 
-        $cadeiras = Aluno::where('id_utilizador', $id)->first()->turmas->first()->cadeira->nome;
+        $turmas = Aluno::where('id_utilizador', $id)->first()->turmas->all();
 
-        return view('alunoHome')->with(["cadeiras" => $cadeiras]);
+        return view('alunoHome')->with(["turmas" => $turmas]);
     }
 
-    public function docenteHome() {
+    public function getDocenteHome() {
         return view('docenteHome');
     }
 }
