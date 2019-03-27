@@ -12,3 +12,4 @@ TODO:
 Perguntas para fazer:
 - Utilizador pode ter várias funções, por ex: aluno e docente, docente e admin
 - Necessaria alguma funcionalidade para guest
+- Varios cursos

@@ -25,5 +25,5 @@ Route::get('home/docente', 'HomeController@getDocenteHome')->middleware('docente
 
 Route::get('home/cadeira/{id}', 'CadeiraController@getCadeira')->middleware('aluno');
 
-Route::get('home/cadeira/turma/{id}', 'TurmaController@getTurma')->middleware('aluno');
-Route::get('home/cadeira/turma/inscreverTurma/{id}', 'TurmaController@inscrever')->middleware('aluno');
+Route::get('home/cadeira/turma/{idTurma}', 'TurmaController@getTurma')->middleware('aluno');
+Route::get('home/cadeira/turma/inscreverTurma/{idTurma}', 'TurmaController@inscrever')->middleware('aluno');

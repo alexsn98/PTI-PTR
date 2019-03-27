@@ -2,6 +2,7 @@
 
 @section('cssPage')
     <link rel="stylesheet" href={{ asset('css/alunoHome.css') }}>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 @endsection
 
 @section('content')
