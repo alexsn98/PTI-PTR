@@ -23,7 +23,7 @@
             </div>
             <div id="nameUser">
                 <h3>Utilizador:</h3>
-                <h5>fc{{$numero}}</h5>
+                <h5>fc{{request()->session()->get('userNum')}}</h5>
             </div>
             <div id="logoutDiv">
                 <a id="linkLogout" href="/logout">

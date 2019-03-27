@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Docente;
 use App\Admistrador;
+use App\Docente;
 use App\Aluno;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -34,10 +34,16 @@ class AuthController extends Controller
             }
             
             else if (Docente::where('id_utilizador', $id)->count() > 0) {
+                $numero = Docente::where('id_utilizador', $id)->first()->numero;
+                request()->session()->put('userNum', $numero);
+
                 return redirect('home/docente');
             }
             
             else if (Aluno::where('id_utilizador', $id)->count() > 0) {
+                $numero = Aluno::where('id_utilizador', $id)->first()->numero;
+                request()->session()->put('userNum', $numero);
+
                 return redirect('home/aluno');
             }
         }

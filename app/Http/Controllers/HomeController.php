@@ -16,19 +16,14 @@ class HomeController extends Controller
     public function getAlunoHome() {
         $id = (Auth::id());
 
-        $numero = Aluno::where('id_utilizador', $id)->first()->numero;
         $turmas = Aluno::where('id_utilizador', $id)->first()->turmas->all();
 
-        return view('alunoHome')->with([
-            "turmas" => $turmas,
-            "numero" => $numero]);
+        return view('alunoHome')->with(["turmas" => $turmas]);
     }
 
     public function getDocenteHome() {
         $id = (Auth::id());
 
-        $numero = Docente::where('id_utilizador', $id)->first()->numero;
-
-        return view('docenteHome')->with(["numero" => $numero]);
+        return view('docenteHome');
     }
 }
