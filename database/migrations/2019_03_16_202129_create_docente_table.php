@@ -15,8 +15,9 @@ class CreateDocenteTable extends Migration
     {
         Schema::create('docente', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('id_utilizador')->unique();
+            $table->unsignedInteger('utilizador_id')->unique();
             $table->unsignedInteger('numero')->unique();
+            $table->string('nome');
             $table->timestamps();
         });
 

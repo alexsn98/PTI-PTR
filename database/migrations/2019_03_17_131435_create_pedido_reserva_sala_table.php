@@ -15,8 +15,8 @@ class CreatePedidoReservaSalaTable extends Migration
     {
         Schema::create('pedido_reserva_sala', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('utilizador_abrir');
-            $table->unsignedInteger('utilizador_fechar');
+            $table->unsignedInteger('utilizador_abrir_id');
+            $table->unsignedInteger('utilizador_fechar_id');
             $table->unsignedInteger('sala');
             $table->dateTime('inicio');
             $table->dateTime('fim');

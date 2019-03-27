@@ -1,21 +1,92 @@
 html {
     width: 100%;
     height: 100%;
-    margin: 0; 
+    margin: 0;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 header {
-    border-bottom: 1px solid black;
-    height: 5em;
+    width: 100%;
+    height: 20%;
+    background-color: #A79C93;
+    margin: 0;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
-header h4 {
-    display: inline;
+#logo{
+    width: 25%;
+    height: 7em;
+    float: left;
+    background-color: #03353E;
 }
 
-header a {
-    float: right;
-    margin-top: 0.5em;
-    margin-right: 2em;
-    font-size: 2em;
+#logo > img{
+    width: 50%;
+    height: 80%;
+    margin-top: 2.5%;
+    margin-left: 7%;
+}
+
+#divLogout{
+    width: 75%;
+    height: 7em;
+    float: left;
+    background-color: #03353E;
+}
+
+#space{
+    width: 60%;
+    height: 100%;
+    float: left;
+    background-color:#03353E;
+}
+
+#nameUser{
+    width: 20%;
+    height: 100%;
+    float: left;
+    background-color: #03353E;
+    color: white;
+
+}
+
+#nameUser > h3{
+    text-align: center;
+    margin: 0;
+    margin-top: 5%;
+}
+
+#nameUser > h5{
+    text-align: center;
+    margin: 0;
+    font-size: 50px;
+}
+
+#logoutDiv{
+    width: 20%;
+    height: 100%;
+    float: left;
+    background-color: #03353E;  
+}
+
+#linkLogout{
+    text-decoration: none;
+}
+
+#logout{
+    width: 80%;
+    height: 60%;
+    margin-left: 10%;
+    margin-top: 8%;
+    text-align: center;
+    border: 2px solid #0294a5;
+    font-size: 40px;
+    text-decoration: none;
+    color: white;
+    transition: all .3s ease-out;
+}
+
+#logout:hover{
+    background-color: rgba(2, 148, 165, 0.2);
+    transition: all .3s ease-out;
 }

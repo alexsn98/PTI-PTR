@@ -22,6 +22,6 @@ class Aluno
             return $next($request);
         }
 
-        return redirect('/');
+        return abort(403);
     }
 }

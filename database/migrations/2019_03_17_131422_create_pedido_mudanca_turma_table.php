@@ -15,9 +15,9 @@ class CreatePedidoMudancaTurmaTable extends Migration
     {
         Schema::create('pedido_mudanca_turma', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('utilizador_abrir');
-            $table->unsignedInteger('utilizador_fechar');
-            $table->unsignedInteger('turma_pedida');
+            $table->unsignedInteger('utilizador_abrir_id');
+            $table->unsignedInteger('utilizador_fechar_id');
+            $table->unsignedInteger('turma_pedida_id');
             $table->timestamps();
         });
 
