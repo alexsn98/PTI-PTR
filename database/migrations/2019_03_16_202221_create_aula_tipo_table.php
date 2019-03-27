@@ -15,8 +15,8 @@ class CreateAulaTipoTable extends Migration
     {
         Schema::create('aula_tipo', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('turma');
-            $table->unsignedInteger('sala');
+            $table->unsignedInteger('turma_id');
+            $table->unsignedInteger('sala_id');
             $table->unsignedInteger('dia_semana');
             $table->time('inicio');
             $table->time('fim');

@@ -15,8 +15,8 @@ class CreateAlunoTable extends Migration
     {
         Schema::create('aluno', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('id_utilizador')->unique();
-            $table->unsignedInteger('id_curso');
+            $table->unsignedInteger('utilizador_id')->unique();
+            $table->unsignedInteger('curso_id');
             $table->unsignedInteger('numero')->unique();
             $table->timestamps();
         });

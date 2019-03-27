@@ -15,7 +15,7 @@ class CreateAulaTable extends Migration
     {
         Schema::create('aula', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('aula_tipo');
+            $table->unsignedInteger('aula_tipo_id');
             $table->date('data');
             $table->text('sumario')->nullable();
             $table->timestamps();

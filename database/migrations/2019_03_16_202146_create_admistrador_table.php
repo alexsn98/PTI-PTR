@@ -15,7 +15,7 @@ class CreateAdmistradorTable extends Migration
     {
         Schema::create('admistrador', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('id_utilizador')->unique();
+            $table->unsignedInteger('utilizador_id')->unique();
             $table->timestamps();
         });
 
