@@ -6,13 +6,12 @@
 @endsection
 
 @section('content')
-<h1> Aluno </h1>
+    <h1> Aluno </h1>
 
-<ul>
-    @foreach ($turmas as $turma)
-        <li> <a href="cadeira/{{ $turma->cadeira->id }}"> {{ $turma->cadeira->nome }} </a> </li>
-    @endforeach
-</ul>
-
-
+    <h3>Cadeiras inscrito: </h3>
+    <ul>
+        @foreach ($turmas as $turma)
+            <li> <a href="cadeira/{{ $turma->cadeira->id }}"> {{ $turma->cadeira->nome }} </a> </li>
+        @endforeach
+    </ul>
 @endsection

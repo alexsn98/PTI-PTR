@@ -22,6 +22,6 @@ class Docente
             return $next($request);
         }
 
-        return abort(401);
+        return abort(403);
     }
 }
