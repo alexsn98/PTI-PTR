@@ -26,34 +26,27 @@ class TurmaController extends Controller
         //devolve turma para a qual mudar
         $turma = Turma::find($id);
         $idCadeira = $turma->cadeira_id;
-        
-        $turmasCadeira = Turma::where('cadeira_id', $idCadeira)->get();
-        
-        $turmasCadeiraArray = [];
 
-        foreach ($turmasCadeira as $turmaCadeira) {
-            $turmasCadeiraArray[] = $turmaCadeira->id;      
+        //devolve todas as turmas da cadeira
+        $cadeiraTurmas = Turma::where('cadeira_id', $idCadeira)->get('id');
+
+        //devolve turmas do aluno
+        $alunoTurmas = Aluno::where('id_utilizador', $userId)->first()->turmas;
+
+        //devolve turma em que o aluno esta inscrito
+        $alunoCadeiraTurmas = $cadeiraTurmas->intersect($alunoTurmas);
+        
+        //se ja tem turma nesta cadeira
+        if ($alunoCadeiraTurmas->count() > 0) {
+            $turmaAnterior = $alunoCadeiraTurmas->first()->id;
+
+            //update do pivot aluno turma
+            $aluno->turmas()->updateExistingPivot($turmaAnterior, ["turma_id" => $id]);
         }
 
-        $turmasAtuais = Aluno::where('id_utilizador', $userId)->first()->turmas;
-
-        foreach ($turmasAtuais as $turmaAtual) {
-            if (in_array($turmaAtual->id, $turmasCadeiraArray)) {
-                $cadeiraAnterior = $turmaAtual->id;
-            } 
+        else {
+            $aluno->turmas()->attach($id);
         }
-        //update do pivot aluno turma  FALTA CONSEGUIR IR BUSCAR O ID DA TURMA ANTERIOR
-
-        $aluno->turmas()->updateExistingPivot($cadeiraAnterior, ["turma_id" => $id]);
-
-        // $alunoTurmas = $aluno->turmas;
-        // foreach ($alunoTurmas as $alunoTurma) {
-        //     if ($alunoTurma->pivot->turma_id) {
-        //         //por fazer que isto e uma confucao do camandro
-        //         $aluno->turmas()->updateExistingPivot($aluno->id, ["turma_id" => $id]);
-        //     }
-        //     dd($alunoTurma->pivot->turma_id);
-        // }
 
         return redirect("home/cadeira/$idCadeira");
     }
