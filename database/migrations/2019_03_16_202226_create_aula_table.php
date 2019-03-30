@@ -23,7 +23,7 @@ class CreateAulaTable extends Migration
 
          // table foreign key constrains
          Schema::table('aula', function (Blueprint $table) {
-            $table->foreign('aula_tipo')->references('id')->on('aula_tipo');
+            $table->foreign('aula_tipo_id')->references('id')->on('aula_tipo');
         });
     }
 

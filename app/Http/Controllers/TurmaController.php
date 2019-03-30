@@ -15,13 +15,13 @@ class TurmaController extends Controller
 
         return view('turma')->with([
             'turma' => $turma,
-            'docente' => $docente]);dd($turmasCadeiraArray);
+            'docente' => $docente]);
     }
 
     public function inscrever($id) {
         //devolve aluno autenticado
         $userId = Auth::id();
-        $aluno = Aluno::where("id_utilizador", $userId)->first();
+        $aluno = Aluno::where("utilizador_id", $userId)->first();
 
         //devolve turma para a qual mudar
         $turma = Turma::find($id);
@@ -31,7 +31,7 @@ class TurmaController extends Controller
         $cadeiraTurmas = Turma::where('cadeira_id', $idCadeira)->get('id');
 
         //devolve turmas do aluno
-        $alunoTurmas = Aluno::where('id_utilizador', $userId)->first()->turmas;
+        $alunoTurmas = Aluno::where('utilizador_id', $userId)->first()->turmas;
 
         //devolve turma em que o aluno esta inscrito
         $alunoCadeiraTurmas = $cadeiraTurmas->intersect($alunoTurmas);

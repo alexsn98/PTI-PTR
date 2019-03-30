@@ -9,7 +9,7 @@ class Cadeira extends Model
     protected $table = "cadeira";
 
     public function curso() {
-        return $this->hasOne('\App\Curso');
+        return $this->belongsTo('\App\Curso');
     }
 
     public function turmas() {
@@ -18,5 +18,9 @@ class Cadeira extends Model
 
     public function regente() {
         return $this->hasOne('\App\Docente');
+    }
+
+    public function alunos() {
+        return $this->belongsToMany('App\Aluno');
     }
 }

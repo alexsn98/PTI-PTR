@@ -14,7 +14,8 @@ class CadeiraController extends Controller
 
         $cadeira = Cadeira::find($id);
         $turmas = $cadeira->turmas;
-        $turmasAtuais = Aluno::where('id_utilizador', $userId)->first()->turmas;
+        
+        $turmasAtuais = Aluno::where('utilizador_id', $userId)->first()->turmas;
 
         $idTurmasAtuais = [];
 

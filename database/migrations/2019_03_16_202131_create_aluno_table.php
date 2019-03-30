@@ -23,8 +23,8 @@ class CreateAlunoTable extends Migration
 
         // table foreign key constrains
         Schema::table('aluno', function (Blueprint $table) {
-            $table->foreign('id_utilizador')->references('id')->on('utilizador')->onDelete('cascade');
-            $table->foreign('id_curso')->references('id')->on('curso');
+            $table->foreign('utilizador_id')->references('id')->on('utilizador')->onDelete('cascade');
+            $table->foreign('curso_id')->references('id')->on('curso');
         });
     }
 

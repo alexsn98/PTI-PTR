@@ -25,7 +25,8 @@ class CreateAulaTipoTable extends Migration
 
          // table foreign key constrains
          Schema::table('aula_tipo', function (Blueprint $table) {
-            $table->foreign('turma')->references('id')->on('turma')->onDelete('cascade');
+            $table->foreign('turma_id')->references('id')->on('turma')->onDelete('cascade');
+            $table->foreign('sala_id')->references('id')->on('sala');
         });
     }
 

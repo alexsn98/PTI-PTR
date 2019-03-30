@@ -21,7 +21,7 @@ class CreateAdmistradorTable extends Migration
 
          // table foreign key constrains
          Schema::table('admistrador', function (Blueprint $table) {
-            $table->foreign('id_utilizador')->references('id')->on('utilizador')->onDelete('cascade');
+            $table->foreign('utilizador_id')->references('id')->on('utilizador')->onDelete('cascade');
         });
     }
 

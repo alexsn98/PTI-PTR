@@ -15,4 +15,8 @@ class Docente extends Model
     public function turmas() {
         return $this->hasMany('App\Turma');
     }
+
+    public function curso() {
+        return $this->belongsTo('App\Curso');
+    }
 }

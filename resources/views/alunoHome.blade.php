@@ -10,8 +10,8 @@
 
     <h3>Cadeiras inscrito: </h3>
     <ul>
-        @foreach ($turmas as $turma)
-            <li> <a href="cadeira/{{ $turma->cadeira->id }}"> {{ $turma->cadeira->nome }} </a> </li>
+        @foreach ($cadeiras as $cadeira)
+            <li> <a href="cadeira/{{ $cadeira->id }}"> {{ $cadeira->nome }} </a> </li>
         @endforeach
     </ul>
 @endsection

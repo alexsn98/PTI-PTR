@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Aluno;
 use App\Docente;
+use App\Curso;
 use Auth;
 
 class HomeController extends Controller
@@ -16,14 +17,22 @@ class HomeController extends Controller
     public function getAlunoHome() {
         $id = (Auth::id());
 
-        $turmas = Aluno::where('id_utilizador', $id)->first()->turmas->all();
+        // $turmas = Aluno::where('utilizador_id', $id)->first()->cadeiras;
 
-        return view('alunoHome')->with(["turmas" => $turmas]);
+        $cadeiras = Aluno::where('utilizador_id', $id)->first()->cadeiras->all();
+        
+        dd($cadeiras);
+        
+        return view('alunoHome')->with(["cadeiras" => $cadeiras]);
     }
 
     public function getDocenteHome() {
         $id = (Auth::id());
 
-        return view('docenteHome');
+        $curso = Curso::where('coordenador_id', $id)->get();
+
+        return view('docenteHome')->with([
+            'cursos' => $curso
+        ]);
     }
 }

@@ -17,7 +17,7 @@ class CreatePedidoReservaSalaTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('utilizador_abrir_id');
             $table->unsignedInteger('utilizador_fechar_id');
-            $table->unsignedInteger('sala');
+            $table->unsignedInteger('sala_id');
             $table->dateTime('inicio');
             $table->dateTime('fim');
             $table->timestamps();
@@ -25,9 +25,9 @@ class CreatePedidoReservaSalaTable extends Migration
 
          // table foreign key constrains
          Schema::table('pedido_reserva_sala', function (Blueprint $table) {
-            $table->foreign('utilizador_abrir')->references('id')->on('utilizador');
-            $table->foreign('utilizador_fechar')->references('id')->on('admistrador');
-            $table->foreign('sala')->references('id')->on('sala');
+            $table->foreign('utilizador_abrir_id')->references('id')->on('utilizador');
+            $table->foreign('utilizador_fechar_id')->references('id')->on('admistrador');
+            $table->foreign('sala_id')->references('id')->on('sala');
         });
     }
 

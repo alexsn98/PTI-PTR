@@ -24,8 +24,8 @@ class CreateTurmaTable extends Migration
 
          // table foreign key constrains
          Schema::table('turma', function (Blueprint $table) {
-            $table->foreign('cadeira')->references('id')->on('cadeira')->onDelete('cascade');
-            $table->foreign('docente')->references('id')->on('docente');
+            $table->foreign('cadeira_id')->references('id')->on('cadeira')->onDelete('cascade');
+            $table->foreign('docente_id')->references('id')->on('docente');
         });
     }
 
