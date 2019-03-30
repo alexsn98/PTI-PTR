@@ -12,11 +12,15 @@ class Docente extends Model
         return $this->belongsTo('App\Utilizador');
     }
 
-    public function turmas() {
-        return $this->hasMany('App\Turma');
+    public function curso() {
+        return $this->hasOne('App\Curso', 'coordenador_id');
     }
 
-    public function curso() {
-        return $this->belongsTo('App\Curso');
+    public function cadeiras() {
+        return $this->hasMany('App\Cadeira', 'regente_id');
+    }
+
+    public function turmas() {
+        return $this->hasMany('App\Turma');
     }
 }

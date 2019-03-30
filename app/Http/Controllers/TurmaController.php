@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Turma;
-use App\Aluno;
+use App\Utilizador;
 use App\Cadeira;
 use Auth;
 
@@ -21,8 +21,7 @@ class TurmaController extends Controller
 
     public function inscrever($id) {
         //devolve aluno autenticado
-        $userId = Auth::id();
-        $aluno = Aluno::where("utilizador_id", $userId)->first();
+        $aluno = Utilizador::find((Auth::id()))->aluno;
 
         //devolve turma para a qual mudar
         $cadeira = Turma::find($id)->cadeira_id; 

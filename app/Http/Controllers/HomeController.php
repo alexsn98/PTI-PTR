@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Aluno;
-use App\Docente;
+use App\Utilizador;
 use App\Curso;
+use App\Cadeira;
+use App\Turma;
 use Auth;
 
 class HomeController extends Controller
@@ -15,22 +16,24 @@ class HomeController extends Controller
     }
 
     public function getAlunoHome() {
-        $id = (Auth::id());
-
-        // $turmas = Aluno::where('utilizador_id', $id)->first()->cadeiras;
-
-        $cadeiras = Aluno::where('utilizador_id', $id)->first()->cadeiras->all();
+        $cadeiras = Utilizador::find((Auth::id()))->aluno->cadeiras->all();
         
         return view('alunoHome')->with(["cadeiras" => $cadeiras]);
     }
 
     public function getDocenteHome() {
-        $id = (Auth::id());
+        $docente = Utilizador::find((Auth::id()))->docente;
+        
+        $curso = $docente->curso;
 
-        $curso = Curso::where('coordenador_id', $id)->get();
+        $cadeiras = $docente->cadeiras;
+
+        $turmas = $docente->turmas;
 
         return view('docenteHome')->with([
-            'cursos' => $curso
+            'curso' => $curso,
+            'cadeiras' => $cadeiras,
+            'turmas'=> $turmas
         ]);
     }
 }

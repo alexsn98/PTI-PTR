@@ -13,6 +13,6 @@ class Curso extends Model
     }
 
     public function coordenador() {
-        return $this->hasOne('\App\Docente');
+        return $this->belongsTo('\App\Docente');
     }
 }

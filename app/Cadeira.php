@@ -17,7 +17,7 @@ class Cadeira extends Model
     }
 
     public function regente() {
-        return $this->hasOne('\App\Docente');
+        return $this->belongsTo('\App\Docente');
     }
 
     public function alunos() {
