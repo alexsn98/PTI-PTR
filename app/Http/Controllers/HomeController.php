@@ -12,7 +12,15 @@ use Auth;
 class HomeController extends Controller
 {
     public function getAdminHome() {
-        return view('adminHome');
+        $utilizadores = Utilizador::all();
+        $cursos = Curso::all();
+        $cadeiras = Cadeira::all();
+
+
+        return view('adminHome', [
+            'utilizadores' => $utilizadores,
+            'cursos' => $cursos,
+            'cadeiras' => $cadeiras]);
     }
 
     public function getAlunoHome() {

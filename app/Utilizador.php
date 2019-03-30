@@ -16,7 +16,7 @@ class Utilizador extends Authenticatable
         'password'
     ];
 
-    public function admin() {
+    public function admistrador() {
         return $this->hasOne('App\Admistrador');
     }
 

@@ -22,9 +22,12 @@
             <div id="space">
             </div>
             <div id="nameUser">
-                <h3>Utilizador:</h3>
-                <h5>fc{{request()->session()->get('userNum')}}</h5>
+                @if (request()->session()->get('userNum'))
+                    <h3>Utilizador:</h3>
+                    <h5>fc{{request()->session()->get('userNum')}}</h5>
+                @endif
             </div>
+            
             <div id="logoutDiv">
                 <a id="linkLogout" href="/logout">
                     <div id="logout">
