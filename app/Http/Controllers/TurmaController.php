@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Turma;
 use App\Aluno;
+use App\Cadeira;
 use Auth;
 
 class TurmaController extends Controller
@@ -24,30 +25,11 @@ class TurmaController extends Controller
         $aluno = Aluno::where("utilizador_id", $userId)->first();
 
         //devolve turma para a qual mudar
-        $turma = Turma::find($id);
-        $idCadeira = $turma->cadeira_id;
+        $cadeira = Turma::find($id)->cadeira_id; 
 
-        //devolve todas as turmas da cadeira
-        $cadeiraTurmas = Turma::where('cadeira_id', $idCadeira)->get('id');
+        //update do pivot aluno cadeira
+        $aluno->cadeiras()->updateExistingPivot($cadeira, ["turma_pratica_id" => $id]);
 
-        //devolve turmas do aluno
-        $alunoTurmas = Aluno::where('utilizador_id', $userId)->first()->turmas;
-
-        //devolve turma em que o aluno esta inscrito
-        $alunoCadeiraTurmas = $cadeiraTurmas->intersect($alunoTurmas);
-        
-        //se ja tem turma nesta cadeira
-        if ($alunoCadeiraTurmas->count() > 0) {
-            $turmaAnterior = $alunoCadeiraTurmas->first()->id;
-
-            //update do pivot aluno turma
-            $aluno->turmas()->updateExistingPivot($turmaAnterior, ["turma_id" => $id]);
-        }
-
-        else {
-            $aluno->turmas()->attach($id);
-        }
-
-        return redirect("home/cadeira/$idCadeira");
+        return redirect("home/cadeira/$cadeira");
     }
 }

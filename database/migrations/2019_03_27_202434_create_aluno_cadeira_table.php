@@ -20,7 +20,7 @@ class CreateAlunoCadeiraTable extends Migration
             $table->unsignedInteger('turma_teorica_id')->nullable();
             $table->timestamps();
 
-            $table->primary('aluno_id', 'cadeira_id'); 
+            $table->primary(['aluno_id', 'cadeira_id']); 
         });
 
         Schema::table('aluno_cadeira', function (Blueprint $table) {

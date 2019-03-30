@@ -13,6 +13,9 @@ class Aluno extends Model
     }
 
     public function cadeiras() {
-        return $this->belongsToMany('App\Cadeira');
+        return $this->belongsToMany('App\Cadeira')->withPivot([
+            'turma_teorica_id',
+            'turma_pratica_id'
+        ]);
     }
 }

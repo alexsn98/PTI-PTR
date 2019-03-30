@@ -21,8 +21,6 @@ class HomeController extends Controller
 
         $cadeiras = Aluno::where('utilizador_id', $id)->first()->cadeiras->all();
         
-        dd($cadeiras);
-        
         return view('alunoHome')->with(["cadeiras" => $cadeiras]);
     }
 

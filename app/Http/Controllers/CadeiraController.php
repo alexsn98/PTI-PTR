@@ -12,20 +12,18 @@ class CadeiraController extends Controller
     public function getCadeira($id) {
         $userId = Auth::id();
 
+        $alunoCadeira = Aluno::where("utilizador_id", $userId)->first()->cadeiras->find($id)->pivot;
+
         $cadeira = Cadeira::find($id);
         $turmas = $cadeira->turmas;
-        
-        $turmasAtuais = Aluno::where('utilizador_id', $userId)->first()->turmas;
 
-        $idTurmasAtuais = [];
+        $turmaTeorica = $alunoCadeira->turma_teorica_id;
+        $turmaPratica = $alunoCadeira->turma_pratica_id;
 
-        foreach ($turmasAtuais as $turmaAtual) {
-            $idTurmasAtuais[] = $turmaAtual->id;
-        }
 
         return view('cadeira')->with([
             'cadeira' => $cadeira,
             'turmas' => $turmas,
-            'turmasAtual' => $idTurmasAtuais]);
+            'turmasAtuais' => [$turmaTeorica, $turmaPratica]]);
     }
 }
