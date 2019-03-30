@@ -12,7 +12,10 @@ class Aluno extends Model
         return $this->belongsTo('App\Utilizador');
     }
 
-    public function turmas() {
-        return $this->belongsToMany('App\Turma');
+    public function cadeiras() {
+        return $this->belongsToMany('App\Cadeira')->withPivot([
+            'turma_teorica_id',
+            'turma_pratica_id'
+        ]);
     }
 }

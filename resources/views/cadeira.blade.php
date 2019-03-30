@@ -6,7 +6,7 @@
     <h2> Turmas </h2>
     <ul>
         @foreach ($turmas as $turma)
-            @if (in_array($turma->id, $turmasAtual))
+            @if (in_array($turma->id, $turmasAtuais))
                 <li><a href="turma/{{$turma->id}}"> TP-{{$turma->numero}} - Turma Atual </a></li>
             @else
                 <li><a href="turma/{{$turma->id}}"> TP-{{$turma->numero}} </a></li>

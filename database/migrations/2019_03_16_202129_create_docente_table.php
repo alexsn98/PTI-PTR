@@ -17,13 +17,12 @@ class CreateDocenteTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('utilizador_id')->unique();
             $table->unsignedInteger('numero')->unique();
-            $table->string('nome');
             $table->timestamps();
         });
 
          // table foreign key constrains
          Schema::table('docente', function (Blueprint $table) {
-            $table->foreign('id_utilizador')->references('id')->on('utilizador')->onDelete('cascade');
+            $table->foreign('utilizador_id')->references('id')->on('utilizador')->onDelete('cascade');
         });
     }
 

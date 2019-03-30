@@ -15,4 +15,16 @@ class Utilizador extends Authenticatable
         'email',
         'password'
     ];
+
+    public function admin() {
+        return $this->hasOne('App\Admistrador');
+    }
+
+    public function aluno() {
+        return $this->hasOne('App\Aluno');
+    }
+
+    public function docente() {
+        return $this->hasOne('App\Docente');
+    }
 }

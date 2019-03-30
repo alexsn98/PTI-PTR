@@ -17,8 +17,8 @@ class CreateCadeiraTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->unsignedInteger('ETCS');
-            $table->unsignedInteger('regente');
-            $table->unsignedInteger('curso')->nullable();
+            $table->unsignedInteger('regente_id');
+            $table->unsignedInteger('curso_id')->nullable();
             $table->unsignedInteger('semestre')->nullable();
             $table->unsignedInteger('ciclo');
             $table->timestamps();
@@ -26,8 +26,8 @@ class CreateCadeiraTable extends Migration
 
          // table foreign key constrains
          Schema::table('cadeira', function (Blueprint $table) {
-            $table->foreign('regente')->references('id')->on('docente');
-            $table->foreign('curso')->references('id')->on('curso');
+            $table->foreign('regente_id')->references('id')->on('docente');
+            $table->foreign('curso_id')->references('id')->on('curso');
         });
     }
 

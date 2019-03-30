@@ -22,7 +22,7 @@ class CreateCursoTable extends Migration
 
         // table foreign key constrains
         Schema::table('curso', function (Blueprint $table) {
-            $table->foreign('coordenador')->references('id')->on('docente');
+            $table->foreign('coordenador_id')->references('id')->on('docente');
         });
     }
 

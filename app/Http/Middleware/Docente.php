@@ -18,7 +18,7 @@ class Docente
     public function handle($request, Closure $next) {
         $id = (Auth::id());
 
-        if ((DB::table('docente')->where('id_utilizador', $id)->count() > 0)) {
+        if ((DB::table('docente')->where('utilizador_id', $id)->count() > 0)) {
             return $next($request);
         }
 

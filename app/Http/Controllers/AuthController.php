@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Admistrador;
 use App\Docente;
 use App\Aluno;
+use App\Utilizador;
 use Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -27,21 +28,21 @@ class AuthController extends Controller
         
         if (Auth::attempt($credenciais)) {
             $id = (Auth::id());
-
+            
             //redereciona para as paginas home correspondentes
-            if (Admistrador::where('id_utilizador', $id)->count() > 0) {
+            if (Utilizador::find($id)->admistrador) {
                 return redirect('home/admin');
             }
             
-            else if (Docente::where('id_utilizador', $id)->count() > 0) {
-                $numero = Docente::where('id_utilizador', $id)->first()->numero;
+            else if (Utilizador::find($id)->docente) {
+                $numero = Utilizador::find($id)->docente->numero;
                 request()->session()->put('userNum', $numero);
 
                 return redirect('home/docente');
             }
             
-            else if (Aluno::where('id_utilizador', $id)->count() > 0) {
-                $numero = Aluno::where('id_utilizador', $id)->first()->numero;
+            else if (Utilizador::find($id)->aluno) {
+                $numero = Utilizador::find($id)->aluno->numero;
                 request()->session()->put('userNum', $numero);
 
                 return redirect('home/aluno');
