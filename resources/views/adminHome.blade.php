@@ -18,7 +18,7 @@
     <h3> Cadeiras: </h3>
     <ul>
         @foreach ($cadeiras as $cadeira)
-            <li> {{$cadeira->nome}} </li>
+            <li> <a href="cadeira/{{ $cadeira->id }}"> {{ $cadeira->nome }} </a> </li>
         @endforeach
     </ul>
 @endsection

@@ -17,7 +17,7 @@ class Admin
      */
     public function handle($request, Closure $next) {
         $id = (Auth::id());
-
+        
         if ((DB::table('admistrador')->where('utilizador_id', $id)->count() > 0)) {
             return $next($request);
         }

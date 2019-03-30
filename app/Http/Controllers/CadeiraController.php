@@ -10,18 +10,23 @@ use Auth;
 class CadeiraController extends Controller
 {
     public function getCadeira($id) {
-        $alunoCadeira = Utilizador::find((Auth::id()))->aluno->cadeiras->find($id)->pivot;
+        $cadeiraInfo = [];
 
-        $cadeira = Cadeira::find($id);
-        $turmas = $cadeira->turmas;
+        if (Utilizador::find(Auth::id())->aluno) {
+            $alunoCadeira = Utilizador::find((Auth::id()))->aluno->cadeiras->find($id)->pivot;
 
-        $turmaTeorica = $alunoCadeira->turma_teorica_id;
-        $turmaPratica = $alunoCadeira->turma_pratica_id;
+            $turmaTeorica = $alunoCadeira->turma_teorica_id;
+            $turmaPratica = $alunoCadeira->turma_pratica_id;
 
+            $cadeiraInfo["turmasAtuais"] = [$turmaTeorica, $turmaPratica];
+        }
+        $cadeira =  Cadeira::find($id);
 
-        return view('cadeira')->with([
-            'cadeira' => $cadeira,
-            'turmas' => $turmas,
-            'turmasAtuais' => [$turmaTeorica, $turmaPratica]]);
-    }
+        $cadeiraInfo["cadeira"] = $cadeira;
+        $cadeiraInfo["turmas"] = Cadeira::find($id)->turmas;
+
+        $cadeiraInfo["regente"] = $cadeira->regente->utilizador->nome;
+
+        return view('cadeira')->with($cadeiraInfo);
+    } 
 }

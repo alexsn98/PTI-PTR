@@ -6,11 +6,13 @@
     <h2> Turmas </h2>
     <ul>
         @foreach ($turmas as $turma)
-            @if (in_array($turma->id, $turmasAtuais))
+            @if (App\Utilizador::find(Auth::id())->aluno && in_array($turma->id, $turmasAtuais))
                 <li><a href="turma/{{$turma->id}}"> TP-{{$turma->numero}} - Turma Atual </a></li>
             @else
-                <li><a href="turma/{{$turma->id}}"> TP-{{$turma->numero}} </a></li>
+                <li> TP-{{$turma->numero}} </li>
             @endif
         @endforeach
     </ul>
+
+    <h2>Regente - {{$regente}}</h2>
 @endsection
