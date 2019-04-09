@@ -20,10 +20,11 @@ class CadeiraController extends Controller
 
             $cadeiraInfo["turmasAtuais"] = [$turmaTeorica, $turmaPratica];
         }
+
         $cadeira =  Cadeira::find($id);
 
         $cadeiraInfo["cadeira"] = $cadeira;
-        $cadeiraInfo["turmas"] = Cadeira::find($id)->turmas;
+        $cadeiraInfo["turmas"] = $cadeira->turmas;
 
         $cadeiraInfo["regente"] = $cadeira->regente->utilizador->nome;
 

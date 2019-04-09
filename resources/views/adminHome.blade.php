@@ -28,10 +28,20 @@
         @csrf
 
         <div class="form-group">
-            <input type="text" class="form-control" name="coordenador" placeholder="Coordenador">
+            <label>
+                Coordenador: 
+                <select name="coordenador">
+                    @foreach ($utilizadores as $utilizador)
+                        @if ($utilizador->docente)
+                            <option value="{{$utilizador->docente->id}}"> {{$utilizador->nome}} </option>
+                        @endif
+                    @endforeach    
+                </select>
+            </label>
         </div>
+
         <div class="form-group">
-            <input type="text" class="form-control" name="nome" placeholder="Nome">
+            <input type="text" class="form-control" name="nome" placeholder="Nome" required>
         </div>
         <button type="submit" class="btn btn-primary">Criar</button>
     </form>
@@ -43,23 +53,58 @@
         @csrf
 
         <div class="form-group">
-            <input type="text" class="form-control" name="nome" placeholder="Nome">
+            <input type="text" class="form-control" name="nome" placeholder="Nome" required>
         </div>
+
         <div class="form-group">
-            <input type="text" class="form-control" name="etcs" placeholder="Número de ETCs">
+            <input type="number" class="form-control" name="etcs" placeholder="Número de ETCs" required>
         </div>
+
         <div class="form-group">
-            <input type="text" class="form-control" name="regente" placeholder="Regente">
+            <label>
+                Regente: 
+                <select name="regente">
+                    @foreach ($utilizadores as $utilizador)
+                        @if ($utilizador->docente)
+                            <option value="{{$utilizador->docente->id}}"> {{$utilizador->nome}} </option>
+                        @endif
+                    @endforeach    
+                </select>
+            </label>
         </div>
+
         <div class="form-group">
-            <input type="text" class="form-control" name="curso" placeholder="Curso">
+            <label>
+                Curso: 
+                <select name="curso">
+                    @foreach ($cursos as $curso)
+                        <option value="{{$curso->id}}"> {{$curso->nome}} </option>
+                    @endforeach    
+                </select>
+            </label>
         </div>
+        
         <div class="form-group">
-            <input type="text" class="form-control" name="semestre" placeholder="Semestre">
+            <label>
+                Semestre:
+                <select name="semestre">
+                    <option value=1> Primeiro semestre </option>
+                    <option value=2> Segundo semestre </option>
+                </select>
+            </label>
         </div>
+
         <div class="form-group">
-            <input type="text" class="form-control" name="ciclo" placeholder="Ciclo">
-        </div>
+                <label>
+                    Ciclo:
+                    <select name="ciclo">
+                        <option value=1> Primeiro ciclo </option>
+                        <option value=2> Segundo ciclo </option>
+                        <option value=3> Terceiro ciclo </option>
+                    </select>
+                </label>
+            </div>
+        
         <button type="submit" class="btn btn-primary">Criar</button>
     </form>
 @endsection

@@ -17,7 +17,7 @@
         @endforeach
     </ul>
 
-    <h2>Regente - {{$regente}}</h2>
+    <h2>Regente- {{$regente}}</h2>
 
     @if (App\Utilizador::find(Auth::id())->admistrador)
         <br>
@@ -27,13 +27,22 @@
             @csrf
 
             <div class="form-group">
-                <input type="text" class="form-control" name="numeroTurma" placeholder="Número da Turma">
+                <input type="number" class="form-control" name="numeroTurma" placeholder="Número da Turma" required>
             </div>
+
             <div class="form-group">
-                <input type="text" class="form-control" name="regente" placeholder="Regente">
+                <label>
+                    Regente: 
+                    <select name="regente">
+                        @foreach (App\Docente::all() as $docente)
+                            <option value="{{$docente->id}}"> {{$docente->Utilizador->nome}} </option>
+                        @endforeach    
+                    </select>
+                </label>
             </div>
+            
             <div class="form-group">
-                <input type="text" class="form-control" name="vagas" placeholder="Número de Vagas">
+                <input type="number" class="form-control" name="vagas" placeholder="Número de Vagas" required>
             </div>
             <button type="submit" class="btn btn-primary">Criar</button>
         </form>
