@@ -55,6 +55,12 @@ class AuthController extends Controller
     }
 
     public function registar() {
+        request()->validate([
+            'nome' => ['required'],
+            'email' => ['required','email'],
+            'password' => ['required']
+        ]); 
+
         Utilizador::create([
             'nome' => request('nome'),
             'email' => request('email'),

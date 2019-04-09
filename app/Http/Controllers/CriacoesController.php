@@ -10,6 +10,11 @@ use App\Turma;
 class CriacoesController extends Controller
 {
     public function criarCurso() {
+        request()->validate([
+            'coordenador_id' => ['required'],
+            'nome' => ['required']
+        ]); 
+        
         Curso::create([
             'coordenador_id' => request('coordenador'),
             'nome' => request('nome')
@@ -19,6 +24,15 @@ class CriacoesController extends Controller
     }
 
     public function criarCadeira() {
+        request()->validate([
+            'nome' => ['required'],
+            'ETCS' => ['required'],
+            'regente_id' => ['required'],
+            'curso_id' => ['required'],
+            'semestre' => ['required'],
+            'ciclo' => ['required'],
+        ]); 
+
         Cadeira::create([
             'nome' => request('nome'),
             'ETCS' => request('etcs'),
@@ -32,6 +46,13 @@ class CriacoesController extends Controller
     } 
 
     public function criarTurma($idCadeira) {
+        request()->validate([
+            'numero' => ['required'],
+            'cadeira_id' => ['required'],
+            'docente_id' => ['required'],
+            'numVagas' => ['required'],
+        ]); 
+
         Turma::create([
             'numero' => request('numeroTurma'),
             'cadeira_id' => $idCadeira,
