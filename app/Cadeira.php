@@ -8,6 +8,15 @@ class Cadeira extends Model
 {
     protected $table = "cadeira";
 
+    protected $fillable = [
+        'nome',
+        'ETCS',
+        'regente_id',
+        'curso_id',
+        'semestre',
+        'ciclo'
+    ];
+
     public function curso() {
         return $this->belongsTo('\App\Curso');
     }

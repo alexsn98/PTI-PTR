@@ -8,6 +8,13 @@ class Turma extends Model
 {
     protected $table = "turma";
 
+    protected $fillable = [
+        'numero',
+        'cadeira_id',
+        'docente_id',
+        'numVagas'
+    ];
+
     public function docente() {
         return $this->belongsTo('\App\Docente');
     }

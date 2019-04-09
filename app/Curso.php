@@ -8,6 +8,11 @@ class Curso extends Model
 {
     protected $table = "curso";
 
+    protected $fillable = [
+        'coordenador_id',
+        'nome'
+    ];
+
     public function cadeiras() {
         return $this->hasMany('\App\Cadeira');
     }

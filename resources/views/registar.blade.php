@@ -14,7 +14,7 @@
 <body class="mw-100 bg-info">
     <div id="registar" class="p-5 mx-auto bg-danger" style="width: 40%; margin-top:10%;">
 
-        <form method="POST" action="/registar">
+        <form action="/registar" method="POST">
             @csrf
 
             <div class="form-group">
