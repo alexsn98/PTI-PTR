@@ -6,14 +6,13 @@
     <h2> Turmas </h2>
     <ul>
         @foreach ($turmas as $turma)
-
+            <li> <a href="turma/{{$turma->id}}"> TP-{{$turma->numero}} 
+                
             @if (App\Utilizador::find(Auth::id())->aluno && in_array($turma->id, $turmasAtuais))
-                <li><a href="turma/{{$turma->id}}"> TP-{{$turma->numero}} - Turma Atual </a></li>
-
-            @else
-                <li> TP-{{$turma->numero}} </li>
+                - Turma Atual 
             @endif
-
+                
+            </a> </li>
         @endforeach
     </ul>
 
@@ -23,6 +22,7 @@
         <br>
         <h4>Criar Turma: </h4>
 
+        {{-- formulario para criar turma --}}
         <form action="/criar/turma/{{$cadeira->id}}" method="POST">
             @csrf
 
@@ -42,7 +42,7 @@
             </div>
             
             <div class="form-group">
-                <input type="number" class="form-control" name="vagas" placeholder="Número de Vagas" required>
+                <input type="number" class="form-control" name="vagas" placeholder="Número de Vagas" required >
             </div>
             <button type="submit" class="btn btn-primary">Criar</button>
         </form>

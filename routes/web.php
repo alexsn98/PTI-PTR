@@ -25,10 +25,11 @@ Route::get('home/docente', 'HomeController@getDocenteHome')->middleware('docente
 
 Route::get('home/cadeira/{id}', 'CadeiraController@getCadeira');
 
-Route::get('home/cadeira/turma/{idTurma}', 'TurmaController@getTurma')->middleware('aluno');
+Route::get('home/cadeira/turma/{idTurma}', 'TurmaController@getTurma');
 Route::get('home/cadeira/turma/inscreverTurma/{idTurma}', 'TurmaController@inscrever')->middleware('aluno');
 
 
 Route::post('criar/curso', 'CriacoesController@criarCurso');
 Route::post('criar/cadeira', 'CriacoesController@criarCadeira');
 Route::post('criar/turma/{idCadeira}', 'CriacoesController@criarTurma');
+Route::post('criar/aulaTipo/{idTurma}', 'CriacoesController@criarAulaTipo');

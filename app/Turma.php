@@ -22,4 +22,8 @@ class Turma extends Model
     public function cadeira() {
         return $this->belongsTo('\App\Cadeira');
     }
+
+    public function aulasTipo() {
+        return $this->hasMany('\App\AulaTipo');
+    }
 }

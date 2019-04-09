@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use App\Curso;
 use App\Cadeira;
 use App\Turma;
+use App\AulaTipo;
 
 class CriacoesController extends Controller
 {
     public function criarCurso() {
         request()->validate([
-            'coordenador_id' => ['required'],
+            'coordenador' => ['required'],
             'nome' => ['required']
         ]); 
         
@@ -27,8 +28,8 @@ class CriacoesController extends Controller
         request()->validate([
             'nome' => ['required'],
             'ETCS' => ['required'],
-            'regente_id' => ['required'],
-            'curso_id' => ['required'],
+            'regente' => ['required'],
+            'curso' => ['required'],
             'semestre' => ['required'],
             'ciclo' => ['required'],
         ]); 
@@ -48,8 +49,8 @@ class CriacoesController extends Controller
     public function criarTurma($idCadeira) {
         request()->validate([
             'numero' => ['required'],
-            'cadeira_id' => ['required'],
-            'docente_id' => ['required'],
+            'cadeira' => ['required'],
+            'docente' => ['required'],
             'numVagas' => ['required'],
         ]); 
 
@@ -61,5 +62,24 @@ class CriacoesController extends Controller
         ]);
 
         return redirect("home/cadeira/$idCadeira");
+    }
+    
+    public function criarAulaTipo($idTurma) {
+        request()->validate([
+            'sala' => ['required'],
+            'diaSemana' => ['required'],
+            'inicio' => ['required'],
+            'fim' => ['required'],
+        ]); 
+
+        AulaTipo::create([
+            'turma_id' => $idTurma,
+            'sala_id' => request('sala'),
+            'dia_semana' => request('diaSemana'),
+            'inicio' => request('inicio'),
+            'fim' => request('fim')
+        ]);
+
+        return redirect()->back();
     } 
 }

@@ -5,7 +5,5 @@ TODO:
 - Css main
 - pagina da cadeira para docente
 - rederecionar se autenticado
-- Mudar para input select o coordenar e curso nas criacoes
-
 
 Perguntas para fazer:

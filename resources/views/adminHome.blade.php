@@ -23,6 +23,7 @@
     </ul>
     <br>
     
+    {{-- formulario para criar curso --}}
     <h4>Criar Curso: </h4>
     <form action="/criar/curso" method="POST">
         @csrf
@@ -48,6 +49,7 @@
 
     <br>
 
+    {{-- formulario para criar cadeira --}}
     <h4>Criar Cadeira: </h4>
     <form action="/criar/cadeira" method="POST">
         @csrf
