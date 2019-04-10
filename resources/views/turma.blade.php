@@ -1,5 +1,9 @@
 @extends('homeLayout')
 
+@section('cssPage')
+    <link rel="stylesheet" href={{asset('css/turma.css')}}>
+@endsection
+
 @section('content')
     <h2>Número turma -> TP-{{$turma->numero}}</h2>
     <h2>Vagas -> {{$turma->numVagas}} </h2>
@@ -9,15 +13,22 @@
     @endif
 
     <h3> Aulas: </h3>
-    <ul>
+ 
+    <table>
+        <tr>
+            <th>Inicio</th>
+            <th>Fim</th>
+            <th>Sala</th>
+        </tr>
+
         @for ($i = 0; $i < count($aulasTipo); $i++)
-            <li> Aula-{{$i}} => 
-                Inicio: {{$aulasTipo[$i]['inicio']}}
-                Fim: {{$aulasTipo[$i]['fim']}}
-                Sala: {{$aulasTipo[$i]['edificio']}}.{{$aulasTipo[$i]['piso']}}.{{$aulasTipo[$i]['numSala']}}
-            </li>
+            <tr>
+                <td>{{$aulasTipo[$i]['inicio']}}</td>
+                <td>{{$aulasTipo[$i]['fim']}}</td>
+                <td>{{$aulasTipo[$i]['edificio']}}.{{$aulasTipo[$i]['piso']}}.{{$aulasTipo[$i]['numSala']}}</td>
+            </tr>
         @endfor
-    </ul>
+    </table>
 
     @if (App\Utilizador::find(Auth::id())->admistrador)
         <h3>Criar aula tipo</h3>
