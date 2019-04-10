@@ -19,8 +19,4 @@ class AulaTipo extends Model
     public function cadeira() {
         return $this->belongsTo('\App\Cadeira');
     }
-
-    public function sala() {
-        return $this->hasOne('\App\Sala');
-    }
 }

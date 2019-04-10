@@ -97,15 +97,15 @@
         </div>
 
         <div class="form-group">
-                <label>
-                    Ciclo:
-                    <select name="ciclo">
-                        <option value=1> Primeiro ciclo </option>
-                        <option value=2> Segundo ciclo </option>
-                        <option value=3> Terceiro ciclo </option>
-                    </select>
-                </label>
-            </div>
+            <label>
+                Ciclo:
+                <select name="ciclo">
+                    <option value=1> Primeiro ciclo </option>
+                    <option value=2> Segundo ciclo </option>
+                    <option value=3> Terceiro ciclo </option>
+                </select>
+            </label>
+        </div>
         
         <button type="submit" class="btn btn-primary">Criar</button>
     </form>

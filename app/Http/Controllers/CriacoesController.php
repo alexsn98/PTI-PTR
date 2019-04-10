@@ -54,7 +54,7 @@ class CriacoesController extends Controller
             'numVagas' => ['required'],
         ]); 
 
-        Turma::create([
+        Turma::create([ 
             'numero' => request('numeroTurma'),
             'cadeira_id' => $idCadeira,
             'docente_id' => request('regente'),

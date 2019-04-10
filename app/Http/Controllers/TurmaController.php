@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Turma;
 use App\Utilizador;
 use App\Cadeira;
+use App\Sala;
 use Auth;
 
 class TurmaController extends Controller
@@ -14,9 +15,27 @@ class TurmaController extends Controller
         $turma = Turma::find($id);
         $docente = $turma->docente;
 
+        $aulasTipo = [];
+
+        foreach ($turma->aulasTipo->all() as $aulaTipo) {
+            $sala = Sala::find($aulaTipo->sala_id);
+            
+            $aulaTipo = [
+                'inicio' => $aulaTipo->inicio,
+                'fim' => $aulaTipo->fim,
+                'edificio' => $sala->edificio,
+                'piso' => $sala->piso,
+                'numSala' => $sala->num_sala
+            ];
+
+            $aulasTipo[] = $aulaTipo;
+        }
+
         return view('turma')->with([
             'turma' => $turma,
-            'docente' => $docente]);
+            'docente' => $docente,
+            'aulasTipo' => $aulasTipo
+            ]);
     }
 
     public function inscrever($id) {
