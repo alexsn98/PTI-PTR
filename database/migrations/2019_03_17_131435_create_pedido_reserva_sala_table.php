@@ -26,7 +26,7 @@ class CreatePedidoReservaSalaTable extends Migration
          // table foreign key constrains
          Schema::table('pedido_reserva_sala', function (Blueprint $table) {
             $table->foreign('utilizador_abrir_id')->references('id')->on('utilizador');
-            $table->foreign('utilizador_fechar_id')->references('id')->on('admistrador');
+            $table->foreign('utilizador_fechar_id')->references('utilizador_id')->on('admistrador');
             $table->foreign('sala_id')->references('id')->on('sala');
         });
     }

@@ -23,8 +23,8 @@ class CreatePedidoMudancaTurmaTable extends Migration
 
          // table foreign key constrains
          Schema::table('pedido_mudanca_turma', function (Blueprint $table) {
-            $table->foreign('utilizador_abrir_id')->references('id')->on('aluno');
-            $table->foreign('utilizador_fechar_id')->references('id')->on('docente');
+            $table->foreign('utilizador_abrir_id')->references('utilizador_id')->on('aluno');
+            $table->foreign('utilizador_fechar_id')->references('utilizador_id')->on('docente');
             $table->foreign('turma_pedida_id')->references('id')->on('turma');
         });
     }

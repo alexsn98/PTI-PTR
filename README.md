@@ -6,5 +6,7 @@ TODO:
 - pagina da cadeira para docente
 - rederecionar se autenticado
 - horario criado dinamicamente para o aluno
+- horario com pesquisa
+- alterar pedido de mudanca de turma para POST
 
 Perguntas para fazer:

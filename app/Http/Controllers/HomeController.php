@@ -7,6 +7,7 @@ use App\Utilizador;
 use App\Curso;
 use App\Cadeira;
 use App\Turma;
+use App\PedidoMudancaTurma;
 use Auth;
 
 class HomeController extends Controller
@@ -38,10 +39,13 @@ class HomeController extends Controller
 
         $turmas = $docente->turmas;
 
+        $pedidosMudancaTurma = $docente->pedidosMudancaTurma;
+
         return view('docenteHome')->with([
             'curso' => $curso,
             'cadeiras' => $cadeiras,
-            'turmas'=> $turmas
-        ]);
+            'turmas'=> $turmas,
+            'pedidosMudancaTurma' => $pedidosMudancaTurma
+        ]); 
     }
 }
