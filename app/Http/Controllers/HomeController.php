@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function getAlunoHome() {
         $cadeiras = Utilizador::find((Auth::id()))->aluno->cadeiras->all();
         
-        return view('alunoHome')->with(["cadeiras" => $cadeiras]);
+        return view('alunoHome', ["cadeiras" => $cadeiras]);
     }
 
     public function getDocenteHome() {
@@ -41,11 +41,22 @@ class HomeController extends Controller
 
         $pedidosMudancaTurma = $docente->pedidosMudancaTurma;
 
-        return view('docenteHome')->with([
+        return view('docenteHome',[
             'curso' => $curso,
             'cadeiras' => $cadeiras,
             'turmas'=> $turmas,
             'pedidosMudancaTurma' => $pedidosMudancaTurma
         ]); 
+    }
+
+    public function getVisitanteHome() {
+        $cursos = Curso::all();
+
+        $cadeiras = Cadeira::all();
+
+        return view('visitanteHome', [
+            'cursos' => $cursos,
+            'cadeiras' => $cadeiras
+        ]);
     }
 }

@@ -25,6 +25,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Entrar</button>
         </form>
+        <a href="home/visitante" class="btn btn-primary" style="float:right;color: white;">Entrar como visitante</a>
         <br>
         @if ($errors->any())
             <div class="alert alert-warning">
