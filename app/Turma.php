@@ -26,4 +26,8 @@ class Turma extends Model
     public function aulasTipo() {
         return $this->hasMany('\App\AulaTipo');
     }
+
+    public function pedidoMudancaTurma() {
+        return $this->hasMany('\App\PedidoMudancaTurma');
+    }
 }

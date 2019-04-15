@@ -18,4 +18,8 @@ class Aluno extends Model
             'turma_pratica_id'
         ]);
     }
+
+    public function pedidosMudancaTurma() {
+        return $this->hasMany('App\PedidoMudancaTurma', 'utilizador_abrir_id', 'utilizador_id');
+    }
 }

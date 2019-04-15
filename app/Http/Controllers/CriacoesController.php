@@ -27,7 +27,7 @@ class CriacoesController extends Controller
     public function criarCadeira() {
         request()->validate([
             'nome' => ['required'],
-            'ETCS' => ['required'],
+            'etcs' => ['required'],
             'regente' => ['required'],
             'curso' => ['required'],
             'semestre' => ['required'],
@@ -48,10 +48,9 @@ class CriacoesController extends Controller
 
     public function criarTurma($idCadeira) {
         request()->validate([
-            'numero' => ['required'],
-            'cadeira' => ['required'],
-            'docente' => ['required'],
-            'numVagas' => ['required'],
+            'numeroTurma' => ['required'],
+            'regente' => ['required'],
+            'vagas' => ['required'],
         ]); 
 
         Turma::create([ 

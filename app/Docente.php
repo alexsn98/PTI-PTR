@@ -23,4 +23,8 @@ class Docente extends Model
     public function turmas() {
         return $this->hasMany('App\Turma');
     }
+
+    public function pedidosMudancaTurma() {
+        return $this->hasMany('App\PedidoMudancaTurma', 'utilizador_fechar_id', 'utilizador_id');
+    }
 }

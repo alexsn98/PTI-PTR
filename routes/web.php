@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'AuthController@getLogin')->name('login');
+Route::get('/', 'AuthController@getLogin')->name('login')->middleware('guest');
 Route::post('/', 'AuthController@login');
 
 Route::get('/registar', 'AuthController@getRegistar');
@@ -22,6 +22,7 @@ Route::get('/logout', 'AuthController@logout')->name('logout');
 Route::get('home/admin', 'HomeController@getAdminHome')->middleware('admin');
 Route::get('home/aluno', 'HomeController@getAlunoHome')->middleware('aluno');
 Route::get('home/docente', 'HomeController@getDocenteHome')->middleware('docente');
+Route::get('home/visitante', 'HomeController@getVisitanteHome');
 
 Route::get('home/cadeira/{id}', 'CadeiraController@getCadeira');
 
@@ -33,3 +34,5 @@ Route::post('criar/curso', 'CriacoesController@criarCurso');
 Route::post('criar/cadeira', 'CriacoesController@criarCadeira');
 Route::post('criar/turma/{idCadeira}', 'CriacoesController@criarTurma');
 Route::post('criar/aulaTipo/{idTurma}', 'CriacoesController@criarAulaTipo');
+
+Route::get('pedido/mudancaTurma/{idPedido}', 'PedidosController@aprovarMudancaTurma');

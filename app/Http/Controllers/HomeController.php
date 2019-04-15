@@ -7,6 +7,7 @@ use App\Utilizador;
 use App\Curso;
 use App\Cadeira;
 use App\Turma;
+use App\PedidoMudancaTurma;
 use Auth;
 
 class HomeController extends Controller
@@ -26,7 +27,7 @@ class HomeController extends Controller
     public function getAlunoHome() {
         $cadeiras = Utilizador::find((Auth::id()))->aluno->cadeiras->all();
         
-        return view('alunoHome')->with(["cadeiras" => $cadeiras]);
+        return view('alunoHome', ["cadeiras" => $cadeiras]);
     }
 
     public function getDocenteHome() {
@@ -38,10 +39,24 @@ class HomeController extends Controller
 
         $turmas = $docente->turmas;
 
-        return view('docenteHome')->with([
+        $pedidosMudancaTurma = $docente->pedidosMudancaTurma;
+
+        return view('docenteHome',[
             'curso' => $curso,
             'cadeiras' => $cadeiras,
-            'turmas'=> $turmas
+            'turmas'=> $turmas,
+            'pedidosMudancaTurma' => $pedidosMudancaTurma
+        ]); 
+    }
+
+    public function getVisitanteHome() {
+        $cursos = Curso::all();
+
+        $cadeiras = Cadeira::all();
+
+        return view('visitanteHome', [
+            'cursos' => $cursos,
+            'cadeiras' => $cadeiras
         ]);
     }
 }

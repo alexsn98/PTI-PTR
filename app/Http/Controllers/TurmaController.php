@@ -7,6 +7,7 @@ use App\Turma;
 use App\Utilizador;
 use App\Cadeira;
 use App\Sala;
+use App\PedidoMudancaTurma;
 use Auth;
 
 class TurmaController extends Controller
@@ -42,11 +43,23 @@ class TurmaController extends Controller
         //devolve aluno autenticado
         $aluno = Utilizador::find((Auth::id()))->aluno;
 
-        //devolve turma para a qual mudar
+        //devolve cadeira
         $cadeira = Turma::find($id)->cadeira_id; 
 
-        //update do pivot aluno cadeira
-        $aluno->cadeiras()->updateExistingPivot($cadeira, ["turma_pratica_id" => $id]);
+        $jaInscrito = $aluno->cadeiras()->where('cadeira_id',$cadeira)->first()->pivot->turma_pratica_id != null;
+
+        if ($jaInscrito) {
+            PedidoMudancaTurma::create([ 
+                'utilizador_abrir_id' => Auth::id(),
+                'utilizador_fechar_id' => Turma::find($id)->docente->utilizador_id,
+                'turma_pedida_id' => $id
+            ]);
+        }
+        
+        else {
+            //update do pivot aluno cadeira
+            $aluno->cadeiras()->updateExistingPivot($cadeira, ["turma_pratica_id" => $id]);
+        }
 
         return redirect("home/cadeira/$cadeira");
     }
