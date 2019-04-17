@@ -10,6 +10,7 @@ use App\Turma;
 use App\Sala;
 use App\PedidoMudancaTurma;
 use App\PedidoReservaSala;
+use App\ReservaSala;
 use Auth;
 
 class HomeController extends Controller
@@ -23,11 +24,14 @@ class HomeController extends Controller
 
         $pedidosReservaSala = PedidoReservaSala::all();
 
+        $reservasSalas = ReservaSala::all();
+
         return view('adminHome', [
             'utilizadores' => $utilizadores,
             'cursos' => $cursos,
             'cadeiras' => $cadeiras,
-            'pedidosReservaSala' => $pedidosReservaSala
+            'pedidosReservaSala' => $pedidosReservaSala,
+            'reservasSala' => $reservasSalas
             ]);
     }
 

@@ -22,6 +22,7 @@
         @endforeach
     </ul>
     <br>
+    
     <h3> Pedidos de reserva de sala: </h3>
     <ul>
         @foreach ($pedidosReservaSala as $pedido)
@@ -34,7 +35,19 @@
             </li>
         @endforeach
     </ul>
-    
+
+    <h3> Reservas de Salas: </h3>
+    <ul>
+        @foreach ($reservasSala as $reserva)
+            <li> 
+                Reserva feita por: {{$reserva->utilizador->nome}} <br>
+                Sala: {{$reserva->sala->edificio}}.{{$reserva->sala->piso}}.{{$reserva->sala->num_sala}} <br>
+                Inicio: {{$reserva->inicio}} <br>
+                Fim: {{$reserva->fim}}
+            </li>
+        @endforeach
+    </ul>
+
     {{-- formulario para criar curso --}}
     <h4>Criar Curso: </h4>
     <form action="/criar/curso" method="POST">
