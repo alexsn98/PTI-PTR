@@ -22,6 +22,18 @@
         @endforeach
     </ul>
     <br>
+    <h3> Pedidos de reserva de sala: </h3>
+    <ul>
+        @foreach ($pedidosReservaSala as $pedido)
+            <li> 
+                Pedido feito por: {{$pedido->utilizadorAbre->nome}} <br>
+                Sala: {{$pedido->sala->edificio}}.{{$pedido->sala->piso}}.{{$pedido->sala->num_sala}} <br>
+                Inicio: {{$pedido->inicio}} <br>
+                Fim: {{$pedido->fim}} <br>
+                <a href="/pedido/reservaSala/aprovar/{{$pedido->id}}">Aceitar</a>
+            </li>
+        @endforeach
+    </ul>
     
     {{-- formulario para criar curso --}}
     <h4>Criar Curso: </h4>

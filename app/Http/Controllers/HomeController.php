@@ -7,27 +7,39 @@ use App\Utilizador;
 use App\Curso;
 use App\Cadeira;
 use App\Turma;
+use App\Sala;
 use App\PedidoMudancaTurma;
+use App\PedidoReservaSala;
 use Auth;
 
 class HomeController extends Controller
 {
     public function getAdminHome() {
         $utilizadores = Utilizador::all();
+
         $cursos = Curso::all();
+        
         $cadeiras = Cadeira::all();
 
+        $pedidosReservaSala = PedidoReservaSala::all();
 
         return view('adminHome', [
             'utilizadores' => $utilizadores,
             'cursos' => $cursos,
-            'cadeiras' => $cadeiras]);
+            'cadeiras' => $cadeiras,
+            'pedidosReservaSala' => $pedidosReservaSala
+            ]);
     }
 
     public function getAlunoHome() {
         $cadeiras = Utilizador::find((Auth::id()))->aluno->cadeiras->all();
+
+        $salas = Sala::all();
         
-        return view('alunoHome', ["cadeiras" => $cadeiras]);
+        return view('alunoHome', [
+            'cadeiras' => $cadeiras,
+            'salas' => $salas
+            ]);
     }
 
     public function getDocenteHome() {
@@ -41,11 +53,14 @@ class HomeController extends Controller
 
         $pedidosMudancaTurma = $docente->pedidosMudancaTurma;
 
+        $salas = Sala::all();
+
         return view('docenteHome',[
             'curso' => $curso,
             'cadeiras' => $cadeiras,
             'turmas'=> $turmas,
-            'pedidosMudancaTurma' => $pedidosMudancaTurma
+            'pedidosMudancaTurma' => $pedidosMudancaTurma,
+            'salas' => $salas
         ]); 
     }
 

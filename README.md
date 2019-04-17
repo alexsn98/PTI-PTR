@@ -5,8 +5,10 @@ TODO:
 - Css main
 - pagina da cadeira para docente
 - horario criado dinamicamente para o aluno
-- horario com pesquisa
+- forms com pesquisa
 - alterar pedido de mudanca de turma para POST
-- login como guest
+- funcionalidades para guest
+- impletentar verificar restriçoes nas salas para fazer reservas
+- adicionar campo de descricao a reserva de sala
 
 Perguntas para fazer:

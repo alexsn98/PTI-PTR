@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePedidoReservaSalaTable extends Migration
+class CreateReservaSala extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,19 @@ class CreatePedidoReservaSalaTable extends Migration
      */
     public function up()
     {
-        Schema::create('pedido_reserva_sala', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('utilizador_abrir_id');
+        Schema::create('reserva_sala', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->unsignedInteger('sala_id');
+            $table->unsignedInteger('utilizador_id');
             $table->dateTime('inicio');
             $table->dateTime('fim');
-            $table->text('descricao');
             $table->timestamps();
         });
 
-         // table foreign key constrains
-         Schema::table('pedido_reserva_sala', function (Blueprint $table) {
-            $table->foreign('utilizador_abrir_id')->references('id')->on('utilizador');
+        // table foreign key constrains
+        Schema::table('reserva_sala', function (Blueprint $table) {
             $table->foreign('sala_id')->references('id')->on('sala');
+            $table->foreign('utilizador_id')->references('id')->on('utilizador');
         });
     }
 
@@ -37,6 +36,6 @@ class CreatePedidoReservaSalaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pedido_reserva_sala');
+        Schema::dropIfExists('reserva_sala');
     }
 }

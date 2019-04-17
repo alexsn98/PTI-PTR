@@ -36,3 +36,5 @@ Route::post('criar/turma/{idCadeira}', 'CriacoesController@criarTurma');
 Route::post('criar/aulaTipo/{idTurma}', 'CriacoesController@criarAulaTipo');
 
 Route::get('pedido/mudancaTurma/{idPedido}', 'PedidosController@aprovarMudancaTurma');
+Route::post('pedido/reservaSala/criar', 'PedidosController@criarReservaSala');
+Route::post('pedido/reservaSala/aprovar/{idPedido}', 'PedidosController@aprovarReservaSala');
