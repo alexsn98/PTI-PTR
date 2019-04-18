@@ -9,6 +9,11 @@ TODO:
 - alterar pedido de mudanca de turma para POST
 - funcionalidades para guest
 - impletentar verificar restriçoes nas salas para fazer reservas
-- adicionar campo de descricao a reserva de sala
+- pagina do curso
+- many to many na relacao aluno curso
+- modificar paginas de modo a permitir acesso por visitantes
+- mudar titulo das paginas
+- remember me no login
+- home button na home do visitante
 
 Perguntas para fazer:
