@@ -11,6 +11,7 @@ TODO:
 - impletentar verificar restriçoes nas salas para fazer reservas
 - pagina do curso
 - many to many na relacao aluno curso
++ Sugestão GS: Criar uma entidade AlunoCurso com apenas dois atributos (Aluno e Curso) que fica a tratar dessa relação, facilita na navegação mais tarde
 - modificar paginas de modo a permitir acesso por visitantes
 - mudar titulo das paginas
 - remember me no login
