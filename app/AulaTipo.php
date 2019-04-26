@@ -16,7 +16,11 @@ class AulaTipo extends Model
         'fim'
     ];
 
-    public function cadeira() {
-        return $this->belongsTo('\App\Cadeira');
+    public function turma() {
+        return $this->belongsTo('\App\Turma');
+    }
+
+    public function aulas() {
+        return $this->hasmany('\App\Aula');
     }
 }

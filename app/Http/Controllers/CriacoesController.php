@@ -7,6 +7,7 @@ use App\Curso;
 use App\Cadeira;
 use App\Turma;
 use App\AulaTipo;
+use App\Aula;
 
 class CriacoesController extends Controller
 {
@@ -77,6 +78,22 @@ class CriacoesController extends Controller
             'dia_semana' => request('diaSemana'),
             'inicio' => request('inicio'),
             'fim' => request('fim')
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function criarAula() {
+        request()->validate([
+            'aulaTipo' => ['required'],
+            'data' => ['required'],
+            'sumario' => ['required'],
+        ]); 
+
+        Aula::create([
+            'aula_tipo_id' => request('aulaTipo'),
+            'data' => request('data'),
+            'suamario' => request('sumario')
         ]);
 
         return redirect()->back();

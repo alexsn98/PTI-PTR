@@ -7,6 +7,7 @@ use App\Turma;
 use App\Utilizador;
 use App\Cadeira;
 use App\Sala;
+use App\Aula;
 use App\PedidoMudancaTurma;
 use Auth;
 
@@ -15,13 +16,15 @@ class TurmaController extends Controller
     public function getTurma($id) {
         $turma = Turma::find($id);
         $docente = $turma->docente;
+        $salas = Sala::all();
+        $aulasTipo = $turma->aulasTipo;
+        $aulasTipoInfo = [];
 
-        $aulasTipo = [];
-
-        foreach ($turma->aulasTipo->all() as $aulaTipo) {
+        foreach ($aulasTipo as $aulaTipo) {
             $sala = Sala::find($aulaTipo->sala_id);
             
-            $aulaTipo = [
+            $aulaTipoInfo = [
+                'id' => $aulaTipo->id,
                 'inicio' => $aulaTipo->inicio,
                 'fim' => $aulaTipo->fim,
                 'edificio' => $sala->edificio,
@@ -29,14 +32,20 @@ class TurmaController extends Controller
                 'numSala' => $sala->num_sala
             ];
 
-            $aulasTipo[] = $aulaTipo;
+            $aulasTipoInfo[] = $aulaTipoInfo;
         }
+
+        $aulas = Aula::all()->filter(function ($aula) use ($aulasTipo) {
+            return $aulasTipo->contains($aula->aulaTipo);
+        });
 
         return view('turma')->with([
             'turma' => $turma,
             'docente' => $docente,
-            'aulasTipo' => $aulasTipo
-            ]);
+            'aulasTipo' => $aulasTipoInfo,
+            'salas' => $salas,
+            'aulas' => $aulas
+        ]);
     }
 
     public function inscrever($id) {
