@@ -8,6 +8,7 @@
     <h2>Número turma -> TP-{{$turma->numero}}</h2>
     <h2>Vagas -> {{$turma->numVagas}} </h2>
 
+    {{-- Se utilizador for aluno --}}
     @if (App\Utilizador::find(Auth::id())->aluno)
         <a href="inscreverTurma/{{$turma->id}}">Inscrever</a>
     @endif
@@ -35,10 +36,15 @@
         <li>
             Data: {{$aula->data}} <br>
             Sumário: {{$aula->sumario}} <br>
-            <a href="aula/{{$aula->id}}">Presenças</a>
+
+            @if (App\Utilizador::find(Auth::id())->Docente)
+                <a href="aula/{{$aula->id}}">Presenças</a>
+            @endif
+            
         </li>
     @endforeach
 
+    {{-- Se utilizador for admistrador --}}
     @if (App\Utilizador::find(Auth::id())->admistrador)
         <h3>Criar aula tipo</h3>
 
@@ -80,6 +86,7 @@
         </form>
     @endif
 
+    {{-- Se utilizador for docente --}}
     @if (App\Utilizador::find(Auth::id())->docente)
         <h3>Criar aula:</h3>
 

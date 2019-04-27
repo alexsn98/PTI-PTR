@@ -18,6 +18,18 @@
 
     <h2>Regente- {{$regente}}</h2>
 
+    <h2>Aulas assistidas</h2>
+
+    @if (App\Utilizador::find(Auth::id())->aluno)
+        @foreach ($aulasAssistidas as $aulaAssistida)
+            {{$aulaAssistida->aula}}
+        @endforeach
+        <p>Pau</p>
+        @foreach ($aulasRealizadas as $aulaRealizada)
+            {{$aulaRealizada}}
+        @endforeach
+    @endif
+
     @if (App\Utilizador::find(Auth::id())->admistrador)
         <br>
         <h4>Criar Turma: </h4>
