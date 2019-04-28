@@ -40,7 +40,7 @@
             @endif
         </div>
     </header>
-    <div>
+    <div id="cont">
         @yield('content')
     </div>
 </body>

@@ -7,7 +7,7 @@ html {
 
 header {
     width: 100%;
-    height: 20%;
+    height: 13%;
     background-color: #A79C93;
     margin: 0;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -89,4 +89,11 @@ header {
 #logout:hover{
     background-color: rgba(2, 148, 165, 0.2);
     transition: all .3s ease-out;
+}
+
+#cont{
+    width: 100%;
+    height: 87%;
+    background-color: green;
+    margin: 0;
 }
