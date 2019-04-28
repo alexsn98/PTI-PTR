@@ -4,7 +4,7 @@
     <h3> Utilizadores: </h3>
     <ul>
         @foreach ($utilizadores as $utilizador)
-            <li> {{$utilizador->nome}} </li>
+            <li> <span>{{$utilizador->nome}}<span></li>
         @endforeach
     </ul>
 

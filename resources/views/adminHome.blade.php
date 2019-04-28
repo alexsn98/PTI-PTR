@@ -9,14 +9,16 @@
         <h1>Admin - Home</h1>
     </div>
     <div id="container">
-        <div id="divUser">
-            <div class="image">
-                <img src={{asset('img/user.png')}}>
+        <a href="/home/admin/utilizadores">
+            <div id="divUser">
+                <div class="image">
+                    <img src={{asset('img/user.png')}}>
+                </div>
+                <div class="text">
+                    <h2>Utilizadores</h2>
+                </div>
             </div>
-            <div class="text">
-                <h2>Utilizadores</h2>
-            </div>
-        </div>
+        </a>
         <div id="divCurso">
             <div class="image">
                 <img src={{asset('img/curso.png')}}>
@@ -31,6 +33,14 @@
             </div>
             <div class="text">
                 <h2>Cadeiras</h2>
+            </div>
+        </div>
+        <div id="divSala">
+            <div class="image">
+                <img src={{asset('img/sala.png')}}>
+            </div>
+            <div class="text">
+                <h2>Salas</h2>
             </div>
         </div>
     </div>

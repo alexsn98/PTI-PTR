@@ -35,6 +35,17 @@ class HomeController extends Controller
             ]);
     }
 
+    public function getAdminUsers() {
+        $utilizadores = Utilizador::all();
+
+
+        return view('adminUsers', [
+            'utilizadores' => $utilizadores,
+            ]);
+    }
+
+
+
     public function getAlunoHome() {
         $cadeiras = Utilizador::find((Auth::id()))->aluno->cadeiras->all();
 
