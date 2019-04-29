@@ -15,7 +15,7 @@ class CreateAlunoAulaTable extends Migration
     {
         Schema::create('aluno_aula', function (Blueprint $table) {
             $table->unsignedInteger('aluno_id');
-            $table->unsignedInteger('aula_id')->unique();
+            $table->unsignedInteger('aula_id');
             $table->boolean('presente');
             $table->timestamps();
 

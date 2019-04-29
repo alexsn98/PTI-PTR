@@ -22,4 +22,8 @@ class Aluno extends Model
     public function pedidosMudancaTurma() {
         return $this->hasMany('App\PedidoMudancaTurma', 'utilizador_abrir_id', 'utilizador_id');
     }
+
+    public function presencas() {
+        return $this->hasMany('App\AlunoAula');
+    }
 }

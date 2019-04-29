@@ -16,5 +16,6 @@ TODO:
 - mudar titulo das paginas
 - remember me no login
 - home button na home do visitante
+- adicionar ou alterar tabela de alunos aulas nas precensas
 
 Perguntas para fazer:
