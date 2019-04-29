@@ -40,7 +40,17 @@ class HomeController extends Controller
 
 
         return view('adminUsers', [
+            'utilizadores' => $utilizadores
+            ]);
+    }
+
+    public function getAdminCursos() {
+        $utilizadores = Utilizador::all();
+        $cursos = Curso::all();
+
+        return view('adminCursos', [
             'utilizadores' => $utilizadores,
+            'cursos' => $cursos
             ]);
     }
 

@@ -19,14 +19,16 @@
                 </div>
             </div>
         </a>
-        <div id="divCurso">
-            <div class="image">
-                <img src={{asset('img/curso.png')}}>
+        <a href="/home/admin/cursos">
+            <div id="divCurso">
+                <div class="image">
+                    <img src={{asset('img/curso.png')}}>
+                </div>
+                <div class="text">
+                    <h2>Cursos</h2>
+                </div>
             </div>
-            <div class="text">
-                <h2>Cursos</h2>
-            </div>
-        </div>
+        </a>
         <div id="divCadeira">
             <div class="image">
                 <img src={{asset('img/cadeira.png')}}>
