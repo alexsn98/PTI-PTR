@@ -19,17 +19,9 @@ class CadeiraController extends Controller
 
         $cadeiraInfo["regente"] = $cadeira->regente->utilizador->nome;
 
-        $aulasRealizadas = [];
-
-        foreach ($cadeira->turmas as $turma) {
-            $aulasTipo = $turma->aulasTipo;
-            
-            foreach ($aulasTipo as $aulaTipo) {
-                $aulas = $aulaTipo->aulas;
-
-                $aulasRealizadas[] = $aulas;
-            }
-        }
+        $aulasRealizadas = $cadeira->aulasTipo->map(function ($aulaTipo) {
+            return $aulaTipo->aulas;
+        });
 
         $cadeiraInfo["aulasRealizadas"] = $aulasRealizadas;
 
@@ -42,7 +34,13 @@ class CadeiraController extends Controller
 
             $cadeiraInfo["turmasAtuais"] = [$turmaTeorica, $turmaPratica];           
 
-            $cadeiraInfo["aulasAssistidas"] = $aluno->presencas;
+            $aulasAssistidas = [];
+            
+            foreach ($aluno->presencas as $presenca) {
+                $aulasAssistidas[] = $presenca->aula;
+            }
+
+            $cadeiraInfo["aulasAssistidas"] = $aulasAssistidas;
         }
 
         return view('cadeira')->with($cadeiraInfo);

@@ -18,15 +18,17 @@
 
     <h2>Regente- {{$regente}}</h2>
 
-    <h2>Aulas assistidas</h2>
+    <h2>Aulas Realizadas</h2>
 
     @if (App\Utilizador::find(Auth::id())->aluno)
-        @foreach ($aulasAssistidas as $aulaAssistida)
-            {{$aulaAssistida->aula}}
-        @endforeach
-        <p>Pau</p>
-        @foreach ($aulasRealizadas as $aulaRealizada)
-            {{$aulaRealizada}}
+        @foreach ($aulasRealizadas as $aulaTipoRealizada)
+            @foreach ($aulaTipoRealizada as $aulaRealizada)
+                {{$aulaRealizada->data}}               
+                @if (in_array($aulaRealizada, $aulasAssistidas))
+                    - Presente
+                @endif
+                <br>
+            @endforeach
         @endforeach
     @endif
 
