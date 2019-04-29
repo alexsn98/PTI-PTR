@@ -54,6 +54,32 @@ class HomeController extends Controller
             ]);
     }
 
+    public function getAdminCadeiras() {
+        $utilizadores = Utilizador::all();
+        $cursos = Curso::all();
+        $cadeiras = Cadeira::all();
+
+        return view('adminCadeiras', [
+            'utilizadores' => $utilizadores,
+            'cursos' => $cursos,
+            'cadeiras' => $cadeiras,
+            ]);
+    }
+
+    public function getAdminSalas() {
+        $utilizadores = Utilizador::all();
+
+        $pedidosReservaSala = PedidoReservaSala::all();
+
+        $reservasSalas = ReservaSala::all();
+
+        return view('adminSalas', [
+            'utilizadores' => $utilizadores,
+            'pedidosReservaSala' => $pedidosReservaSala,
+            'reservasSala' => $reservasSalas
+            ]);
+    }
+
 
 
     public function getAlunoHome() {

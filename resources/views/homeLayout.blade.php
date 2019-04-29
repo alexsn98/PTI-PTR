@@ -31,10 +31,9 @@
 
             @if (Auth::check())
                 <div id="logoutDiv">
-                    <a id="linkLogout" href="/logout">
-                        <div id="logout">
-                            <p> Logout </p>
-                        </div>
+                    <a class="button" href="/logout">
+                        <img src={{ asset('img/uuu.png') }}>   
+                        <div class="logout">LOGOUT</div>
                     </a>
                 </div>
             @endif
