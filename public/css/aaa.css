@@ -22,6 +22,7 @@ body{
 #navbar{
     width: 15%;
     height: 100%;
+    float: left;
     background-color: #03353E;
     font-family: 'Open Sans Condensed', sans-serif;
     
@@ -34,7 +35,13 @@ body{
     background-color: white;
     color: rgb(3, 53, 62);
     display: inline-block;
-    font-size: 30px;
+    font-family: 'Tulpen One', cursive;
+    cursor: context-menu;
+}
+
+#title > h2{
+    margin-top:2%;
+    font-size: 70px;
 }
 
 ul{
@@ -43,7 +50,7 @@ ul{
 }
 
 li{
-    width: 100%;
+    width: 90%;
     padding: 9%;
     text-decoration: none;
     color: white;
@@ -51,13 +58,236 @@ li{
     margin: 0;
     background-color: #03353E;
     opacity: 0.3;
+    margin-left: 5%;
+    font-size: 30px;
 
 }
+
+li:first-child{
+    opacity: 1;
+    text-align: center;
+    font-size: 25px;
+}
+
 
 ul > li:hover{
     opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
 }
 
-a:link{
+ul > li:first-child:hover{
+    opacity: 1;
+    background-color: #03353E;
+    cursor: context-menu;
+}
+
+.noDecoration, a:link, a:visited, a:hover{
+    text-decoration: none;
     color: white;
+}
+
+
+.material-icons{
+    margin-right: 2%;
+}
+
+#logout{
+    width: 90%;
+    height: 7%;
+    margin-left: 5%;
+    
+    background-color: rgb(3, 53, 62);
+    color: white;
+    opacity: 0.3;
+    display: inline-block;
+    margin-top: 40%;
+    padding: 9px; 
+}
+
+#logout:hover{
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+#logout > h2{
+    margin-top:2%;
+    font-size: 30px;
+    margin-left: 7%;
+}
+
+#content{
+    width: 85%;
+    height: 100%;
+    float: left;
+    background-color: blue;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#divsTotal{
+    width: 100%;
+    height: 30%;
+    background-color: #EDF0F5;
+}
+
+#divsOther{
+    width: 100%;
+    height: 70%;
+    background-color: #EDF0F5;
+}
+
+#divTotalUsers{
+    width: 31%;
+    height: 45%;
+    float: left;
+    margin-left: 3%;
+    margin-top: 4%;
+    background-color: #ffffff;
+}
+
+#divTotalCursos{
+    width: 31%;
+    height: 45%;
+    float: left;
+    margin-top: 4%;
+    margin-left: 0.5%;
+    background-color: #ffffff;
+}
+
+#divTotalCadeiras{
+    width: 31%;
+    height: 45%;
+    float: left;
+    margin-top: 4%;
+    margin-left: 0.5%;
+    background-color: #ffffff;
+}
+
+.icon{
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+
+.icon > img{
+    width: 50%;
+    height: 50%;
+    margin-left: 30%;
+    margin-top: 22%;
+}
+
+.text{
+    width: 60%;
+    height: 100%;
+    float: left;
+
+}
+
+.number{
+    width: 15%;
+    height: 100%;
+    float: left;
+    
+}
+
+.text > h2{
+    color: rgb(3, 53, 62);
+    margin-top: 12%;
+}
+
+.number > h2{
+    margin-top: 45%;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+#big{
+    width: 62%;
+    height: 90%;
+    background-color: white;
+    float: left;
+    margin-left: 3%;
+}
+
+#divTotalSalas{
+    width: 31%;
+    height: 90%;
+    background-color: white;
+    float: left;
+    margin-left: 1%;
+}
+
+#pedidos{
+    width: 100%;
+    height: 50%;
+    
+}
+
+#reservas{
+    width: 100%;
+    height: 50%;
+    border-bottom: 1px solid rgb(3, 53, 62);
+}
+
+.header{
+    width: 100%;
+    height: 30%;
+}
+
+.contai{
+    width: 100%;
+    height: 70%;
+}
+
+.iconn{
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+
+.tit{
+    width: 80%;
+    height: 100%;
+    float: left;
+}
+
+.tit > h4{
+    margin-top: 6%;
+}
+
+.iconn > img{
+    width: 45%;
+    height: 50%;
+    margin-left: 27.5%;
+    margin-top: 20%;
+}
+
+.contai1{
+    width: 100%;
+    height: 50%;
+}
+
+.hiperCont{
+    width: 100%;
+    height: 20%;
+}
+
+.contai > h2 {
+    font-size: 60px;
+    text-align: center;
+    padding: 10%;
+}
+
+.contai1 > h2 {
+    font-size: 60px;
+    text-align: center;
+    padding: 6%;
+}
+
+#buttonIr{
+    width: 20%;
+    height: 80%;
+    margin-left: 75%;
+    background-color: rgb(3, 53, 62);;
 }
