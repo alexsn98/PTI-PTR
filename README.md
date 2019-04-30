@@ -15,7 +15,7 @@ TODO:
 - modificar paginas de modo a permitir acesso por visitantes
 - mudar titulo das paginas
 - remember me no login
-- home button na home do visitante
 - adicionar ou alterar tabela de alunos aulas nas precensas
 
 Perguntas para fazer:
+- docente pode criar aulas tipo?

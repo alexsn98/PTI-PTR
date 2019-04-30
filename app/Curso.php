@@ -20,4 +20,8 @@ class Curso extends Model
     public function coordenador() {
         return $this->belongsTo('\App\Docente');
     }
+
+    public function curso() {
+        return $this->hasMany('App\Curso');
+    }
 }

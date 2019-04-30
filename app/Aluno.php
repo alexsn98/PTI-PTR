@@ -19,6 +19,10 @@ class Aluno extends Model
         ]);
     }
 
+    public function curso() {
+        return $this->belongsTo('App\Curso');
+    }
+
     public function pedidosMudancaTurma() {
         return $this->hasMany('App\PedidoMudancaTurma', 'utilizador_abrir_id', 'utilizador_id');
     }

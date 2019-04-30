@@ -13,8 +13,8 @@ use Auth;
 
 class TurmaController extends Controller
 {
-    public function getTurma($id) {
-        $turma = Turma::find($id);
+    public function getTurma($idTurma) {
+        $turma = Turma::find($idTurma);
         $docente = $turma->docente;
         $salas = Sala::all();
         $aulasTipo = $turma->aulasTipo;
@@ -48,19 +48,19 @@ class TurmaController extends Controller
         ]);
     }
 
-    public function inscrever($id) {
+    public function inscrever($idTurma) {
         //devolve aluno autenticado
         $aluno = Utilizador::find((Auth::id()))->aluno;
 
         //devolve cadeira
-        $cadeira = Turma::find($id)->cadeira_id; 
+        $cadeira = Turma::find($idTurma)->cadeira_id; 
 
         $jaInscrito = $aluno->cadeiras()->where('cadeira_id',$cadeira)->first()->pivot->turma_pratica_id != null;
 
         if ($jaInscrito) {
             PedidoMudancaTurma::create([ 
                 'utilizador_abrir_id' => Auth::id(),
-                'utilizador_fechar_id' => Turma::find($id)->docente->utilizador_id,
+                'utilizador_fechar_id' => Turma::find($idTurma)->docente->utilizador_id,
                 'turma_pedida_id' => $id
             ]);
         }
@@ -71,5 +71,13 @@ class TurmaController extends Controller
         }
 
         return redirect("home/cadeira/$cadeira");
+    }
+
+    public function fecharTurma($idTurma) {
+        $turma = Turma::find($idTurma);
+
+        $turma->delete();
+
+        return redirect()->back();
     }
 }
