@@ -24,6 +24,12 @@ Route::get('home/aluno', 'HomeController@getAlunoHome')->middleware('aluno');
 Route::get('home/docente', 'HomeController@getDocenteHome')->middleware('docente');
 Route::get('home/visitante', 'HomeController@getVisitanteHome');
 
+Route::get('home/admin/utilizadores', 'HomeController@getAdminUsers')->middleware('admin');
+Route::get('home/admin/cursos', 'HomeController@getAdminCursos')->middleware('admin');
+Route::get('home/admin/cadeiras', 'HomeController@getAdminCadeiras')->middleware('admin');
+Route::get('home/admin/salas', 'HomeController@getAdminSalas')->middleware('admin');
+
+
 Route::get('home/cadeira/{id}', 'CadeiraController@getCadeira');
 
 Route::get('home/cadeira/turma/{idTurma}', 'TurmaController@getTurma');

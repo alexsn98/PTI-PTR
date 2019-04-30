@@ -35,6 +35,53 @@ class HomeController extends Controller
             ]);
     }
 
+    public function getAdminUsers() {
+        $utilizadores = Utilizador::all();
+
+
+        return view('adminUsers', [
+            'utilizadores' => $utilizadores
+            ]);
+    }
+
+    public function getAdminCursos() {
+        $utilizadores = Utilizador::all();
+        $cursos = Curso::all();
+
+        return view('adminCursos', [
+            'utilizadores' => $utilizadores,
+            'cursos' => $cursos
+            ]);
+    }
+
+    public function getAdminCadeiras() {
+        $utilizadores = Utilizador::all();
+        $cursos = Curso::all();
+        $cadeiras = Cadeira::all();
+
+        return view('adminCadeiras', [
+            'utilizadores' => $utilizadores,
+            'cursos' => $cursos,
+            'cadeiras' => $cadeiras,
+            ]);
+    }
+
+    public function getAdminSalas() {
+        $utilizadores = Utilizador::all();
+
+        $pedidosReservaSala = PedidoReservaSala::all();
+
+        $reservasSalas = ReservaSala::all();
+
+        return view('adminSalas', [
+            'utilizadores' => $utilizadores,
+            'pedidosReservaSala' => $pedidosReservaSala,
+            'reservasSala' => $reservasSalas
+            ]);
+    }
+
+
+
     public function getAlunoHome() {
         $cadeiras = Utilizador::find((Auth::id()))->aluno->cadeiras->all();
 
