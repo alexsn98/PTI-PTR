@@ -21,7 +21,7 @@
                 <h2>Falco admin</h2>
             </div>
             <ul>
-                <li>Olá, username</li>
+            <li>Olá, {{App\Utilizador::find(Auth::id())->nome}}</li>
                 <li><a class="noDecoration" href="/home/admin"><span class="material-icons">home</span>Dashboard</a></li>
                 <li><a class="noDecoration" href="/home/admin/utilizadores"><span class="material-icons">people</span>Utilizadores</a></li>
                 <li><a class="noDecoration" href="/home/admin/cursos"><span class="material-icons">school</span>Cursos</a></li>
@@ -42,7 +42,7 @@
                         <h2>Total Utilizadores</h2>
                     </div>
                     <div class="number">
-                        <h2>100</h2>
+                        <h2>{{App\Utilizador::count()}}</h2>
                     </div>
                 </div>
                 <div id="divTotalCursos">
@@ -53,7 +53,7 @@
                         <h2>Total Cursos</h2>
                     </div>
                     <div class="number">
-                        <h2>10</h2>
+                        <h2>{{App\Curso::count()}}</h2>
                     </div>
                 </div>
                 <div id="divTotalCadeiras">
@@ -64,7 +64,7 @@
                         <h2>Total Cadeiras</h2>
                     </div>
                     <div class="number" >
-                        <h2>100</h2>
+                        <h2>{{App\Cadeira::count()}}</h2>
                     </div>
                 </div>
             </div>

@@ -14,31 +14,7 @@
     <title>Home Page</title>
 </head>
 <body>
-    <header>
-        <div id="logo">
-            <img src={{ asset('img/logo.png') }}>
-        </div>
-        <div id="divLogout">
-            <div id="space">
-            </div>
-
-            <div id="nameUser">
-                @if (request()->session()->get('userNum'))
-                    <h3>Utilizador:</h3>
-                    <h5>fc{{request()->session()->get('userNum')}}</h5>
-                @endif
-            </div>
-
-            @if (Auth::check())
-                <div id="logoutDiv">
-                    <a class="button" href="/logout">
-                        <img src={{ asset('img/uuu.png') }}>   
-                        <div class="logout">LOGOUT</div>
-                    </a>
-                </div>
-            @endif
-        </div>
-    </header>
+    
     <div id="cont">
         @yield('content')
     </div>
