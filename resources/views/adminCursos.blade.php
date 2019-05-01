@@ -21,12 +21,12 @@
                 <h2>Falco admin</h2>
             </div>
             <ul>
-                <li>Olá, username</li>
-                <li><a class="noDecoration" href="/home/admin"><span class="material-icons">home</span>Dashboard</a></li>
-                <li><a class="noDecoration" href="/home/admin/utilizadores"><span class="material-icons">people</span>Utilizadores</a></li>
-                <li><a class="noDecoration" href="#"><span class="material-icons">school</span>Cursos</a></li>
-                <li><a class="noDecoration" href="/home/admin/cadeiras"><span class="material-icons">assignment</span>Cadeiras</a></li>
-                <li><a class="noDecoration" href="/home/admin/salas"><span class="material-icons">meeting_room</span>Salas</a></li>
+                <li class="navv">Olá, username</li>
+                <li class="navv"><a class="noDecoration" href="/home/admin"><span class="material-icons">home</span>Dashboard</a></li>
+                <li class="navv"><a class="noDecoration" href="/home/admin/utilizadores"><span class="material-icons">people</span>Utilizadores</a></li>
+                <li class="navv"style="opacity: 1; background: rgba(255, 255, 255, 0.1); cursor: pointer;"><a class="noDecoration" href="#"><span class="material-icons">school</span>Cursos</a></li>
+                <li class="navv"><a class="noDecoration" href="/home/admin/cadeiras"><span class="material-icons">assignment</span>Cadeiras</a></li>
+                <li class="navv"><a class="noDecoration" href="/home/admin/salas"><span class="material-icons">meeting_room</span>Salas</a></li>
             </ul>
             <div id="logout">
                 <h2><i class="material-icons">input</i>Logout</h2>

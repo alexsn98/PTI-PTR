@@ -46,10 +46,11 @@ body{
 
 ul{
     padding: 0;
+    height: 69%;
     
 }
 
-li{
+.navv{
     width: 90%;
     padding: 9%;
     text-decoration: none;
@@ -60,23 +61,23 @@ li{
     opacity: 0.3;
     margin-left: 5%;
     font-size: 30px;
+    margin-top: 1%;
 
 }
-
-li:first-child{
+.navv:first-child{
     opacity: 1;
     text-align: center;
     font-size: 25px;
 }
 
 
-ul > li:hover{
+ul > .navv:hover{
     opacity: 1;
     background: rgba(255, 255, 255, 0.1);
     cursor: pointer;
 }
 
-ul > li:first-child:hover{
+ul > .navv:first-child:hover{
     opacity: 1;
     background-color: #03353E;
     cursor: context-menu;
@@ -101,7 +102,7 @@ ul > li:first-child:hover{
     color: white;
     opacity: 0.3;
     display: inline-block;
-    margin-top: 40%;
+    margin-top: 30%;
     padding: 9px; 
 }
 
@@ -121,7 +122,7 @@ ul > li:first-child:hover{
     width: 85%;
     height: 100%;
     float: left;
-    background-color: blue;
+    background-color: #EDF0F5;
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
