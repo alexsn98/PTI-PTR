@@ -1,6 +1,7 @@
 @extends('homeLayout')
 
 @section('content')
+    <a href="/">Página de login</a>
 
     <h3> Cursos: </h3>
     <ul>

@@ -14,7 +14,7 @@ class CreateReservaSala extends Migration
     public function up()
     {
         Schema::create('reserva_sala', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->unsignedInteger('sala_id');
             $table->unsignedInteger('utilizador_id');
             $table->dateTime('inicio');

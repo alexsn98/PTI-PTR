@@ -7,21 +7,24 @@ use App\Turma;
 use App\Utilizador;
 use App\Cadeira;
 use App\Sala;
+use App\Aula;
 use App\PedidoMudancaTurma;
 use Auth;
 
 class TurmaController extends Controller
 {
-    public function getTurma($id) {
-        $turma = Turma::find($id);
+    public function getTurma($idTurma) {
+        $turma = Turma::find($idTurma);
         $docente = $turma->docente;
+        $salas = Sala::all();
+        $aulasTipo = $turma->aulasTipo;
+        $aulasTipoInfo = [];
 
-        $aulasTipo = [];
-
-        foreach ($turma->aulasTipo->all() as $aulaTipo) {
+        foreach ($aulasTipo as $aulaTipo) {
             $sala = Sala::find($aulaTipo->sala_id);
             
-            $aulaTipo = [
+            $aulaTipoInfo = [
+                'id' => $aulaTipo->id,
                 'inicio' => $aulaTipo->inicio,
                 'fim' => $aulaTipo->fim,
                 'edificio' => $sala->edificio,
@@ -29,29 +32,35 @@ class TurmaController extends Controller
                 'numSala' => $sala->num_sala
             ];
 
-            $aulasTipo[] = $aulaTipo;
+            $aulasTipoInfo[] = $aulaTipoInfo;
         }
+
+        $aulas = Aula::all()->filter(function ($aula) use ($aulasTipo) {
+            return $aulasTipo->contains($aula->aulaTipo);
+        });
 
         return view('turma')->with([
             'turma' => $turma,
             'docente' => $docente,
-            'aulasTipo' => $aulasTipo
-            ]);
+            'aulasTipo' => $aulasTipoInfo,
+            'salas' => $salas,
+            'aulas' => $aulas
+        ]);
     }
 
-    public function inscrever($id) {
+    public function inscrever($idTurma) {
         //devolve aluno autenticado
         $aluno = Utilizador::find((Auth::id()))->aluno;
 
         //devolve cadeira
-        $cadeira = Turma::find($id)->cadeira_id; 
+        $cadeira = Turma::find($idTurma)->cadeira_id; 
 
         $jaInscrito = $aluno->cadeiras()->where('cadeira_id',$cadeira)->first()->pivot->turma_pratica_id != null;
 
         if ($jaInscrito) {
             PedidoMudancaTurma::create([ 
                 'utilizador_abrir_id' => Auth::id(),
-                'utilizador_fechar_id' => Turma::find($id)->docente->utilizador_id,
+                'utilizador_fechar_id' => Turma::find($idTurma)->docente->utilizador_id,
                 'turma_pedida_id' => $id
             ]);
         }
@@ -62,5 +71,13 @@ class TurmaController extends Controller
         }
 
         return redirect("home/cadeira/$cadeira");
+    }
+
+    public function fecharTurma($idTurma) {
+        $turma = Turma::find($idTurma);
+
+        $turma->delete();
+
+        return redirect()->back();
     }
 }

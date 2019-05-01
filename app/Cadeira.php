@@ -25,6 +25,10 @@ class Cadeira extends Model
         return $this->hasMany('\App\Turma');
     }
 
+    public function aulasTipo() {
+        return $this->hasManyThrough('App\AulaTipo', 'App\Turma');;
+    }
+
     public function regente() {
         return $this->belongsTo('\App\Docente');
     }
