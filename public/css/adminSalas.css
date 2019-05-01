@@ -28,20 +28,10 @@
 
 #view1{
     width: 90%;
-    height: 50%;
+    height: 30%;
     margin-left: 5%;
     background-color: white;
-    display: inline-block
-}
-
-#filtrar > h3{
-    float: left;
-}
-
-#filtrar > select{
-    float: left;
-    margin-left: 1%;
-    margin-top: 0.2%;
+    display: inline-block;
 }
 
 .this{

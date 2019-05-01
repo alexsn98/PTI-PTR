@@ -53,7 +53,7 @@
             </div>
             <div id="rightContent">
                 <div id="filtrar"> 
-                    <h1>Utilizador:</h1>     
+                    <h2>Utilizador:</h2>     
                 </div>
                 <div id="view1">
                     <h2>Nome:</h2>
