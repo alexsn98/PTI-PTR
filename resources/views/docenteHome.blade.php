@@ -19,7 +19,11 @@
     <h3> Professor das turmas: </h3>
     <ul>
         @foreach ($turmas as $turma)
-            <li> <a href="cadeira/turma/{{ $turma->id}}"> TP-{{ $turma->numero }} </a> </li>
+            <li> 
+                <a href="cadeira/turma/{{ $turma->id}}"> TP-{{ $turma->numero }} </a> 
+                <-
+                <a href="cadeira/turma/fecharTurma/{{$turma->id}}"> Fechar turma </a>
+            </li>
         @endforeach
     </ul>
 
