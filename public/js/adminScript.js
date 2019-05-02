@@ -1,23 +1,33 @@
 function selecionarUtilizador(utilizadorId) {
-    console.log(utilizadorId);
+  
+  let info = document.getElementById('view1').getElementsByTagName('h2');
+  let url = 'utilizadorInfo/' + utilizadorId;
+  
+  info[0].textContent = 'Nome:'
+  info[1].textContent = 'Número:';
+  info[2].textContent = 'Cargo:';
+  info[3].textContent = 'Mail:';
+  info[4].textContent = 'Curso:';
+  info[5].textContent = 'Cadeiras:';      
 
-    let info = document.getElementById('view1').getElementsByTagName('h2');
+  let xhttp = new XMLHttpRequest();
+  let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-    let xhttp = new XMLHttpRequest();
-    let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  xhttp.open("GET", url, true);
+  xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+  xhttp.send();
 
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        resposta = JSON.parse(this.responseText);        
 
-    xhttp.open("POST", 'utilizadorInfo', true);
-    xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
-    xhttp.send();
+        info[0].textContent += ' ' + resposta.nome;
 
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          console.log("pau");
-        }
-    };
+        info[1].textContent += ' ' + resposta.numero;
+        
+        info[2].textContent += ' ' + resposta.cargo;
 
-    // info[0].textContent += ' ' + utilizador.nome;
-
-    // info[3].textContent += ' ' + utilizador.email;
+        info[3].textContent += ' ' + resposta.email;          
+      }
+  };
 }

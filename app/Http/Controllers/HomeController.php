@@ -29,24 +29,36 @@ class HomeController extends Controller
         ]);
     }
     public function getUtilizadorInfo($idUtilizador) {
-        // $utilizadorInfo = [];
-        // $utilizador = Utilizador::find($idUtilizador);
+        $utilizadorInfo = [];
+        $utilizador = Utilizador::find($idUtilizador);
 
-        // $utilizadorInfo = [
-        //     'nome' => $utilizador->nome,
-        //     'email' => $utilizador->email
-        // ];
-        // if ($utilizador->admistrador) {
-        //     $utilizadorInfo['cargo'] = 'admistrador';
-        // }
-        // else if ($utilizador->aluno) {
-        //     $utilizadorInfo['cargo'] = 'aluno';
-        // }
-        // else if ($utilizador->docente) {
-        //     $utilizadorInfo['cargo'] = 'docente';
-        // }
-        // $utilizadoresInfo[] = $utilizadorInfo;
-        return response()->json("pau");
+        $utilizadorNome = $utilizador->nome;
+        $utilizadorEmail = $utilizador->email;
+
+        if ($utilizador->admistrador) {
+            $cargo = 'admistrador';
+            $numero = '-';
+        }
+
+
+        else if ($utilizador->aluno) {
+            $cargo = 'aluno';
+            $numero = $utilizador->aluno->numero;
+            $curso = $utilizador->aluno->curso;
+        }
+        
+        else if ($utilizador->docente) {
+            $cargo = 'docente';
+            $numero = $utilizador->docente->numero;
+            $curso = $utilizador->docente->curso;
+        }
+
+        return response()->json([
+            'nome' => $utilizadorNome,
+            'email' => $utilizadorEmail,
+            'cargo' => $cargo,
+            'numero' => $numero
+        ]);
     }
 
     public function getAdminCursos() {

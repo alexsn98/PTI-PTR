@@ -29,3 +29,8 @@ TODO funcionalidades:
 - Aluno reservar slots de atendimento do professor
 - Admin fornecer ajuda 
 - Admin criar eventos
+- Colocar um horário e calendário com estilo no aluno e docente
+
+
+- Sugestão : O aluno tem um calendário próprio e pode decidir o que vai fazer naquelas horas (exemplo: hora de estudo) 
+
