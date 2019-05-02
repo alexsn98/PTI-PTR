@@ -2,7 +2,7 @@
 @section('name', 'Admin Utilizadores')
 @section('cssPagina')
     <link rel="stylesheet" href= {{ asset('css/adminUsers.css') }}>
-    <meta name="csrf-token" content="example-content"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}"/> 
 @endsection
 
 @section('utilizadoresAtive') 

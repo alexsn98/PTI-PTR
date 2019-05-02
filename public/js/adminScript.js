@@ -1,5 +1,5 @@
-function selecionarUtilizador(utilizador) {
-    console.log(utilizador);
+function selecionarUtilizador(utilizadorId) {
+    console.log(utilizadorId);
 
     let info = document.getElementById('view1').getElementsByTagName('h2');
 
