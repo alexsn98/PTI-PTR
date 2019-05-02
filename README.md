@@ -19,3 +19,13 @@ TODO:
 
 Perguntas para fazer:
 - docente pode criar aulas tipo?
+
+TODO funcionalidades:
+- Docente adicionar horario de duvida
+- Docente ver incompatibilidade nos alunos
+- Estado de turma alterado automaticamente
+- Docente e Aluno pedirem ajuda a Admin
+- Aluno ver horário das salas
+- Aluno reservar slots de atendimento do professor
+- Admin fornecer ajuda 
+- Admin criar eventos

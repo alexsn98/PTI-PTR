@@ -14,7 +14,6 @@
     <title>Home Page</title>
 </head>
 <body>
-    
     <div id="cont">
         @yield('content')
     </div>

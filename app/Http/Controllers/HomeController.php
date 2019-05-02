@@ -16,31 +16,47 @@ use Auth;
 class HomeController extends Controller
 {
     public function getAdminHome() {
-        $utilizadores = Utilizador::all();
-
-        $cursos = Curso::all();
-        
-        $cadeiras = Cadeira::all();
-
-        $pedidosReservaSala = PedidoReservaSala::all();
-
-        $reservasSalas = ReservaSala::all();
-
         return view('adminHome', [
-            'utilizadores' => $utilizadores,
-            'cursos' => $cursos,
-            'cadeiras' => $cadeiras,
-            'pedidosReservaSala' => $pedidosReservaSala,
-            'reservasSala' => $reservasSalas
-            ]);
+            'utilizadoresNum' => Utilizador::count(),
+            'cursosNum' => Curso::count(),
+            'cadeirasNum' => Cadeira::count(),
+            'pedidosReservaSalaNum' =>  PedidoReservaSala::count(),
+            'reservasSalasNum' => ReservaSala::count()
+        ]);
     }
 
-    public function getAdminUsers() {
-        $utilizadores = Utilizador::all();
+    public function getAdminUtilizadores() {
+        $utilizadores = Utilizador::all(); 
 
-        return view('adminUsers', [
+        return view('adminUtilizadores', [
             'utilizadores' => $utilizadores
         ]);
+    }
+
+    public function getUtilizadorInfo($idUtilizador) {
+        // $utilizadorInfo = [];
+        // $utilizador = Utilizador::find($idUtilizador);
+
+        // $utilizadorInfo = [
+        //     'nome' => $utilizador->nome,
+        //     'email' => $utilizador->email
+        // ];
+
+        // if ($utilizador->admistrador) {
+        //     $utilizadorInfo['cargo'] = 'admistrador';
+        // }
+
+        // else if ($utilizador->aluno) {
+        //     $utilizadorInfo['cargo'] = 'aluno';
+        // }
+
+        // else if ($utilizador->docente) {
+        //     $utilizadorInfo['cargo'] = 'docente';
+        // }
+
+        // $utilizadoresInfo[] = $utilizadorInfo;
+
+        return response()->json("pau");
     }
 
     public function getAdminCursos() {
