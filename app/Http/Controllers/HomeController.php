@@ -28,6 +28,7 @@ class HomeController extends Controller
             'utilizadores' => $utilizadores
         ]);
     }
+
     public function getUtilizadorInfo($idUtilizador) {
         $utilizadorInfo = [];
         $utilizador = Utilizador::find($idUtilizador);
@@ -68,6 +69,32 @@ class HomeController extends Controller
             'curso' => $curso,
             'cadeiras' => $cadeiras
         ]);
+    }
+
+    public function filtarUtilizadores($cargo) {
+        if ($cargo == 'todos') {
+            $utilizadoresFiltrados = Utilizador::all();
+        }
+
+        else if ($cargo == 'alunos') {
+            $utilizadoresFiltrados = Utilizador::all()->filter(function ($utilizador) {
+                return $utilizador->aluno;
+            });
+        }
+
+        else if ($cargo == 'admnistradores') {
+            $utilizadoresFiltrados = Utilizador::all()->filter(function ($utilizador) {
+                return $utilizador->Admistrador;
+            });
+        }
+
+        else if ($cargo == 'docentes') {
+            $utilizadoresFiltrados = Utilizador::all()->filter(function ($utilizador) {
+                return $utilizador->docente;
+            });
+        }
+
+        return response()->json($utilizadoresFiltrados);
     }
 
     public function getAdminCursos() {

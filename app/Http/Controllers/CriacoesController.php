@@ -22,7 +22,7 @@ class CriacoesController extends Controller
             'nome' => request('nome')
         ]);
 
-        return redirect("home/admin");
+        return redirect()->back();
     }
 
     public function criarCadeira() {
@@ -44,7 +44,7 @@ class CriacoesController extends Controller
             'ciclo' => request('ciclo')
         ]);
 
-        return redirect("home/admin");
+        return redirect()->back();
     } 
 
     public function criarTurma($idCadeira) {
