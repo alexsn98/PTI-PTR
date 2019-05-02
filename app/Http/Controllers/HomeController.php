@@ -23,6 +23,7 @@ class HomeController extends Controller
     }
     public function getAdminUtilizadores() {
         $utilizadores = Utilizador::all(); 
+
         return view('adminUtilizadores', [
             'utilizadores' => $utilizadores
         ]);
@@ -30,6 +31,7 @@ class HomeController extends Controller
     public function getUtilizadorInfo($idUtilizador) {
         // $utilizadorInfo = [];
         // $utilizador = Utilizador::find($idUtilizador);
+
         // $utilizadorInfo = [
         //     'nome' => $utilizador->nome,
         //     'email' => $utilizador->email
@@ -46,6 +48,7 @@ class HomeController extends Controller
         // $utilizadoresInfo[] = $utilizadorInfo;
         return response()->json("pau");
     }
+
     public function getAdminCursos() {
         $utilizadores = Utilizador::all();
         $cursos = Curso::all();
