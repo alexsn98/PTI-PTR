@@ -28,10 +28,10 @@
 
 #view1{
     width: 90%;
-    height: 50%;
+    height: 57%;
     margin-left: 5%;
     background-color: white;
-    display: inline-block
+    display: inline-block;
 }
 
 #filtrar > h3{
@@ -68,4 +68,52 @@
 
 #filtrar > h2{
     text-align: center;
+}
+
+.form-group > input{
+    width: 96%;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+label{
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+.btn{
+    width: 50%;
+    margin-top: 1%;
+    margin-left: 25%;
+}
+
+#theCadeira{
+    width: 90%;
+    height: 25%;
+    margin-left: 5%;
+    margin-top: 3%;
+    background-color: white;
+    display: inline-block
+}
+
+#left{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+#right{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+#left > h4{
+    margin-top: 8%;
+    margin-left: 2%;
+}
+
+#right > h4{
+    margin-top: 8%;
+    margin-left: 2%;
 }
