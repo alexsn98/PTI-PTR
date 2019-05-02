@@ -27,7 +27,11 @@ function selecionarUtilizador(utilizadorId) {
         
         info[2].textContent += ' ' + resposta.cargo;
 
-        info[3].textContent += ' ' + resposta.email;          
+        info[3].textContent += ' ' + resposta.email;      
+        
+        info[4].textContent += ' ' + resposta.curso;  
+
+        info[5].textContent += ' ' + resposta.cadeiras; 
       }
   };
 }

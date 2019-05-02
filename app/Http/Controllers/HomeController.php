@@ -38,26 +38,35 @@ class HomeController extends Controller
         if ($utilizador->admistrador) {
             $cargo = 'admistrador';
             $numero = '-';
+            $curso = '-';
+            $cadeiras = '-';
         }
-
 
         else if ($utilizador->aluno) {
             $cargo = 'aluno';
             $numero = $utilizador->aluno->numero;
-            $curso = $utilizador->aluno->curso;
+            $curso = $utilizador->aluno->curso->nome;
+            $cadeiras = $utilizador->aluno->cadeiras->map(function($cadeira) {
+                return $cadeira->nome;
+            });
         }
         
         else if ($utilizador->docente) {
             $cargo = 'docente';
             $numero = $utilizador->docente->numero;
-            $curso = $utilizador->docente->curso;
+            $curso = $utilizador->docente->curso->nome;
+            $cadeiras = $utilizador->docente->cadeiras->map(function($cadeira) {
+                return $cadeira->nome;
+            });
         }
 
         return response()->json([
             'nome' => $utilizadorNome,
             'email' => $utilizadorEmail,
             'cargo' => $cargo,
-            'numero' => $numero
+            'numero' => $numero,
+            'curso' => $curso,
+            'cadeiras' => $cadeiras
         ]);
     }
 
