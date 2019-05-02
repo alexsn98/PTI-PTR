@@ -28,20 +28,10 @@
 
 #view1{
     width: 90%;
-    height: 50%;
+    height: 30%;
     margin-left: 5%;
     background-color: white;
-    display: inline-block
-}
-
-#filtrar > h3{
-    float: left;
-}
-
-#filtrar > select{
-    float: left;
-    margin-left: 1%;
-    margin-top: 0.2%;
+    display: inline-block;
 }
 
 .this{
@@ -68,4 +58,51 @@
 
 #filtrar > h2{
     text-align: center;
+}
+
+#viewCurso{
+    width: 90%;
+    height: 50%;
+    margin-left: 5%;
+    margin-top: 5%;
+    background-color: white;
+    display: inline-block;
+}
+
+#viewCurso > h3{
+    margin-top: 4%;
+    margin-left: 2%;
+}
+
+#viewCurso > ul{
+    height: 50%;
+    overflow: auto;
+}
+
+#viewCurso > ul > li{
+    display: flex;
+    width: 96%;
+    margin-left: 2%;
+    background-color: rgba(3, 53, 62,0.5);
+    padding: 10px 20px;
+    margin-top: 1%;
+    color: #fff;
+    transition: 0.5s;
+}
+
+label{
+    margin-left: 2%;
+    margin-top: 2%;
+    font-size: 30px;
+}
+
+.form-group > input{
+    width: 96%;
+    margin-left: 2%;
+}
+
+.btn{
+    width: 50%;
+    margin-top: 6%;
+    margin-left: 25%;
 }

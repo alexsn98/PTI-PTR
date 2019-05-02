@@ -10,7 +10,6 @@
 @endsection
 
 @section('content')
-    <div id="content">
         <div id="leftContent">
             <div id="filtrar">
                 <h3>Filtrar:</h3>
@@ -43,6 +42,5 @@
                 <h2>Cadeiras:</h2>
             </div>
         </div>
-    </div>
     <script src="{{asset('js/adminScript.js')}}"></script>
 @endsection

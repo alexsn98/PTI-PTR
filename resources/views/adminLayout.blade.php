@@ -25,7 +25,7 @@
                 <li class="navv">Olá, {{Auth::user()->nome}}</li>
                 <li class="navv" @yield('homeAtive')><a class="noDecoration" href="/home/admin"><span class="material-icons">home</span>Dashboard</a></li>
                 <li class="navv" @yield('utilizadoresAtive')><a class="noDecoration" href="/home/admin/utilizadores"><span class="material-icons">people</span>Utilizadores</a></li>
-                <li class="navv" @yield('cursosAtive')><a class="noDecoration" href="#"><span class="material-icons">school</span>Cursos</a></li>
+                <li class="navv" @yield('cursosAtive')><a class="noDecoration" href="/home/admin/cursos"><span class="material-icons">school</span>Cursos</a></li>
                 <li class="navv" @yield('cadeirasAtive')><a class="noDecoration" href="/home/admin/cadeiras"><span class="material-icons">assignment</span>Cadeiras</a></li>
                 <li class="navv" @yield('salasAtive')><a class="noDecoration" href="/home/admin/salas"><span class="material-icons">meeting_room</span>Salas</a></li>
             </ul>
