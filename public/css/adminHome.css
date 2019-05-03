@@ -36,7 +36,7 @@ body{
     color: rgb(3, 53, 62);
     display: inline-block;
     font-family: 'Tulpen One', cursive;
-    cursor: context-menu;
+    cursor: default;
 }
 
 #title > h2{
@@ -80,7 +80,7 @@ ul > .navv:hover{
 ul > .navv:first-child:hover{
     opacity: 1;
     background-color: #03353E;
-    cursor: context-menu;
+    cursor: default;
 }
 
 .noDecoration, a:link, a:visited, a:hover{
@@ -292,3 +292,8 @@ ul > .navv:first-child:hover{
     margin-left: 75%;
     background-color: rgb(3, 53, 62);;
 }
+
+#navbar a {
+    text-decoration: none;
+    color: white;
+} 

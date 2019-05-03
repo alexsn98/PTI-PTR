@@ -1,16 +1,14 @@
-    @if (App\Utilizador::find(Auth::id())->admistrador)
+@if (Auth::user()->admistrador)
+    @extends('adminLayout')
+    @section('name', 'Admin Utilizadores')
+    @section('cssPagina')
+        <link rel="stylesheet" href= {{ asset('css/adminCadeira.css') }}>
+    @endsection
 
-        @extends('adminLayout')
-        @section('name', 'Admin Utilizadores')
-        @section('cssPagina')
-            <link rel="stylesheet" href= {{ asset('css/adminCadeira.css') }}>
-            <meta name="csrf-token" content="example-content"/>
-        @endsection
-
-        @section('cadeirasAtive') 
-            style= "opacity: 1; background: rgba(255, 255, 255, 0.1); cursor: pointer;"
-        @endsection
-    @endif
+    @section('cadeirasAtive') 
+        style= "opacity: 1; background: rgba(255, 255, 255, 0.1); cursor: pointer;"
+    @endsection
+@endif
 
 @section('content')
     <h2>Nome da cadeira - {{$cadeira->nome}}</h2>
@@ -18,10 +16,10 @@
     <h2> Turmas </h2>
     <ul>
         @foreach ($turmas as $turma)
-            <li> <a href="turma/{{$turma->id}}"> TP-{{$turma->numero}} 
+            <li class="this"> <a href="turma/{{$turma->id}}"> TP-{{$turma->numero}} 
                 
             {{-- Se for a turma atual --}}
-            @if (App\Utilizador::find(Auth::id())->aluno && in_array($turma->id, $turmasAtuais))
+            @if (Auth::user()->aluno && in_array($turma->id, $turmasAtuais))
                 - Turma Atual 
             @endif
                 
@@ -31,7 +29,7 @@
 
     <h2>Regente- {{$regente}}</h2>
 
-    @if (App\Utilizador::find(Auth::id())->docente)
+    @if (Auth::user()->docente)
         <h2>Alunos sem Turma</h2>
         @foreach ($alunosSemTurma as $aluno)
             {{$aluno->utilizador->nome}} - {{$aluno->numero}}
@@ -39,7 +37,7 @@
     @endif
 
     
-    @if (App\Utilizador::find(Auth::id())->aluno)
+    @if (Auth::user()->aluno)
         <h2>Aulas Realizadas</h2>
     
         @foreach ($aulasRealizadas as $aulaTipoRealizada)
@@ -53,7 +51,7 @@
         @endforeach
     @endif
 
-    @if (App\Utilizador::find(Auth::id())->admistrador)
+    @if (Auth::user()->admistrador)
         <br>
         <h4>Criar Turma: </h4>
 
