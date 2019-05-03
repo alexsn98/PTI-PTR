@@ -103,9 +103,15 @@ class InformacoesController extends Controller
     }
 
     public function filtarCadeiras($curso) {
-        $cadeirasFiltradas = Cadeira::all()->filter(function ($cadeira) use ($curso) {
-            return $cadeira->curso->nome == $curso;
-        });
+        if ($curso == "todos") {
+            $cadeirasFiltradas = Cadeira::all();
+        }
+
+        else {
+            $cadeirasFiltradas = Cadeira::all()->filter(function ($cadeira) use ($curso) {
+                return $cadeira->curso->nome == $curso;
+            });
+        }
       
         return response()->json($cadeirasFiltradas);
     }

@@ -2,7 +2,7 @@
 @section('name', 'Admin Utilizadores')
 @section('cssPagina')
     <link rel="stylesheet" href= {{ asset('css/adminSalas.css') }}>
-    <meta name="csrf-token" content="example-content"/>
+    <link rel="stylesheet" href= {{ asset('css/adminHome.css') }}>
 @endsection
 
 @section('salasAtive') 
@@ -17,7 +17,7 @@
                 <div id="view">
                     <ul>
                         @foreach ($pedidosReservaSala as $pedido)
-                            <li id="this"> 
+                            <li class="this"> 
                                 Pedido feito por: {{$pedido->utilizadorAbre->nome}} <br>
                                 Sala: {{$pedido->sala->edificio}}.{{$pedido->sala->piso}}.{{$pedido->sala->num_sala}} <br>
                                 Inicio: {{$pedido->inicio}} <br>
@@ -35,7 +35,7 @@
                 <div id="view">
                     <ul>
                         @foreach ($reservasSala as $reserva)
-                            <li id="this"> 
+                            <li class="this"> 
                                 Reserva feita por: {{$reserva->utilizador->nome}} <br>
                                 Sala: {{$reserva->sala->edificio}}.{{$reserva->sala->piso}}.{{$reserva->sala->num_sala}} <br>
                                 Inicio: {{$reserva->inicio}} <br>
