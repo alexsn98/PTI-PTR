@@ -17,8 +17,12 @@ Route::get('home/admin/utilizadores', 'HomeController@getAdminUtilizadores')->mi
 Route::get('home/admin/cursos', 'HomeController@getAdminCursos')->middleware('admin');
 Route::get('home/admin/cadeiras', 'HomeController@getAdminCadeiras')->middleware('admin');
 Route::get('home/admin/salas', 'HomeController@getAdminSalas')->middleware('admin');
-Route::get('home/admin/utilizadorInfo/{idUtilizador}', 'HomeController@getUtilizadorInfo')->middleware('admin');
-Route::get('home/admin/getUsers/{cargo}', 'HomeController@filtarUtilizadores')->middleware('admin');
+
+Route::get('home/admin/utilizadorInfo/{idUtilizador}', 'InformacoesController@getUtilizadorInfo')->middleware('admin');
+Route::get('home/admin/cursoInfo/{idCurso}', 'InformacoesController@getCursoInfo')->middleware('admin');
+Route::get('home/admin/cadeiraInfo/{idCadeira}', 'InformacoesController@getCadeiraInfo')->middleware('admin');
+Route::get('home/admin/getUtilizadores/{cargo}', 'InformacoesController@filtarUtilizadores')->middleware('admin');
+Route::get('home/admin/getCadeiras/{curso}', 'InformacoesController@filtarCadeiras')->middleware('admin');
 
 Route::get('home/cadeira/{id}', 'CadeiraController@getCadeira');
 

@@ -21,80 +21,13 @@ class HomeController extends Controller
             'reservasSalasNum' => ReservaSala::count()
         ]);
     }
+
     public function getAdminUtilizadores() {
         $utilizadores = Utilizador::all(); 
 
         return view('adminUtilizadores', [
             'utilizadores' => $utilizadores
         ]);
-    }
-
-    public function getUtilizadorInfo($idUtilizador) {
-        $utilizadorInfo = [];
-        $utilizador = Utilizador::find($idUtilizador);
-
-        $utilizadorNome = $utilizador->nome;
-        $utilizadorEmail = $utilizador->email;
-
-        if ($utilizador->admistrador) {
-            $cargo = 'admistrador';
-            $numero = '-';
-            $curso = '-';
-            $cadeiras = '-';
-        }
-
-        else if ($utilizador->aluno) {
-            $cargo = 'aluno';
-            $numero = $utilizador->aluno->numero;
-            $curso = $utilizador->aluno->curso->nome;
-            $cadeiras = $utilizador->aluno->cadeiras->map(function($cadeira) {
-                return $cadeira->nome;
-            });
-        }
-        
-        else if ($utilizador->docente) {
-            $cargo = 'docente';
-            $numero = $utilizador->docente->numero;
-            $curso = $utilizador->docente->curso->nome;
-            $cadeiras = $utilizador->docente->cadeiras->map(function($cadeira) {
-                return $cadeira->nome;
-            });
-        }
-
-        return response()->json([
-            'nome' => $utilizadorNome,
-            'email' => $utilizadorEmail,
-            'cargo' => $cargo,
-            'numero' => $numero,
-            'curso' => $curso,
-            'cadeiras' => $cadeiras
-        ]);
-    }
-
-    public function filtarUtilizadores($cargo) {
-        if ($cargo == 'todos') {
-            $utilizadoresFiltrados = Utilizador::all();
-        }
-
-        else if ($cargo == 'alunos') {
-            $utilizadoresFiltrados = Utilizador::all()->filter(function ($utilizador) {
-                return $utilizador->aluno;
-            });
-        }
-
-        else if ($cargo == 'admnistradores') {
-            $utilizadoresFiltrados = Utilizador::all()->filter(function ($utilizador) {
-                return $utilizador->Admistrador;
-            });
-        }
-
-        else if ($cargo == 'docentes') {
-            $utilizadoresFiltrados = Utilizador::all()->filter(function ($utilizador) {
-                return $utilizador->docente;
-            });
-        }
-
-        return response()->json($utilizadoresFiltrados);
     }
 
     public function getAdminCursos() {
@@ -105,6 +38,7 @@ class HomeController extends Controller
             'cursos' => $cursos
             ]);
     }
+    
     public function getAdminCadeiras() {
         $utilizadores = Utilizador::all();
         $cursos = Curso::all();
