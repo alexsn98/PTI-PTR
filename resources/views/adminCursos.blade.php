@@ -3,7 +3,6 @@
 @section('name', 'Admin Cursos')
 
 @section('cssPagina')
-    <link rel="stylesheet" href= {{ asset('css/adminHome.css') }}>
     <link rel="stylesheet" href= {{ asset('css/adminCurso.css') }}>
 @endsection
 

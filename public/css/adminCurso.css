@@ -34,23 +34,6 @@
     display: inline-block;
 }
 
-.this{
-    display: flex;
-    width: 98%;
-    margin-left: 1%;
-    background-color: rgba(3, 53, 62,0.5);
-    padding: 10px 20px;
-    margin-top: 1%;
-    color: #fff;
-    transition: 0.5s;
-}
-
-.this:hover{
-    transform: scaleY(1.20);
-    background-color: rgba(3, 53, 62,1);
-    cursor: pointer;
-}
-
 #view1 > h2{
     margin-top: 4%;
     margin-left: 2%;
