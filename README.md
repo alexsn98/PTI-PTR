@@ -18,7 +18,6 @@ TODO:
 - adicionar ou alterar tabela de alunos aulas nas precensas
 
 Perguntas para fazer:
-- docente pode criar aulas tipo?
 
 TODO funcionalidades:
 - Docente adicionar horario de duvida

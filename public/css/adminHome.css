@@ -50,7 +50,7 @@ ul{
     
 }
 
-.navv{
+.navv {
     width: 90%;
     padding: 9%;
     text-decoration: none;
@@ -62,28 +62,24 @@ ul{
     margin-left: 5%;
     font-size: 30px;
     margin-top: 1%;
-
 }
-.navv:first-child{
-    opacity: 1;
+
+ul > .navv {
     text-align: center;
     font-size: 25px;
 }
 
-
-ul > .navv:hover{
+ul .navv:hover{
     opacity: 1;
     background: rgba(255, 255, 255, 0.1);
     cursor: pointer;
 }
 
-ul > .navv:first-child:hover{
-    opacity: 1;
+ul .navv{
     background-color: #03353E;
-    cursor: default;
 }
 
-.noDecoration, a:link, a:visited, a:hover{
+a:link, a:visited, a:hover{
     text-decoration: none;
     color: white;
 }

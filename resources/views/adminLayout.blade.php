@@ -23,11 +23,11 @@
             </div>
             <ul>
                 <li class="navv">Olá, {{Auth::user()->nome}}</li>
-                <li class="navv" @yield('homeAtive')><a class="noDecoration" href="/home/admin"><span class="material-icons">home</span>Dashboard</a></li>
-                <li class="navv" @yield('utilizadoresAtive')><a class="noDecoration" href="/home/admin/utilizadores"><span class="material-icons">people</span>Utilizadores</a></li>
-                <li class="navv" @yield('cursosAtive')><a class="noDecoration" href="/home/admin/cursos"><span class="material-icons">school</span>Cursos</a></li>
-                <li class="navv" @yield('cadeirasAtive')><a class="noDecoration" href="/home/admin/cadeiras"><span class="material-icons">assignment</span>Cadeiras</a></li>
-                <li class="navv" @yield('salasAtive')><a class="noDecoration" href="/home/admin/salas"><span class="material-icons">meeting_room</span>Salas</a></li>
+                <a class="noDecoration" href="/home/admin"><li class="navv" @yield('homeAtive')><span class="material-icons">home</span>Dashboard</li></a>
+                <a class="noDecoration" href="/home/admin/utilizadores"><li class="navv" @yield('utilizadoresAtive')><span class="material-icons">people</span>Utilizadores</li></a>
+                <a class="noDecoration" href="/home/admin/cursos"><li class="navv" @yield('cursosAtive')><span class="material-icons">school</span>Cursos</li></a>
+                <a class="noDecoration" href="/home/admin/cadeiras"><li class="navv" @yield('cadeirasAtive')><span class="material-icons">assignment</span>Cadeiras</li></a>
+                <a class="noDecoration" href="/home/admin/salas"><li class="navv" @yield('salasAtive')><span class="material-icons">meeting_room</span>Salas</li></a>
             </ul>
             <a href="/logout">
                 <div id="logout">
