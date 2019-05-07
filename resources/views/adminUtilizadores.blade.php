@@ -1,5 +1,7 @@
-@extends('adminLayout')
+@extends('layout')
+
 @section('name', 'Admin Utilizadores')
+
 @section('cssPagina')
     <link rel="stylesheet" href= {{ asset('css/adminUsers.css') }}>
 @endsection

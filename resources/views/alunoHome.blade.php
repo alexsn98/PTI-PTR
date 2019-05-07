@@ -1,8 +1,13 @@
-@extends('homeLayout')
+@extends('layout')
 
-@section('cssPage')
-    <link rel="stylesheet" href={{ asset('css/alunoHome.css') }}>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+@section('name', 'Aluno Home')
+
+@section('cssPagina')
+    <link rel="stylesheet" href= {{ asset('css/alunoHome.css') }}>
+@endsection
+
+@section('homeAtive') 
+    style= "opacity: 1; background: rgba(255, 255, 255, 0.1); cursor: pointer;"
 @endsection
 
 @section('content')

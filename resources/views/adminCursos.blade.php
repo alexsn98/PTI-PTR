@@ -1,5 +1,7 @@
-@extends('adminLayout')
-@section('name', 'Admin Utilizadores')
+@extends('layout')
+
+@section('name', 'Admin Cursos')
+
 @section('cssPagina')
     <link rel="stylesheet" href= {{ asset('css/adminHome.css') }}>
     <link rel="stylesheet" href= {{ asset('css/adminCurso.css') }}>
@@ -10,7 +12,6 @@
 @endsection
 
 @section('content')
-
     <div id="leftContent">
         <div id="filtrar">
             <h2>Lista de Cursos:</h2>  

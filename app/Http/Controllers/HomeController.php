@@ -49,16 +49,25 @@ class HomeController extends Controller
             'cadeiras' => $cadeiras,
             ]);
     }
+    
     public function getAdminSalas() {
         $utilizadores = Utilizador::all();
         $pedidosReservaSala = PedidoReservaSala::all();
         $reservasSalas = ReservaSala::all();
+
         return view('adminSalas', [
             'utilizadores' => $utilizadores,
             'pedidosReservaSala' => $pedidosReservaSala,
             'reservasSala' => $reservasSalas
             ]);
     }
+
+    public function getAdminAjuda() {
+        $utilizadores = Utilizador::all();
+        
+        return view('adminAjuda');
+    }
+
     public function getAlunoHome() {
         $cadeiras = Utilizador::find((Auth::id()))->aluno->cadeiras->all();
         $salas = Sala::all();
@@ -68,6 +77,7 @@ class HomeController extends Controller
             'salas' => $salas
             ]);
     }
+
     public function getDocenteHome() {
         $docente = Utilizador::find((Auth::id()))->docente;
         

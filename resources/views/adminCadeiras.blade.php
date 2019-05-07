@@ -1,8 +1,9 @@
-@extends('adminLayout')
-@section('name', 'Admin Utilizadores')
+@extends('layout')
+
+@section('name', 'Admin Cadeiras')
+
 @section('cssPagina')
     <link rel="stylesheet" href= {{ asset('css/adminCadeira.css') }}>
-    <meta name="csrf-token" content="example-content"/>
 @endsection
 
 @section('cadeirasAtive') 
