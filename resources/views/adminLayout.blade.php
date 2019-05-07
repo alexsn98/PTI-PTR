@@ -22,7 +22,7 @@
                 <h2>Falco admin</h2>
             </div>
             <ul>
-                <li class="navv">Olá, {{Auth::user()->nome}}</li>
+                <li class="navv" id="nameNavbar">Olá, {{Auth::user()->nome}}</li>
                 <a class="noDecoration" href="/home/admin"><li class="navv" @yield('homeAtive')><span class="material-icons">home</span>Dashboard</li></a>
                 <a class="noDecoration" href="/home/admin/utilizadores"><li class="navv" @yield('utilizadoresAtive')><span class="material-icons">people</span>Utilizadores</li></a>
                 <a class="noDecoration" href="/home/admin/cursos"><li class="navv" @yield('cursosAtive')><span class="material-icons">school</span>Cursos</li></a>

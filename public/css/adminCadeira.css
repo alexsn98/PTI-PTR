@@ -87,6 +87,14 @@ label{
     margin-left: 25%;
 }
 
+#buttonCadeira{
+    width: 80%;
+    font-size: 23px;
+    margin-left: 0%;
+    color: white;
+    margin-top: 8%;
+}
+
 #theCadeira{
     width: 90%;
     height: 25%;

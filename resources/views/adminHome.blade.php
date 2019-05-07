@@ -72,7 +72,7 @@
                 </div>
                 <div class="hiperCont">
                     <div id="buttonIr">
-                        <i class="material-icons" style="float:left; margin-top:10%; margin-left: 22%; color:white;">exit_to_app</i>
+                        <i class="material-icons" style="float:left; margin-top:10%; margin-left: 22%; color:white;">arrow_forward</i>
                         <h3 style="float:left;margin-top:4%; color:white;">IR</h3>
                     </div> 
                 </div>

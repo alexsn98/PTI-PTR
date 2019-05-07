@@ -67,9 +67,10 @@ ul{
 ul > .navv {
     text-align: center;
     font-size: 25px;
+    background-color: #03353E;
 }
 
-ul .navv:hover{
+ul .navv:hover:not(#nameNavbar) {
     opacity: 1;
     background: rgba(255, 255, 255, 0.1);
     cursor: pointer;

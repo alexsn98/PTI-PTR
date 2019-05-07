@@ -24,7 +24,7 @@
             <ul>
                 @foreach ($cadeiras as $cadeira)
                     <li class="this" onclick="selecionarCadeira({{$cadeira->id}})"> 
-                        <a href="/home/cadeira/{{ $cadeira->id }}"> {{ $cadeira->nome }} </a> 
+                        {{ $cadeira->nome }}
                     </li>
                 @endforeach
             </ul>
@@ -97,13 +97,14 @@
         <div id="theCadeira">
             <div id="left">
                 <h4>Nome:</h4>
-                <h4>Ects</h4>
+                <h4>Ects:</h4>
                 <h4>Regente:</h4>
+                <h4>Curso:</h4>
             </div>
             <div id="right">
-                <h4>Curso:</h4>
                 <h4>Semestre:</h4>
                 <h4>Ciclo:</h4>
+                <br>
             </div>
         </div>
     </div>

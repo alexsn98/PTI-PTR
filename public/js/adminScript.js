@@ -40,7 +40,6 @@ function selecionarCurso(cursoId) {
   info[0].textContent = 'Nome:'
   info[1].textContent = 'Coordenador:';
   info[2].textContent = 'Cadeiras:';
-      
 
   let xhttp = new XMLHttpRequest();
 
@@ -63,17 +62,17 @@ function selecionarCurso(cursoId) {
 function selecionarCadeira(cadeiraId) {
   let infoEsquerda = document.getElementById('left').getElementsByTagName('h4');
   let infoDireita = document.getElementById('right').getElementsByTagName('h4');
+  let linkPagina = document.getElementById('buttonCadeira');
   
   let url = 'cadeiraInfo/' + cadeiraId;
   
   infoEsquerda[0].textContent = 'Nome:'
   infoEsquerda[1].textContent = 'Etcs:';
   infoEsquerda[2].textContent = 'Regente:';
+  infoEsquerda[3].textContent = 'Curso:'
 
-  infoDireita[0].textContent = 'Curso:'
-  infoDireita[1].textContent = 'Semestre:';
-  infoDireita[2].textContent = 'Ciclo:';
-      
+  infoDireita[0].textContent = 'Semestre:';
+  infoDireita[1].textContent = 'Ciclo:';
 
   let xhttp = new XMLHttpRequest();
 
@@ -87,10 +86,30 @@ function selecionarCadeira(cadeiraId) {
         infoEsquerda[0].textContent += ' ' + resposta.nome; 
         infoEsquerda[1].textContent += ' ' + resposta.etcs;
         infoEsquerda[2].textContent += ' ' + resposta.regente;
+        infoEsquerda[3].textContent += ' ' + resposta.curso;
 
-        infoDireita[0].textContent += ' ' + resposta.curso;
-        infoDireita[1].textContent += ' ' + resposta.semestre;
-        infoDireita[2].textContent += ' ' + resposta.ciclo;
+        infoDireita[0].textContent += ' ' + resposta.semestre;
+        infoDireita[1].textContent += ' ' + resposta.ciclo;
+
+        if (linkPagina == null) {
+          let linkPaginaCriado = document.createElement("a");
+          
+          let node = document.createTextNode("Página da Cadeira");
+      
+          linkPaginaCriado.appendChild(node);
+      
+          linkPaginaCriado.id = 'buttonCadeira';
+          linkPaginaCriado.classList.add('btn', 'btn-primary');
+          linkPaginaCriado.setAttribute('href', '/home/cadeira/' + resposta.id);
+      
+          document.getElementById('right').appendChild(linkPaginaCriado);
+        }
+
+        else {
+          linkPagina.setAttribute('href', '/home/cadeira/' + resposta.id);
+        }
+      
+        
       }
   };
 }

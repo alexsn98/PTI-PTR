@@ -67,6 +67,7 @@ class InformacoesController extends Controller
         $cadeira = Cadeira::find($idCadeira);
 
         return response()->json([
+            'id' => $cadeira->id,
             'nome' => $cadeira->nome,
             'regente' => $cadeira->regente->utilizador->nome,
             'etcs' => $cadeira->ETCS,
