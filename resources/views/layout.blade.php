@@ -44,6 +44,7 @@
                 @endif
                 @if (Auth::user()->aluno)
                     <a class="noDecoration" href="/home/aluno"><li class="navv" @yield('homeAtive')><span class="material-icons">home</span>Dashboard</li></a>
+                    <a class="noDecoration" href="/home/aluno/cadeiras"><li class="navv" @yield('cadeirasAtive')><span class="material-icons">assignment</span>Cadeiras</li></a>
                     <a class="noDecoration" href="/home/aluno/salas"><li class="navv" @yield('salasAtive')><span class="material-icons">meeting_room</span>Salas</li></a>
                     <a class="noDecoration" href="/home/aluno/ajuda"><li class="navv" @yield('ajudaAtive')><span class="material-icons">accessible_forward</span>Ajuda</li></a>
                 @endif

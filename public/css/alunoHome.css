@@ -1,3 +1,32 @@
 #content ul {
     height: 20%;
 }
+
+#horario {
+    height: 50%;
+    width: 95%;
+    margin: 0 auto 1.5% auto;
+    text-align: center;
+    border: 1px solid black;
+    font-size: 15px;
+    background-color: lightgrey;
+}
+
+#horario tr {
+    border: 1px solid black;
+}
+
+#horario th {
+    border: 1px solid black;
+    padding: 2px;
+    background-color: grey;
+}
+
+#horario td {
+    border: 1px solid black;
+    padding: 2px;
+}
+
+#content > h1:first-child {
+    text-align: center;
+}

@@ -69,13 +69,29 @@ class HomeController extends Controller
     }
 
     public function getAlunoHome() {
-        $cadeiras = Utilizador::find((Auth::id()))->aluno->cadeiras->all();
-        $salas = Sala::all();
+        $cadeiras = Auth::user()->aluno->cadeiras->all();
         
         return view('alunoHome', [
-            'cadeiras' => $cadeiras,
-            'salas' => $salas
-            ]);
+            'cadeiras' => $cadeiras
+        ]);
+    }
+
+    public function getAlunoCadeiras() {
+        $cadeiras = Auth::user()->aluno->cadeiras->all();
+        
+        return view('alunoCadeiras', [
+            'cadeiras' => $cadeiras
+        ]);
+    }
+
+    public function getAlunoSalas() {
+        $salas = Sala::all();
+        $reservasSala = Auth::user()->pedidosReservaSala;
+        
+        return view('alunoSala', [
+            'salas' => $salas,
+            'reservasSala' => $reservasSala
+        ]);
     }
 
     public function getDocenteHome() {

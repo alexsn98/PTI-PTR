@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Utilizador;
+use App\Aluno;
 use App\Curso;
 use App\Cadeira;
 use App\Turma;
@@ -24,7 +25,7 @@ class InformacoesController extends Controller
         else if ($utilizador->aluno) {
             $cargo = 'aluno';
             $numero = $utilizador->aluno->numero;
-            $curso = $utilizagetUtilizadoresdor->aluno->curso->nome;
+            $curso = $utilizador->aluno->curso->nome;
             $cadeiras = $utilizador->aluno->cadeiras->map(function($cadeira) {
                 return $cadeira->nome;
             });
@@ -74,6 +75,26 @@ class InformacoesController extends Controller
             'curso' => $cadeira->curso->nome,
             'semestre' => $cadeira->semestre,
             'ciclo' => $cadeira->ciclo
+        ]);
+    }
+
+    public function getAulasAluno($idAluno) {
+        $turmas = [];
+        
+        $cadeirasTurmas = Aluno::find($idAluno)->cadeiras->map(function ($cadeira) {
+            return $cadeira->turmas;
+        });
+        
+        foreach ($cadeirasTurmas as $cadeiraTurma) {
+            foreach ($cadeiraTurma as $turma) {
+                $nomeCadeira = $turma->cadeira->nome;
+
+                $turmas[$nomeCadeira] = $turma->aulasTipo;
+            }
+        }
+
+        return response()->json([
+            'turmas' => $turmas
         ]);
     }
 

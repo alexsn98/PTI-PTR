@@ -8,11 +8,8 @@ Route::post('/registar', 'AuthController@registar');
 
 Route::get('/logout', 'AuthController@logout')->name('logout'); 
 
+// Routes para admin
 Route::get('home/admin', 'HomeController@getAdminHome')->middleware('admin');
-Route::get('home/aluno', 'HomeController@getAlunoHome')->middleware('aluno');
-Route::get('home/docente', 'HomeController@getDocenteHome')->middleware('docente');
-Route::get('home/visitante', 'HomeController@getVisitanteHome');
-
 Route::get('home/admin/utilizadores', 'HomeController@getAdminUtilizadores')->middleware('admin');
 Route::get('home/admin/cursos', 'HomeController@getAdminCursos')->middleware('admin');
 Route::get('home/admin/cadeiras', 'HomeController@getAdminCadeiras')->middleware('admin');
@@ -25,6 +22,20 @@ Route::get('home/admin/cadeiraInfo/{idCadeira}', 'InformacoesController@getCadei
 Route::get('home/admin/getUtilizadores/{cargo}', 'InformacoesController@filtarUtilizadores')->middleware('admin');
 Route::get('home/admin/getCadeiras/{curso}', 'InformacoesController@filtarCadeiras')->middleware('admin');
 
+// Routes para aluno
+Route::get('home/aluno', 'HomeController@getAlunoHome')->middleware('aluno');
+Route::get('home/aluno/cadeiras', 'HomeController@getAlunoCadeiras')->middleware('aluno');
+Route::get('home/aluno/salas', 'HomeController@getAlunoSalas')->middleware('aluno');
+
+Route::get('home/aluno/aulasAluno/{aluno}', 'InformacoesController@getAulasAluno')->middleware('aluno');
+
+// Routes para docente
+Route::get('home/docente', 'HomeController@getDocenteHome')->middleware('docente');
+
+// Routes para visitante
+Route::get('home/visitante', 'HomeController@getVisitanteHome');
+
+// Routes para cadeira
 Route::get('home/cadeira/{id}', 'CadeiraController@getCadeira');
 
 Route::get('home/cadeira/turma/{idTurma}', 'TurmaController@getTurma');
@@ -34,12 +45,14 @@ Route::get('home/cadeira/turma/fecharTurma/{idTurma}', 'TurmaController@fecharTu
 Route::get('home/cadeira/turma/aula/{aulaId}', 'AulaController@getAula')->middleware('docente');
 Route::post('home/cadeira/turma/aula/{aulaId}/submeterPresencas', 'AulaController@submeterPresencas')->middleware('docente');
 
+// Routes para criacoes
 Route::post('criar/curso', 'CriacoesController@criarCurso');
 Route::post('criar/cadeira', 'CriacoesController@criarCadeira');
 Route::post('criar/turma/{idCadeira}', 'CriacoesController@criarTurma');
 Route::post('criar/aulaTipo/{idTurma}', 'CriacoesController@criarAulaTipo');
 Route::post('criar/aula', 'CriacoesController@criarAula');
 
+// Routes para pedidos
 Route::get('pedido/mudancaTurma/{idPedido}', 'PedidosController@aprovarMudancaTurma');
 Route::post('pedido/reservaSala/criar', 'PedidosController@criarReservaSala');
 Route::get('pedido/reservaSala/aprovar/{idPedido}', 'PedidosController@aprovarReservaSala');
