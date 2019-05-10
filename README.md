@@ -17,6 +17,7 @@ TODO:
 - adicionar ou alterar tabela de alunos aulas nas precensas
 - tabela para pedidos de ajuda
 - tabela para horarios de ajuda
+- campo de sigla para cadeiras
 
 Perguntas para fazer:
 

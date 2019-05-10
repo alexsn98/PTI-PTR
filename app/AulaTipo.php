@@ -23,4 +23,8 @@ class AulaTipo extends Model
     public function aulas() {
         return $this->hasmany('\App\Aula');
     }
+
+    public function sala() {
+        return $this->belongsTo('\App\Sala');
+    }
 }

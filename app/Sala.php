@@ -15,4 +15,8 @@ class Sala extends Model
     public function reservaSala() {
         return $this->hasMany('\App\ReservaSala');
     }
+
+    public function aulas() {
+        return $this->hasMany('\App\AulaTipo');
+    }
 }
