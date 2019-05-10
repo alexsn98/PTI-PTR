@@ -16,6 +16,7 @@ class CreateCadeiraTable extends Migration
         Schema::create('cadeira', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
+            $table->string('sigla');
             $table->unsignedInteger('ETCS');
             $table->unsignedInteger('regente_id');
             $table->unsignedInteger('curso_id')->nullable();

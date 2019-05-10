@@ -10,6 +10,7 @@ class Cadeira extends Model
 
     protected $fillable = [
         'nome',
+        'sigla',
         'ETCS',
         'regente_id',
         'curso_id',

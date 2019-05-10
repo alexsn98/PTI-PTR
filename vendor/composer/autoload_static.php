@@ -362,6 +362,7 @@ class ComposerStaticInit3aa86e3f3c4af2422c27542e079ff4e8
     public static $classMap = array (
         'App\\Admistrador' => __DIR__ . '/../..' . '/app/Admistrador.php',
         'App\\Aluno' => __DIR__ . '/../..' . '/app/Aluno.php',
+        'App\\AlunoAula' => __DIR__ . '/../..' . '/app/AlunoAula.php',
         'App\\Aula' => __DIR__ . '/../..' . '/app/Aula.php',
         'App\\AulaTipo' => __DIR__ . '/../..' . '/app/AulaTipo.php',
         'App\\Cadeira' => __DIR__ . '/../..' . '/app/Cadeira.php',
@@ -380,6 +381,7 @@ class ComposerStaticInit3aa86e3f3c4af2422c27542e079ff4e8
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CriacoesController' => __DIR__ . '/../..' . '/app/Http/Controllers/CriacoesController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\InformacoesController' => __DIR__ . '/../..' . '/app/Http/Controllers/InformacoesController.php',
         'App\\Http\\Controllers\\PedidosController' => __DIR__ . '/../..' . '/app/Http/Controllers/PedidosController.php',
         'App\\Http\\Controllers\\TurmaController' => __DIR__ . '/../..' . '/app/Http/Controllers/TurmaController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
