@@ -35,11 +35,13 @@ class CriacoesController extends Controller
             'ciclo' => ['required'],
         ]); 
 
-        dd(request('nome'));
+        $sigla = array_map(function ($n) {
+            return $n[0];
+        }, explode(" ", request('nome')));
 
         Cadeira::create([
             'nome' => request('nome'),
-            'sigla' => $sigla,
+            'sigla' => implode("", $sigla),
             'ETCS' => request('etcs'),
             'regente_id' => request('regente'),
             'curso_id' => request('curso'),

@@ -17,6 +17,7 @@ TODO:
 - tabela para horarios de ajuda
 - campo de sigla para cadeiras
 - campo para sala de docente 
+- mudar dias de semana para [0..5]
 
 Perguntas para fazer:
 

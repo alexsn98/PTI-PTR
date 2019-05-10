@@ -89,26 +89,27 @@ class InformacoesController extends Controller
             foreach ($cadeiraTurma as $turma) {
                 $nomeCadeira = $turma->cadeira->nome;
                 $turmaInfo = [];
-                
-                foreach ($turma->aulasTipo as $aulaTipo) {
-                    $aulaTipoInfo = collect($aulaTipo);
-
-                    $pivotAlunoCadeira = $aulaTipo->turma->cadeira->alunos->where('id', $idAluno)->first()->pivot;
-
-                    $turmaPratica = $pivotAlunoCadeira->turma_pratica_id == $aulaTipo->turma_id;
-
-                    $turmaTeorica = $pivotAlunoCadeira->turma_teorica_id == $aulaTipo->turma_id;
-
-                    $aulaTipoInfo->put('edificio', $aulaTipo->sala->edificio);
-                    $aulaTipoInfo->put('piso', $aulaTipo->sala->piso);
-                    $aulaTipoInfo->put('sala', $aulaTipo->sala->num_sala);
-                    $aulaTipoInfo->put('tipo', $turmaPratica ? 'TP' : ($turmaTeorica ? 'T' : 'ST'));
-
-                    $turmaInfo[] = $aulaTipoInfo;
+                if (!array_key_exists($nomeCadeira, $turmas)) {
+                    foreach ($turma->aulasTipo as $aulaTipo) {
+                        $aulaTipoInfo = collect($aulaTipo);
+    
+                        $pivotAlunoCadeira = $aulaTipo->turma->cadeira->alunos->where('id', $idAluno)->first()->pivot;
+    
+                        $turmaPratica = $pivotAlunoCadeira->turma_pratica_id == $aulaTipo->turma_id;
+    
+                        $turmaTeorica = $pivotAlunoCadeira->turma_teorica_id == $aulaTipo->turma_id;
+    
+                        $aulaTipoInfo->put('edificio', $aulaTipo->sala->edificio);
+                        $aulaTipoInfo->put('piso', $aulaTipo->sala->piso);
+                        $aulaTipoInfo->put('sala', $aulaTipo->sala->num_sala);
+                        $aulaTipoInfo->put('tipo', $turmaPratica ? 'TP' : ($turmaTeorica ? 'T' : 'ST'));
+    
+                        $turmaInfo[] = $aulaTipoInfo;
+                    }
+                    $turmas[$nomeCadeira] = $turmaInfo;
                 }
                 
-                $turmas[$nomeCadeira] = $turmaInfo; 
-            }
+            }    
         }
 
         return response()->json([

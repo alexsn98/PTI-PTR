@@ -45,7 +45,8 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" name="nome" placeholder="Nome" pattern="[A-Za-z]+" required>
+                    {{-- pattern="[A-Za-z]+ --}}
+                    <input type="text" class="form-control" name="nome" placeholder="Nome" " required>
                 </div>
                 <button type="submit" class="btn btn-primary">Criar</button>
             </form>

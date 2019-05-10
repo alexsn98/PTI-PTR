@@ -19,7 +19,7 @@ class CreateDocenteTable extends Migration
             $table->unsignedInteger('numero')->unique();
             $table->time('inicio_horario_duvidas');
             $table->time('fim_horario_duvidas');
-            $table->date('dia_semana_horario_duvidas');
+            $table->unsignedInteger('dia_semana_horario_duvidas');
             $table->timestamps();
         });
 
