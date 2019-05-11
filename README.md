@@ -22,7 +22,7 @@ TODO:
 Perguntas para fazer:
 
 TODO funcionalidades:
-- Docente adicionar horario de duvida
+- Docente adicionar horario de duvida (falta gabinete)
 - Pagina do docente
 - Docente ver incompatibilidade nos alunos
 - Estado de turma alterado automaticamente

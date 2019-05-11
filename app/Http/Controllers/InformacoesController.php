@@ -84,21 +84,30 @@ class InformacoesController extends Controller
         $cadeirasTurmas = Aluno::find($idAluno)->cadeiras->map(function ($cadeira) {
             return $cadeira->turmas;
         });
-        
+
         foreach ($cadeirasTurmas as $cadeiraTurma) {
             foreach ($cadeiraTurma as $turma) {
-                $nomeCadeira = $turma->cadeira->nome;
+                
                 $turmaInfo = [];
-                if (!array_key_exists($nomeCadeira, $turmas)) {
+
+                // echo $turma;
+                // echo " ///// ";
+                
+                // if (!array_key_exists($nomeCadeira, $turmas)) {
+                    
                     foreach ($turma->aulasTipo as $aulaTipo) {
                         $aulaTipoInfo = collect($aulaTipo);
     
+                        $nomeCadeira = $aulaTipo->turma->cadeira->nome
+                        ;
                         $pivotAlunoCadeira = $aulaTipo->turma->cadeira->alunos->where('id', $idAluno)->first()->pivot;
     
                         $turmaPratica = $pivotAlunoCadeira->turma_pratica_id == $aulaTipo->turma_id;
     
                         $turmaTeorica = $pivotAlunoCadeira->turma_teorica_id == $aulaTipo->turma_id;
-    
+
+
+                        $aulaTipoInfo->put('nomeCadeira', $nomeCadeira);                   
                         $aulaTipoInfo->put('edificio', $aulaTipo->sala->edificio);
                         $aulaTipoInfo->put('piso', $aulaTipo->sala->piso);
                         $aulaTipoInfo->put('sala', $aulaTipo->sala->num_sala);
@@ -106,9 +115,8 @@ class InformacoesController extends Controller
     
                         $turmaInfo[] = $aulaTipoInfo;
                     }
-                    $turmas[$nomeCadeira] = $turmaInfo;
-                }
-                
+                    $turmas[] = $turmaInfo;
+                // }
             }    
         }
 

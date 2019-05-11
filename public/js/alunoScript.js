@@ -27,8 +27,8 @@ function preencherTabela(resposta) {
     }
 
     // percorre todas as cadeiras que o aluno tem aula
-    Object.keys(resposta['turmas']).forEach(nomeCadeira => {
-        let turma = resposta['turmas'][nomeCadeira];
+    Object.keys(resposta['turmas']).forEach(t => {
+        let turma = resposta['turmas'][t];
 
         // percorre turmas que o aluno tem da cadeira correspondente
         turma.forEach(aula => {
@@ -51,9 +51,7 @@ function preencherTabela(resposta) {
 
             linhasTabela[linhaInicio][diaSemana].style.backgroundColor = '#A8FFFF';
 
-            console.log(aula);
-
-            let pau = nomeCadeira + " (" + aula.tipo + ")" + " \n Sala: " +  aula.edificio + "." + aula.piso + 
+            let pau = aula.nomeCadeira + " (" + aula.tipo + ")" + " \n Sala: " +  aula.edificio + "." + aula.piso + 
                     "." + aula.sala ;
 
             linhasTabela[linhaInicio][diaSemana].innerText = pau; // nome da cadeira na celula
