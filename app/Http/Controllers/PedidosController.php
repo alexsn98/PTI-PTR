@@ -68,10 +68,19 @@ class PedidosController extends Controller
         PedidoAjuda::create([ 
             'utilizador_id' => Auth::user()->id,
             'texto_pedido' => request('textoPedido'),
-            'resposta' => "",
-            'estado' => "aberto"
+            'resposta' => null
         ]);
             
+        return redirect()->back();
+    }
+
+    public function responderPedidoAjuda($idPedido) {
+        $pedido = PedidoAjuda::find($idPedido);
+        
+        $pedido->resposta = request('textoResposta');
+
+        $pedido->save();
+
         return redirect()->back();
     }
 }

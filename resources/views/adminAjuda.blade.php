@@ -17,15 +17,24 @@
         </div>
         <div id="view">
             <ul>
-                {{-- @foreach ($pedidosReservaSala as $pedido)
+                @foreach ($pedidosAbertos as $pedido)
                     <li class="this"> 
                         Pedido feito por: {{$pedido->utilizadorAbre->nome}} <br>
-                        Sala: {{$pedido->sala->edificio}}.{{$pedido->sala->piso}}.{{$pedido->sala->num_sala}} <br>
-                        Inicio: {{$pedido->inicio}} <br>
-                        Fim: {{$pedido->fim}} <br>
-                        <a href="/pedido/reservaSala/aprovar/{{$pedido->id}}">Aceitar</a>
+                        Texto de pedido: {{$pedido->texto_pedido}} <br>
+                        <form action="/pedido/ajuda/responder/{{$pedido->id}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="_method" value="PUT">
+                    
+                            <div class="form-group">
+                                <textarea rows="3" cols="40" name="textoResposta">
+                                    Texto da resposta ...
+                                </textarea>
+                            </div>
+                    
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </form>
                     </li>
-                @endforeach --}}
+                @endforeach
             </ul>
         </div>
     </div>
@@ -35,14 +44,13 @@
         </div>
         <div id="view">
             <ul>
-                {{-- @foreach ($reservasSala as $reserva)
+                @foreach ($pedidosFechados as $pedido)
                     <li class="this"> 
-                        Reserva feita por: {{$reserva->utilizador->nome}} <br>
-                        Sala: {{$reserva->sala->edificio}}.{{$reserva->sala->piso}}.{{$reserva->sala->num_sala}} <br>
-                        Inicio: {{$reserva->inicio}} <br>
-                        Fim: {{$reserva->fim}}
+                        Pedido feito por: {{$pedido->utilizadorAbre->nome}} <br>
+                        Texto de pedido: {{$pedido->texto_pedido}} <br>
+                        Resposta: {{$pedido->resposta}}
                     </li>
-                @endforeach --}}
+                @endforeach
             </ul>
         </div>
     </div>

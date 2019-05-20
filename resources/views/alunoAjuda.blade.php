@@ -22,4 +22,20 @@
 
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
+
+    <div id="rightContent">
+        <div id="filtrar"> 
+            <h2> Pedidos de ajuda respondidos:</h2>     
+        </div>
+        <div id="view">
+            <ul>
+                @foreach ($pedidosFechados as $pedido)
+                    <li class="this"> 
+                        Dúvida: {{$pedido->texto_pedido}} <br>
+                        Resposta: {{$pedido->resposta}}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
 @endsection

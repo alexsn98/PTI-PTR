@@ -31,4 +31,8 @@ class Utilizador extends Authenticatable
     public function pedidosReservaSala() {
         return $this->hasMany('App\PedidoReservaSala', 'utilizador_abrir_id');
     }
+
+    public function pedidosAjuda() {
+        return $this->hasMany('App\PedidoAjuda');
+    }
 }

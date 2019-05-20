@@ -60,3 +60,4 @@ Route::post('pedido/reservaSala/criar', 'PedidosController@criarReservaSala');
 Route::get('pedido/reservaSala/aprovar/{idPedido}', 'PedidosController@aprovarReservaSala');
 Route::post('pedido/reservaHorario/criar', 'PedidosController@criarReservaHorario');
 Route::post('pedido/ajuda/criar', 'PedidosController@criarPedidoAjuda');
+Route::put('pedido/ajuda/responder/{idPedido}', 'PedidosController@responderPedidoAjuda');

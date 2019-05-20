@@ -10,6 +10,7 @@ use App\Sala;
 use App\PedidoMudancaTurma;
 use App\PedidoReservaSala;
 use App\ReservaSala;
+use App\PedidoAjuda;
 use Auth;
 class HomeController extends Controller
 {
@@ -64,9 +65,16 @@ class HomeController extends Controller
     }
 
     public function getAdminAjuda() {
-        $utilizadores = Utilizador::all();
+        $pedidos = PedidoAjuda::all();
+
+        $pedidosAbertos = $pedidos->where('resposta', null)->all();
+
+        $pedidosFechados = $pedidos->where('resposta', '!=',null);
         
-        return view('adminAjuda');
+        return view('adminAjuda', [
+            "pedidosAbertos" => $pedidosAbertos,
+            "pedidosFechados" => $pedidosFechados,
+        ]);
     }
 
     public function getAlunoHome() {
@@ -97,7 +105,7 @@ class HomeController extends Controller
 
     public function getAlunoHorarioDuvidas() {
         $docentes = Docente::all();
-        
+
         return view('alunoHorarioDuvidas', [
             'docentes' => $docentes
         ]);
@@ -105,9 +113,12 @@ class HomeController extends Controller
 
     public function getAlunoAjuda() {
         $docentes = Docente::all();
+
+        $pedidosFechados = Auth::user()->pedidosAjuda->where('resposta', '!=',null);
         
         return view('alunoAjuda', [
-            'docentes' => $docentes
+            'docentes' => $docentes,
+            'pedidosFechados' => $pedidosFechados
         ]);
     }
 
