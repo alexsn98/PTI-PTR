@@ -11,10 +11,15 @@
 @endsection
 
 @section('content')
-    <h3>Cadeiras inscrito: </h3>
-    <ul>
-        @foreach ($cadeiras as $cadeira)
-            <li class="this"> <a href="cadeira/{{ $cadeira->id }}"> {{ $cadeira->nome }} </a> </li>
-        @endforeach
-    </ul>
+    <form action="/pedido/ajuda/criar" method="POST">
+        @csrf
+
+        <div class="form-group">
+            <textarea rows="4" cols="30" name="textoPedido">
+                Texto do pedido ...
+            </textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
 @endsection

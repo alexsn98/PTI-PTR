@@ -17,10 +17,10 @@ class PedidoReservaSala extends Model
     ];
 
     public function utilizadorAbre() {
-        return $this->belongsto('App\Utilizador', 'utilizador_abrir_id');
+        return $this->belongsTo('App\Utilizador', 'utilizador_abrir_id');
     }
 
     public function sala() {
-        return $this->belongsto('App\Sala');
+        return $this->belongsTo('App\Sala');
     }
 }

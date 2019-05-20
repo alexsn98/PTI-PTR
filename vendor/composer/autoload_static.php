@@ -370,6 +370,7 @@ class ComposerStaticInit3aa86e3f3c4af2422c27542e079ff4e8
         'App\\Curso' => __DIR__ . '/../..' . '/app/Curso.php',
         'App\\Docente' => __DIR__ . '/../..' . '/app/Docente.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\HorarioDuvidas' => __DIR__ . '/../..' . '/app/HorarioDuvidas.php',
         'App\\Http\\Controllers\\AulaController' => __DIR__ . '/../..' . '/app/Http/Controllers/AulaController.php',
         'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',

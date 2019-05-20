@@ -26,6 +26,8 @@ Route::get('home/admin/getCadeiras/{curso}', 'InformacoesController@filtarCadeir
 Route::get('home/aluno', 'HomeController@getAlunoHome')->middleware('aluno');
 Route::get('home/aluno/cadeiras', 'HomeController@getAlunoCadeiras')->middleware('aluno');
 Route::get('home/aluno/salas', 'HomeController@getAlunoSalas')->middleware('aluno');
+Route::get('home/aluno/horarioDuvidas', 'HomeController@getAlunoHorarioDuvidas')->middleware('aluno');
+Route::get('home/aluno/ajuda', 'HomeController@getAlunoAjuda')->middleware('aluno');
 
 Route::get('home/aluno/aulasAluno/{aluno}', 'InformacoesController@getAulasAluno')->middleware('aluno');
 
@@ -56,3 +58,5 @@ Route::post('criar/aula', 'CriacoesController@criarAula');
 Route::get('pedido/mudancaTurma/{idPedido}', 'PedidosController@aprovarMudancaTurma');
 Route::post('pedido/reservaSala/criar', 'PedidosController@criarReservaSala');
 Route::get('pedido/reservaSala/aprovar/{idPedido}', 'PedidosController@aprovarReservaSala');
+Route::post('pedido/reservaHorario/criar', 'PedidosController@criarReservaHorario');
+Route::post('pedido/ajuda/criar', 'PedidosController@criarPedidoAjuda');

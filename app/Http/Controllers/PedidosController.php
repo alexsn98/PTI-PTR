@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\PedidoMudancaTurma;
 use App\PedidoReservaSala;
 use App\ReservaSala;
+use App\HorarioDuvidas;
+use App\PedidoAjuda;
 use Auth;
 
 class PedidosController extends Controller
@@ -47,6 +49,29 @@ class PedidosController extends Controller
         
         $pedido->delete();
 
+        return redirect()->back();
+    }
+
+    public function criarReservaHorario() {
+        HorarioDuvidas::create([ 
+            'aluno_id' => Auth::user()->aluno->id,
+            'docente_id' => request('docente'),
+            'dia' => request('data'),
+            'inicio' => request('inicio'),
+            'fim' => request('fim') 
+        ]);
+            
+        return redirect()->back();
+    }
+
+    public function criarPedidoAjuda() {
+        PedidoAjuda::create([ 
+            'utilizador_id' => Auth::user()->id,
+            'texto_pedido' => request('textoPedido'),
+            'resposta' => "",
+            'estado' => "aberto"
+        ]);
+            
         return redirect()->back();
     }
 }

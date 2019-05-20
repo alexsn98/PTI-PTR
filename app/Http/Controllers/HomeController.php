@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Utilizador;
+use App\Docente;
 use App\Curso;
 use App\Cadeira;
 use App\Turma;
@@ -91,6 +92,22 @@ class HomeController extends Controller
         return view('alunoSala', [
             'salas' => $salas,
             'reservasSala' => $reservasSala
+        ]);
+    }
+
+    public function getAlunoHorarioDuvidas() {
+        $docentes = Docente::all();
+        
+        return view('alunoHorarioDuvidas', [
+            'docentes' => $docentes
+        ]);
+    }
+
+    public function getAlunoAjuda() {
+        $docentes = Docente::all();
+        
+        return view('alunoAjuda', [
+            'docentes' => $docentes
         ]);
     }
 

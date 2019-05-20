@@ -32,4 +32,3 @@ TODO funcionalidades:
 - Admin fornecer ajuda 
 - Admin criar eventos
 - Colocar um calendário com estilo no aluno e docente
-

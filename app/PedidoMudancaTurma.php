@@ -15,14 +15,14 @@ class PedidoMudancaTurma extends Model
     ];
 
     public function aluno() {
-        return $this->belongsto('App\Aluno', 'utilizador_abrir_id', 'utilizador_id');
+        return $this->belongsTo('App\Aluno', 'utilizador_abrir_id', 'utilizador_id');
     }
 
     public function docente() {
-        return $this->belongsto('App\Docente', 'utilizador_fechar_id', 'utilizador_id');
+        return $this->belongsTo('App\Docente', 'utilizador_fechar_id', 'utilizador_id');
     }
 
     public function turmaPedida() {
-        return $this->belongsto('App\Turma');
+        return $this->belongsTo('App\Turma');
     }
 }
