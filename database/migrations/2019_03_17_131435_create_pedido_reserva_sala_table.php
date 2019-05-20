@@ -17,8 +17,9 @@ class CreatePedidoReservaSalaTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('utilizador_abrir_id');
             $table->unsignedInteger('sala_id');
-            $table->dateTime('inicio');
-            $table->dateTime('fim');
+            $table->time('inicio');
+            $table->time('fim');
+            $table->date('data');
             $table->text('descricao');
             $table->timestamps();
         });

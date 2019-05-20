@@ -4,7 +4,6 @@ Projeto 3º ano de LTI
 TODO:
 - Css main
 - pagina da cadeira para docente
-- forms com pesquisa
 - alterar pedido de mudanca de turma para POST
 - funcionalidades para guest
 - implementar verificar restriçoes nas salas para fazer reservas
@@ -12,8 +11,8 @@ TODO:
 - many to many na relacao aluno curso
 - modificar paginas de modo a permitir acesso por visitantes
 - adicionar ou alterar tabela de alunos aulas nas precensas
-- campo de sigla para cadeiras
-- campo para sala de docente 
+- campo de sigla para cadeiras 
+- campo para sala de docente
 - mudar dias de semana para [0..5]
 
 Perguntas para fazer:

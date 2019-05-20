@@ -32,11 +32,14 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="datetime-local" class="form-control" name="inicio" placeholder="Hora de inicio">
+                    <input type="time" class="form-control" name="inicio" placeholder="Hora de inicio">
                 </div>
                 <div class="form-group">
-                    <input type="datetime-local" class="form-control" name="fim" placeholder="Hora de fim">
+                    <input type="time" class="form-control" name="fim" placeholder="Hora de fim">
                 </div>
+                <div class="form-group">
+                        <input type="date" class="form-control" name="data" placeholder="Dia">
+                    </div>
                 <div class="form-group">
                     <input type="text" class="form-control" name="descricao" placeholder="Descrição">
                 </div>

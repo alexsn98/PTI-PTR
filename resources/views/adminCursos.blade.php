@@ -45,19 +45,6 @@
                         </select>
                     </label>
                 </div>
-                
-                {{-- <div class="form-group">
-                    <label>
-                        Coordenador: 
-                        <select name="coordenador">
-                            @foreach ($utilizadores as $utilizador)
-                                @if ($utilizador->docente)
-                                    <option value="{{$utilizador->docente->id}}"> {{$utilizador->nome}} </option>
-                                @endif
-                            @endforeach    
-                        </select>
-                    </label>
-                </div> --}}
 
                 <div class="form-group">
                     {{-- pattern="[A-Za-z]+ --}}

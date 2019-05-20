@@ -31,6 +31,7 @@ class PedidosController extends Controller
             'sala_id' => request('sala'),
             'inicio' => request('inicio'),
             'fim' => request('fim'),
+            'data' => request('data'),
             'descricao' => request('descricao')
         ]);
             
@@ -44,7 +45,8 @@ class PedidosController extends Controller
             'sala_id' => $pedido->sala->id,
             'utilizador_id' => $pedido->utilizadorAbre->id, 
             'inicio' => $pedido->inicio,
-            'fim' => $pedido->fim
+            'fim' => $pedido->fim,
+            'data' => $pedido->data
         ]);
         
         $pedido->delete();

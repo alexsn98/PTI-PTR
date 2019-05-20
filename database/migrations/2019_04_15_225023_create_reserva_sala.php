@@ -17,8 +17,9 @@ class CreateReservaSala extends Migration
             $table->increments('id');
             $table->unsignedInteger('sala_id');
             $table->unsignedInteger('utilizador_id');
-            $table->dateTime('inicio');
-            $table->dateTime('fim');
+            $table->time('inicio');
+            $table->time('fim');
+            $table->date('data');
             $table->timestamps();
         });
 
