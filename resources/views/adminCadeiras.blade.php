@@ -4,6 +4,8 @@
 
 @section('cssPagina')
     <link rel="stylesheet" href= {{ asset('css/adminCadeira.css') }}>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.20.0/slimselect.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.20.0/slimselect.min.css" rel="stylesheet"></link>
 @endsection
 
 @section('cadeirasAtive') 
@@ -48,6 +50,10 @@
                 </div>
 
                 <div class="form-group">
+                    <input type="text" class="form-control" name="sigla" placeholder="Sigla" required>
+                </div>
+
+                <div class="form-group">
                     <label>
                         Regente: 
                         <select name="regente">
@@ -55,7 +61,7 @@
                                 @if ($utilizador->docente)
                                     <option value="{{$utilizador->docente->id}}"> {{$utilizador->nome}} </option>
                                 @endif
-                            @endforeach    
+                            @endforeach
                         </select>
                     </label>
                 </div>
@@ -66,11 +72,11 @@
                         <select name="curso">
                             @foreach ($cursos as $curso)
                                 <option value="{{$curso->id}}"> {{$curso->nome}} </option>
-                            @endforeach    
+                            @endforeach   
                         </select>
                     </label>
                 </div>
-                
+
                 <div class="form-group">
                     <label>
                         Semestre:
@@ -110,4 +116,5 @@
         </div>
     </div>
     <script src="{{asset('js/adminScript.js')}}"></script>
+    <script src="{{asset('js/selectSearch.js')}}"></script>
 @endsection

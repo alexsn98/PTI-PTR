@@ -4,6 +4,8 @@
 
 @section('cssPagina')
     {{-- <link rel="stylesheet" href= {{ asset('css/adminSalas.css') }}> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.20.0/slimselect.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.20.0/slimselect.min.css" rel="stylesheet"></link>
 @endsection
 
 @section('horarioDuvidasAtive') 
@@ -51,4 +53,5 @@
 
         <button type="submit" class="btn btn-primary">Criar</button>
     </form>
+    <script src="{{asset('js/selectSearch.js')}}"></script>
 @endsection

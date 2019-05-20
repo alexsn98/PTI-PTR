@@ -11,10 +11,7 @@ TODO:
 - pagina do curso
 - many to many na relacao aluno curso
 - modificar paginas de modo a permitir acesso por visitantes
-- remember me no login
 - adicionar ou alterar tabela de alunos aulas nas precensas
-- tabela para pedidos de ajuda
-- tabela para horarios de ajuda
 - campo de sigla para cadeiras
 - campo para sala de docente 
 - mudar dias de semana para [0..5]
@@ -22,13 +19,10 @@ TODO:
 Perguntas para fazer:
 
 TODO funcionalidades:
-- Docente adicionar horario de duvida (falta gabinete)
 - Pagina do docente
 - Docente ver incompatibilidade nos alunos
 - Estado de turma alterado automaticamente
-- Docente e Aluno pedirem ajuda a Admin
+- Docente pedirem ajuda a Admin
 - Aluno ver horário das salas
-- Aluno reservar slots de atendimento do professor
-- Admin fornecer ajuda 
 - Admin criar eventos
-- Colocar um calendário com estilo no aluno e docente
+- Colocar um calendário com estilo no docente

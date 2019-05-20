@@ -81,7 +81,7 @@ ul .navv{
 
 a:link, a:visited, a:hover{
     text-decoration: none;
-    color: white;
+    
 }
 
 
@@ -309,4 +309,8 @@ a:link, a:visited, a:hover{
     transform: scaleY(1.20);
     background-color: rgba(3, 53, 62,1);
     cursor: pointer;
+}
+
+.ss-main .ss-single-selected {
+    padding: 0 0 0 6px !important;
 }

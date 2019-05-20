@@ -21,12 +21,14 @@ class AuthController extends Controller
     }
 
     public function login() {
+        $rememberMe = request('rememberMe') == 'rememberMe';
+
         $credenciais = request()->validate([
             'email'=> 'required',
             'password'=> ['required', 'alpha-num']
         ]);
         
-        if (Auth::attempt($credenciais)) {
+        if (Auth::attempt($credenciais, $rememberMe)) {
             $id = (Auth::id());
             
             //redereciona para as paginas home correspondentes

@@ -4,6 +4,8 @@
 
 @section('cssPagina')
     <link rel="stylesheet" href= {{ asset('css/adminCurso.css') }}>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.20.0/slimselect.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.20.0/slimselect.min.css" rel="stylesheet"></link>
 @endsection
 
 @section('cursosAtive') 
@@ -39,10 +41,23 @@
                                 @if ($utilizador->docente)
                                     <option value="{{$utilizador->docente->id}}"> {{$utilizador->nome}} </option>
                                 @endif
-                            @endforeach    
+                            @endforeach  
                         </select>
                     </label>
                 </div>
+                
+                {{-- <div class="form-group">
+                    <label>
+                        Coordenador: 
+                        <select name="coordenador">
+                            @foreach ($utilizadores as $utilizador)
+                                @if ($utilizador->docente)
+                                    <option value="{{$utilizador->docente->id}}"> {{$utilizador->nome}} </option>
+                                @endif
+                            @endforeach    
+                        </select>
+                    </label>
+                </div> --}}
 
                 <div class="form-group">
                     {{-- pattern="[A-Za-z]+ --}}
@@ -58,4 +73,5 @@
         </div>
     </div>
     <script src="{{asset('js/adminScript.js')}}"></script>
+    <script src="{{asset('js/selectSearch.js')}}"></script>
 @endsection
