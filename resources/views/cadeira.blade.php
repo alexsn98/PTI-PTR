@@ -1,14 +1,14 @@
-@if (Auth::user()->admistrador)
-    @extends('adminLayout')
-    @section('name', 'Admin Utilizadores')
-    @section('cssPagina')
-        <link rel="stylesheet" href= {{ asset('css/adminCadeira.css') }}>
-    @endsection
+@extends('layout')
 
-    @section('cadeirasAtive') 
-        style= "opacity: 1; background: rgba(255, 255, 255, 0.1); cursor: pointer;"
-    @endsection
-@endif
+@section('name', 'Admin Utilizadores')
+
+@section('cssPagina')
+    <link rel="stylesheet" href= {{ asset('css/adminCadeira.css') }}>
+@endsection
+
+@section('cadeirasAtive') 
+    style= "opacity: 1; background: rgba(255, 255, 255, 0.1); cursor: pointer;"
+@endsection
 
 @section('content')
     <h2>Nome da cadeira - {{$cadeira->nome}}</h2>

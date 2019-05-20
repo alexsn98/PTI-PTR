@@ -14,6 +14,8 @@ use App\PedidoAjuda;
 use Auth;
 class HomeController extends Controller
 {
+    //Para admin
+ 
     public function getAdminHome() {
         return view('adminHome', [
             'utilizadoresNum' => Utilizador::count(),
@@ -77,6 +79,8 @@ class HomeController extends Controller
         ]);
     }
 
+    //Para aluno
+
     public function getAlunoHome() {
         $cadeiras = Auth::user()->aluno->cadeiras->all();
         
@@ -122,22 +126,40 @@ class HomeController extends Controller
         ]);
     }
 
+    //Para docente
+
     public function getDocenteHome() {
-        $docente = Utilizador::find((Auth::id()))->docente;
+        $docente = Auth::user()->docente;
         
         $curso = $docente->curso;
-        $cadeiras = $docente->cadeiras;
         $turmas = $docente->turmas;
         $pedidosMudancaTurma = $docente->pedidosMudancaTurma;
         $salas = Sala::all();
+        
         return view('docenteHome',[
             'curso' => $curso,
-            'cadeiras' => $cadeiras,
             'turmas'=> $turmas,
             'pedidosMudancaTurma' => $pedidosMudancaTurma,
             'salas' => $salas
         ]); 
     }
+
+    public function getDocenteCadeiras() {
+        $docente = Auth::user()->docente;
+        
+        $cursos = Curso::all();
+        $cadeiras = $docente->cadeiras;
+        $turmas = $docente->turmas;
+
+        return view('docenteCadeiras',[
+            'cadeiras' => $cadeiras,
+            'cursos' => $cursos,
+        ]); 
+    }
+
+
+    //Para visitante
+
     public function getVisitanteHome() {
         $cursos = Curso::all();
         $cadeiras = Cadeira::all();

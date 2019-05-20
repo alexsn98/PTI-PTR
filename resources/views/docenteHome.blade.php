@@ -1,4 +1,10 @@
-@extends('homeLayout')
+@extends('layout')
+
+@section('name', 'Docente Home')
+
+@section('homeAtive') 
+    style= "opacity: 1; background: rgba(255, 255, 255, 0.1); cursor: pointer;"
+@endsection
 
 @section('content')
 
@@ -7,13 +13,6 @@
     <h3> Coordenador do curso: </h3>
     <ul>
         <li> <a href="curso/{{ $curso->id}}"> {{ $curso->nome }} </a> </li>
-    </ul>
-
-    <h3> Regente das cadeiras: </h3>
-    <ul>
-        @foreach ($cadeiras as $cadeira)
-            <li> <a href="cadeira/{{ $cadeira->id}}"> {{ $cadeira->nome }} </a> </li>
-        @endforeach
     </ul>
 
     <h3> Professor das turmas: </h3>

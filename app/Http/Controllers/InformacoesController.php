@@ -67,6 +67,8 @@ class InformacoesController extends Controller
     public function getCadeiraInfo($idCadeira) {
         $cadeira = Cadeira::find($idCadeira);
 
+        $turmas = $cadeira->turmas;
+
         return response()->json([
             'id' => $cadeira->id,
             'nome' => $cadeira->nome,
@@ -74,7 +76,8 @@ class InformacoesController extends Controller
             'etcs' => $cadeira->ETCS,
             'curso' => $cadeira->curso->nome,
             'semestre' => $cadeira->semestre,
-            'ciclo' => $cadeira->ciclo
+            'ciclo' => $cadeira->ciclo,
+            'turmas' => $turmas
         ]);
     }
 

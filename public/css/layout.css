@@ -311,6 +311,11 @@ a:link, a:visited, a:hover{
     cursor: pointer;
 }
 
+.this a {
+    color: white;
+    text-decoration: none;
+}
+
 .ss-main .ss-single-selected {
     padding: 0 0 0 6px !important;
 }
