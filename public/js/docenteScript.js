@@ -1,13 +1,12 @@
-function selecionarCadeira(cadeiraId) {
-    let nome = document.getElementById('left').getElementsByTagName('h4')[0];
-    let curso = document.getElementById('right').getElementsByTagName('h4')[0];
-    let linkPagina = document.getElementById('buttonCadeira');
+function selecionarTurma(turmaId) {
+    let numero = document.getElementById('left').getElementsByTagName('h4')[0];
+    let cadeira = document.getElementById('right').getElementsByTagName('h4')[0];
     
-    let url = 'cadeiraInfo/' + cadeiraId;
+    let url = 'turmaInfo/' + turmaId;
     
-    nome.textContent = 'Nome:'
+    numero.textContent = 'Número:'
 
-    curso.textContent = 'Curso:';
+    cadeira.textContent = 'Cadeira:';
 
     let xhttp = new XMLHttpRequest();
 
@@ -18,11 +17,30 @@ function selecionarCadeira(cadeiraId) {
         if (this.readyState == 4 && this.status == 200) {
             resposta = JSON.parse(this.responseText);  
             
-            nome.textContent += ' ' + resposta.nome; 
-            curso.textContent += ' ' + resposta.curso;
+            numero.textContent += ' ' + resposta.numero; 
+            cadeira.textContent += ' ' + resposta.cadeira;
 
-            console.log(resposta.turmas);
+            let listaAulasTipo = document.createElement("ul");
+
+            resposta.aulasTipo.forEach(aulaTipo => {
+                console.log(aulaTipo);
+                
+                let aulaTipoItem = document.createElement("li");
+                let textoItem = "Dia " + aulaTipo.dia_semana + " Inicio: " + aulaTipo.inicio + " Fim: " + aulaTipo.fim;
+                let node = document.createTextNode(textoItem);
+                
+                aulaTipoItem.appendChild(node);
+                aulaTipoItem.classList.add('this');
+                
+                listaAulasTipo.appendChild(aulaTipoItem);
+            });
+          
+            document.getElementById('view1').getElementsByTagName('div')[0].appendChild(listaAulasTipo);
             
+            // linkPaginaCriado.id = 'buttonCadeira';
+            
+            // linkPaginaCriado.setAttribute('href', '/home/cadeira/' + resposta.id);
+        
         }
     };
 }

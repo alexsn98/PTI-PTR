@@ -33,9 +33,10 @@ Route::get('home/aluno/aulasAluno/{aluno}', 'InformacoesController@getAulasAluno
 
 // Routes para docente
 Route::get('home/docente', 'HomeController@getDocenteHome')->middleware('docente');
-Route::get('home/docente/cadeiras', 'HomeController@getDocenteCadeiras')->middleware('docente');
+Route::get('home/docente/turmas', 'HomeController@getDocenteTurmas')->middleware('docente');
+Route::get('home/docente/ajuda', 'HomeController@getDocenteAjuda')->middleware('docente');
 
-Route::get('home/docente/cadeiraInfo/{idCadeira}', 'InformacoesController@getCadeiraInfo')->middleware('docente');
+Route::get('home/docente/turmaInfo/{idTurma}', 'InformacoesController@getTurmaInfo')->middleware('docente');
 
 // Routes para visitante
 Route::get('home/visitante', 'HomeController@getVisitanteHome');

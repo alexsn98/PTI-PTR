@@ -50,8 +50,9 @@
                     <a class="noDecoration" href="/home/aluno/ajuda"><li class="navv" @yield('ajudaAtive')><span class="material-icons">accessible_forward</span>Ajuda</li></a>
                 @endif
                 @if (Auth::user()->docente)
-                    <a class="noDecoration" href="/home/aluno"><li class="navv" @yield('homeAtive')><span class="material-icons">home</span>Dashboard</li></a>
-                    <a class="noDecoration" href="/home/docente/cadeiras"><li class="navv" @yield('cadeirasAtive')><span class="material-icons">assignment</span>Cadeiras</li></a>
+                    <a class="noDecoration" href="/home/docente"><li class="navv" @yield('homeAtive')><span class="material-icons">home</span>Dashboard</li></a>
+                    <a class="noDecoration" href="/home/docente/turmas"><li class="navv" @yield('cadeirasAtive')><span class="material-icons">assignment</span>Turmas</li></a>
+                    <a class="noDecoration" href="/home/docente/ajuda"><li class="navv" @yield('ajudaAtive')><span class="material-icons">accessible_forward</span>Ajuda</li></a>
                 @endif
                 
             </ul>

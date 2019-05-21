@@ -25,11 +25,9 @@
         </div>
         <div id="view">
             <ul>
-                @foreach ($cadeiras as $cadeira)
-                    {{-- <li class="this"> <a href="cadeira/{{ $cadeira->id}}"> {{ $cadeira->nome }} </a> </li> --}}
-
-                    <li class="this" onclick="selecionarCadeira({{$cadeira->id}})"> 
-                        {{ $cadeira->nome }}
+                @foreach ($turmas as $turma)
+                    <li class="this" onclick="selecionarTurma({{$turma->id}})"> 
+                        {{$turma->cadeira->nome}} &#9773&#9773&#9773 Turma nº{{ $turma->numero }}
                     </li>
                 @endforeach
             </ul>
@@ -39,17 +37,16 @@
     <div id="rightContent">
         <div id="theCadeira">
             <div id="left">
-                <h4>Nome:</h4>
+                <h4>Número:</h4>
             </div>
             <div id="right">
-                <h4>Curso:</h4>
+                <h4>Turma:</h4>
             </div>
         </div>
         <div id="view1">
-                <div id="left">
-                    <h4>Turmas:</h4>
-                    
-                </div>
+            <div>
+                <h4>Aulas Tipo:</h4>   
+            </div>
         </div>
     </div>
     <script src="{{asset('js/docenteScript.js')}}"></script>

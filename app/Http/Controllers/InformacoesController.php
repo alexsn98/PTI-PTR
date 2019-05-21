@@ -81,6 +81,16 @@ class InformacoesController extends Controller
         ]);
     }
 
+    public function getTurmaInfo($idTurma) {
+        $turma = Turma::find($idTurma);
+
+        return response()->json([
+            'numero' => $turma->numero,
+            'cadeira' => $turma->cadeira->nome,
+            'aulasTipo' => $turma->aulasTipo
+        ]);
+    }
+
     public function getAulasAluno($idAluno) {
         $turmas = [];
         
@@ -92,34 +102,28 @@ class InformacoesController extends Controller
             foreach ($cadeiraTurma as $turma) {
                 
                 $turmaInfo = [];
-
-                // echo $turma;
-                // echo " ///// ";
-                
-                // if (!array_key_exists($nomeCadeira, $turmas)) {
                     
-                    foreach ($turma->aulasTipo as $aulaTipo) {
-                        $aulaTipoInfo = collect($aulaTipo);
-    
-                        $nomeCadeira = $aulaTipo->turma->cadeira->nome
-                        ;
-                        $pivotAlunoCadeira = $aulaTipo->turma->cadeira->alunos->where('id', $idAluno)->first()->pivot;
-    
-                        $turmaPratica = $pivotAlunoCadeira->turma_pratica_id == $aulaTipo->turma_id;
-    
-                        $turmaTeorica = $pivotAlunoCadeira->turma_teorica_id == $aulaTipo->turma_id;
+                foreach ($turma->aulasTipo as $aulaTipo) {
+                    $aulaTipoInfo = collect($aulaTipo);
+
+                    $nomeCadeira = $aulaTipo->turma->cadeira->nome;
+
+                    $pivotAlunoCadeira = $aulaTipo->turma->cadeira->alunos->where('id', $idAluno)->first()->pivot;
+
+                    $turmaPratica = $pivotAlunoCadeira->turma_pratica_id == $aulaTipo->turma_id;
+
+                    $turmaTeorica = $pivotAlunoCadeira->turma_teorica_id == $aulaTipo->turma_id;
 
 
-                        $aulaTipoInfo->put('nomeCadeira', $nomeCadeira);                   
-                        $aulaTipoInfo->put('edificio', $aulaTipo->sala->edificio);
-                        $aulaTipoInfo->put('piso', $aulaTipo->sala->piso);
-                        $aulaTipoInfo->put('sala', $aulaTipo->sala->num_sala);
-                        $aulaTipoInfo->put('tipo', $turmaPratica ? 'TP' : ($turmaTeorica ? 'T' : 'ST'));
-    
-                        $turmaInfo[] = $aulaTipoInfo;
-                    }
-                    $turmas[] = $turmaInfo;
-                // }
+                    $aulaTipoInfo->put('nomeCadeira', $nomeCadeira);                   
+                    $aulaTipoInfo->put('edificio', $aulaTipo->sala->edificio);
+                    $aulaTipoInfo->put('piso', $aulaTipo->sala->piso);
+                    $aulaTipoInfo->put('sala', $aulaTipo->sala->num_sala);
+                    $aulaTipoInfo->put('tipo', $turmaPratica ? 'TP' : ($turmaTeorica ? 'T' : 'ST'));
+
+                    $turmaInfo[] = $aulaTipoInfo;
+                }
+                $turmas[] = $turmaInfo;
             }    
         }
 

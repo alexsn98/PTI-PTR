@@ -144,17 +144,27 @@ class HomeController extends Controller
         ]); 
     }
 
-    public function getDocenteCadeiras() {
+    public function getDocenteTurmas() {
         $docente = Auth::user()->docente;
         
         $cursos = Curso::all();
-        $cadeiras = $docente->cadeiras;
         $turmas = $docente->turmas;
 
-        return view('docenteCadeiras',[
-            'cadeiras' => $cadeiras,
+        return view('docenteTurmas',[
             'cursos' => $cursos,
+            'turmas'=> $turmas
         ]); 
+    }
+
+    public function getDocenteAjuda() {
+        $docentes = Docente::all();
+
+        $pedidosFechados = Auth::user()->pedidosAjuda->where('resposta', '!=',null);
+        
+        return view('docenteAjuda', [
+            'docentes' => $docentes,
+            'pedidosFechados' => $pedidosFechados
+        ]);
     }
 
 
