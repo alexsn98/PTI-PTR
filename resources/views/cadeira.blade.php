@@ -4,6 +4,7 @@
 
 @section('cssPagina')
     <link rel="stylesheet" href= {{ asset('css/adminCadeira.css') }}>
+    <link rel="stylesheet" href= {{ asset('css/cadeira.css') }}>
 @endsection
 
 @section('cadeirasAtive') 
@@ -11,23 +12,40 @@
 @endsection
 
 @section('content')
-    <h2>Nome da cadeira - {{$cadeira->nome}}</h2>
+    <h2>{{$cadeira->nome}}</h2>
+    <h2>Regente: {{$regente}}</h2>
 
-    <h2> Turmas </h2>
-    <ul>
-        @foreach ($turmas as $turma)
-            <li class="this"> <a href="turma/{{$turma->id}}"> TP-{{$turma->numero}} 
-                
-            {{-- Se for a turma atual --}}
-            @if (Auth::user()->aluno && in_array($turma->id, $turmasAtuais))
-                - Turma Atual 
-            @endif
-                
-            </a> </li>
-        @endforeach
-    </ul>
+    <div id="leftContent">
+        <div id="view">
+            <h2> Turmas </h2>
+            <ul>
+                @foreach ($turmas as $turma)
+                    <li class="this" onclick="selecionarTurma({{$turma->id}})"> 
+                        <a href="turma/{{$turma->id}}"> TP-{{$turma->numero}} 
+                            {{-- Se for a turma atual --}}
+                            @if (Auth::user()->aluno && in_array($turma->id, $turmasAtuais))
+                                - Turma Atual 
+                            @endif    
+                        </a> 
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
 
-    <h2>Regente- {{$regente}}</h2>
+    <div id="rightContent">
+        <div id="theCadeira">
+            <div id="left">
+                <h4>Professor:</h4>
+            </div>
+            <div id="right">
+                <h4>Tipo:</h4>
+            </div>
+        </div>
+        <div id="view1">
+            
+        </div>
+    </div>
 
     @if (Auth::user()->docente)
         <h2>Alunos sem Turma</h2>
@@ -37,7 +55,7 @@
     @endif
 
     
-    @if (Auth::user()->aluno)
+    {{-- @if (Auth::user()->aluno)
         <h2>Aulas Realizadas</h2>
     
         @foreach ($aulasRealizadas as $aulaTipoRealizada)
@@ -49,7 +67,7 @@
                 <br>
             @endforeach
         @endforeach
-    @endif
+    @endif --}}
 
     @if (Auth::user()->admistrador)
         <br>
@@ -80,5 +98,5 @@
             <button type="submit" class="btn btn-primary">Criar</button>
         </form>
     @endif
-    
+    <script src="{{asset('js/alunoScript.js')}}"></script>
 @endsection

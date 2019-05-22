@@ -30,6 +30,7 @@ Route::get('home/aluno/horarioDuvidas', 'HomeController@getAlunoHorarioDuvidas')
 Route::get('home/aluno/ajuda', 'HomeController@getAlunoAjuda')->middleware('aluno');
 
 Route::get('home/aluno/aulasAluno/{aluno}', 'InformacoesController@getAulasAluno')->middleware('aluno');
+Route::get('home/aluno/turmaInfo/{idTurma}', 'InformacoesController@getTurmaInfo')->middleware('aluno');
 
 // Routes para docente
 Route::get('home/docente', 'HomeController@getDocenteHome')->middleware('docente');
