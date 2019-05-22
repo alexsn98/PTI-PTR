@@ -4,6 +4,7 @@
 
 @section('cssPagina')
     <link rel="stylesheet" href= {{ asset('css/adminCadeira.css') }}>
+    <link rel="stylesheet" href= {{ asset('css/docenteTurma.css') }}>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.20.0/slimselect.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.20.0/slimselect.min.css" rel="stylesheet"></link>
 @endsection
@@ -37,15 +38,33 @@
     <div id="rightContent">
         <div id="theCadeira">
             <div id="left">
-                <h4>Número:</h4>
+                <h4>Número de Turma:</h4>
             </div>
             <div id="right">
-                <h4>Turma:</h4>
+                <h4>Cadeira:</h4>
             </div>
         </div>
         <div id="view1">
             <div>
                 <h4>Aulas Tipo:</h4>   
+            </div>
+            <div>
+                <h4>Criar aula:</h4>
+                <form action="/criar/aula" method="POST">
+                    @csrf 
+
+                    <input type="number" class="form-control" name="aulaTipo" hidden>
+        
+                    <div class="form-group"> Data:
+                        <input type="date" class="form-control" name="data" >
+                    </div> 
+        
+                    <div class="form-group"> Sumário:
+                        <input type="text" class="form-control" name="sumario" >
+                    </div> 
+        
+                    <button type="submit" class="btn btn-primary">Criar</button>
+                </form>
             </div>
         </div>
     </div>
