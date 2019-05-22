@@ -53,18 +53,20 @@ class CriacoesController extends Controller
     public function criarTurma($idCadeira) {
         request()->validate([
             'numeroTurma' => ['required'],
-            'regente' => ['required'],
+            'docente' => ['required'],
+            'tipo' => ['required'],
             'vagas' => ['required'],
         ]); 
 
         Turma::create([ 
             'numero' => request('numeroTurma'),
             'cadeira_id' => $idCadeira,
-            'docente_id' => request('regente'),
-            'numVagas' => request('vagas')
+            'docente_id' => request('docente'),
+            'numVagas' => request('vagas'),
+            'tipo' => request('tipo'),
         ]);
 
-        return redirect("home/cadeira/$idCadeira");
+        return redirect()->back();
     }
     
     public function criarAulaTipo($idTurma) {

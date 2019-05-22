@@ -30,7 +30,6 @@ Route::get('home/aluno/horarioDuvidas', 'HomeController@getAlunoHorarioDuvidas')
 Route::get('home/aluno/ajuda', 'HomeController@getAlunoAjuda')->middleware('aluno');
 
 Route::get('home/aluno/aulasAluno/{aluno}', 'InformacoesController@getAulasAluno')->middleware('aluno');
-Route::get('home/aluno/turmaInfo/{idTurma}', 'InformacoesController@getTurmaInfo')->middleware('aluno');
 
 Route::get('home/cadeira/inscreverTurma/{idTurma}', 'TurmaController@inscrever')->middleware('aluno');
 
@@ -47,6 +46,7 @@ Route::get('home/visitante', 'HomeController@getVisitanteHome');
 // Routes para cadeira
 Route::get('home/cadeira/{id}', 'CadeiraController@getCadeira');
 
+Route::get('home/turmaInfo/{idTurma}', 'InformacoesController@getTurmaInfo');
 Route::get('home/cadeira/turma/{idTurma}', 'TurmaController@getTurma');
 
 Route::get('home/cadeira/turma/fecharTurma/{idTurma}', 'TurmaController@fecharTurma')->middleware('docente');
