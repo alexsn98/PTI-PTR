@@ -87,7 +87,8 @@ class InformacoesController extends Controller
         return response()->json([
             'numero' => $turma->numero,
             'cadeira' => $turma->cadeira->nome,
-            'aulasTipo' => $turma->aulasTipo
+            'aulasTipo' => $turma->aulasTipo,
+            'docente' => $turma->docente->utilizador->nome,
         ]);
     }
 

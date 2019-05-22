@@ -1,0 +1,31 @@
+#content > h2:first-child {
+    float: left;
+    margin-left: 2.5%;
+}
+
+#content > h2:nth-child(2) {
+    margin-left: 27%;
+}
+
+#leftContent {
+    width: 45%;
+    height: 90%;
+}
+
+#rightContent {
+    width: 45%;
+    height: 90%;
+}
+
+#view {
+    height: 95%;
+}
+
+#theCadeira {
+    margin-top: 0;
+    height: 6%;
+}
+
+#theCadeira h4{
+    margin-top: 3%;
+}

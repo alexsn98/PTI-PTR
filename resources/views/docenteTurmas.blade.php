@@ -16,7 +16,7 @@
 @section('content')
     <div id="leftContent">
         <div id="filtrar">
-            <h3>Filtrar por Curso:</h3>
+            <h3>Filtrar por Cadeira:</h3>
             <select>
                 <option value="todos">Todos</option>
                 @foreach ($cursos as $curso)
@@ -28,7 +28,7 @@
             <ul>
                 @foreach ($turmas as $turma)
                     <li class="this" onclick="selecionarTurma({{$turma->id}})"> 
-                        {{$turma->cadeira->nome}} &#9773&#9773&#9773 Turma nº{{ $turma->numero }}
+                        {{$turma->cadeira->nome}} - Turma nº{{ $turma->numero }}
                     </li>
                 @endforeach
             </ul>
