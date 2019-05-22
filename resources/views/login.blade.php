@@ -24,7 +24,7 @@
                 <input type="password" class="form-control" name="password" placeholder="Palavra-passe">
             </div>
             <div class="form-group">
-                <input type="checkbox" name="rememberMe" value="rememberMe">Lembrar<br>
+                <input type="checkbox" name="rememberMe" value="rememberMe">Lembrar-me<br>
             </div>
             <button type="submit" class="btn btn-primary">Entrar</button>
         </form>

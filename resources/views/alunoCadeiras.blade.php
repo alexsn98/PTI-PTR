@@ -14,7 +14,7 @@
     <h3>Cadeiras inscrito: </h3>
     <ul>
         @foreach ($cadeiras as $cadeira)
-            <li class="this"> <a href="/home/cadeira/{{ $cadeira->id }}"> {{ $cadeira->nome }} </a> </li>
+            <a class="this" href="/home/cadeira/{{ $cadeira->id }}"> <li> {{ $cadeira->nome }} </li> </a>
         @endforeach
     </ul>
 @endsection

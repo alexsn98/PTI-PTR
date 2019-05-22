@@ -107,7 +107,8 @@ function selecionarTurma(turmaId) {
                 resposta.aulasTipo.forEach(aulaTipo => {
                     
                     let aulaTipoItem = document.createElement("li");
-                    let textoItem = "Dia " + aulaTipo.dia_semana + " Inicio: " + aulaTipo.inicio + " Fim: " + aulaTipo.fim;
+                    let diaSemana = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"][(aulaTipo.dia_semana-1)];
+                    let textoItem = diaSemana + "-Feira | Inicio: " + aulaTipo.inicio + " | Fim: " + aulaTipo.fim;
                     let node = document.createTextNode(textoItem);
                     
                     aulaTipoItem.appendChild(node);

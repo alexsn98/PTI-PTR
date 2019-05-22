@@ -303,15 +303,18 @@ a:link, a:visited, a:hover{
     margin-top: 1%;
     color: #fff;
     transition: 0.5s;
+    list-style-type: none;
 }
 
 .this:hover{
     transform: scaleY(1.20);
     background-color: rgba(3, 53, 62,1);
     cursor: pointer;
+    text-decoration: none;
+    color: white;
 }
 
-.this a {
+.this a, .this a:hover {
     color: white;
     text-decoration: none;
 }
