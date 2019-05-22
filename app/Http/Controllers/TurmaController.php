@@ -61,13 +61,13 @@ class TurmaController extends Controller
             PedidoMudancaTurma::create([ 
                 'utilizador_abrir_id' => Auth::id(),
                 'utilizador_fechar_id' => Turma::find($idTurma)->docente->utilizador_id,
-                'turma_pedida_id' => $id
+                'turma_pedida_id' => $idTurma
             ]);
         }
         
         else {
             //update do pivot aluno cadeira
-            $aluno->cadeiras()->updateExistingPivot($cadeira, ["turma_pratica_id" => $id]);
+            $aluno->cadeiras()->updateExistingPivot($cadeira, ["turma_pratica_id" => $idTurma]);
         }
 
         return redirect("home/cadeira/$cadeira");

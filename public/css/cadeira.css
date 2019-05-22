@@ -29,3 +29,21 @@
 #theCadeira h4{
     margin-top: 3%;
 }
+
+#view1 > div:first-child {
+    height: 80%;
+}
+
+#view1 > div:first-child .this{
+    margin-top: 0;
+}
+
+#view1 > div:last-child {
+    border-top: 6px solid #EDF0F5;
+    height: 20%
+}
+
+#view1 > div:last-child > a {
+    margin-top: 5%;
+    display: none;
+}

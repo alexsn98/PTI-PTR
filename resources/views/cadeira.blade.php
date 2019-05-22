@@ -43,7 +43,10 @@
             </div>
         </div>
         <div id="view1">
-            
+            <div></div>
+            <div>
+                <a class="btn btn-primary">Inscrever na turma</a>
+            </div>
         </div>
     </div>
 

@@ -70,12 +70,21 @@ function preencherTabela(resposta) {
 function selecionarTurma(turmaId) {
     let docente = document.getElementById('left').getElementsByTagName('h4')[0];
     let tipo = document.getElementById('right').getElementsByTagName('h4')[0];
+    let aulasTipo = document.getElementById('view1').getElementsByTagName('div')[0].getElementsByTagName('ul')[0];
+    let inscreverTurma = document.getElementById('view1').getElementsByTagName('div')[1].getElementsByTagName('a')[0];
+    let linkInscreverTurma = "inscreverTurma/" + turmaId;
     
     let url = '/home/aluno/turmaInfo/' + turmaId;
     
     docente.textContent = 'Professor:'
 
     tipo.textContent = 'Tipo:';
+
+    inscreverTurma.style.display = "none";
+
+    if (aulasTipo != null) {
+        document.getElementById('view1').getElementsByTagName('div')[0].removeChild(aulasTipo);
+    }
 
     let xhttp = new XMLHttpRequest();
 
@@ -87,24 +96,29 @@ function selecionarTurma(turmaId) {
             resposta = JSON.parse(this.responseText);  
             
             docente.textContent += ' ' + resposta.docente; 
-            // tipo.textContent += ' ' + resposta.tipo;
+            tipo.textContent += ' ' + resposta.tipo;
+            
+            if (resposta.aulasTipo.length > 0) {
+                let listaAulasTipo = document.createElement("ul");
 
-            // let listaAulasTipo = document.createElement("ul");
+                inscreverTurma.style.display = "block";
+                inscreverTurma.setAttribute("href", linkInscreverTurma)
 
-            // resposta.aulasTipo.forEach(aulaTipo => {
-                
-            //     let aulaTipoItem = document.createElement("li");
-            //     let textoItem = "Dia " + aulaTipo.dia_semana + " Inicio: " + aulaTipo.inicio + " Fim: " + aulaTipo.fim;
-            //     let node = document.createTextNode(textoItem);
-                
-            //     aulaTipoItem.appendChild(node);
-            //     aulaTipoItem.classList.add('this');
-            //     aulaTipoItem.setAttribute('onclick', "selecionarAulaTipo(" + aulaTipo.id + ")");
-                
-            //     listaAulasTipo.appendChild(aulaTipoItem);
-            // });
-          
-            // document.getElementById('view1').getElementsByTagName('div')[0].appendChild(listaAulasTipo);        
+                resposta.aulasTipo.forEach(aulaTipo => {
+                    
+                    let aulaTipoItem = document.createElement("li");
+                    let textoItem = "Dia " + aulaTipo.dia_semana + " Inicio: " + aulaTipo.inicio + " Fim: " + aulaTipo.fim;
+                    let node = document.createTextNode(textoItem);
+                    
+                    aulaTipoItem.appendChild(node);
+                    aulaTipoItem.classList.add('this');
+                    aulaTipoItem.setAttribute('onclick', "selecionarAulaTipo(" + aulaTipo.id + ")");
+                    
+                    listaAulasTipo.appendChild(aulaTipoItem);
+                });
+              
+                document.getElementById('view1').getElementsByTagName('div')[0].appendChild(listaAulasTipo);  
+            }         
         }
     };
 }
