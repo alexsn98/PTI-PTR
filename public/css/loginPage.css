@@ -34,6 +34,12 @@ body{
 
 button{
     width: 100%;
-    background-color: #0C4DA2 !important;
+    background-color: rgb(12, 77, 162) !important;
     border-color: #0C4DA2 !important;
+    transition: 0.5s;
+}
+button:hover{
+    background: rgb(6, 41, 87) !important;
+    border-color: rgb(6, 41, 87) !important;
+    transition: 0.5s;
 }
