@@ -3,7 +3,7 @@
 @section('name', 'Admin Salas')
 
 @section('cssPagina')
-    {{-- <link rel="stylesheet" href= {{ asset('css/adminSalas.css') }}> --}}
+    <link rel="stylesheet" href= {{ asset('css/alunoCadeira.css') }}> 
 @endsection
 
 @section('cadeirasAtive') 
@@ -11,7 +11,9 @@
 @endsection
 
 @section('content')
-    <h3>Cadeiras inscrito: </h3>
+    <div id="title2">
+        <h3>Cadeiras inscrito: </h3>
+    </div>
     <ul>
         @foreach ($cadeiras as $cadeira)
             <a class="this" href="/home/cadeira/{{ $cadeira->id }}"> <li> {{ $cadeira->nome }} </li> </a>

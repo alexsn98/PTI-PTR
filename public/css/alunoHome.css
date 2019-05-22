@@ -8,7 +8,7 @@
     margin: 0 auto 1.5% auto;
     text-align: center;
     border: 1px solid black;
-    font-size: 15px;
+    font-size: 11px;
     background-color: lightgrey;
 }
 
@@ -29,4 +29,35 @@
 
 #content > h1:first-child {
     text-align: center;
+}
+
+#title1{
+    margin-top: 1%;
+    width: 7%;
+    height: 5%;
+    background-color: #03353E;
+    color: white;
+    margin-left: 2.5%;
+    text-align: center;
+}
+
+#title1 > h2{
+    margin: 0;
+    padding: 0;
+}
+
+#div1{
+    width: 50%;
+    height: 30%;
+    margin-left: 2.5%;
+    background-color: white;
+    float: left;
+}
+
+#div2{
+    width: 43%;
+    height: 30%;
+    margin-left: 2%;
+    background-color: white;
+    float: left;
 }
