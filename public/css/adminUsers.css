@@ -52,3 +52,25 @@
 #filtrar > h2{
     text-align: center;
 }
+
+#operacoesUtilizador {
+    background-color: white;
+    width: 90%;
+    margin-left: 5%;
+    border-top: 25px solid #EDF0F5;
+}
+
+#operacoesUtilizador h4 {
+    text-align: center;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+#operacoesUtilizador label {
+    margin-left: 2%;
+}
+
+#operacoesUtilizador button {
+    margin-left: 2%;
+    margin-bottom: 2%;
+}

@@ -4,6 +4,8 @@
 
 @section('cssPagina')
     <link rel="stylesheet" href= {{ asset('css/adminUsers.css') }}>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.20.0/slimselect.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.20.0/slimselect.min.css" rel="stylesheet"></link>
 @endsection
 
 @section('utilizadoresAtive') 
@@ -43,6 +45,28 @@
             <h2>Curso:</h2>
             <h2>Cadeiras:</h2>
         </div>
+        <div id="operacoesUtilizador">
+            <h4> Relacionar utilizador com cadeira: </h4>
+
+            {{-- formulario para criar turma --}}
+            <form method="POST">
+                @csrf
+
+                <div class="form-group">
+                    <label>
+                        Cadeira: 
+                        <select name="cadeira">
+                            @foreach ($cadeiras as $cadeira)
+                                <option value="{{$cadeira->id}}"> {{$cadeira->nome}} </option>
+                            @endforeach  
+                        </select>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary" disabled>Adicionar</button>
+            </form>
+        </div>
     </div>
     <script src="{{asset('js/adminScript.js')}}"></script>
+    <script src="{{asset('js/selectSearch.js')}}"></script>
 @endsection

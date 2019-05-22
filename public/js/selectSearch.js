@@ -35,3 +35,11 @@ if (localizacao.slice(0, localizacao.length-2) == "/home/cadeira") {
         select: "select[name='docente']"
     })
 }
+
+//admin associa aluno/docente a cadeira
+
+if (localizacao == "/home/admin/utilizadores") {
+    new SlimSelect({
+        select: "select[name='cadeira']"
+    })
+}
