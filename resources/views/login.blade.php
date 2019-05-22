@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <title>Login Page</title>
 </head>
-<body class="mw-100 bg-info">
+<body class="mw-100">
     <div id="login" class="p-5 mx-auto bg-light">
         <img src={{ asset('img/logo.png') }}>
         <form method="POST" action="/">
@@ -28,7 +28,8 @@
             </div>
             <button type="submit" class="btn btn-primary">Entrar</button>
         </form>
-        <a href="home/visitante" class="btn btn-primary" style="float:right;color: white;">Entrar como visitante</a>
+        <hr style="height: 1px; border:0; width: 100%; color:#333;background-color:#0C4DA2; margin-top: 20px; margin-bottom: 6px;">
+        <a href="home/visitante" style="color: #0C4DA2; font-size:12px;margin-top:1%;">Entrar como visitante</a>
         <br>
         @if ($errors->any())
             <div class="alert alert-warning">
