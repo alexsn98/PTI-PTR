@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('name', 'Cadeira')
+@section('name', 'Falco Cadeira')
 
 @section('cssPagina')
     <link rel="stylesheet" href= {{ asset('css/adminCadeira.css') }}>
@@ -60,7 +60,6 @@
                 <a class="btn btn-primary">Inscrever na turma</a>
             </div>
         </div>
-
         @if (Auth::user()->admistrador)
             <div id="criarTurma">
                 <h4>Criar Turma: </h4>

@@ -28,9 +28,11 @@ class HomeController extends Controller
 
     public function getAdminUtilizadores() {
         $utilizadores = Utilizador::all(); 
+        $cadeiras = Cadeira::all();
 
         return view('adminUtilizadores', [
-            'utilizadores' => $utilizadores
+            'utilizadores' => $utilizadores,
+            'cadeiras' => $cadeiras
         ]);
     }
 

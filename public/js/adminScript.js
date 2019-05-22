@@ -1,5 +1,11 @@
 function selecionarUtilizador(utilizadorId) {
   let info = document.getElementById('view1').getElementsByTagName('h2');
+  let relacionarCadeira = document.getElementById('operacoesUtilizador').getElementsByTagName('form')[0];
+  let campoUtilizador = document.getElementById("campoUtilizador");
+
+  relacionarCadeira.removeAttribute('action');
+  relacionarCadeira.getElementsByTagName('button')[0].disabled = true;
+
   let url = 'utilizadorInfo/' + utilizadorId;
   
   info[0].textContent = 'Nome:'
@@ -8,6 +14,10 @@ function selecionarUtilizador(utilizadorId) {
   info[3].textContent = 'Mail:';
   info[4].textContent = 'Curso:';
   info[5].textContent = 'Cadeiras:';      
+
+  if (campoUtilizador != null) {
+    relacionarCadeira.removeChild(campoUtilizador);
+}
 
   let xhttp = new XMLHttpRequest();
 
@@ -28,7 +38,22 @@ function selecionarUtilizador(utilizadorId) {
         
         info[4].textContent += ' ' + resposta.curso;  
 
-        info[5].textContent += ' ' + resposta.cadeiras; 
+        info[5].textContent += ' ' + resposta.cadeiras;
+        
+        if (resposta.cargo != "admistrador") {
+          let relacionarCadeira = document.getElementById('operacoesUtilizador').getElementsByTagName('form')[0];
+          let campoCadeira = document.createElement("input");
+
+          relacionarCadeira.setAttribute('action', "/pedido/associarCadeira");
+          relacionarCadeira.getElementsByTagName('button')[0].disabled = false;
+      
+          campoCadeira.setAttribute('value', utilizadorId);
+          campoCadeira.setAttribute('name', "utilizador");
+          campoCadeira.setAttribute('id', "campoUtilizador");
+          campoCadeira.setAttribute('type', "hidden");
+          
+          relacionarCadeira.appendChild(campoCadeira);
+        }
       }
   };
 }
