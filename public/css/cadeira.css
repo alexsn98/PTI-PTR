@@ -1,20 +1,29 @@
-#content > h2:first-child {
-    float: left;
+#cadeiraInfo {
+    margin-top: 1%;
     margin-left: 2.5%;
+    width: 75%;
 }
 
-#content > h2:nth-child(2) {
-    margin-left: 27%;
+#cadeiraInfo > h2:first-child {
+    float: left;
+    margin-left: 12%;
+}
+
+#cadeiraInfo > h2:nth-child(2) {
+    float: right;
+    margin-right: 2.5%;
 }
 
 #leftContent {
     width: 45%;
     height: 90%;
+    margin-top: 2.3%;
 }
 
 #rightContent {
     width: 45%;
     height: 90%;
+    margin-top: 2.3%;
 }
 
 #view {
@@ -46,4 +55,23 @@
 #view1 > div:last-child > a {
     margin-top: 5%;
     display: none;
+}
+
+#criarTurma {
+    width: 90%;
+    height: 30.5%;
+    margin-left: 5%;
+    background-color: white;
+}
+
+#criarTurma .form-group {
+    margin-bottom: 0;
+}
+
+#criarTurma h4 {
+    margin-left: 2%;
+}
+
+#criarTurma .form-group:nth-child(3), #criarTurma .form-group:nth-child(4) {
+    display: inline;
 }

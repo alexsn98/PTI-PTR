@@ -89,6 +89,7 @@ class InformacoesController extends Controller
             'cadeira' => $turma->cadeira->nome,
             'aulasTipo' => $turma->aulasTipo,
             'docente' => $turma->docente->utilizador->nome,
+            'tipo' => $turma->tipo
         ]);
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cadeira;
 use App\Utilizador;
+use App\Docente;
 use Auth;
 
 class CadeiraController extends Controller
@@ -13,7 +14,8 @@ class CadeiraController extends Controller
         $cadeiraInfo = [];
 
         $cadeira =  Cadeira::find($id);
-
+        
+        $cadeiraInfo["docentes"] = Docente::all();
         $cadeiraInfo["cadeira"] = $cadeira;
         $cadeiraInfo["turmas"] = $cadeira->turmas;
 

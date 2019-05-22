@@ -51,7 +51,7 @@ class HomeController extends Controller
             'utilizadores' => $utilizadores,
             'cursos' => $cursos,
             'cadeiras' => $cadeiras,
-            ]);
+        ]);
     }
     
     public function getAdminSalas() {
@@ -166,7 +166,6 @@ class HomeController extends Controller
             'pedidosFechados' => $pedidosFechados
         ]);
     }
-
 
     //Para visitante
 

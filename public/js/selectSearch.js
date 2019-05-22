@@ -1,6 +1,8 @@
+let localizacao = window.location.pathname;
+
 //admin criar cadeira
 
-if (window.location.pathname == "/home/admin/cadeiras") {
+if (localizacao == "/home/admin/cadeiras") {
     new SlimSelect({
         select: "select[name='regente']"
     })
@@ -12,7 +14,7 @@ if (window.location.pathname == "/home/admin/cadeiras") {
 
 //admin cria curso
 
-if (window.location.pathname == "/home/admin/cursos") {
+if (localizacao == "/home/admin/cursos") {
     new SlimSelect({
         select: "select[name='coordenador']"
     })
@@ -20,7 +22,15 @@ if (window.location.pathname == "/home/admin/cursos") {
 
 //admin reserva horario duvidas
 
-if (window.location.pathname == "/home/aluno/horarioDuvidas") {
+if (localizacao == "/home/aluno/horarioDuvidas") {
+    new SlimSelect({
+        select: "select[name='docente']"
+    })
+}
+
+//admin cria turma
+
+if (localizacao.slice(0, localizacao.length-2) == "/home/cadeira") {
     new SlimSelect({
         select: "select[name='docente']"
     })
