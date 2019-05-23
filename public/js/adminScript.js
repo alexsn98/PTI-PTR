@@ -139,44 +139,62 @@ function selecionarCadeira(cadeiraId) {
   };
 }
 
-function filtrarUtilizadores(cargo) {
-  let utilizadoresLista = document.getElementById('view').getElementsByTagName('ul')[0];
+// function filtrarUtilizadores(cargo) {
+//   let utilizadoresLista = document.getElementById('view').getElementsByTagName('ul')[0];
 
-  while (utilizadoresLista.firstChild) {
-    utilizadoresLista.removeChild(utilizadoresLista.firstChild);
-  }
+//   while (utilizadoresLista.firstChild) {
+//     utilizadoresLista.removeChild(utilizadoresLista.firstChild);
+//   }
 
-  let url = 'getUtilizadores/' + cargo;
-  let xhttp = new XMLHttpRequest();
+//   let url = 'getUtilizadores/' + cargo;
+//   let xhttp = new XMLHttpRequest();
 
-  xhttp.open("GET", url, true);
-  xhttp.send();
+//   xhttp.open("GET", url, true);
+//   xhttp.send();
 
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      resposta = JSON.parse(this.responseText);
+//   xhttp.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//       resposta = JSON.parse(this.responseText);
 
-      Object.keys(resposta).forEach(utilizador => {
-        let utilizadorItem = document.createElement("li");
-        let node = document.createTextNode(resposta[utilizador].nome);
+//       Object.keys(resposta).forEach(utilizador => {
+//         let utilizadorItem = document.createElement("li");
+//         let node = document.createTextNode(resposta[utilizador].nome);
 
-        utilizadorItem.appendChild(node);
-        utilizadorItem.classList.add('this');
+//         utilizadorItem.appendChild(node);
+//         utilizadorItem.classList.add('this');
 
-        utilizadorItem.setAttribute('onclick', "selecionarUtilizador(" + resposta[utilizador].id + ")");
+//         utilizadorItem.setAttribute('onclick', "selecionarUtilizador(" + resposta[utilizador].id + ")");
 
-        utilizadoresLista.appendChild(utilizadorItem);
-      });
+//         utilizadoresLista.appendChild(utilizadorItem);
+//       });
+//     }
+//   }
+// }
+
+// if (window.location.pathname == "/home/admin/utilizadores") {
+//   let filtarSelect = document.getElementById('filtrar').getElementsByTagName('select')[0];
+//   filtarSelect.addEventListener('change', function () {
+//     filtrarUtilizadores(this.value);
+//   });
+// }
+
+function pesquisarUtilizadores() {
+  let searchBar = document.getElementById('searchBar');
+  let nomePesquisa = searchBar.value.toUpperCase();
+
+  let listaUtilizadores = document.getElementById('view').getElementsByTagName('ul')[0];
+  let itemsUtilizadores = listaUtilizadores.getElementsByTagName('li');
+
+  for (let i = 0; i < itemsUtilizadores.length; i++) {
+    const utilizador = itemsUtilizadores[i];
+    const nomeUtilizador = utilizador.textContent || utilizador.innerText;
+
+    if (nomeUtilizador.toUpperCase().indexOf(nomePesquisa) > -1) {
+      itemsUtilizadores[i].style.display = "";
+    } else {
+      itemsUtilizadores[i].style.display = "none";
     }
   }
-}
-
-if (window.location.pathname == "/home/admin/utilizadores") {
-  let filtarSelect = document.getElementById('filtrar').getElementsByTagName('select')[0];
-
-  filtarSelect.addEventListener('change', function () {
-    filtrarUtilizadores(this.value);
-  });
 }
 
 function filtrarCadeiras(curso) {
