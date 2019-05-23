@@ -2,8 +2,9 @@ function selecionarTurma(turmaId) {
     let docente = document.getElementById('left').getElementsByTagName('h4')[0];
     let tipo = document.getElementById('right').getElementsByTagName('h4')[0];
     let aulasTipo = document.getElementById('view1').getElementsByTagName('div')[0].getElementsByTagName('ul')[0];
-    let inscreverTurma = document.getElementById('view1').getElementsByTagName('div')[1].getElementsByTagName('a')[0];
-    let linkInscreverTurma = "inscreverTurma/" + turmaId;
+    let semAulasTipo = document.getElementById('view1').getElementsByTagName('div')[0].getElementsByTagName('h3')[0];
+    let inscreverTurma = document.getElementById('inscreverTurmaButton'); //para aluno
+    let paginaTurma = document.getElementById('paginaTurmaButton'); //para admin
     
     let url = '/home/turmaInfo/' + turmaId;
     
@@ -11,11 +12,16 @@ function selecionarTurma(turmaId) {
 
     tipo.textContent = 'Tipo:';
 
-    inscreverTurma.style.display = "none";
+    if (inscreverTurma != null) inscreverTurma.style.display = "none";
 
-    if (aulasTipo != null) {
-        document.getElementById('view1').getElementsByTagName('div')[0].removeChild(aulasTipo);
+    if (paginaTurma != null) {
+        paginaTurma.style.display = "block";
+        paginaTurma.setAttribute("href", "/home/cadeira/turma/" + turmaId)
     }
+
+    if (aulasTipo != null) document.getElementById('view1').getElementsByTagName('div')[0].removeChild(aulasTipo);
+
+    if (semAulasTipo != null) document.getElementById('view1').getElementsByTagName('div')[0].removeChild(semAulasTipo);
 
     let xhttp = new XMLHttpRequest();
 
@@ -32,11 +38,14 @@ function selecionarTurma(turmaId) {
             docente.textContent += ' ' + resposta.docente; 
             tipo.textContent += ' ' + turmaTipo;
             
+            
             if (resposta.aulasTipo.length > 0) {
                 let listaAulasTipo = document.createElement("ul");
 
-                inscreverTurma.style.display = "block";
-                inscreverTurma.setAttribute("href", linkInscreverTurma)
+                if (inscreverTurma != null) {
+                    inscreverTurma.style.display = "block";
+                    inscreverTurma.setAttribute("href","inscreverTurma/" + turmaId)
+                }
 
                 resposta.aulasTipo.forEach(aulaTipo => {
                     
@@ -53,7 +62,17 @@ function selecionarTurma(turmaId) {
                 });
               
                 document.getElementById('view1').getElementsByTagName('div')[0].appendChild(listaAulasTipo);  
-            }         
+            }
+            
+            else {
+                let avisoAulasTipo = document.createElement("h3");
+
+                let node = document.createTextNode("Sem aulas tipo");
+      
+                avisoAulasTipo.appendChild(node);
+
+                document.getElementById('view1').getElementsByTagName('div')[0].appendChild(avisoAulasTipo); 
+            }
         }
     };
 }

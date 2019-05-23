@@ -36,12 +36,13 @@
 
 #filtrar > h3{
     float: left;
+    margin-left: 5%;
 }
 
 #filtrar > select{
     float: left;
     margin-left: 1%;
-    margin-top: 0.2%;
+    margin-top: 0.8%;
 }
 
 #view1 > h2{
@@ -52,6 +53,8 @@
 #filtrar > h2{
     text-align: center;
 }
+
+#filtrar > h2:last-child
 
 #operacoesUtilizador {
     background-color: white;

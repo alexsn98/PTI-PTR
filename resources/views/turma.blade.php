@@ -1,19 +1,34 @@
-@extends('homeLayout')
+@extends('layout')
 
-@section('cssPage')
+@section('name', 'Falco Turma')
+
+@section('cssPagina')
     <link rel="stylesheet" href={{asset('css/turma.css')}}>
 @endsection
 
 @section('content')
-    <h2>Número turma -> TP-{{$turma->numero}}</h2>
-    <h2>Vagas -> {{$turma->numVagas}} </h2>
-
-    {{-- Se utilizador for aluno --}}
-    @if (App\Utilizador::find(Auth::id())->aluno)
-        <a href="inscreverTurma/{{$turma->id}}">Inscrever</a>
-    @endif
-
-    <h3> Aulas: </h3>
+    <div id="turmaInfo">
+            <h2>Número turma: {{$turma->numero}}</h2>
+            <h2>Vagas: {{$turma->numVagas}} </h2>
+    </div>
+    
+    <div id="leftContent">
+        <div id="view">
+            <h2> Aulas </h2>
+            <ul>
+                @foreach ($aulas as $aula)
+                <li>
+                    Data: {{$aula->data}} <br>
+                    Sumário: {{$aula->sumario}} <br>
+        
+                    @if (Auth::user()->docente)
+                        <a href="aula/{{$aula->id}}">Presenças</a>
+                    @endif 
+                </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
  
     <table>
         <tr>
@@ -32,17 +47,6 @@
     </table>
     <br>
     <h3>Aulas</h3>
-    @foreach ($aulas as $aula)
-        <li>
-            Data: {{$aula->data}} <br>
-            Sumário: {{$aula->sumario}} <br>
-
-            @if (App\Utilizador::find(Auth::id())->Docente)
-                <a href="aula/{{$aula->id}}">Presenças</a>
-            @endif
-            
-        </li>
-    @endforeach
 
     {{-- Se utilizador for admistrador --}}
     @if (App\Utilizador::find(Auth::id())->admistrador)

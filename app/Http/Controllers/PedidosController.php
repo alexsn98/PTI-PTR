@@ -17,18 +17,25 @@ class PedidosController extends Controller
 {
     public function associarUtilizadorTurma() {
         $utilizador = Utilizador::find(request('utilizador'));
-        $turma = Turma::find(request('turma'));
+        $turma = Cadeira::find(request('cadeira'));
+        $cadeira = Turma::find(request('turma'));
 
         if ($utilizador->docente) {
             $turma->docente_id = $utilizador->docente->id;
             $turma->save();
         } 
-        // else if ($utilizador->aluno) {
-            
-        // }
         
+        else if ($utilizador->aluno) {
+            $alunoPivot = $utilizador->aluno->cadeiras();
 
-        // dd($utilizador);
+            if ($turma->tipo == 0) {
+                $alunoPivot->updateExistingPivot($cadeira, ["turma_pratica_id" => $turma->id]);
+            }
+
+            else {
+                $alunoPivot->updateExistingPivot($cadeira, ["turma_teorica_id" => $turma->id]);
+            }
+        }
 
         return redirect()->back();
     }

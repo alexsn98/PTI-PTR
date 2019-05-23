@@ -5,10 +5,10 @@
 #horario {
     height: 50%;
     width: 95%;
-    margin: 0 auto 1.5% auto;
+    margin: 0 auto 1.2% auto;
     text-align: center;
     border: 1px solid black;
-    font-size: 11px;
+    font-size: 16px;
     background-color: lightgrey;
 }
 
@@ -48,16 +48,18 @@
 
 #div1{
     width: 50%;
-    height: 30%;
+    height: 22%;
     margin-left: 2.5%;
     background-color: white;
     float: left;
+    border: 2px solid grey;
 }
 
 #div2{
     width: 43%;
-    height: 30%;
+    height: 22%;
     margin-left: 2%;
     background-color: white;
     float: left;
+    border: 2px solid grey;
 }
