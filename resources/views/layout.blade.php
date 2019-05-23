@@ -48,10 +48,10 @@
                     <a class="noDecoration" href="/home/aluno/salas"><li class="navv" @yield('salasAtive')><span class="material-icons">meeting_room</span>Salas</li></a>
                     <a class="noDecoration" href="/home/aluno/horarioDuvidas"><li class="navv" @yield('horarioDuvidasAtive')><span class="material-icons">hot_tub</span>Horario Duvidas</li></a>
                     <a class="noDecoration" href="/home/aluno/ajuda"><li class="navv" @yield('ajudaAtive')><span class="material-icons">accessible_forward</span>Ajuda</li></a>
-                    <a class="noDecoration" href="/home/aluno/ajuda"><li class="navv" ><span class="material-icons">class</span>Curriculo</li></a>
-                    <a class="noDecoration" href="/home/aluno/horarioDuvidas"><li class="navv" ><span class="material-icons">money</span>Resultados</li></a>
-                    <a class="noDecoration" href="/home/aluno/horarioDuvidas"><li class="navv" ><span class="material-icons">calendar_today</span>Avaliações</li></a>
-                    <a class="noDecoration" href="/home/aluno/ajuda"><li class="navv" ><span class="material-icons">credit_card</span>Conta</li></a>
+                    <a class="noDecoration" href=""><li class="navv" ><span class="material-icons">class</span>Curriculo</li></a>
+                    <a class="noDecoration" href=""><li class="navv" ><span class="material-icons">money</span>Resultados</li></a>
+                    <a class="noDecoration" href=""><li class="navv" ><span class="material-icons">calendar_today</span>Avaliações</li></a>
+                    <a class="noDecoration" href=""><li class="navv" ><span class="material-icons">credit_card</span>Conta</li></a>
                 @endif
                 @if (Auth::user()->docente)
                     <a class="noDecoration" href="/home/docente"><li class="navv" @yield('homeAtive')><span class="material-icons">home</span>Dashboard</li></a>
