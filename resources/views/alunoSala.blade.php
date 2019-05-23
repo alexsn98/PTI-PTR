@@ -3,7 +3,7 @@
 @section('name', 'Admin Salas')
 
 @section('cssPagina')
-    <link rel="stylesheet" href= {{ asset('css/adminSalas.css') }}>
+    <link rel="stylesheet" href= {{ asset('css/alunoSalas.css') }}>
 @endsection
 
 @section('salasAtive') 
@@ -12,10 +12,10 @@
 
 @section('content')
     <div id="upperContent">
-        <div id="filtrar">
+        <div id="filtrar" class="firstText">
             <h2>Pedidos de Salas:</h2>  
         </div>
-        <div id="view">
+        <div id="view" class="noScroll">
             <h3>Reservar sala: </h3>
             <form action="/pedido/reservaSala/criar" method="POST">
                 @csrf

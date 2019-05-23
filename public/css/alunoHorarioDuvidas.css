@@ -1,0 +1,39 @@
+
+#title3{
+    margin-top: 1%;
+    width: 20%;
+    height: 7%;
+    background-color: #03353E;
+    color: white;
+    margin-left: 1%;
+    text-align: center;
+    margin-bottom: 0%;
+    padding-top: 0.7%;
+}
+
+#cont{
+    width: 98%;
+    height: 45%;
+    background-color: white;
+    margin-left: 1%;
+}
+
+label{
+    width: 98%;
+    font-size: 20px;
+}
+select{
+    float: left;
+}
+
+.form-group{
+    margin-left: 2%;
+}
+
+.form-group:first-child{
+    margin-top: 2%;
+}
+
+textarea{
+    width: 98%;
+}

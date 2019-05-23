@@ -11,7 +11,9 @@
 @endsection
 
 @section('content')
-    <h1> Horário </h1>
+    <div id="title1">
+        <h2>Horário</h2>
+    </div>
 
     <table id="horario">
         <thead>
@@ -160,5 +162,9 @@
             </tr>
         </tbody>
     </table>
+    <div id="div1">
+    </div>
+    <div id="div2">
+    </div>
     <script src="{{asset('js/alunoScript.js')}}"></script>
 @endsection
