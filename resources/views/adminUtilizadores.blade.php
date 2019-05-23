@@ -57,10 +57,28 @@
                 <div class="form-group">
                     <label>
                         Cadeira: 
-                        <select name="cadeira">
+                        <select name="cadeira" onchange="turmasDeCadeira()">
                             @foreach ($cadeiras as $cadeira)
                                 <option value="{{$cadeira->id}}"> {{$cadeira->nome}} </option>
                             @endforeach  
+                        </select>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        Turma: 
+                        <select name="turma">
+                            @foreach ($cadeiras[0]->turmas as $turma)
+                                <option value="{{$turma->id}}"> 
+                                        @if ($turma->tipo == 0)
+                                            Pratica -
+                                        @else
+                                            Teórica -
+                                        @endIf
+                                        {{$turma->numero}}
+                                </option>                                
+                            @endforeach
                         </select>
                     </label>
                 </div>

@@ -43,8 +43,9 @@ function selecionarUtilizador(utilizadorId) {
         if (resposta.cargo != "admistrador") {
           let relacionarCadeira = document.getElementById('operacoesUtilizador').getElementsByTagName('form')[0];
           let campoCadeira = document.createElement("input");
+          let turmasSelect = document.getElementById("operacoesUtilizador").getElementsByTagName("select")[1];
 
-          relacionarCadeira.setAttribute('action', "/pedido/associarCadeira");
+          relacionarCadeira.setAttribute('action', "/pedido/associarTurma");
           relacionarCadeira.getElementsByTagName('button')[0].disabled = false;
       
           campoCadeira.setAttribute('value', utilizadorId);
@@ -53,6 +54,56 @@ function selecionarUtilizador(utilizadorId) {
           campoCadeira.setAttribute('type', "hidden");
           
           relacionarCadeira.appendChild(campoCadeira);
+
+          turmasDeCadeira();
+        }
+      }
+  };
+}
+
+function turmasDeCadeira() {
+  let cadeirasSelect = document.getElementById("operacoesUtilizador").getElementsByTagName("select")[0];
+  let turmasSelect = document.getElementById("operacoesUtilizador").getElementsByTagName("select")[1];
+
+  let cadeiraId = cadeirasSelect.value;
+
+  while (turmasSelect.firstChild) {
+    turmasSelect.removeChild(turmasSelect.firstChild);
+  }
+
+  let url = 'cadeiraInfo/' + cadeiraId;
+
+  let xhttp = new XMLHttpRequest();
+
+  xhttp.open("GET", url, true);
+  xhttp.send();
+
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        resposta = JSON.parse(this.responseText);
+
+        
+        for (let i = 0; i < resposta.turmas.length; i++) {
+          let optionTexto;
+          const turma = resposta.turmas[i];
+          
+          let turmaOption = document.createElement("option");
+
+          turmaOption.setAttribute('value', turma.id);
+
+          if (turma.tipo == 0) {
+            optionTexto = "Pratica - " + turma.numero;
+          }
+
+          else {
+            optionTexto = "Teórica - " + turma.numero;
+          }
+
+          let node = document.createTextNode(optionTexto);
+          
+          turmaOption.appendChild(node);
+
+          turmasSelect.appendChild(turmaOption);
         }
       }
   };
