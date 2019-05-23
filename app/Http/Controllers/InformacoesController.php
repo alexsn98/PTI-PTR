@@ -26,18 +26,21 @@ class InformacoesController extends Controller
             $cargo = 'aluno';
             $numero = $utilizador->aluno->numero;
             $curso = $utilizador->aluno->curso->nome;
-            $cadeiras = $utilizador->aluno->cadeiras->map(function($cadeira) {
+
+            $cadeiras = ($utilizador->aluno->cadeiras->count() > 0 ? $utilizador->aluno->cadeiras->map(function($cadeira) {
                 return $cadeira->nome;
-            });
+            }) : "-");
         }
         
         else if ($utilizador->docente) {
             $cargo = 'docente';
             $numero = $utilizador->docente->numero;
-            $curso = $utilizador->docente->curso->nome;
-            $cadeiras = $utilizador->docente->cadeiras->map(function($cadeira) {
+
+            $curso = ($utilizador->docente->curso ? $utilizador->docente->curso->nome : "-");
+
+            $cadeiras = ($utilizador->docente->cadeiras->count() > 0 ? $utilizador->docente->cadeiras->map(function($cadeira) {
                 return $cadeira->nome;
-            });
+            }) : "-");
         }
 
         return response()->json([

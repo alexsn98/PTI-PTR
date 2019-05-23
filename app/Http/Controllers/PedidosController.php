@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Utilizador;
 use App\Cadeira;
+use App\Turma;
 use App\PedidoMudancaTurma;
 use App\PedidoReservaSala;
 use App\ReservaSala;
@@ -13,19 +15,20 @@ use Auth;
 
 class PedidosController extends Controller
 {
-    public function associarUtilizadorCadeira() {
-        $utilizador = request('utilizador');
-        $cadeira = Cadeira::find(request('cadeira'));
+    public function associarUtilizadorTurma() {
+        $utilizador = Utilizador::find(request('utilizador'));
+        $turma = Turma::find(request('turma'));
 
         if ($utilizador->docente) {
-            $cadeira.regente = $utilizador;
+            $turma->docente_id = $utilizador->docente->id;
+            $turma->save();
         } 
-        else if ($utilizador->aluno) {
+        // else if ($utilizador->aluno) {
             
-        }
+        // }
         
 
-        dd($utilizador);
+        // dd($utilizador);
 
         return redirect()->back();
     }

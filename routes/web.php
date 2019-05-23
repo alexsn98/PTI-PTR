@@ -63,7 +63,7 @@ Route::post('criar/aula', 'CriacoesController@criarAula');
 
 // Routes para pedidos
 
-Route::post('pedido/associarCadeira', 'PedidosController@associarUtilizadorCadeira');
+Route::post('pedido/associarTurma', 'PedidosController@associarUtilizadorTurma');
 Route::get('pedido/mudancaTurma/{idPedido}', 'PedidosController@aprovarMudancaTurma');
 Route::get('pedido/mudancaTurma/{idPedido}', 'PedidosController@aprovarMudancaTurma');
 Route::post('pedido/reservaSala/criar', 'PedidosController@criarReservaSala');

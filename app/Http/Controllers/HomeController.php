@@ -15,7 +15,7 @@ use Auth;
 class HomeController extends Controller
 {
     //Para admin
- 
+
     public function getAdminHome() {
         return view('adminHome', [
             'utilizadoresNum' => Utilizador::count(),
@@ -26,9 +26,9 @@ class HomeController extends Controller
         ]);
     }
 
-    public function getAdminUtilizadores() {
-        $utilizadores = Utilizador::all(); 
-        $cadeiras = Cadeira::all();
+    public function getAdminUtilizadores() { 
+        $utilizadores = Utilizador::all()->sortBy('nome'); 
+        $cadeiras = Cadeira::all(); 
 
         return view('adminUtilizadores', [
             'utilizadores' => $utilizadores,

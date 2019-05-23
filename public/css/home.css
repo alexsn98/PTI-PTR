@@ -150,19 +150,18 @@ header {
     opacity: .9;
   }
   
-  a{
+  a {
     text-decoration: none;
   }
 
   .navbar{
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 15%;
-      height: 100%;
-      background: #03353E;
-      border-right: 2px solid white;
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15%;
+    height: 100%;
+    background: #03353E;
+    border-right: 2px solid white;
   }
 
   

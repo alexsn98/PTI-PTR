@@ -74,3 +74,11 @@
     margin-left: 2%;
     margin-bottom: 2%;
 }
+
+#operacoesUtilizador .form-group {
+    display: inline;
+} 
+
+#operacoesUtilizador button {
+    margin-top: 1.5%;
+}

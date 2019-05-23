@@ -36,10 +36,14 @@ if (localizacao.slice(0, localizacao.length-2) == "/home/cadeira") {
     })
 }
 
-//admin associa aluno/docente a cadeira
+//admin associa aluno/docente a turma
 
 if (localizacao == "/home/admin/utilizadores") {
     new SlimSelect({
         select: "select[name='cadeira']"
+    })
+
+    new SlimSelect({
+        select: "select[name='turma']"
     })
 }
