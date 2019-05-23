@@ -1,5 +1,5 @@
 
-#title3{
+#title4{
     margin-top: 1%;
     width: 20%;
     height: 7%;
@@ -13,23 +13,21 @@
 
 #cont{
     width: 98%;
-    height: 45%;
+    height: 20%;
     background-color: white;
     margin-left: 1%;
 }
 
-label{
+#view{
     width: 98%;
-    font-size: 20px;
-}
-select{
-    float: left;
+    height: 55%;
+    background-color: white;
+    margin-left: 1%;
 }
 
 .form-group{
     margin-left: 2%;
 }
-
 
 textarea{
     width: 98%;
@@ -38,4 +36,8 @@ textarea{
 form > button{
     width: 50%;
     margin-left: 25%;
+}
+
+form{
+    padding-top: 1%;
 }
