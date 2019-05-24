@@ -57,6 +57,7 @@
                     <a class="noDecoration" href="/home/docente"><li class="navv" @yield('homeAtive')><span class="material-icons">home</span>Dashboard</li></a>
                     <a class="noDecoration" href="/home/docente/turmas"><li class="navv" @yield('cadeirasAtive')><span class="material-icons">assignment</span>Turmas</li></a>
                     <a class="noDecoration" href="/home/docente/ajuda"><li class="navv" @yield('ajudaAtive')><span class="material-icons">accessible_forward</span>Ajuda</li></a>
+                    <a class="noDecoration" href=""><li class="navv" ><span class="material-icons">money</span>Notas</li></a>
                 @endif
                 
             </ul>

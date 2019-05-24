@@ -74,7 +74,7 @@ ul::-webkit-scrollbar-thumb
 
 .navv {
     width: 90%;
-    padding: 9%;
+    padding: 3%;
     text-decoration: none;
     color: white;
     list-style-type:none;
@@ -90,6 +90,10 @@ ul > .navv {
     text-align: center;
     font-size: 32px;
     background-color: #03353E;
+}
+
+#nameNavbar{
+    opacity: 1;
 }
 
 ul .navv:hover:not(#nameNavbar) {
