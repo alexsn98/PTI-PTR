@@ -169,6 +169,16 @@ class HomeController extends Controller
         ]);
     }
 
+    public function getDocenteSalas() {
+        $salas = Sala::all();
+        $reservasSala = Auth::user()->pedidosReservaSala;
+        
+        return view('docenteSalas', [
+            'salas' => $salas,
+            'reservasSala' => $reservasSala
+        ]);
+    }
+
     //Para visitante
 
     public function getVisitanteHome() {

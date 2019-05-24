@@ -25,7 +25,7 @@ body{
     float: left;
     background-color: #03353E;
     font-family: 'Open Sans Condensed', sans-serif;
-
+    position: fixed;
 }
 
 #title{
@@ -146,6 +146,7 @@ a:link, a:visited, a:hover{
     float: left;
     background-color: #EDF0F5;
     font-family: 'Open Sans Condensed', sans-serif;
+    margin-left: 15%;
 }
 
 #divsTotal{
@@ -354,4 +355,8 @@ a:link, a:visited, a:hover{
 #searchBar {
     margin-left: 1%;
     margin-top: 0.8%;
+}
+
+html{
+    background-color: #EDF0F5;
 }

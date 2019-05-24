@@ -23,6 +23,7 @@
     margin-top: 2%;
     background-color: white;
     float: left;
+    margin-bottom: 2%;
 }
 
 #reservarSala{
@@ -32,6 +33,7 @@
     margin-top: 2%;
     background-color: white;
     float: left;
+    margin-bottom: 2%;
 }
 
 .this{
@@ -52,4 +54,49 @@
     cursor: pointer;
     text-decoration: none;
     color: white;
+}
+
+
+#horario {
+    height: 50%;
+    width: 95%;
+    margin: 0 auto 1.2% auto;
+    text-align: center;
+    border: 1px solid black;
+    font-size: 16px;
+    background-color: lightgrey;
+}
+
+#horario tr {
+    border: 1px solid black;
+}
+
+#horario th {
+    border: 1px solid black;
+    padding: 2px;
+    background-color: grey;
+}
+
+#horario td {
+    border: 1px solid black;
+    padding: 2px;
+}
+
+#content > h1:first-child {
+    text-align: center;
+}
+
+#title1{
+    margin-top: 1%;
+    width: 7%;
+    height: 5%;
+    background-color: #03353E;
+    color: white;
+    margin-left: 2.5%;
+    text-align: center;
+}
+
+#title1 > h2{
+    margin: 0;
+    padding: 0;
 }
