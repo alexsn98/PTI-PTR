@@ -1,0 +1,43 @@
+
+#title4{
+    margin-top: 1%;
+    width: 20%;
+    height: 7%;
+    background-color: #03353E;
+    color: white;
+    margin-left: 1%;
+    text-align: center;
+    margin-bottom: 0%;
+    padding-top: 0.7%;
+}
+
+#cont{
+    width: 98%;
+    height: 20%;
+    background-color: white;
+    margin-left: 1%;
+}
+
+#view{
+    width: 98%;
+    height: 55%;
+    background-color: white;
+    margin-left: 1%;
+}
+
+.form-group{
+    margin-left: 2%;
+}
+
+textarea{
+    width: 98%;
+}
+
+form > button{
+    width: 50%;
+    margin-left: 25%;
+}
+
+form{
+    padding-top: 1%;
+}
