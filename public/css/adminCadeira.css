@@ -36,12 +36,13 @@
 
 #filtrar > h3{
     float: left;
+    margin-left: 3%;
 }
 
 #filtrar > select{
     float: left;
     margin-left: 1%;
-    margin-top: 0.2%;
+    margin-top: 1.5%;
 }
 
 
