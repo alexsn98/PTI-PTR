@@ -49,6 +49,7 @@
 
 #view1 > div:last-child {
     border-top: 6px solid #EDF0F5;
+    border-bottom: 6px solid #EDF0F5;
     height: 20%
 }
 

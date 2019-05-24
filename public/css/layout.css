@@ -330,6 +330,7 @@ a:link, a:visited, a:hover{
     color: #fff;
     transition: 0.5s;
     list-style-type: none;
+    font-size: 25px;
 }
 
 .this:hover{
@@ -352,5 +353,5 @@ a:link, a:visited, a:hover{
 
 #searchBar {
     margin-left: 1%;
-    margin-top: 0.9%;
+    margin-top: 0.8%;
 }

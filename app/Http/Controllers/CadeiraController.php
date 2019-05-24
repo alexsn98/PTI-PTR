@@ -17,7 +17,7 @@ class CadeiraController extends Controller
         
         $cadeiraInfo["docentes"] = Docente::all();
         $cadeiraInfo["cadeira"] = $cadeira;
-        $cadeiraInfo["turmas"] = $cadeira->turmas;
+        $cadeiraInfo["turmas"] = $cadeira->turmas->sortBy('tipo');
 
         $cadeiraInfo["regente"] = $cadeira->regente->utilizador->nome;
 

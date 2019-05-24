@@ -25,8 +25,7 @@
             <ul>
                 @foreach ($turmas as $turma)
                     <li class="this" onclick="selecionarTurma({{$turma->id}})"> 
-                            <a href="turma/{{$turma->id}}">
-
+                        <a href="turma/{{$turma->id}}">
                             @if ($turma->tipo == 0)
                                 Teórica-Prática
                             @else
@@ -57,7 +56,12 @@
         <div id="view1">
             <div></div>
             <div>
-                <a class="btn btn-primary">Inscrever na turma</a>
+                @if (Auth::user()->aluno)
+                    <a id="inscreverTurmaButton" class="btn btn-primary">Inscrever na turma</a>
+                @endif
+                @if (Auth::user()->admistrador)
+                    <a id="paginaTurmaButton" class="btn btn-primary">Página da turma</a>
+                @endif
             </div>
         </div>
         @if (Auth::user()->admistrador)

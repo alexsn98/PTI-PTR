@@ -15,13 +15,13 @@
 @section('content')
     <div id="leftContent">
         <div id="filtrar">
-            {{-- <h3>Filtrar:</h3>
+            <h3>Filtrar:</h3>
             <select>
                 <option value="todos">Todos</option>
                 <option value="admnistradores">Admnistradores</option>
                 <option value="alunos">Alunos</option>
                 <option value="docentes">Docentes</option>
-            </select> --}}
+            </select>
             <h3>Pesquisar:</h3>
             <input type="text" id="searchBar" onkeyup="pesquisarUtilizadores()" placeholder="Pesquisar nome..">
         </div>
