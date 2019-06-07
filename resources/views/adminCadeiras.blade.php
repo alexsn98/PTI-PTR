@@ -22,6 +22,8 @@
                     <option value="{{$curso->nome}}" > {{$curso->nome}} </option>
                 @endforeach
             </select>
+            <h3>Pesquisar:</h3>
+            <input type="text" id="searchBar" onkeyup="pesquisarUtilizadores()" placeholder="Pesquisar nome..">
         </div>
         <div id="view">
             <ul>

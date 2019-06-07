@@ -39,8 +39,13 @@
     margin-left: 2%;
 }
 
-#filtrar > h2{
-    text-align: center;
+#filtrar > h3{
+    float: left;
+    margin-left: 3%;
+}
+
+#searchBar {
+    float: left; 
 }
 
 #viewCurso{
