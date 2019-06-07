@@ -20,9 +20,10 @@
             @csrf
 
             <div class="form-group">
-                <textarea rows="4" cols="30" name="textoPedido">
+                <label>
                     Texto do pedido ...
-                </textarea>
+                    <textarea rows="4" cols="200" name="textoPedido"></textarea>
+                </label>
             </div>
 
             <button type="submit" class="btn btn-primary">Enviar</button>

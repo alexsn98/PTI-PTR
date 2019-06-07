@@ -29,7 +29,8 @@ class TurmaController extends Controller
                 'fim' => $aulaTipo->fim,
                 'edificio' => $sala->edificio,
                 'piso' => $sala->piso,
-                'numSala' => $sala->num_sala
+                'numSala' => $sala->num_sala,
+                'dia' => ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'][$aulaTipo->dia_semana-1]
             ];
 
             $aulasTipoInfo[] = $aulaTipoInfo;

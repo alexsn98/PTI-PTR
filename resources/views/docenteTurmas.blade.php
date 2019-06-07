@@ -28,7 +28,13 @@
             <ul>
                 @foreach ($turmas as $turma)
                     <li class="this" onclick="selecionarTurma({{$turma->id}})"> 
-                        {{$turma->cadeira->nome}} - Turma nº{{ $turma->numero }}
+                        {{$turma->cadeira->nome}} - Turma 
+                        @if ($turma->tipo == 0)
+                            Prática
+                        @else
+                            Teórica
+                        @endif
+                        nº{{ $turma->numero }}
                     </li>
                 @endforeach
             </ul>
@@ -49,7 +55,8 @@
                 <h4>Aulas Tipo:</h4>   
             </div>
             <div>
-                <h4>Criar aula:</h4>
+                <a id="paginaTurmaButton" class="btn btn-primary">Página da turma</a>
+                {{-- <h4>Criar aula:</h4>
                 <form action="/criar/aula" method="POST">
                     @csrf 
 
@@ -64,7 +71,7 @@
                     </div> 
         
                     <button type="submit" class="btn btn-primary">Criar</button>
-                </form>
+                </form> --}}
             </div>
         </div>
     </div>

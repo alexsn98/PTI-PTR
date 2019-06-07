@@ -8,12 +8,12 @@
 }
 
 #view1 {
-    height: 79%;
+    height: 55%;
 }
 
 #view1 div:first-child {
     border-bottom: 6px solid #EDF0F5;
-    height: 60%;
+    height: 89%;
 }
 
 #view1 div:last-child {
@@ -23,4 +23,13 @@
 #view1 h4 {
     margin-top: 1%;
     margin-left: 1%;
+}
+
+#view1 div:last-child {
+    display: block;
+}
+
+#view1 > div:last-child > a {
+    color: white !important;
+    display: none;
 }

@@ -7,21 +7,6 @@ function selecionarTurma(turmaId) {
     let paginaTurma = document.getElementById('paginaTurmaButton'); //para admin
     
     let url = '/home/turmaInfo/' + turmaId;
-    
-    docente.textContent = 'Professor:'
-
-    tipo.textContent = 'Tipo:';
-
-    if (inscreverTurma != null) inscreverTurma.style.display = "none";
-
-    if (paginaTurma != null) {
-        paginaTurma.style.display = "block";
-        paginaTurma.setAttribute("href", "/home/cadeira/turma/" + turmaId)
-    }
-
-    if (aulasTipo != null) document.getElementById('view1').getElementsByTagName('div')[0].removeChild(aulasTipo);
-
-    if (semAulasTipo != null) document.getElementById('view1').getElementsByTagName('div')[0].removeChild(semAulasTipo);
 
     let xhttp = new XMLHttpRequest();
 
@@ -30,6 +15,22 @@ function selecionarTurma(turmaId) {
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
+            //limpa pagina
+            docente.textContent = 'Professor:'
+            tipo.textContent = 'Tipo:';
+
+            if (inscreverTurma != null) inscreverTurma.style.display = "none";
+
+            if (paginaTurma != null) {
+                paginaTurma.style.display = "block";
+                paginaTurma.setAttribute("href", "/home/cadeira/turma/" + turmaId)
+            }
+
+            if (aulasTipo != null) document.getElementById('view1').getElementsByTagName('div')[0].removeChild(aulasTipo);
+
+            if (semAulasTipo != null) document.getElementById('view1').getElementsByTagName('div')[0].removeChild(semAulasTipo);
+
+            //preenche pagina
             resposta = JSON.parse(this.responseText);  
 
             if (resposta.tipo == 0) turmaTipo = "Teórica-Prática";

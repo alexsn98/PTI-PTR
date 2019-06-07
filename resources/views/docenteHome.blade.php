@@ -14,7 +14,7 @@
     <div id="divCoord">
         <h3> Coordenador do curso: </h3>
         <ul>
-            <li class="this"> <a href="curso/{{ $curso->id}}"> {{ $curso->nome }} </a> </li>
+            {{-- <li class="this"> <a href="curso/{{ $curso->id}}"> {{ $curso->nome }} </a> </li> --}}
         </ul>
     </div>
     <div id="divMinhasTurmas">

@@ -58,8 +58,7 @@
             <div>
                 @if (Auth::user()->aluno)
                     <a id="inscreverTurmaButton" class="btn btn-primary">Inscrever na turma</a>
-                @endif
-                @if (Auth::user()->admistrador)
+                @else
                     <a id="paginaTurmaButton" class="btn btn-primary">Página da turma</a>
                 @endif
             </div>

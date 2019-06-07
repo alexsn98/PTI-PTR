@@ -71,6 +71,8 @@ class CriacoesController extends Controller
     
     public function criarAulaTipo($idTurma) {
         request()->validate([
+            'edificio' => ['required'],
+            'piso' => ['required'],
             'sala' => ['required'],
             'diaSemana' => ['required'],
             'inicio' => ['required'],
