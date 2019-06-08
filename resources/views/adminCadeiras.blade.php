@@ -15,13 +15,14 @@
 @section('content')
     <div id="leftContent">
         <div id="filtrar">
-            <h3>Filtrar por Curso:</h3>
+            {{-- <h3>Filtrar por Curso:</h3>
             <select>
                 <option value="todos">Todos</option>
                 @foreach ($cursos as $curso)
                     <option value="{{$curso->nome}}" > {{$curso->nome}} </option>
                 @endforeach
-            </select>
+            </select> --}}
+            <h3>Lista de Cadeiras:</h3>  
             <h3>Pesquisar:</h3>
             <input type="text" id="searchBar" onkeyup="pesquisarUtilizadores()" placeholder="Pesquisar nome..">
         </div>

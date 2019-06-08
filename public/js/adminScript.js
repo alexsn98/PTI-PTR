@@ -284,7 +284,7 @@ function filtrarCadeiras(curso) {
 if (window.location.pathname == "/home/admin/cadeiras") {
   let filtarSelect = document.getElementById('filtrar').getElementsByTagName('select')[0];
 
-  filtarSelect.addEventListener('change', function () {
-    filtrarCadeiras(this.value);
-  });
+  // filtarSelect.addEventListener('change', function () {
+  //   filtrarCadeiras(this.value);
+  // });
 }

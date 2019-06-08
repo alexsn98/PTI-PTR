@@ -100,7 +100,7 @@ class CriacoesController extends Controller
         Aula::create([
             'aula_tipo_id' => request('aulaTipo'),
             'data' => request('data'),
-            'suamario' => request('sumario')
+            'sumario' => request('sumario')
         ]);
 
         return redirect()->back();

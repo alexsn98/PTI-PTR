@@ -9,13 +9,20 @@
 
 @section('content')
     <div id="turmaInfo">
-        <h2>Número turma: {{$turma->numero}}</h2>
+        <h2>Aulas Tipo:</h2>
+        <h2>Turma
+            @if ($turma->tipo == 1)
+                Teórica
+            @else
+                Prática
+            @endif
+            {{$turma->numero}}
+        </h2>
         <h2>Vagas: {{$turma->numVagas}} </h2>
     </div>
     
     <div id="leftContent">
         <div id="view">
-            <h2>Aulas Tipo</h2>
             <ul>
                 @for ($i = 0; $i < count($aulasTipo); $i++)
                     <li class="this">
@@ -52,48 +59,25 @@
                     <h3>Criar aula tipo</h3>
     
                     {{-- formulario para criar aula tipo --}}
-                    <form action="/criar/aulaTipo/{{$turma->id}}" method="POST">
+                    <form action="/criar/aulaTipo/{{$turma->id}}" method="POST" id="criarAulaTipo">
                         @csrf
-    
-                        {{-- <div class="form-group">
-                            <label>
-                                Sala: 
-                                <select name="sala">
-                                    @foreach ($salas as $sala)
-                                        <option value="{{$sala->id}}"> {{$sala->edificio}}.{{$sala->piso}}.{{$sala->num_sala}} </option>
-                                    @endforeach    
-                                </select>
-                            </label>
-                        </div> --}}
-
-                        <script type="text/javascript">
-                            var salas = @json($salas);
-                        </script>
 
                         <div class="form-group">
                             <label>
                                 Edificio: 
-                                <select name="edificio">
-                                    @foreach ($salas as $sala)
-                                        <option value="{{$sala->edificio}}"> {{$sala->edificio}}</option>
-                                    @endforeach    
+                                <select name="edificio" onchange="selecionarSala('edificio')">
+                                    @for ($i = 1; $i < 7; $i++)
+                                        <option value="{{$i}}"> {{$i}}</option>
+                                    @endfor
                                 </select>
                             </label>
                             <label>
                                 Piso: 
-                                <select name="piso">
-                                    @foreach ($salas as $sala)
-                                        <option value="{{$sala->piso}}"> {{$sala->piso}}</option>
-                                    @endforeach    
-                                </select>
+                                <select name="piso" onchange="selecionarSala('piso')"></select>
                             </label>
                             <label>
                                 Sala: 
-                                <select name="sala">
-                                    @foreach ($salas as $sala)
-                                        <option value="{{$sala->num_sala}}"> {{$sala->num_sala}}</option>
-                                    @endforeach    
-                                </select>
+                                <select name="sala"></select>
                             </label>
                         </div>
     
@@ -121,11 +105,11 @@
                 @endif
     
                 {{-- Se utilizador for docente --}}
-                @if (App\Utilizador::find(Auth::id())->docente)
+                @if (Auth::user()->docente)
                     <h3>Criar aula:</h3>
     
                     {{-- formulario para criar aula --}}
-                    <form action="/criar/aula" method="POST">
+                    <form action="/criar/aula" method="POST" id="criarAula">
                         @csrf 
     
                         <div class="form-group">
@@ -153,5 +137,7 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript"> var salas = @json($salas); </script>
     <script src="{{asset('js/turmaScript.js')}}"></script>
 @endsection

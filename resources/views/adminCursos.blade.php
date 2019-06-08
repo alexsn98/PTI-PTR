@@ -15,9 +15,9 @@
 @section('content')
     <div id="leftContent">
         <div id="filtrar">
+            <h3>Lista de Cursos:</h3>  
             <h3>Pesquisar:</h3>
             <input id="searchBar" type="text" id="searchBar" onkeyup="pesquisarUtilizadores()" placeholder="Pesquisar nome..">
-            <h3>Lista de Cursos:</h3>  
         </div>
         <div id="view">
             <ul>

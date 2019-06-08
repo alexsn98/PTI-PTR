@@ -1,4 +1,10 @@
-@extends('homeLayout')
+@extends('layout')
+
+@section('name', 'Falco Aula')
+
+@section('cssPagina')
+
+@endsection
 
 @section('content')
     <h3>Disciplina: {{$aula->aulaTipo->turma->cadeira->nome}}</h3>
