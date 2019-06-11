@@ -28,3 +28,11 @@
   width: 90%;
   margin: auto;
 }
+
+#view1 > div:last-child > h3 {
+  display: none;
+}
+
+#criarAula {
+  display: none;
+}

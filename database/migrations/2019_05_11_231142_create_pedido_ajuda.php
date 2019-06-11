@@ -17,7 +17,7 @@ class CreatePedidoAjuda extends Migration
             $table->increments('id');
             $table->unsignedInteger('utilizador_id');
             $table->text('texto_pedido');
-            $table->text('resposta');
+            $table->text('resposta')->nullable();
             $table->timestamps();
         });
 

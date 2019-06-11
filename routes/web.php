@@ -45,9 +45,10 @@ Route::get('home/visitante', 'HomeController@getVisitanteHome');
 
 // Routes para cadeira
 Route::get('home/cadeira/{id}', 'CadeiraController@getCadeira');
+Route::get('home/cadeira/turma/{idTurma}', 'TurmaController@getTurma');
 
 Route::get('home/turmaInfo/{idTurma}', 'InformacoesController@getTurmaInfo');
-Route::get('home/cadeira/turma/{idTurma}', 'TurmaController@getTurma');
+Route::get('home/aulaTipoInfo/{idAulaTipo}', 'InformacoesController@getAulaTipoInfo');
 
 Route::get('home/cadeira/turma/fecharTurma/{idTurma}', 'TurmaController@fecharTurma')->middleware('docente');
 

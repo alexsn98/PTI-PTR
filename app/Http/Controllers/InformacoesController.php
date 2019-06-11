@@ -8,6 +8,7 @@ use App\Aluno;
 use App\Curso;
 use App\Cadeira;
 use App\Turma;
+use App\AulaTipo;
 use App\Sala;
 
 class InformacoesController extends Controller
@@ -93,6 +94,14 @@ class InformacoesController extends Controller
             'aulasTipo' => $turma->aulasTipo,
             'docente' => $turma->docente->utilizador->nome,
             'tipo' => $turma->tipo
+        ]);
+    }
+
+    public function getAulaTipoInfo($idAulaTipo) {
+        $aulaTipo = AulaTipo::find($idAulaTipo);
+
+        return response()->json([
+            'aulas' => $aulaTipo->aulas
         ]);
     }
 

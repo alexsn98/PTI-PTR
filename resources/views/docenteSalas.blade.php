@@ -6,7 +6,7 @@
     <link rel="stylesheet" href= {{ asset('css/docenteSalas.css') }}>
 @endsection
 
-@section('homeAtive') 
+@section('salasAtive') 
     style= "opacity: 1; background: rgba(255, 255, 255, 0.1); cursor: pointer;"
 @endsection
 
