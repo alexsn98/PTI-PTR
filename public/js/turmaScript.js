@@ -16,6 +16,7 @@ function selecionarAulaTipo(aulaTipoId) {
             while (aulasLista.firstChild) {
                 aulasLista.removeChild(aulasLista.firstChild);
             }
+
             //preencher pagina
             resposta = JSON.parse(this.responseText);  
 

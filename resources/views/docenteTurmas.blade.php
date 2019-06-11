@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('name', 'Admin Cadeiras')
+@section('name', 'Docente Turmas')
 
 @section('cssPagina')
     <link rel="stylesheet" href= {{ asset('css/adminCadeira.css') }}>
@@ -9,7 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.20.0/slimselect.min.css" rel="stylesheet"></link>
 @endsection
 
-@section('cadeirasAtive') 
+@section('turmasAtive') 
     style= "opacity: 1; background: rgba(255, 255, 255, 0.1); cursor: pointer;"
 @endsection
 

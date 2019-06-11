@@ -25,19 +25,17 @@
             <ul>
                 @foreach ($turmas as $turma)
                     <li class="this" onclick="selecionarTurma({{$turma->id}})"> 
-                        <a href="turma/{{$turma->id}}">
-                            @if ($turma->tipo == 0)
-                                Teórica-Prática
-                            @else
-                                Teórica
-                            @endif
-                            
-                            -{{$turma->numero}}
-                            {{-- Se for a turma atual --}}
-                            @if (Auth::user()->aluno && in_array($turma->id, $turmasAtuais))
-                                - Turma Atual 
-                            @endif    
-                        </a> 
+                        @if ($turma->tipo == 0)
+                            Teórica-Prática
+                        @else
+                            Teórica
+                        @endif
+                        
+                        -{{$turma->numero}}
+                        {{-- Se for a turma atual --}}
+                        @if (Auth::user()->aluno && in_array($turma->id, $turmasAtuais))
+                            - Turma Atual 
+                        @endif  
                     </li>
                 @endforeach
             </ul>
@@ -58,9 +56,9 @@
             <div>
                 @if (Auth::user()->aluno)
                     <a id="inscreverTurmaButton" class="btn btn-primary">Inscrever na turma</a>
-                @else
-                    <a id="paginaTurmaButton" class="btn btn-primary">Página da turma</a>
                 @endif
+                
+                <a id="paginaTurmaButton" class="btn btn-primary">Página da turma</a>
             </div>
         </div>
         @if (Auth::user()->admistrador)
@@ -102,6 +100,8 @@
                     <button type="submit" class="btn btn-primary">Criar</button>
                 </form>
             </div>
+
+            <script src="{{asset('js/selectSearch.js')}}"></script>
         @endif
     </div>
 
@@ -127,5 +127,4 @@
     @endif --}}
 
     <script src="{{asset('js/cadeiraScript.js')}}"></script>
-    <script src="{{asset('js/selectSearch.js')}}"></script>
 @endsection

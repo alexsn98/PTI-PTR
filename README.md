@@ -19,6 +19,5 @@ Perguntas para fazer:
 TODO funcionalidades:
 - Docente ver incompatibilidade nos alunos
 - Estado de turma alterado automaticamente
-- Docente pedirem ajuda a Admin
 - Aluno ver horário das salas
 - Admin criar eventos

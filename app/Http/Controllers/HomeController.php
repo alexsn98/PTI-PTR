@@ -15,7 +15,6 @@ use Auth;
 class HomeController extends Controller
 {
     //Para admin
-
     public function getAdminHome() {
         return view('adminHome', [
             'utilizadoresNum' => Utilizador::count(),
@@ -82,7 +81,6 @@ class HomeController extends Controller
     }
 
     //Para aluno
-
     public function getAlunoHome() {
         $cadeiras = Auth::user()->aluno->cadeiras->all();
         
@@ -129,7 +127,6 @@ class HomeController extends Controller
     }
 
     //Para docente
-
     public function getDocenteHome() {
         $docente = Auth::user()->docente;
         
@@ -158,6 +155,24 @@ class HomeController extends Controller
         ]); 
     }
 
+    public function getDocenteCadeiras() {
+        $docente = Auth::user()->docente;
+        $cadeiras = $docente->cadeiras;
+
+        return view('docenteCadeiras',[
+            'cadeiras' => $cadeiras
+        ]); 
+    }
+
+    public function getDocenteCurso() {
+        $docente = Auth::user()->docente;
+        $curso = $docente->curso;
+
+        return view('docenteCurso',[
+            'curso' => $curso
+        ]); 
+    }
+
     public function getDocenteAjuda() {
         $docentes = Docente::all();
 
@@ -180,7 +195,6 @@ class HomeController extends Controller
     }
 
     //Para visitante
-
     public function getVisitanteHome() {
         $cursos = Curso::all();
         $cadeiras = Cadeira::all();

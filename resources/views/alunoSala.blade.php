@@ -17,17 +17,24 @@
         </div>
         <div id="view" class="noScroll">
             <h3>Reservar sala: </h3>
-            <form action="/pedido/reservaSala/criar" method="POST">
+            <form action="/pedido/reservaSala/criar" method="POST" id="criarReservaSala">
                 @csrf
-
                 <div class="form-group">
                     <label>
-                        Sala: 
-                        <select name="sala">
-                            @foreach ($salas as $sala)
-                                <option value="{{$sala->id}}"> {{$sala->edificio}}.{{$sala->piso}}.{{$sala->num_sala}} </option>
-                            @endforeach    
+                        Edificio: 
+                        <select name="edificio" onchange="selecionarSala('edificio')">
+                            @for ($i = 1; $i < 7; $i++)
+                                <option value="{{$i}}"> {{$i}}</option>
+                            @endfor
                         </select>
+                    </label>
+                    <label>
+                        Piso: 
+                        <select name="piso" onchange="selecionarSala('piso')"></select>
+                    </label>
+                    <label>
+                        Sala: 
+                        <select name="sala"></select>
                     </label>
                 </div>
 
@@ -63,4 +70,7 @@
             </ul>
         </div>
     </div>
+    
+    <script type="text/javascript"> var salas = @json($salas); </script>
+    <script src="{{asset('js/salasScript.js')}}"></script>
 @endsection
