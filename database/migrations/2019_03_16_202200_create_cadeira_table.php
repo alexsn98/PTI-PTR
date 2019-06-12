@@ -22,6 +22,7 @@ class CreateCadeiraTable extends Migration
             $table->unsignedInteger('curso_id')->nullable();
             $table->unsignedInteger('semestre')->nullable();
             $table->unsignedInteger('ciclo');
+            $table->string('ano_letivo');
             $table->timestamps();
         });
 

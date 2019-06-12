@@ -17,6 +17,7 @@ class CreateCursoTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('coordenador_id');
             $table->string('nome');
+            $table->string('ano_letivo');
             $table->timestamps();            
         });
 

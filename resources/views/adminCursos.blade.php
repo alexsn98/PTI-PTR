@@ -49,9 +49,23 @@
                 </div>
 
                 <div class="form-group">
-                    {{-- pattern="[A-Za-z]+ --}}
                     <input type="text" class="form-control" name="nome" placeholder="Nome" " required>
                 </div>
+
+                <div class="form-group">
+                    <label>
+                        Ano letivo:
+                        <select name="anoLetivo">
+                            <option value='2018/2019'> 2018/2019 </option>
+                            <option value='2019/2020'> 2019/2020 </option>
+                            <option value='2020/2021'> 2020/2021 </option>
+                            <option value='2021/2022'> 2021/2022 </option>
+                            <option value='2022/2023'> 2022/2023 </option>
+                            <option value='2023/2024'> 2023/2024 </option>
+                        </select>
+                    </label>
+                </div>
+                
                 <button type="submit" class="btn btn-primary">Criar</button>
             </form>
         </div>

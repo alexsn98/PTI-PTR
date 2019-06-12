@@ -143,7 +143,7 @@ function selecionarCadeira(cadeiraId) {
   let url = 'cadeiraInfo/' + cadeiraId;
   
   infoEsquerda[0].textContent = 'Nome:'
-  infoEsquerda[1].textContent = 'Etcs:';
+  infoEsquerda[1].textContent = 'Ects:';
   infoEsquerda[2].textContent = 'Regente:';
   infoEsquerda[3].textContent = 'Curso:'
 

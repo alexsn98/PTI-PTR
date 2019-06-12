@@ -73,6 +73,7 @@
                     <label>
                         Curso: 
                         <select name="curso">
+                            <option value="null"> Cadeira sem curso </option>
                             @foreach ($cursos as $curso)
                                 <option value="{{$curso->id}}"> {{$curso->nome}} </option>
                             @endforeach   
@@ -97,6 +98,20 @@
                             <option value=1> Primeiro ciclo </option>
                             <option value=2> Segundo ciclo </option>
                             <option value=3> Terceiro ciclo </option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        Ano letivo:
+                        <select name="anoLetivo">
+                            <option value=1> 2018/2019 </option>
+                            <option value=2> 2019/2020 </option>
+                            <option value=3> 2020/2021 </option>
+                            <option value=3> 2021/2022 </option>
+                            <option value=3> 2022/2023 </option>
+                            <option value=3> 2023/2024 </option>
                         </select>
                     </label>
                 </div>

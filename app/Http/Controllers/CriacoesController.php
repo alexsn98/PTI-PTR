@@ -14,12 +14,14 @@ class CriacoesController extends Controller
     public function criarCurso() {
         request()->validate([
             'coordenador' => ['required'],
-            'nome' => ['required']
+            'nome' => ['required'],
+            'anoLetivo' => ['required']
         ]); 
         
         Curso::create([
             'coordenador_id' => request('coordenador'),
-            'nome' => request('nome')
+            'nome' => request('nome'),
+            'ano_letivo' => request('anoLetivo')
         ]);
 
         return redirect()->back();
@@ -35,16 +37,20 @@ class CriacoesController extends Controller
             'curso' => ['required'],
             'semestre' => ['required'],
             'ciclo' => ['required'],
+            'anoLetivo' => ['required']
         ]); 
+
+        $curso = (request('curso') == 'null') ? null : request('curso');
 
         Cadeira::create([
             'nome' => request('nome'),
             'sigla' => request('sigla'),
             'ETCS' => request('etcs'),
             'regente_id' => request('regente'),
-            'curso_id' => request('curso'),
+            'curso_id' => $curso,
             'semestre' => request('semestre'),
-            'ciclo' => request('ciclo')
+            'ciclo' => request('ciclo'),
+            'ano_letivo' => request('anoLetivo')
         ]);
 
         return redirect()->back();

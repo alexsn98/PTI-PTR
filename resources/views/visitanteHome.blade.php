@@ -1,4 +1,4 @@
-@extends('homeLayout')
+@extends('layout')
 
 @section('content')
     <a href="/">Página de login</a>
