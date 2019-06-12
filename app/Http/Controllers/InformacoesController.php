@@ -21,6 +21,7 @@ class InformacoesController extends Controller
             $numero = '-';
             $curso = '-';
             $cadeiras = '-';
+            $turmas = '-';
         }
 
         else if ($utilizador->aluno) {
@@ -30,6 +31,10 @@ class InformacoesController extends Controller
 
             $cadeiras = ($utilizador->aluno->cadeiras->count() > 0 ? $utilizador->aluno->cadeiras->map(function($cadeira) {
                 return $cadeira->nome;
+            }) : "-");
+
+            $turmas = ($utilizador->aluno->turmas->count() > 0 ? $utilizador->aluno->turmas->map(function($turma) {
+                return "$turma->cadeira->nome $turma->numero";
             }) : "-");
         }
         
@@ -42,6 +47,10 @@ class InformacoesController extends Controller
             $cadeiras = ($utilizador->docente->cadeiras->count() > 0 ? $utilizador->docente->cadeiras->map(function($cadeira) {
                 return $cadeira->nome;
             }) : "-");
+
+            $turmas = ($utilizador->docente->turmas->count() > 0 ? $utilizador->docente->turmas->map(function($turma) {
+                return $turma->cadeira->nome . "-" . $turma->numero;
+            }) : "-");
         }
 
         return response()->json([
@@ -50,7 +59,8 @@ class InformacoesController extends Controller
             'cargo' => $cargo,
             'numero' => $numero,
             'curso' => $curso,
-            'cadeiras' => $cadeiras
+            'cadeiras' => $cadeiras,
+            'turmas' => $turmas
         ]);
     }
 

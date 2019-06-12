@@ -13,7 +13,8 @@ function selecionarUtilizador(utilizadorId) {
   info[2].textContent = 'Cargo:';
   info[3].textContent = 'Mail:';
   info[4].textContent = 'Curso:';
-  info[5].textContent = 'Cadeiras:';      
+  info[5].textContent = 'Cadeiras:'; 
+  info[6].textContent = 'Turmas:';      
 
   if (campoUtilizador != null) {
     relacionarCadeira.removeChild(campoUtilizador);
@@ -39,6 +40,8 @@ function selecionarUtilizador(utilizadorId) {
         info[4].textContent += ' ' + resposta.curso;  
 
         info[5].textContent += ' ' + resposta.cadeiras;
+
+        info[6].textContent += ' ' + resposta.turmas;
         
         if (resposta.cargo != "admistrador") {
           let relacionarCadeira = document.getElementById('operacoesUtilizador').getElementsByTagName('form')[0];

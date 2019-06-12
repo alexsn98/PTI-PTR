@@ -46,6 +46,7 @@
             <h2>Mail:</h2>
             <h2>Curso:</h2>
             <h2>Cadeiras:</h2>
+            <h2>Turmas:</h2>
         </div>
         <div id="operacoesUtilizador">
             <h4> Relacionar utilizador com turma: </h4>
