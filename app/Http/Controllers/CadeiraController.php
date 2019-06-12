@@ -29,8 +29,8 @@ class CadeiraController extends Controller
 
         $cadeiraInfo["alunosSemTurma"] = $cadeira->alunos()->wherePivot('turma_pratica_id', null)->get();
 
-        if (Utilizador::find(Auth::id())->aluno) {
-            $aluno = Utilizador::find((Auth::id()))->aluno;
+        if (Auth::user()->aluno) {
+            $aluno = Auth::user()->aluno;
             $alunoCadeira = $aluno->cadeiras->find($id)->pivot;
 
             $turmaTeorica = $alunoCadeira->turma_teorica_id;

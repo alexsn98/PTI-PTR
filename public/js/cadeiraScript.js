@@ -6,6 +6,8 @@ function selecionarTurma(turmaId) {
     let inscreverTurma = document.getElementById('inscreverTurmaButton'); //para aluno
     let paginaTurma = document.getElementById('paginaTurmaButton'); //para admin
     
+    console.log(turmasAtuais);
+
     let url = '/home/turmaInfo/' + turmaId;
 
     let xhttp = new XMLHttpRequest();
@@ -43,7 +45,7 @@ function selecionarTurma(turmaId) {
             if (resposta.aulasTipo.length > 0) {
                 let listaAulasTipo = document.createElement("ul");
 
-                if (inscreverTurma != null) {
+                if (inscreverTurma != null && !turmasAtuais.includes(turmaId)) {
                     inscreverTurma.style.display = "block";
                     inscreverTurma.setAttribute("href","inscreverTurma/" + turmaId)
                 }

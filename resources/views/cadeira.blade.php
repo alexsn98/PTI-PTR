@@ -126,5 +126,6 @@
         @endforeach
     @endif --}}
 
+    <script> var turmasAtuais = @json($turmasAtuais)</script>
     <script src="{{asset('js/cadeiraScript.js')}}"></script>
 @endsection

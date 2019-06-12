@@ -166,5 +166,6 @@
     </div>
     <div id="div2">
     </div>
-    <script src="{{asset('js/alunoScript.js')}}"></script>
+    <script>var idUtilizador = @json(Auth::user()->aluno->id)</script>
+    <script src="{{asset('js/horarioScript.js')}}"></script>
 @endsection

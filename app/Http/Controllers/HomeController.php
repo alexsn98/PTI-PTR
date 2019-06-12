@@ -108,7 +108,14 @@ class HomeController extends Controller
     }
 
     public function getAlunoHorarioDuvidas() {
-        $docentes = Docente::all();
+        $alunoTurmas = Auth::user()->aluno->cadeiras->flatMap(function ($cadeira) {
+            return $cadeira->turmas;
+        });;
+
+        $docentes = $alunoTurmas->map(function ($turma) {
+            return $turma->docente;
+        })->unique();
+        
 
         return view('alunoHorarioDuvidas', [
             'docentes' => $docentes

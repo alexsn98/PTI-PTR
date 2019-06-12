@@ -140,14 +140,15 @@ class InformacoesController extends Controller
 
                     $turmaTeorica = $pivotAlunoCadeira->turma_teorica_id == $aulaTipo->turma_id;
 
-
-                    $aulaTipoInfo->put('nomeCadeira', $nomeCadeira);                   
+                    if ($turmaPratica || $turmaTeorica) {
+                        $aulaTipoInfo->put('nomeCadeira', $nomeCadeira);                   
                     $aulaTipoInfo->put('edificio', $aulaTipo->sala->edificio);
                     $aulaTipoInfo->put('piso', $aulaTipo->sala->piso);
                     $aulaTipoInfo->put('sala', $aulaTipo->sala->num_sala);
-                    $aulaTipoInfo->put('tipo', $turmaPratica ? 'TP' : ($turmaTeorica ? 'T' : 'ST'));
+                    $aulaTipoInfo->put('tipo', $turmaPratica ? 'TP' : 'T');
 
                     $turmaInfo[] = $aulaTipoInfo;
+                    }
                 }
                 $turmas[] = $turmaInfo;
             }    
