@@ -175,12 +175,4 @@
             @endforeach
         </ul>
     </div>
-    @if ($curso)
-        <div id="reservarSala">
-            <h3> Coordenador do curso: </h3>
-            <ul>
-                <li class="this"> <a href="curso/{{ $curso->id}}"> {{ $curso->nome }} </a> </li>
-            </ul>
-        </div>
-    @endif
 @endsection

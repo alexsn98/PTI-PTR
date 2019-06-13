@@ -28,7 +28,7 @@
 
 #view1{
     width: 90%;
-    height: 30%;
+    height: 33%;
     margin-left: 5%;
     background-color: white;
     display: inline-block;
@@ -44,6 +44,10 @@
     margin-left: 3%;
 }
 
+#view1 button {
+    margin-top: 0;
+}
+
 #searchBar {
     float: left; 
 }
@@ -52,7 +56,7 @@
     width: 90%;
     height: 50%;
     margin-left: 5%;
-    margin-top: 5%;
+    margin-top: 2%;
     background-color: white;
     display: inline-block;
 }

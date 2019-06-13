@@ -17,13 +17,13 @@
 }
 
 #pedidosTurma{
-    width: 60%;
-    height: 40%;
+    width: 95%;
+    height: 20%;
     margin-left: 2.5%;
-    margin-top: 2%;
+    margin-top: 0.5%;
     background-color: white;
     float: left;
-    margin-bottom: 2%;
+    margin-bottom: 0.5%;
 }
 
 #reservarSala{

@@ -81,7 +81,7 @@
                     </label>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group opcoesPeriodo">
                     <label>
                         Semestre:
                         <select name="semestre">
@@ -91,7 +91,7 @@
                     </label>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group opcoesPeriodo">
                     <label>
                         Ciclo:
                         <select name="ciclo">
@@ -102,7 +102,7 @@
                     </label>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group opcoesPeriodo">
                     <label>
                         Ano letivo:
                         <select name="anoLetivo">

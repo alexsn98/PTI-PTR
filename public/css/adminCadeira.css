@@ -61,6 +61,15 @@
     margin-top: 2%;
 }
 
+.opcoesPeriodo {
+    display: inline;
+    margin-left: 4%;
+}
+
+#view1 button {
+    margin-top: 7%;
+}
+
 label{
     margin-left: 2%;
     margin-top: 2%;
