@@ -43,7 +43,7 @@ function selecionarUtilizador(utilizadorId) {
 
         info[6].textContent += ' ' + resposta.turmas;
         
-        if (resposta.cargo != "admistrador") {
+        if (resposta.cargo == "docente") {
           let relacionarCadeira = document.getElementById('operacoesUtilizador').getElementsByTagName('form')[0];
           let campoCadeira = document.createElement("input");
           let turmasSelect = document.getElementById("operacoesUtilizador").getElementsByTagName("select")[1];

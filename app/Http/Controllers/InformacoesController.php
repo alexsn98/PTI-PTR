@@ -33,9 +33,15 @@ class InformacoesController extends Controller
                 return $cadeira->nome;
             }) : "-");
 
-            $turmas = ($utilizador->aluno->turmas->count() > 0 ? $utilizador->aluno->turmas->map(function($turma) {
-                return "$turma->cadeira->nome $turma->numero";
-            }) : "-");
+            if ($utilizador->aluno->turmas && $utilizador->aluno->turmas->count() > 0) {
+                $turmas = $utilizador->aluno->turmas->map(function($turma) {
+                    return "$turma->cadeira->nome $turma->numero";
+                });
+            }
+
+            else {
+                $turmas = "-";
+            }
         }
         
         else if ($utilizador->docente) {

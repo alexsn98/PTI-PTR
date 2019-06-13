@@ -15,27 +15,13 @@ use Auth;
 
 class PedidosController extends Controller
 {
-    public function associarUtilizadorTurma() {
+    public function associarDocenteTurma() {
         $utilizador = Utilizador::find(request('utilizador'));
         $turma = Cadeira::find(request('cadeira'));
         $cadeira = Turma::find(request('turma'));
 
-        if ($utilizador->docente) {
-            $turma->docente_id = $utilizador->docente->id;
-            $turma->save();
-        } 
-        
-        else if ($utilizador->aluno) {
-            $alunoPivot = $utilizador->aluno->cadeiras();
-
-            if ($turma->tipo == 0) {
-                $alunoPivot->updateExistingPivot($cadeira, ["turma_pratica_id" => $turma->id]);
-            }
-
-            else {
-                $alunoPivot->updateExistingPivot($cadeira, ["turma_teorica_id" => $turma->id]);
-            }
-        }
+        $turma->docente_id = $utilizador->docente->id;
+        $turma->save();
 
         return redirect()->back();
     }

@@ -49,10 +49,9 @@
             <h2>Turmas:</h2>
         </div>
         <div id="operacoesUtilizador">
-            <h4> Relacionar utilizador com turma: </h4>
+            <h4> Relacionar docente com turma: </h4>
 
-            {{-- formulario para criar turma --}}
-            <form method="POST">
+            <form action="/pedido/associarTurma" method="POST">
                 @csrf
 
                 <div class="form-group">
