@@ -39,8 +39,12 @@
     margin-top: 3%;
 }
 
+#view1 {
+    height: 65%;
+}
+
 #view1 > div:first-child {
-    height: 80%;
+    height: 73%;
 }
 
 #view1 > div:first-child .this{
@@ -50,7 +54,7 @@
 #view1 > div:last-child {
     border-top: 6px solid #EDF0F5;
     border-bottom: 6px solid #EDF0F5;
-    height: 20%
+    height: 27%
 }
 
 #view1 > div:last-child > a {
@@ -75,4 +79,8 @@
 
 #criarTurma .form-group:nth-child(3), #criarTurma .form-group:nth-child(4) {
     display: inline;
+}
+
+#inscreverTurmaButton  #paginaTurmaButton {
+    margin-top: 5%;
 }

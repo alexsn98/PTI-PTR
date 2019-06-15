@@ -51,11 +51,10 @@ function preencherTabela(resposta) {
 
             linhasTabela[linhaInicio][diaSemana].style.backgroundColor = '#A8FFFF';
 
-            let pau = aula.nomeCadeira + " (" + aula.tipo + ")" + " \n Sala: " +  aula.edificio + "." + aula.piso + 
+            let aulaTexto = aula.siglaCadeira + " (" + aula.tipo + ")" + " \n Sala: " +  aula.edificio + "." + aula.piso + 
                     "." + aula.sala ;
 
-            linhasTabela[linhaInicio][diaSemana].innerText = pau; // nome da cadeira na celula
-            // TODO: meter sala e tipo de aula (TP ou T)
+            linhasTabela[linhaInicio][diaSemana].innerText = aulaTexto; // nome da cadeira na celula
             
             // apaga celulas em excesso
             for (let i = linhaInicio+1; i < linhaFim; i++) {

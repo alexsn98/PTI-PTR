@@ -163,9 +163,19 @@
         </tbody>
     </table>
     <div id="div1">
+        <ul>
+            @foreach ($cadeiras as $cadeira)
+                <li> {{$cadeira->nome}} - {{$cadeira->sigla}} </li>
+            @endforeach
+        </ul>
     </div>
     <div id="div2">
+            <ul>
+                <li>TP - Aula Teórica Prática</li>
+                <li>T - Aula Teórica</li>
+            </ul>
     </div>
+
     <script>var idUtilizador = @json(Auth::user()->aluno->id)</script>
     <script src="{{asset('js/horarioScript.js')}}"></script>
 @endsection

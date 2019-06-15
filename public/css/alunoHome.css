@@ -63,3 +63,10 @@
     float: left;
     border: 2px solid grey;
 }
+
+#div1 ul, #div2 ul{
+    list-style-type: none;
+    font-size: 25px;
+    margin-top: 1%;
+    margin-left: 1%;
+}

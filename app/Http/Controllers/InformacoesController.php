@@ -140,6 +140,8 @@ class InformacoesController extends Controller
 
                     $nomeCadeira = $aulaTipo->turma->cadeira->nome;
 
+                    $siglaCadeira = $aulaTipo->turma->cadeira->sigla;
+
                     $pivotAlunoCadeira = $aulaTipo->turma->cadeira->alunos->where('id', $idAluno)->first()->pivot;
 
                     $turmaPratica = $pivotAlunoCadeira->turma_pratica_id == $aulaTipo->turma_id;
@@ -147,13 +149,14 @@ class InformacoesController extends Controller
                     $turmaTeorica = $pivotAlunoCadeira->turma_teorica_id == $aulaTipo->turma_id;
 
                     if ($turmaPratica || $turmaTeorica) {
-                        $aulaTipoInfo->put('nomeCadeira', $nomeCadeira);                   
-                    $aulaTipoInfo->put('edificio', $aulaTipo->sala->edificio);
-                    $aulaTipoInfo->put('piso', $aulaTipo->sala->piso);
-                    $aulaTipoInfo->put('sala', $aulaTipo->sala->num_sala);
-                    $aulaTipoInfo->put('tipo', $turmaPratica ? 'TP' : 'T');
+                        $aulaTipoInfo->put('nomeCadeira', $nomeCadeira);   
+                        $aulaTipoInfo->put('siglaCadeira', $siglaCadeira);                   
+                        $aulaTipoInfo->put('edificio', $aulaTipo->sala->edificio);
+                        $aulaTipoInfo->put('piso', $aulaTipo->sala->piso);
+                        $aulaTipoInfo->put('sala', $aulaTipo->sala->num_sala);
+                        $aulaTipoInfo->put('tipo', $turmaPratica ? 'TP' : 'T');
 
-                    $turmaInfo[] = $aulaTipoInfo;
+                        $turmaInfo[] = $aulaTipoInfo;
                     }
                 }
                 $turmas[] = $turmaInfo;

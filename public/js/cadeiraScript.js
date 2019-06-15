@@ -38,8 +38,7 @@ function selecionarTurma(turmaId) {
 
             docente.textContent += ' ' + resposta.docente; 
             tipo.textContent += ' ' + turmaTipo;
-            
-            
+                        
             if (resposta.aulasTipo.length > 0) {
                 let listaAulasTipo = document.createElement("ul");
 
