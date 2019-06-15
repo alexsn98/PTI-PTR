@@ -29,9 +29,7 @@ Route::get('home/aluno/salas', 'HomeController@getAlunoSalas')->middleware('alun
 Route::get('home/aluno/horarioDuvidas', 'HomeController@getAlunoHorarioDuvidas')->middleware('aluno');
 Route::get('home/aluno/ajuda', 'HomeController@getAlunoAjuda')->middleware('aluno');
 
-Route::get('home/aluno/aulasAluno/{aluno}', 'InformacoesController@getAulasAluno')->middleware('aluno');
-
-Route::get('home/cadeira/inscreverTurma/{idTurma}', 'TurmaController@inscrever')->middleware('aluno');
+Route::get('home/aluno/aulasAluno/{idAluno}', 'InformacoesController@getAulasAluno')->middleware('aluno');
 
 // Routes para docente
 Route::get('home/docente', 'HomeController@getDocenteHome')->middleware('docente');
@@ -42,6 +40,8 @@ Route::get('home/docente/ajuda', 'HomeController@getDocenteAjuda')->middleware('
 Route::get('home/docente/salas', 'HomeController@getDocenteSalas')->middleware('docente');
 Route::get('home/docente/turmaInfo/{idTurma}', 'InformacoesController@getTurmaInfo')->middleware('docente');
 
+Route::get('home/docente/aulasDocente/{idDocente}', 'InformacoesController@getAulasDocente')->middleware('docente');
+
 // Routes para visitante
 Route::get('home/visitante', 'HomeController@getVisitanteHome');
 
@@ -51,6 +51,8 @@ Route::get('home/cadeira/turma/{idTurma}', 'TurmaController@getTurma');
 
 Route::get('home/turmaInfo/{idTurma}', 'InformacoesController@getTurmaInfo');
 Route::get('home/aulaTipoInfo/{idAulaTipo}', 'InformacoesController@getAulaTipoInfo');
+
+Route::get('home/cadeira/inscreverTurma/{idTurma}', 'TurmaController@inscrever')->middleware('aluno');
 
 Route::get('home/cadeira/turma/fecharTurma/{idTurma}', 'TurmaController@fecharTurma')->middleware('docente');
 
@@ -65,7 +67,6 @@ Route::post('criar/aulaTipo/{idTurma}', 'CriacoesController@criarAulaTipo');
 Route::post('criar/aula', 'CriacoesController@criarAula');
 
 // Routes para pedidos
-
 Route::post('pedido/associarTurma', 'PedidosController@associarDocenteTurma');
 Route::get('pedido/mudancaTurma/{idPedido}', 'PedidosController@aprovarMudancaTurma');
 Route::get('pedido/mudancaTurma/{idPedido}', 'PedidosController@aprovarMudancaTurma');

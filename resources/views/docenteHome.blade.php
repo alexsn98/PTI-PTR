@@ -175,4 +175,7 @@
             @endforeach
         </ul>
     </div>
+
+    <script>var idDocente = @json(Auth::user()->docente->id)</script>
+    <script src="{{asset('js/horarioScript.js')}}"></script>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Utilizador;
 use App\Aluno;
+use App\Docente;
 use App\Curso;
 use App\Cadeira;
 use App\Turma;
@@ -161,6 +162,38 @@ class InformacoesController extends Controller
                 }
                 $turmas[] = $turmaInfo;
             }    
+        }
+
+        return response()->json([
+            'turmas' => $turmas
+        ]);
+    }
+
+    public function getAulasDocente($idDocente) {
+        $turmas = [];
+        $cadeirasTurmas = Docente::find($idDocente)->turmas;
+
+        foreach ($cadeirasTurmas as $turma) {
+            $turmaInfo = [];
+            
+            foreach ($turma->aulasTipo as $aulaTipo) {
+                $aulaTipoInfo = collect($aulaTipo);
+
+                $nomeCadeira = $aulaTipo->turma->cadeira->nome;
+
+                $siglaCadeira = $aulaTipo->turma->cadeira->sigla;
+
+                $aulaTipoInfo->put('nomeCadeira', $nomeCadeira);   
+                $aulaTipoInfo->put('siglaCadeira', $siglaCadeira);                   
+                $aulaTipoInfo->put('edificio', $aulaTipo->sala->edificio);
+                $aulaTipoInfo->put('piso', $aulaTipo->sala->piso);
+                $aulaTipoInfo->put('sala', $aulaTipo->sala->num_sala);
+                $aulaTipoInfo->put('tipo', $aulaTipo->turma->tipo == 0 ? 'TP' : 'T');
+
+                $turmaInfo[] = $aulaTipoInfo;
+                
+            }
+            $turmas[] = $turmaInfo;
         }
 
         return response()->json([

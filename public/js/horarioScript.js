@@ -1,18 +1,16 @@
-if (window.location.pathname == "/home/aluno") {
-    var horarioTable = document.getElementById('horario');
-    
-    let url = 'aluno/aulasAluno/' + idUtilizador;
-    let xhttp = new XMLHttpRequest();
+var horarioTable = document.getElementById('horario');
+var url = window.location.pathname == "/home/aluno" ?  'aluno/aulasAluno/' + idAluno : 'docente/aulasDocente/' + idDocente;
 
-    xhttp.open("GET", url, true);
-    xhttp.send();
+var xhttp = new XMLHttpRequest();
 
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            resposta = JSON.parse(this.responseText);
+xhttp.open("GET", url, true);
+xhttp.send();
 
-            preencherTabela(resposta);
-        }
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        resposta = JSON.parse(this.responseText);
+
+        preencherTabela(resposta);
     }
 }
 

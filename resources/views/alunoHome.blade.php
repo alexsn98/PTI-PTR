@@ -176,6 +176,6 @@
             </ul>
     </div>
 
-    <script>var idUtilizador = @json(Auth::user()->aluno->id)</script>
+    <script>var idAluno = @json(Auth::user()->aluno->id)</script>
     <script src="{{asset('js/horarioScript.js')}}"></script>
 @endsection

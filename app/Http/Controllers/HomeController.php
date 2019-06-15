@@ -37,7 +37,7 @@ class HomeController extends Controller
 
     public function getAdminCursos() {
         $utilizadores = Utilizador::all();
-        $cursos = Curso::all();
+        $cursos = Curso::all()->sortBy('nome');
         return view('adminCursos', [
             'utilizadores' => $utilizadores,
             'cursos' => $cursos
@@ -47,7 +47,7 @@ class HomeController extends Controller
     public function getAdminCadeiras() {
         $utilizadores = Utilizador::all();
         $cursos = Curso::all();
-        $cadeiras = Cadeira::all();
+        $cadeiras = Cadeira::all()->sortBy('nome');
         return view('adminCadeiras', [
             'utilizadores' => $utilizadores,
             'cursos' => $cursos,
