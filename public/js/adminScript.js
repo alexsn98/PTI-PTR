@@ -167,8 +167,8 @@ function selecionarCadeira(cadeiraId) {
         infoEsquerda[2].textContent += ' ' + resposta.regente;
         infoEsquerda[3].textContent += ' ' + resposta.curso;
 
-        infoDireita[0].textContent += ' ' + resposta.semestre;
-        infoDireita[1].textContent += ' ' + resposta.ciclo;
+        infoDireita[0].textContent += ' ' + resposta.semestre + "º";
+        infoDireita[1].textContent += ' ' + resposta.ciclo + "º";
 
         if (linkPagina == null) {
           let linkPaginaCriado = document.createElement("a");

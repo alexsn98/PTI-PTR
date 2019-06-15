@@ -10,8 +10,7 @@ TODO:
 - many to many na relacao aluno curso
 - modificar paginas de modo a permitir acesso por visitantes
 - adicionar ou alterar tabela de alunos aulas nas precensas
-- campo de sigla para cadeiras 
-- campo para sala de docente
+- campo de sigla para cadeiras
 - mudar dias de semana para [0..5]
 
 Perguntas para fazer:

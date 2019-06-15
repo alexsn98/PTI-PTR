@@ -90,7 +90,7 @@ class HomeController extends Controller
     }
 
     public function getAlunoCadeiras() {
-        $cadeiras = Auth::user()->aluno->cadeiras->all();
+        $cadeiras = collect(Auth::user()->aluno->cadeiras->all())->sortBy('nome');
         
         return view('alunoCadeiras', [
             'cadeiras' => $cadeiras

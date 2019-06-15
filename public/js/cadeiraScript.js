@@ -5,8 +5,6 @@ function selecionarTurma(turmaId) {
     let semAulasTipo = document.getElementById('view1').getElementsByTagName('div')[0].getElementsByTagName('h3')[0];
     let inscreverTurma = document.getElementById('inscreverTurmaButton'); //para aluno
     let paginaTurma = document.getElementById('paginaTurmaButton'); //para admin
-    
-    console.log(turmasAtuais);
 
     let url = '/home/turmaInfo/' + turmaId;
 

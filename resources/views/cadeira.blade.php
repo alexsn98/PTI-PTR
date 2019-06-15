@@ -86,7 +86,7 @@
 
                     <div class="form-group">
                             <label>
-                                Regente: 
+                                Tipo: 
                                 <select name="tipo">
                                     <option value="0"> Teórica-prática </option>
                                     <option value="1"> Teórica </option>
@@ -126,6 +126,9 @@
         @endforeach
     @endif --}}
 
-    <script> var turmasAtuais = @json($turmasAtuais)</script>
+    @if (Auth::user()->aluno)
+        <script> var turmasAtuais = @json($turmasAtuais)</script>
+    @endif
+
     <script src="{{asset('js/cadeiraScript.js')}}"></script>
 @endsection
