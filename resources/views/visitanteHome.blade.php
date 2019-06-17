@@ -14,7 +14,7 @@
         <div id="filtrar">
             <h3>Lista de cadeiras:</h3>
             <h3>Pesquisar:</h3>
-            <input type="text" id="searchBar" onkeyup="pesquisarUtilizadores()" placeholder="Pesquisar nome..">
+            <input type="text" id="searchBar" onkeyup="pesquisarCadeiras()" placeholder="Pesquisar nome..">
         </div>
         <div id="view">
             <ul>
