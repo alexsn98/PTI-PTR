@@ -226,32 +226,26 @@ a:link, a:visited, a:hover{
     font-size: 40px;
 }
 
-#big{
-    width: 62%;
-    height: 90%;
-    background-color: white;
-    float: left;
-    margin-left: 3%;
-}
-
 #divTotalSalas{
-    width: 31%;
-    height: 90%;
-    background-color: white;
+    width: 80%;
+    height: 50%;
     float: left;
-    margin-left: 1%;
+    margin-top: 5%;
+    margin-left: 10%;
 }
 
 #pedidos{
-    width: 100%;
-    height: 50%;
-    
+    float: left;
+    width: 40%;
+    height: 100%;
+    background-color: white;
 }
 
 #reservas{
-    width: 100%;
-    height: 50%;
-    border-bottom: 1px solid rgb(3, 53, 62);
+    float: right;
+    width: 40%;
+    height: 100%;
+    background-color: white;
 }
 
 .header{

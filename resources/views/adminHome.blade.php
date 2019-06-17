@@ -43,9 +43,6 @@
         </div>
     </div>
     <div id="divsOther">
-        <div id="big">
-            
-        </div>
         <div id="divTotalSalas">
             <div id="reservas">
                 <div class="header">
@@ -57,7 +54,7 @@
                     </div>
                 </div>
                 <div class="contai">
-                    <h2>Total de reservas: 0</h2>
+                    <h2>Total de reservas: {{$reservasSalasNum}}</h2>
                 </div>
             </div>
             <div id="pedidos">
@@ -70,15 +67,16 @@
                     </div>
                 </div>
                 <div class="contai1">
-                    <h2>Total de pedidos: 0</h2>
+                    <h2>Total de pedidos: {{$pedidosReservaSalaNum}}</h2>
                 </div>
                 <div class="hiperCont">
-                    <div id="buttonIr">
-                        <i class="material-icons" style="float:left; margin-top:10%; margin-left: 22%; color:white;">arrow_forward</i>
-                        <h3 style="float:left;margin-top:4%; color:white;">IR</h3>
-                    </div> 
+                    <a href="/home/admin/salas">
+                        <div id="buttonIr">
+                            <i class="material-icons" style="float:left; margin-top:10%; margin-left: 22%; color:white;">arrow_forward</i>
+                            <h3 style="float:left;margin-top:4%; color:white;">IR</h3>
+                        </div> 
+                    </a>
                 </div>
             </div>
-        </div>
     </div>
 @endsection
