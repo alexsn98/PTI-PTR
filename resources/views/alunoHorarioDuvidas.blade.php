@@ -22,7 +22,7 @@
             @csrf
             <div class="form-group">
                 <label>
-                    Coordenador: 
+                    Docente: 
                     <select name="docente">
                         @foreach ($docentes as $docente)
                             <option value="{{$docente->id}}"> {{$docente->utilizador->nome}} </option>

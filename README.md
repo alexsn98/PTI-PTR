@@ -3,7 +3,6 @@ Projeto 3º ano de LTI
 
 TODO:
 - Css main
-- pagina da cadeira para docente
 - funcionalidades para guest
 - implementar verificar restriçoes nas salas para fazer reservas
 - pagina do curso
@@ -11,7 +10,6 @@ TODO:
 - modificar paginas de modo a permitir acesso por visitantes
 - adicionar ou alterar tabela de alunos aulas nas precensas
 - campo de sigla para cadeiras
-- mudar dias de semana para [0..5]
 
 Perguntas para fazer:
 

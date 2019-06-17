@@ -1,0 +1,38 @@
+.aulaHeader {
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.this {
+    width: 45%;
+}
+
+.this:hover{
+    transform: none;
+    background-color: rgba(3, 53, 62,0.5);
+    cursor: default;
+    text-decoration: none;
+    color: white;
+}
+
+
+#alunosLista {
+    height: 80%;
+    width: 45%;
+    background-color: white;
+    margin-left: 1%;
+}
+
+#alunosLista div {
+    height:80%;
+    background-color: beige;
+}
+
+#alunosLista label {
+    font-size: 26px;
+    margin-left: 2%;
+}
+
+#alunosLista button {
+    float: right;
+}

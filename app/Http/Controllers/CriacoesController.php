@@ -103,12 +103,12 @@ class CriacoesController extends Controller
             'sumario' => ['required'],
         ]); 
 
-        Aula::create([
+        $idAula = Aula::create([
             'aula_tipo_id' => request('aulaTipo'),
             'data' => request('data'),
             'sumario' => request('sumario')
-        ]);
+        ])->id;
 
-        return redirect()->back();
+        return redirect("/home/cadeira/turma/aula/$idAula");
     } 
 }

@@ -39,8 +39,8 @@ class AulaController extends Controller
 
     function submeterPresencas($idAula) {
         $aula = Aula::find($idAula);
-
         $turma = $aula->aulaTipo->turma;
+        $idTurma = $turma->id;
 
         $alunosInscritos = Aluno::all()->filter(function ($aluno) use ($turma) {
             return $aluno->cadeiras->find($turma->cadeira)->pivot->turma_pratica_id == $turma->id;
@@ -56,8 +56,15 @@ class AulaController extends Controller
                     'presente' => true
                 ]);
             }
+            else {
+                AlunoAula::create([
+                    'aluno_id' => $aluno->id,
+                    'aula_id' => $idAula,
+                    'presente' => true
+                ]);
+            }
         }
 
-        return redirect()->back();
+        return redirect("/home/cadeira/turma/$idTurma");
     }
 }
