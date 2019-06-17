@@ -203,10 +203,9 @@ class HomeController extends Controller
 
     //Para visitante
     public function getVisitanteHome() {
-        $cursos = Curso::all();
-        $cadeiras = Cadeira::all();
+        $cadeiras = Cadeira::all()->sortBy('nome');
+
         return view('visitanteHome', [
-            'cursos' => $cursos,
             'cadeiras' => $cadeiras
         ]);
     }

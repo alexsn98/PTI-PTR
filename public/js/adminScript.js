@@ -18,7 +18,7 @@ function selecionarUtilizador(utilizadorId) {
 
   if (campoUtilizador != null) {
     relacionarCadeira.removeChild(campoUtilizador);
-}
+  }
 
   let xhttp = new XMLHttpRequest();
 
@@ -163,7 +163,7 @@ function selecionarCadeira(cadeiraId) {
         resposta = JSON.parse(this.responseText);  
         
         infoEsquerda[0].textContent += ' ' + resposta.nome; 
-        infoEsquerda[1].textContent += ' ' + resposta.etcs;
+        infoEsquerda[1].textContent += ' ' + resposta.ects;
         infoEsquerda[2].textContent += ' ' + resposta.regente;
         infoEsquerda[3].textContent += ' ' + resposta.curso;
 

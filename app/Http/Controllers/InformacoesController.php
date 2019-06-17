@@ -91,12 +91,12 @@ class InformacoesController extends Controller
         $turmas = $cadeira->turmas;
 
         $curso = ($cadeira->curso) ? $cadeira->curso->nome : "-";
-
+        
         return response()->json([
             'id' => $cadeira->id,
             'nome' => $cadeira->nome,
             'regente' => $cadeira->regente->utilizador->nome,
-            'etcs' => $cadeira->ETCS,
+            'ects' => $cadeira->ECTS,
             'curso' => $curso,
             'semestre' => $cadeira->semestre,
             'ciclo' => $cadeira->ciclo,

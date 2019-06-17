@@ -43,7 +43,9 @@ Route::get('home/docente/turmaInfo/{idTurma}', 'InformacoesController@getTurmaIn
 Route::get('home/docente/aulasDocente/{idDocente}', 'InformacoesController@getAulasDocente')->middleware('docente');
 
 // Routes para visitante
-Route::get('home/visitante', 'HomeController@getVisitanteHome');
+Route::get('home/visitante', 'HomeController@getVisitanteHome')->middleware('guest');
+
+Route::get('home/visitante/cadeiraInfo/{idCadeira}', 'InformacoesController@getCadeiraInfo')->middleware('guest');
 
 // Routes para cadeira
 Route::get('home/cadeira/{id}', 'CadeiraController@getCadeira');
