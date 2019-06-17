@@ -7,17 +7,9 @@
 @endsection
 
 @section('content')
-    <h3>
-        <span class="aulaHeader"> Turma: </span> 
-        {{$aula->aulaTipo->turma->cadeira->nome}}  
-        {{$aula->aulaTipo->turma->numero}}
-        <br>
-        <span class="aulaHeader"> Data: </span> 
-        {{$aula->data}}
-    </h3>
 
-    <h3 class="this">Alunos inscritos: </h3>
-    <div id="alunosLista">
+    <div class="alunosLista">
+        <h3 class="this">Alunos inscritos: </h3>
         <form action="{{$aula->id}}/submeterPresencas/" method="POST">
             @csrf
 
@@ -38,4 +30,24 @@
             <button type="submit" class="btn btn-primary">Submeter</button>
         </form>
     </div>
+
+    <div class="alunosLista">
+            <ul>
+                <li>  
+                    <span class="aulaHeader"> Turma: </span> {{$aula->aulaTipo->turma->cadeira->nome}}
+                    
+                    @if ($aula->aulaTipo->turma->tipo == 0)
+                        TP -
+                    @else
+                        T -
+                    @endif  
+                    {{$aula->aulaTipo->turma->numero}}
+                </li>
+                <li> <span class="aulaHeader"> Data: </span> {{$aula->data}} </li>
+                <li> <span class="aulaHeader"> Inicio: </span> {{$aula->aulaTipo->inicio}} </li>
+                <li> <span class="aulaHeader"> Fim: </span> {{$aula->aulaTipo->fim}} </li>
+                <li> <span class="aulaHeader"> Sumário: </span> {{$aula->sumario}} </li>
+            </ul>
+        </div>
+
 @endsection

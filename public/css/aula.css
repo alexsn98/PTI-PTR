@@ -4,7 +4,8 @@
 }
 
 .this {
-    width: 45%;
+    width: 100%;
+    margin: 0;
 }
 
 .this:hover{
@@ -16,23 +17,44 @@
 }
 
 
-#alunosLista {
+.alunosLista {
     height: 80%;
     width: 45%;
     background-color: white;
+    margin-top: 3%;
+}
+
+.alunosLista:first-child {
+    float: left;
     margin-left: 1%;
 }
 
-#alunosLista div {
+.alunosLista ul {
+    list-style: none;
+}
+
+.alunosLista li {
+    font-size: 32px;
+    margin-left: 1%;
+}
+
+
+.alunosLista:last-child {
+    float: right;
+    margin-right: 1%;
+    height: 35%;
+}
+
+.alunosLista div {
     height:80%;
     background-color: beige;
 }
 
-#alunosLista label {
+.alunosLista label {
     font-size: 26px;
     margin-left: 2%;
 }
 
-#alunosLista button {
+.alunosLista button {
     float: right;
 }
