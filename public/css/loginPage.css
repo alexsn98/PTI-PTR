@@ -14,8 +14,8 @@ body{
 }
 
 #login{
-    width: 35%; 
-    margin-top:5%;
+    width: 20%; 
+    margin-top:10%;
     border-radius: 2%;
     padding-top: 1% !important;
     -webkit-box-shadow: 0px 0px 22px 0px rgba(0,0,0,0.75);
@@ -31,7 +31,6 @@ body{
     height: 40%;
     margin-left: 10%;
     padding-bottom: 8%;
-    margin-top: 5%;
 }
 
 button{
