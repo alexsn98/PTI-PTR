@@ -109,6 +109,7 @@
                     $("#logout").css({"display": "block"});
                     $("#navbar").css({"background-color": "#03353E"});
                     $(".menu-toggle").css({"background-color":"#0d6170"});
+                    $(".ss-single-selected").css({"display": "none"});
                 }
                 else{
                     console.log("pauBack");
@@ -116,6 +117,7 @@
                     $("#logout").css({"display": "none"});
                     $("#navbar").css({"background-color": "transparent"});
                     $(".menu-toggle").css({"background-color":"#03353E"});
+                    $(".ss-single-selected").css({"display": "flex"});
                 }
             })
         })
