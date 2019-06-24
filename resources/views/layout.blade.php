@@ -38,6 +38,7 @@
                     @endif
                 </h2>
             </div>
+            <div class="menu-toggle"><i id="iconMenu" class="material-icons">menu</i></div>
             <ul id="nav">
                 @if (Auth::user())
                     <li class="navv" id="nameNavbar">Olá, {{Auth::user()->nome}}</li>
@@ -98,5 +99,26 @@
             @yield('content')
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.menu-toggle').click(function(){
+                if($('#nav').css('display') == 'none'){
+                    console.log("pau");
+                    $("#nav").css({"display": "block"});
+                    $("#logout").css({"display": "block"});
+                    $("#navbar").css({"background-color": "#03353E"});
+                    $(".menu-toggle").css({"background-color":"#0d6170"});
+                }
+                else{
+                    console.log("pauBack");
+                    $("#nav").css({"display": "none"});
+                    $("#logout").css({"display": "none"});
+                    $("#navbar").css({"background-color": "transparent"});
+                    $(".menu-toggle").css({"background-color":"#03353E"});
+                }
+            })
+        })
+    </script>
 </body>
 </html>
