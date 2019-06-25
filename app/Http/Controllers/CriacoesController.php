@@ -32,7 +32,7 @@ class CriacoesController extends Controller
         request()->validate([
             'nome' => ['required'],
             'sigla' => ['required'],
-            'etcs' => ['required'],
+            'ects' => ['required'],
             'regente' => ['required'],
             'curso' => ['required'],
             'semestre' => ['required'],
@@ -45,7 +45,7 @@ class CriacoesController extends Controller
         Cadeira::create([
             'nome' => request('nome'),
             'sigla' => request('sigla'),
-            'ETCS' => request('etcs'),
+            'ECTS' => request('ects'),
             'regente_id' => request('regente'),
             'curso_id' => $curso,
             'semestre' => request('semestre'),
@@ -68,7 +68,7 @@ class CriacoesController extends Controller
             'numero' => request('numeroTurma'),
             'cadeira_id' => $idCadeira,
             'docente_id' => request('docente'),
-            'numVagas' => request('vagas'),
+            'num_vagas' => request('vagas'),
             'tipo' => request('tipo'),
         ]);
 

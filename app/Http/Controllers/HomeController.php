@@ -156,9 +156,14 @@ class HomeController extends Controller
         $cursos = Curso::all();
         $turmas = $docente->turmas;
 
+        $cadeiras = $turmas->map(function ($turma) {
+            return $turma->cadeira;
+        })->unique();
+
         return view('docenteTurmas',[
             'cursos' => $cursos,
-            'turmas'=> $turmas
+            'turmas' => $turmas,
+            'cadeiras' => $cadeiras
         ]); 
     }
 

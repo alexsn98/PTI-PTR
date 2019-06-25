@@ -100,19 +100,22 @@ class InformacoesController extends Controller
             'curso' => $curso,
             'semestre' => $cadeira->semestre,
             'ciclo' => $cadeira->ciclo,
+            'anoLetivo' => $cadeira->ano_letivo,
             'turmas' => $turmas
         ]);
     }
 
     public function getTurmaInfo($idTurma) {
         $turma = Turma::find($idTurma);
+        $estadoTurma = ($turma->num_alunos_inscritos < $turma->num_vagas) ? 'comVagas' : 'cheia';
 
         return response()->json([
             'numero' => $turma->numero,
             'cadeira' => $turma->cadeira->nome,
             'aulasTipo' => $turma->aulasTipo,
             'docente' => $turma->docente->utilizador->nome,
-            'tipo' => $turma->tipo
+            'tipo' => $turma->tipo,
+            'estado' => $estadoTurma
         ]);
     }
 
@@ -201,7 +204,7 @@ class InformacoesController extends Controller
         ]);
     }
 
-    public function filtarUtilizadores($cargo) {
+    public function filtrarUtilizadores($cargo) {
         if ($cargo == 'todos') {
             $utilizadoresFiltrados = Utilizador::all();
         }
@@ -227,17 +230,53 @@ class InformacoesController extends Controller
         return response()->json($utilizadoresFiltrados);
     }
 
-    public function filtarCadeiras($curso) {
-        if ($curso == "todos") {
+    public function filtrarCadeiras($anoLetivo) {
+        if ($anoLetivo == "todos") {
             $cadeirasFiltradas = Cadeira::all();
         }
 
         else {
-            $cadeirasFiltradas = Cadeira::all()->filter(function ($cadeira) use ($curso) {
-                return $cadeira->curso->nome == $curso;
+            $cadeirasFiltradas = Cadeira::all()->filter(function ($cadeira) use ($anoLetivo) {
+                return $cadeira->ano_letivo == $anoLetivo;
             });
         }
       
         return response()->json($cadeirasFiltradas);
+    }
+
+    public function filtrarTurmas($cadeira) {
+        $turmasFiltradas = [];
+
+        if ($cadeira == "todos") {
+            foreach (Turma::all() as $turma) {
+                $itemTurma = [];
+
+                $itemTurma['id'] = $turma->id;
+                $itemTurma['numeroTurma'] = $turma->numero;
+                $itemTurma['nomeCadeira'] = $turma->cadeira->nome;
+                $itemTurma['tipo'] = $turma->tipo;
+
+                $turmasFiltradas[] = $itemTurma;
+            }
+        }
+
+        else {
+            foreach (Turma::all() as $turma) {
+                if ($turma->cadeira->nome == $cadeira) {
+                    $itemTurma = [];
+
+                    $itemTurma['id'] = $turma->id;
+                    $itemTurma['numeroTurma'] = $turma->numero;
+                    $itemTurma['nomeCadeira'] = $turma->cadeira->nome;
+                    $itemTurma['tipo'] = $turma->tipo;
+
+                    $turmasFiltradas[] = $itemTurma;
+                }
+            }
+        }
+      
+        return response()->json([
+            'turmas' => $turmasFiltradas
+        ]);
     }
 }

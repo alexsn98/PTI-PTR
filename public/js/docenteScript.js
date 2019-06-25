@@ -49,10 +49,55 @@ function selecionarTurma(turmaId) {
     };
 }
 
-// function selecionarAulaTipo(aulaTipoId) {
-//     let criarAula = document.getElementById('view1').getElementsByTagName('div')[1];
-//     let inputAulaTipoId = document.getElementById('view1').getElementsByTagName('input')[1];
+function filtrarTurmas(cadeira) {
+    let turmasLista = document.getElementById('view').getElementsByTagName('ul')[0];
 
-//     criarAula.style.display = "block";
-//     inputAulaTipoId.value = aulaTipoId;
-// }
+    while (turmasLista.firstChild) {
+        turmasLista.removeChild(turmasLista.firstChild);
+    }
+  
+    let url = 'getTurmas/' + cadeira;
+    let xhttp = new XMLHttpRequest();
+  
+    xhttp.open("GET", url, true);
+    xhttp.send();
+  
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        resposta = JSON.parse(this.responseText);
+
+        
+        for (const turma of resposta.turmas) {
+            let turmaItem = document.createElement("li");
+
+            let textoItem = turma['nomeCadeira'] + ' - ';
+
+            if (turma['tipo'] == 0) {
+                textoItem += 'Turma Prática '
+            } 
+            else {
+                textoItem += 'Turma Teórica '
+            }
+
+            textoItem += 'nº' + turma['numeroTurma'];
+
+            let node = document.createTextNode(textoItem);
+    
+            turmaItem.appendChild(node);
+            turmaItem.classList.add('this');
+    
+            turmaItem.setAttribute('onclick', "selecionarTurma(" + turma.id + ")");
+    
+            turmasLista.appendChild(turmaItem);
+        }
+      }
+    }
+}
+
+if (window.location.pathname == "/home/docente/turmas") {
+    const filtarSelect = document.getElementById('filtrar').getElementsByTagName('select')[0];
+    
+    filtarSelect.addEventListener('change', function () {
+        filtrarTurmas(this.value);
+    });
+  }

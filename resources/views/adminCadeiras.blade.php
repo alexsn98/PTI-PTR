@@ -15,14 +15,15 @@
 @section('content')
     <div id="leftContent">
         <div id="filtrar">
-            {{-- <h3>Filtrar por Curso:</h3>
+            <h3>Filtrar:</h3>
             <select>
-                <option value="todos">Todos</option>
-                @foreach ($cursos as $curso)
-                    <option value="{{$curso->nome}}" > {{$curso->nome}} </option>
-                @endforeach
-            </select> --}}
-            <h3>Lista de Cadeiras:</h3>  
+                <option value="2018-2019"> 2018-2019 </option>
+                <option value="2019-2020"> 2019-2020 </option>
+                <option value="2020-2021"> 2020-2021 </option>
+                <option value="2021-2022"> 2021-2022 </option>
+                <option value="2022-2023"> 2022-2023 </option>
+                <option value="2023-2024"> 2023-2024 </option>
+            </select>
             <h3>Pesquisar:</h3>
             <input type="text" id="searchBar" onkeyup="pesquisarUtilizadores()" placeholder="Pesquisar nome..">
         </div>
@@ -49,7 +50,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="number" class="form-control" name="etcs" placeholder="Número de ETCs" required>
+                    <input type="number" class="form-control" name="ects" placeholder="Número de ECTs" required>
                 </div>
 
                 <div class="form-group">
@@ -81,7 +82,7 @@
                     </label>
                 </div>
 
-                <div class="form-group opcoesPeriodo">
+                <div class="form-group opcoesPeriodo" id="opcaoSemestre">
                     <label>
                         Semestre:
                         <select name="semestre">
@@ -106,12 +107,12 @@
                     <label>
                         Ano letivo:
                         <select name="anoLetivo">
-                            <option value=1> 2018/2019 </option>
-                            <option value=2> 2019/2020 </option>
-                            <option value=3> 2020/2021 </option>
-                            <option value=3> 2021/2022 </option>
-                            <option value=3> 2022/2023 </option>
-                            <option value=3> 2023/2024 </option>
+                            <option value="2018-2019"> 2018-2019 </option>
+                            <option value="2019-2020"> 2019-2020 </option>
+                            <option value="2020-2021"> 2020-2021 </option>
+                            <option value="2021-2022"> 2021-2022 </option>
+                            <option value="2022-2023"> 2022-2023 </option>
+                            <option value="2023-2024"> 2023-2024 </option>
                         </select>
                     </label>
                 </div>
@@ -129,6 +130,7 @@
             <div id="right">
                 <h4>Semestre:</h4>
                 <h4>Ciclo:</h4>
+                <h4>Ano letivo:</h4>
                 <br>
             </div>
         </div>

@@ -21,11 +21,6 @@ function selecionarTurma(turmaId) {
 
             if (inscreverTurma != null) inscreverTurma.style.display = "none";
 
-            if (paginaTurma != null) {
-                paginaTurma.style.display = "block";
-                paginaTurma.setAttribute("href", "/home/cadeira/turma/" + turmaId)
-            }
-
             if (aulasTipo != null) document.getElementById('view1').getElementsByTagName('div')[0].removeChild(aulasTipo);
 
             if (semAulasTipo != null) document.getElementById('view1').getElementsByTagName('div')[0].removeChild(semAulasTipo);
@@ -38,11 +33,16 @@ function selecionarTurma(turmaId) {
 
             docente.textContent += ' ' + resposta.docente; 
             tipo.textContent += ' ' + turmaTipo;
+
+            if (paginaTurma != null && resposta.estado == 'comVagas') {
+                paginaTurma.style.display = "block";
+                paginaTurma.setAttribute("href", "/home/cadeira/turma/" + turmaId)
+            }
                         
             if (resposta.aulasTipo.length > 0) {
                 let listaAulasTipo = document.createElement("ul");
 
-                if (inscreverTurma != null && !turmasAtuais.includes(turmaId)) {
+                if (inscreverTurma != null && !turmasAtuais.includes(turmaId) && resposta.estado == 'comVagas') {
                     inscreverTurma.style.display = "block";
                     inscreverTurma.setAttribute("href","inscreverTurma/" + turmaId)
                 }

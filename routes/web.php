@@ -19,8 +19,8 @@ Route::get('home/admin/ajuda', 'HomeController@getAdminAjuda')->middleware('admi
 Route::get('home/admin/utilizadorInfo/{idUtilizador}', 'InformacoesController@getUtilizadorInfo')->middleware('admin');
 Route::get('home/admin/cursoInfo/{idCurso}', 'InformacoesController@getCursoInfo')->middleware('admin');
 Route::get('home/admin/cadeiraInfo/{idCadeira}', 'InformacoesController@getCadeiraInfo')->middleware('admin');
-Route::get('home/admin/getUtilizadores/{cargo}', 'InformacoesController@filtarUtilizadores')->middleware('admin');
-Route::get('home/admin/getCadeiras/{curso}', 'InformacoesController@filtarCadeiras')->middleware('admin');
+Route::get('home/admin/getUtilizadores/{cargo}', 'InformacoesController@filtrarUtilizadores')->middleware('admin');
+Route::get('home/admin/getCadeiras/{curso}', 'InformacoesController@filtrarCadeiras')->middleware('admin');
 
 // Routes para aluno
 Route::get('home/aluno', 'HomeController@getAlunoHome')->middleware('aluno');
@@ -40,6 +40,7 @@ Route::get('home/docente/ajuda', 'HomeController@getDocenteAjuda')->middleware('
 Route::get('home/docente/salas', 'HomeController@getDocenteSalas')->middleware('docente');
 Route::get('home/docente/turmaInfo/{idTurma}', 'InformacoesController@getTurmaInfo')->middleware('docente');
 
+Route::get('home/docente/getTurmas/{cadeira}', 'InformacoesController@filtrarTurmas')->middleware('docente');
 Route::get('home/docente/aulasDocente/{idDocente}', 'InformacoesController@getAulasDocente')->middleware('docente');
 
 // Routes para visitante

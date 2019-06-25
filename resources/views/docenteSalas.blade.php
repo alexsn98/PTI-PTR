@@ -38,12 +38,34 @@
                     </label>
                 </div>
 
-                <div class="form-group">
-                    <input type="datetime-local" class="form-control" name="inicio" placeholder="Hora de inicio">
+                <div class="form-group horas">
+                    <label>
+                        Hora de Inicio:
+                        <input type="time" class="form-control" name="inicio" placeholder="Hora de inicio">
+                    </label>
                 </div>
-                <div class="form-group">
-                    <input type="datetime-local" class="form-control" name="fim" placeholder="Hora de fim">
+                
+                <div class="form-group horas">
+                    <label>
+                        Hora de fim:
+                        <input type="time" class="form-control" name="fim" placeholder="Hora de fim">
+                    </label>
                 </div>
+
+                <div class="form-group">
+                    <label>
+                        Data:
+                        <input type="date" class="form-control" name="data" placeholder="Dia">
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label> 
+                        Descrição:
+                        <input type="text" class="form-control" name="descricao" placeholder="Descrição">
+                    </label>
+                </div>
+                
                 <button type="submit" class="btn btn-primary">Submeter</button>
             </form>
         </div>

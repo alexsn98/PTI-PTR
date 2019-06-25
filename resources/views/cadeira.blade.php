@@ -35,7 +35,13 @@
                         {{-- Se for a turma atual --}}
                         @if (Auth::user()->aluno && in_array($turma->id, $turmasAtuais))
                             - Turma Atual 
+                        @else
+                            @if ($turma->num_alunos_inscritos >= $turma->num_vagas)
+                                - Turma Cheia
+                            @endif    
                         @endif  
+
+                        
                     </li>
                 @endforeach
             </ul>
@@ -111,20 +117,6 @@
             {{$aluno->utilizador->nome}} - {{$aluno->numero}}
         @endforeach
     @endif
-    
-    {{-- @if (Auth::user()->aluno)
-        <h2>Aulas Realizadas</h2>
-    
-        @foreach ($aulasRealizadas as $aulaTipoRealizada)
-            @foreach ($aulaTipoRealizada as $aulaRealizada)
-                {{$aulaRealizada->data}}               
-                @if (in_array($aulaRealizada, $aulasAssistidas))
-                    - Presente
-                @endif
-                <br>
-            @endforeach
-        @endforeach
-    @endif --}}
 
     @if (Auth::user()->aluno)
         <script> var turmasAtuais = @json($turmasAtuais)</script>

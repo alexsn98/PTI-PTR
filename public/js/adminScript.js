@@ -152,6 +152,7 @@ function selecionarCadeira(cadeiraId) {
 
   infoDireita[0].textContent = 'Semestre:';
   infoDireita[1].textContent = 'Ciclo:';
+  infoDireita[2].textContent = 'Ano letivo:';
 
   let xhttp = new XMLHttpRequest();
 
@@ -169,6 +170,7 @@ function selecionarCadeira(cadeiraId) {
 
         infoDireita[0].textContent += ' ' + resposta.semestre + "º";
         infoDireita[1].textContent += ' ' + resposta.ciclo + "º";
+        infoDireita[2].textContent += ' ' + resposta.anoLetivo;
 
         if (linkPagina == null) {
           let linkPaginaCriado = document.createElement("a");
@@ -225,41 +227,14 @@ function filtrarUtilizadores(cargo) {
   }
 }
 
-if (window.location.pathname == "/home/admin/utilizadores") {
-  let filtarSelect = document.getElementById('filtrar').getElementsByTagName('select')[0];
-  filtarSelect.addEventListener('change', function () {
-    filtrarUtilizadores(this.value);
-  });
-}
-
-function pesquisarUtilizadores() {
-  let searchBar = document.getElementById('searchBar');
-  let nomePesquisa = searchBar.value.toUpperCase();
-
-  let listaUtilizadores = document.getElementById('view').getElementsByTagName('ul')[0];
-  let itemsUtilizadores = listaUtilizadores.getElementsByTagName('li');
-
-  for (let i = 0; i < itemsUtilizadores.length; i++) {
-    const utilizador = itemsUtilizadores[i];
-    const nomeUtilizador = utilizador.textContent || utilizador.innerText;
-
-    if (nomeUtilizador.toUpperCase().indexOf(nomePesquisa) > -1) {
-      itemsUtilizadores[i].style.display = "";
-    } 
-    else {
-      itemsUtilizadores[i].style.display = "none";
-    }
-  }
-}
-
-function filtrarCadeiras(curso) {
+function filtrarCadeiras(anoLetivo) {
   let cadeirasLista = document.getElementById('view').getElementsByTagName('ul')[0];
 
   while (cadeirasLista.firstChild) {
     cadeirasLista.removeChild(cadeirasLista.firstChild);
   }
 
-  let url = 'getCadeiras/' + curso;
+  let url = 'getCadeiras/' + anoLetivo;
   let xhttp = new XMLHttpRequest();
 
   xhttp.open("GET", url, true);
@@ -284,10 +259,37 @@ function filtrarCadeiras(curso) {
   }
 }
 
+if (window.location.pathname == "/home/admin/utilizadores") {
+  let filtarSelect = document.getElementById('filtrar').getElementsByTagName('select')[0];
+  filtarSelect.addEventListener('change', function () {
+    filtrarUtilizadores(this.value);
+  });
+}
+
 if (window.location.pathname == "/home/admin/cadeiras") {
   let filtarSelect = document.getElementById('filtrar').getElementsByTagName('select')[0];
+  filtarSelect.addEventListener('change', function () {
+    filtrarCadeiras(this.value);
+  });
+}
 
-  // filtarSelect.addEventListener('change', function () {
-  //   filtrarCadeiras(this.value);
-  // });
+
+function pesquisarUtilizadores() {
+  let searchBar = document.getElementById('searchBar');
+  let nomePesquisa = searchBar.value.toUpperCase();
+
+  let listaUtilizadores = document.getElementById('view').getElementsByTagName('ul')[0];
+  let itemsUtilizadores = listaUtilizadores.getElementsByTagName('li');
+
+  for (let i = 0; i < itemsUtilizadores.length; i++) {
+    const utilizador = itemsUtilizadores[i];
+    const nomeUtilizador = utilizador.textContent || utilizador.innerText;
+
+    if (nomeUtilizador.toUpperCase().indexOf(nomePesquisa) > -1) {
+      itemsUtilizadores[i].style.display = "";
+    } 
+    else {
+      itemsUtilizadores[i].style.display = "none";
+    }
+  }
 }

@@ -16,7 +16,8 @@ class TurmaController extends Controller
     public function getTurma($idTurma) {
         $turma = Turma::find($idTurma);
         $docente = $turma->docente;
-        $salas = Sala::all();
+        $salas = Sala::where('num_lugares','>=',$turma->num_vagas)->get();
+
         $aulasTipo = $turma->aulasTipo;
         $aulasTipoInfo = [];
 
@@ -57,24 +58,31 @@ class TurmaController extends Controller
         //devolve cadeira
         $cadeira = $turma->cadeira_id; 
 
-        $semTurmaPratica = $aluno->cadeiras()->where('cadeira_id',$cadeira)->first()->pivot->turma_pratica_id == null;
-        $semTurmaTeorica = $aluno->cadeiras()->where('cadeira_id',$cadeira)->first()->pivot->turma_teorica_id == null;
-        
-
-        if ($semTurmaPratica && $turma->tipo == 0) {
-            $aluno->cadeiras()->updateExistingPivot($cadeira, ["turma_pratica_id" => $idTurma]);
-        } 
-        
-        else if ($semTurmaTeorica && $turma->tipo == 1) {
-            $aluno->cadeiras()->updateExistingPivot($cadeira, ["turma_teorica_id" => $idTurma]);
-        }
-        
-        else {
-            PedidoMudancaTurma::create([ 
-                'utilizador_abrir_id' => Auth::id(),
-                'utilizador_fechar_id' => Turma::find($idTurma)->docente->utilizador_id,
-                'turma_pedida_id' => $idTurma
-            ]);
+        if ($turma->num_alunos_inscritos < $turma->num_vagas) {
+            $semTurmaPratica = $aluno->cadeiras()->where('cadeira_id',$cadeira)->first()->pivot->turma_pratica_id == null;
+            $semTurmaTeorica = $aluno->cadeiras()->where('cadeira_id',$cadeira)->first()->pivot->turma_teorica_id == null;
+    
+            if ($semTurmaPratica && $turma->tipo == 0) {
+                $aluno->cadeiras()->updateExistingPivot($cadeira, ["turma_pratica_id" => $idTurma]);
+    
+                $turma->num_alunos_inscritos += 1;
+                $turma->save();
+            } 
+            
+            else if ($semTurmaTeorica && $turma->tipo == 1) {
+                $aluno->cadeiras()->updateExistingPivot($cadeira, ["turma_teorica_id" => $idTurma]);
+    
+                $turma->num_alunos_inscritos += 1;
+                $turma->save();
+            }
+            
+            else {
+                PedidoMudancaTurma::create([ 
+                    'utilizador_abrir_id' => Auth::id(),
+                    'utilizador_fechar_id' => Turma::find($idTurma)->docente->utilizador_id,
+                    'turma_pedida_id' => $idTurma
+                ]);
+            }
         }
                 
         return redirect("home/cadeira/$cadeira");

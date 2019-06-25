@@ -49,11 +49,11 @@
                 </label>
             </div>
             <div class="form-group">
-                <textarea rows="4" cols="30" name="textoPedido">
-                    Texto adicional...
-                </textarea>
+                <label>
+                    Texto adicional:
+                    <textarea rows="4" cols="30" name="textoPedido"> </textarea>
+                </label>
             </div>
-            
 
             <button type="submit" class="btn btn-primary">Criar</button>
         </form>

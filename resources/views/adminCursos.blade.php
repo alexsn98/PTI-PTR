@@ -15,7 +15,6 @@
 @section('content')
     <div id="leftContent">
         <div id="filtrar">
-            <h3>Lista de Cursos:</h3>
             <h3>Pesquisar:</h3>
             <input id="searchBar" type="text" id="searchBar" onkeyup="pesquisarUtilizadores()" placeholder="Pesquisar nome..">
         </div>
@@ -49,7 +48,10 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" name="nome" placeholder="Nome" " required>
+                    <label>
+                        Nome:
+                        <input type="text" class="form-control" name="nome" required>
+                    </label>
                 </div>
 
                 <div class="form-group">
