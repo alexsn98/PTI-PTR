@@ -12,7 +12,8 @@ class Turma extends Model
         'numero',
         'cadeira_id',
         'docente_id',
-        'numVagas',
+        'num_vagas',
+        'num_alunos_inscritos',
         'tipo'
     ];
 

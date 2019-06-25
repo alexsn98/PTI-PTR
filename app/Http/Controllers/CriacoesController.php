@@ -68,7 +68,7 @@ class CriacoesController extends Controller
             'numero' => request('numeroTurma'),
             'cadeira_id' => $idCadeira,
             'docente_id' => request('docente'),
-            'numVagas' => request('vagas'),
+            'num_vagas' => request('vagas'),
             'tipo' => request('tipo'),
         ]);
 

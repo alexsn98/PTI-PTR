@@ -107,13 +107,15 @@ class InformacoesController extends Controller
 
     public function getTurmaInfo($idTurma) {
         $turma = Turma::find($idTurma);
+        $estadoTurma = ($turma->num_alunos_inscritos < $turma->num_vagas) ? 'comVagas' : 'cheia';
 
         return response()->json([
             'numero' => $turma->numero,
             'cadeira' => $turma->cadeira->nome,
             'aulasTipo' => $turma->aulasTipo,
             'docente' => $turma->docente->utilizador->nome,
-            'tipo' => $turma->tipo
+            'tipo' => $turma->tipo,
+            'estado' => $estadoTurma
         ]);
     }
 

@@ -30,7 +30,8 @@ class PedidosController extends Controller
         $pedido = PedidoMudancaTurma::find($idPedido);
         
         $aluno = $pedido->aluno;
-        $cadeira = $pedido->turmaPedida->cadeira;
+        $turma = $pedido->turmaPedida;
+        $cadeira = $turma->cadeira;
 
         if ($pedido->turmaPedida->tipo == 0) {
             $aluno->cadeiras()->updateExistingPivot($cadeira, ["turma_pratica_id" => $pedido->turma_pedida_id]);
@@ -40,6 +41,9 @@ class PedidosController extends Controller
             $aluno->cadeiras()->updateExistingPivot($cadeira, ["turma_teorica_id" => $pedido->turma_pedida_id]);
         }
 
+        $turma->num_alunos_inscritos += 1;
+
+        $turma->save();
 
         $pedido->delete();
 
