@@ -19,8 +19,8 @@
             <h3>Filtrar por Cadeira:</h3>
             <select>
                 <option value="todos">Todos</option>
-                @foreach ($cursos as $curso)
-                    <option value="{{$curso->nome}}" > {{$curso->nome}} </option>
+                @foreach ($cadeiras as $cadeira)
+                    <option value="{{$cadeira->nome}}" > {{$cadeira->nome}} </option>
                 @endforeach
             </select>
         </div>
@@ -56,22 +56,6 @@
             </div>
             <div>
                 <a id="paginaTurmaButton" class="btn btn-primary">Página da turma</a>
-                {{-- <h4>Criar aula:</h4>
-                <form action="/criar/aula" method="POST">
-                    @csrf 
-
-                    <input type="number" class="form-control" name="aulaTipo" hidden>
-        
-                    <div class="form-group"> Data:
-                        <input type="date" class="form-control" name="data" >
-                    </div> 
-        
-                    <div class="form-group"> Sumário:
-                        <input type="text" class="form-control" name="sumario" >
-                    </div> 
-        
-                    <button type="submit" class="btn btn-primary">Criar</button>
-                </form> --}}
             </div>
         </div>
     </div>

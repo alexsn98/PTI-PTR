@@ -204,7 +204,7 @@ class InformacoesController extends Controller
         ]);
     }
 
-    public function filtarUtilizadores($cargo) {
+    public function filtrarUtilizadores($cargo) {
         if ($cargo == 'todos') {
             $utilizadoresFiltrados = Utilizador::all();
         }
@@ -230,7 +230,7 @@ class InformacoesController extends Controller
         return response()->json($utilizadoresFiltrados);
     }
 
-    public function filtarCadeiras($curso) {
+    public function filtrarCadeiras($curso) {
         if ($curso == "todos") {
             $cadeirasFiltradas = Cadeira::all();
         }
@@ -242,5 +242,41 @@ class InformacoesController extends Controller
         }
       
         return response()->json($cadeirasFiltradas);
+    }
+
+    public function filtrarTurmas($cadeira) {
+        $turmasFiltradas = [];
+
+        if ($cadeira == "todos") {
+            foreach (Turma::all() as $turma) {
+                $itemTurma = [];
+
+                $itemTurma['id'] = $turma->id;
+                $itemTurma['numeroTurma'] = $turma->numero;
+                $itemTurma['nomeCadeira'] = $turma->cadeira->nome;
+                $itemTurma['tipo'] = $turma->tipo;
+
+                $turmasFiltradas[] = $itemTurma;
+            }
+        }
+
+        else {
+            foreach (Turma::all() as $turma) {
+                if ($turma->cadeira->nome == $cadeira) {
+                    $itemTurma = [];
+
+                    $itemTurma['id'] = $turma->id;
+                    $itemTurma['numeroTurma'] = $turma->numero;
+                    $itemTurma['nomeCadeira'] = $turma->cadeira->nome;
+                    $itemTurma['tipo'] = $turma->tipo;
+
+                    $turmasFiltradas[] = $itemTurma;
+                }
+            }
+        }
+      
+        return response()->json([
+            'turmas' => $turmasFiltradas
+        ]);
     }
 }

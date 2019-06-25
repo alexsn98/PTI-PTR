@@ -23,7 +23,8 @@
     height: 85%;
     margin-left: 5%;
     background-color: white;
-    display: inline-block
+    display: inline-block;
+    overflow: auto;
 }
 
 #view1{
