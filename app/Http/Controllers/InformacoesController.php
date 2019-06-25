@@ -230,14 +230,14 @@ class InformacoesController extends Controller
         return response()->json($utilizadoresFiltrados);
     }
 
-    public function filtrarCadeiras($curso) {
-        if ($curso == "todos") {
+    public function filtrarCadeiras($anoLetivo) {
+        if ($anoLetivo == "todos") {
             $cadeirasFiltradas = Cadeira::all();
         }
 
         else {
-            $cadeirasFiltradas = Cadeira::all()->filter(function ($cadeira) use ($curso) {
-                return $cadeira->curso->nome == $curso;
+            $cadeirasFiltradas = Cadeira::all()->filter(function ($cadeira) use ($anoLetivo) {
+                return $cadeira->ano_letivo == $anoLetivo;
             });
         }
       

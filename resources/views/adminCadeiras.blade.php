@@ -15,7 +15,15 @@
 @section('content')
     <div id="leftContent">
         <div id="filtrar">
-            <h3>Lista de Cadeiras:</h3>  
+            <h3>Filtrar:</h3>
+            <select>
+                <option value="2018-2019"> 2018-2019 </option>
+                <option value="2019-2020"> 2019-2020 </option>
+                <option value="2020-2021"> 2020-2021 </option>
+                <option value="2021-2022"> 2021-2022 </option>
+                <option value="2022-2023"> 2022-2023 </option>
+                <option value="2023-2024"> 2023-2024 </option>
+            </select>
             <h3>Pesquisar:</h3>
             <input type="text" id="searchBar" onkeyup="pesquisarUtilizadores()" placeholder="Pesquisar nome..">
         </div>
@@ -99,12 +107,12 @@
                     <label>
                         Ano letivo:
                         <select name="anoLetivo">
-                            <option value="2018/2019"> 2018/2019 </option>
-                            <option value="2019/2020"> 2019/2020 </option>
-                            <option value="2020/2021"> 2020/2021 </option>
-                            <option value="2021/2022"> 2021/2022 </option>
-                            <option value="2022/2023"> 2022/2023 </option>
-                            <option value="2023/2024"> 2023/2024 </option>
+                            <option value="2018-2019"> 2018-2019 </option>
+                            <option value="2019-2020"> 2019-2020 </option>
+                            <option value="2020-2021"> 2020-2021 </option>
+                            <option value="2021-2022"> 2021-2022 </option>
+                            <option value="2022-2023"> 2022-2023 </option>
+                            <option value="2023-2024"> 2023-2024 </option>
                         </select>
                     </label>
                 </div>

@@ -227,12 +227,52 @@ function filtrarUtilizadores(cargo) {
   }
 }
 
+function filtrarCadeiras(anoLetivo) {
+  let cadeirasLista = document.getElementById('view').getElementsByTagName('ul')[0];
+
+  while (cadeirasLista.firstChild) {
+    cadeirasLista.removeChild(cadeirasLista.firstChild);
+  }
+
+  let url = 'getCadeiras/' + anoLetivo;
+  let xhttp = new XMLHttpRequest();
+
+  xhttp.open("GET", url, true);
+  xhttp.send();
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      resposta = JSON.parse(this.responseText);
+
+      Object.keys(resposta).forEach(cadeira => {
+        let cadeiraItem = document.createElement("li");
+        let node = document.createTextNode(resposta[cadeira].nome);
+
+        cadeiraItem.appendChild(node);
+        cadeiraItem.classList.add('this');
+
+        cadeiraItem.setAttribute('onclick', "selecionarCadeira(" + resposta[cadeira].id + ")");
+
+        cadeirasLista.appendChild(cadeiraItem);
+      });
+    }
+  }
+}
+
 if (window.location.pathname == "/home/admin/utilizadores") {
   let filtarSelect = document.getElementById('filtrar').getElementsByTagName('select')[0];
   filtarSelect.addEventListener('change', function () {
     filtrarUtilizadores(this.value);
   });
 }
+
+if (window.location.pathname == "/home/admin/cadeiras") {
+  let filtarSelect = document.getElementById('filtrar').getElementsByTagName('select')[0];
+  filtarSelect.addEventListener('change', function () {
+    filtrarCadeiras(this.value);
+  });
+}
+
 
 function pesquisarUtilizadores() {
   let searchBar = document.getElementById('searchBar');
