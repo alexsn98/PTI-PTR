@@ -1,3 +1,29 @@
-#title2 span {
+span {
     font-weight: bold;
+}
+
+#filtrar{
+    width: 90%;
+    height: 5%;
+    margin-left: 5%;
+    margin-bottom: 1%;
+}
+
+.firstText{
+    padding-top: 1%;
+    
+}
+
+#view{
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+    background-color: white;
+    display: inline-block;
+    overflow-y:scroll;
+}
+.noScroll{
+    margin-top: 1%;
+    height: 80% !important;
+    overflow: hidden !important;
 }

@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('name', 'Admin Ajuda')
+@section('name', 'Docente Ajuda')
 
 @section('cssPagina')
     <link rel="stylesheet" href= {{ asset('css/docenteAjuda.css') }}>

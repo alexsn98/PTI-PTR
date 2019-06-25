@@ -54,7 +54,7 @@
             <div>
                 <h4>Aulas Tipo:</h4>   
             </div>
-            <div>
+            <div id="but">
                 <a id="paginaTurmaButton" class="btn btn-primary">Página da turma</a>
             </div>
         </div>

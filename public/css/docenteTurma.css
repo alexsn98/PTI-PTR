@@ -33,3 +33,20 @@
     color: white !important;
     display: none;
 }
+
+/* Mobile device */
+@media only screen and (max-device-width: 480px) {
+    #theCadeira{
+        height: 15%;
+        margin-top: 15%;
+    }
+
+    #view1{
+        margin-top: 0.5%;
+        height: 100%;
+    }
+
+    #but{
+        height: 20%;
+    }
+}

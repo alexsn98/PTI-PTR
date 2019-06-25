@@ -12,7 +12,7 @@
 
 #view{
     width: 90%;
-    height: 70%;
+    height: 60% !important;
     margin-left: 5%;
     background-color: white;
     display: inline-block;
@@ -48,6 +48,14 @@
     height: 50%;
 }
 
+<<<<<<< HEAD
+/* Mobile device */
+@media only screen and (max-device-width: 480px) {
+    #view{
+        margin-top: 12%;
+    }
+=======
 .horas {
     display: inline;
+>>>>>>> f15ec3c6f8239e180130da608b8882595a9f9dee
 }

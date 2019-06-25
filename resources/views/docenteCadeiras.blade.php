@@ -3,7 +3,7 @@
 @section('name', 'Docente Cadeiras')
 
 @section('cssPagina')
-    <link rel="stylesheet" href= {{ asset('css/adminUsers.css') }}>
+    <link rel="stylesheet" href= {{ asset('css/docenteCadeira.css') }}>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.20.0/slimselect.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.20.0/slimselect.min.css" rel="stylesheet"></link>
 @endsection
