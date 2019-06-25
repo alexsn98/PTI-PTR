@@ -82,7 +82,17 @@ class HomeController extends Controller
 
     //Para aluno
     public function getAlunoHome() {
-        $cadeiras = Auth::user()->aluno->cadeiras->all();
+        if (date('m') > 1 && date('m') < 9) {
+            $cadeiras = Auth::user()->aluno->cadeiras->filter(function ($cadeira) {
+                return $cadeira->semestre == 2;
+            });
+        }
+
+        else {
+            $cadeiras = Auth::user()->aluno->cadeiras->filter(function ($cadeira) {
+                return $cadeira->semestre == 1;
+            });
+        }
         
         return view('alunoHome', [
             'cadeiras' => $cadeiras
@@ -141,6 +151,11 @@ class HomeController extends Controller
         $turmas = $docente->turmas;
         $pedidosMudancaTurma = $docente->pedidosMudancaTurma;
         $salas = Sala::all();
+
+        
+        $avisos = $turmas->map(function ($turma) {
+            return $turma->alunos;
+        });
         
         return view('docenteHome',[
             'curso' => $curso,

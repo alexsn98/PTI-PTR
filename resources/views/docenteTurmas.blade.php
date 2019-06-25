@@ -18,7 +18,7 @@
         <div id="filtrar">
             <h3>Filtrar por Cadeira:</h3>
             <select>
-                <option value="todos">Todos</option>
+                <option value="todos">Todas</option>
                 @foreach ($cadeiras as $cadeira)
                     <option value="{{$cadeira->nome}}" > {{$cadeira->nome}} </option>
                 @endforeach
