@@ -70,3 +70,19 @@
     margin-top: 1%;
     margin-left: 1%;
 }
+
+/* Mobile device */
+@media only screen and (max-device-width: 780px) {
+    #title1{
+        width: 40%;
+        margin-top: 3%;
+    }
+
+    #div1{
+        margin-bottom: 5%;
+    }
+
+    #div2{
+        margin-bottom: 5%;
+    }
+}

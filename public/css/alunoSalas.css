@@ -69,3 +69,16 @@
 {
 	background-color: #000000;
 }
+
+/* Mobile device */
+@media only screen and (max-device-width: 480px) {
+    #view{
+        margin-top: 7%;
+        height: 108% !important;
+    }
+
+    #downContent{
+        margin-top: 22%;
+    }
+
+}

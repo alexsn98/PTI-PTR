@@ -31,3 +31,11 @@
 #content > h3 {
     margin-left: 1%;
 }
+
+/* Mobile device */
+@media only screen and (max-device-width: 480px) {
+    #title2{
+        width: 50%;
+    }
+
+}
