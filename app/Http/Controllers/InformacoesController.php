@@ -100,6 +100,7 @@ class InformacoesController extends Controller
             'curso' => $curso,
             'semestre' => $cadeira->semestre,
             'ciclo' => $cadeira->ciclo,
+            'anoLetivo' => $cadeira->ano_letivo,
             'turmas' => $turmas
         ]);
     }

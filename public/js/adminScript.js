@@ -152,6 +152,7 @@ function selecionarCadeira(cadeiraId) {
 
   infoDireita[0].textContent = 'Semestre:';
   infoDireita[1].textContent = 'Ciclo:';
+  infoDireita[2].textContent = 'Ano letivo:';
 
   let xhttp = new XMLHttpRequest();
 
@@ -169,6 +170,7 @@ function selecionarCadeira(cadeiraId) {
 
         infoDireita[0].textContent += ' ' + resposta.semestre + "º";
         infoDireita[1].textContent += ' ' + resposta.ciclo + "º";
+        infoDireita[2].textContent += ' ' + resposta.anoLetivo;
 
         if (linkPagina == null) {
           let linkPaginaCriado = document.createElement("a");
@@ -250,44 +252,4 @@ function pesquisarUtilizadores() {
       itemsUtilizadores[i].style.display = "none";
     }
   }
-}
-
-function filtrarCadeiras(curso) {
-  let cadeirasLista = document.getElementById('view').getElementsByTagName('ul')[0];
-
-  while (cadeirasLista.firstChild) {
-    cadeirasLista.removeChild(cadeirasLista.firstChild);
-  }
-
-  let url = 'getCadeiras/' + curso;
-  let xhttp = new XMLHttpRequest();
-
-  xhttp.open("GET", url, true);
-  xhttp.send();
-
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      resposta = JSON.parse(this.responseText);
-
-      Object.keys(resposta).forEach(cadeira => {
-        let cadeiraItem = document.createElement("li");
-        let node = document.createTextNode(resposta[cadeira].nome);
-
-        cadeiraItem.appendChild(node);
-        cadeiraItem.classList.add('this');
-
-        cadeiraItem.setAttribute('onclick', "selecionarCadeira(" + resposta[cadeira].id + ")");
-
-        cadeirasLista.appendChild(cadeiraItem);
-      });
-    }
-  }
-}
-
-if (window.location.pathname == "/home/admin/cadeiras") {
-  let filtarSelect = document.getElementById('filtrar').getElementsByTagName('select')[0];
-
-  // filtarSelect.addEventListener('change', function () {
-  //   filtrarCadeiras(this.value);
-  // });
 }

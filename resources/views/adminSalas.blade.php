@@ -13,7 +13,7 @@
 @section('content')
     <div id="leftContent">
         <div id="filtrar">
-            <h2>Pedidos de Salas:</h2>  
+            <h2>Pedidos de reserva de sala:</h2>  
         </div>
         <div id="view">
             <ul>
@@ -31,7 +31,7 @@
     </div>
     <div id="rightContent">
         <div id="filtrar"> 
-            <h2>Reservas de Salas:</h2>     
+            <h2>Reservas de Salas realizadas:</h2>     
         </div>
         <div id="view">
             <ul>

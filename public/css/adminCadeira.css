@@ -66,13 +66,18 @@
     margin-left: 4%;
 }
 
+#opcaoSemestre {
+    margin-left: 1%;
+}
+
 #view1 button {
     margin-top: 7%;
 }
 
 label{
     margin-left: 2%;
-    margin-top: 2%;
+    margin-top: 0.5%;
+    font-size: 22px;
 }
 
 .btn{
@@ -86,14 +91,13 @@ label{
     font-size: 23px;
     margin-left: 0%;
     color: white;
-    margin-top: 8%;
 }
 
 #theCadeira{
     width: 90%;
-    height: 25%;
+    height: 27%;
     margin-left: 5%;
-    margin-top: 3%;
+    margin-top: 1%;
     background-color: white;
     display: inline-block
 }
