@@ -59,3 +59,22 @@
 #filtrar > h2{
     text-align: center;
 }
+
+
+/* Mobile device */
+@media only screen and (max-device-width: 480px) {
+    #leftContent{
+        width: 100%;
+        height: 50%;
+    }
+
+    #rightContent{
+        width: 100%;
+        height: 50%;
+        margin-top: 10%;
+    }
+
+    #view{
+        margin-top:5%;
+    }
+}

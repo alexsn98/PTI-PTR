@@ -16,7 +16,7 @@ body{
 #container{
     width: 100%;
     height: 100%;
-    background-color: red;
+    background-color: #EDF0F5;
 }
 
 #navbar{
@@ -354,3 +354,127 @@ a:link, a:visited, a:hover{
 html{
     background-color: #EDF0F5;
 }
+
+.menu-toggle{
+    color: #fff;
+    float: right;
+    line-height: 50px;
+    width: 20%;
+    height: 10%;
+    background-color: #03353E;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+#iconMenu{
+    font-size: 65px;
+    margin-left: 11%;
+    margin-top: 6%;
+}
+
+/* Mobile device */
+@media only screen and (max-device-width: 480px) {
+    #navbar{
+        width: 100%;
+        background-color: transparent;
+        transition: 0.2s;
+
+    }
+
+    #title{
+        width: 80%;
+        height: 10%;
+        text-align: center;
+        background-color: white;
+        color: rgb(3, 53, 62);
+        display: inline-block;
+        font-family: 'Tulpen One', cursive;
+        cursor: default;
+    }
+    
+    #title > h2{
+        font-size: 60px;
+    }
+
+    .menu-toggle{
+        display: block;
+    }
+
+    #navbar #nav {
+        display: none;
+        transition: 0.2s;
+    }
+
+    #logout{
+        display: none;
+        transition: 0.2s;
+    }
+
+    #content{
+        width: 101%;
+        margin-left: 0;
+        margin-top: 19%;
+    }
+
+    #divsTotal {
+        width: 118%;
+        height: 48%;
+    }
+
+    #divTotalUsers{
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    #divTotalCursos{
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    #divTotalCadeiras{
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    #divTotalSalas{
+        width: 100%;
+    }
+
+    #reservas {
+        float: right;
+        width: 95%;
+        height: 100%;
+        margin-right: 3%;
+    }
+
+    #pedidos {
+        float: left;
+        width: 95%;
+        height: 100%;
+        margin-left: 2%;
+        margin-top: 5%;
+        margin-bottom: 2%;
+    }  
+
+    .contai > h2{
+        font-size: 46px;
+    }
+
+    .contai1 > h2{
+        font-size: 46px;
+    }
+    
+}
+
+<div class="topnav">
+  <a href="#home" class="active">Logo</a>
+  <div id="myLinks">
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>

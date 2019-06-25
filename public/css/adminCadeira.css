@@ -127,3 +127,30 @@ label{
 #content ul {
     height: 20%;
 }
+
+/* Mobile device */
+@media only screen and (max-device-width: 480px) {
+    #leftContent{
+        width: 100%;
+        height: 50%;
+    }
+
+    #rightContent{
+        width: 100%;
+        height: 50%;
+        margin-top: 10%;
+    }
+
+    #view{
+        margin-top: 10%;
+    }
+
+    #view1{
+        height: 155%;
+        margin-top: 9%;
+    }
+
+    #theCadeira{
+        height: 60%;
+    }
+}
