@@ -14,15 +14,19 @@
 @endsection
 
 @section('content')
-    <div id="title2">
-        <h2> 
-            <span> Coordenador do Curso: </span> {{$curso->nome}}
-        </h2>
-        <h2>Cadeiras do curso: </h2>
-        <ul>
+    <div id="upperContent">
+        <div id="filtrar" class="firstText">
+            <h2> 
+                <span> Coordenador do Curso: </span> {{$curso->nome}}
+            </h2> 
+        </div>
+        <div id="view" class="noScroll">
+            <h2>Cadeiras do curso: </h2>
+            <ul>
            @foreach ($curso->cadeiras as $cadeira)
                 <a class="this" href="/home/cadeira/{{$cadeira->id}}"><li>{{$cadeira->nome}}</li></a>
            @endforeach 
         </ul>
+        </div>
     </div>
 @endsection
