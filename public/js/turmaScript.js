@@ -39,7 +39,7 @@ function selecionarAulaTipo(aulaTipoId) {
                     }
                 } 
 
-                else {
+                else if (utilizadorDocente) {
                     let aulaPresencas = document.createElement("a");
 
                     aulaPresencas.appendChild(document.createTextNode('Presenças'))
@@ -47,7 +47,7 @@ function selecionarAulaTipo(aulaTipoId) {
 
                     aulaItem.appendChild(aulaPresencas);
                 }
-
+                aulaItem.classList.add("this1");
                 aulasLista.appendChild(aulaItem);
             }
 

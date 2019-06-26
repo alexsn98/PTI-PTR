@@ -180,9 +180,9 @@
             <h3> Avisos: </h3>
             <ul>
                 @foreach ($alunosSemTurma as $alunoSemTurma)
-                    <li> 
-                        Aluno: {{$alunoSemTurma['aluno']}} <br>
-                        Cadeira: {{$alunoSemTurma['cadeira']}} <br>
+                    <li class="this1"> 
+                        Aluno: {{$alunoSemTurma['aluno']}} ||
+                        Cadeira: {{$alunoSemTurma['cadeira']}}
                     </li>
                 @endforeach
             </ul>

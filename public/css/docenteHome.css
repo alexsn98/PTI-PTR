@@ -34,6 +34,7 @@
     background-color: white;
     float: right;
     margin-bottom: 0.5%;
+    overflow: auto;
 }
 
 #reservarSala{
@@ -56,6 +57,19 @@
     color: #fff;
     transition: 0.5s;
     list-style-type: none;
+}
+
+.this1{
+    display: flex;
+    width: 98%;
+    margin-left: 1%;
+    background-color: rgba(3, 53, 62,0.5);
+    padding: 10px 20px;
+    margin-top: 1%;
+    color: #fff;
+    transition: 0.5s;
+    list-style-type: none;
+    font-size: 20px;
 }
 
 .this:hover{

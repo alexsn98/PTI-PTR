@@ -8,11 +8,12 @@
 }
 
 #view {
-  height: 95%;
+  height: 84%;
 }
 
 #view1 {
-  height: 95%;
+  height: 93%;
+  margin-top: 5%;
 }
 
 #theCadeira {
@@ -31,4 +32,41 @@
 
 #criarAula {
   display: none;
+}
+
+#turmaInfo{
+    width: 90%;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    margin-left: 5%;
+    background-color: white;
+    display: inline-block;
+    overflow: auto;
+    margin-top: 5%;
+}
+
+button{
+  margin-top: 2% !important;
+}
+
+.this1{
+    display: flex;
+    width: 98%;
+    background-color: rgba(3, 53, 62,0.5);
+    padding: 10px 20px;
+    margin-top: 1%;
+    color: #fff;
+    transition: 0.5s;
+    list-style-type: none;
+    font-size: 25px;
+}
+
+.this1 > a{
+
+  margin-left: 40%;
+  margin-top: 1%;
+  color: white;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 40px !important;
 }

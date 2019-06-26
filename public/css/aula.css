@@ -55,6 +55,23 @@
     margin-left: 2%;
 }
 
-.alunosLista button {
-    float: right;
+#alunosinscritos{
+    width: 100%;
+    height: 87% !important;
+}
+
+#butt{
+    width: 100%;
+    height: 7%;
+}
+
+#butt > button{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 1%;
+}
+
+form{
+    width: 100%;
+    height: 100%;
 }
