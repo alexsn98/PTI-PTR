@@ -152,9 +152,11 @@ class HomeController extends Controller
         $pedidosMudancaTurma = $docente->pedidosMudancaTurma;
         $salas = Sala::all();
         
-        $cadeiras = $turmas->map(function ($turma) {
-            return $turma->cadeira;
-        })->unique();
+        // $cadeiras = $turmas->map(function ($turma) {
+        //     return $turma->cadeira;
+        // })->unique();
+
+        $cadeiras = $docente->cadeiras;
 
         $alunosSemTurma = [];
         foreach ($cadeiras as $cadeira) {
