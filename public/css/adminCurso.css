@@ -113,7 +113,14 @@ label{
     }
 
     #view1{
-        height: 100%;
+        height: 110%;
         margin-top: 9%;
+    }
+
+    #viewCurso{
+        margin-bottom: 5%;
+    }
+    #searchBar{
+        margin-top: 2%;
     }
 }

@@ -110,6 +110,7 @@
                     $("#navbar").css({"background-color": "#03353E"});
                     $(".menu-toggle").css({"background-color":"#0d6170"});
                     $(".ss-single-selected").css({"display": "none"});
+                    $("button").css({"display": "none"});
                 }
                 else{
                     console.log("pauBack");
@@ -118,6 +119,7 @@
                     $("#navbar").css({"background-color": "transparent"});
                     $(".menu-toggle").css({"background-color":"#03353E"});
                     $(".ss-single-selected").css({"display": "flex"});
+                    $("button").css({"display": ""});
                 }
             })
         })

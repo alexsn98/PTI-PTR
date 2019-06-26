@@ -51,4 +51,8 @@ form{
     #cont{
         height: 35%;
     }
+
+    label{
+        margin-left: 1%;
+    }
 }
