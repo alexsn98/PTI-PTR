@@ -17,12 +17,22 @@
 }
 
 #pedidosTurma{
-    width: 95%;
+    width: 45%;
     height: 20%;
     margin-left: 2.5%;
     margin-top: 0.5%;
     background-color: white;
     float: left;
+    margin-bottom: 0.5%;
+}
+
+#avisos {
+    width: 45%;
+    height: 20%;
+    margin-right: 2.5%;
+    margin-top: 0.5%;
+    background-color: white;
+    float: right;
     margin-bottom: 0.5%;
 }
 

@@ -120,6 +120,7 @@
         </div>
     </div>
 
+    <script type="text/javascript"> var utilizadorAluno = @json(Auth::user()->aluno); </script>
     <script type="text/javascript"> var salas = @json($salas); </script>
     <script src="{{asset('js/turmaScript.js')}}"></script>
 @endsection

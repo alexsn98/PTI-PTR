@@ -176,6 +176,20 @@
         </ul>
     </div>
 
+    <div id="avisos">
+            <h3> Avisos: </h3>
+            <ul>
+                @foreach ($pedidosMudancaTurma as $pedido)
+                    <li> 
+                        Pedido feito por: {{$pedido->aluno->utilizador->nome}} <br>
+                        Cadeira: {{$pedido->turmaPedida->cadeira->nome}} <br>
+                        Para a turma: TP-{{$pedido->turmaPedida->numero}} <br>
+                        <a href="/pedido/mudancaTurma/{{$pedido->id}}">Aceitar</a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+
     <script>var idDocente = @json(Auth::user()->docente->id)</script>
     <script src="{{asset('js/horarioScript.js')}}"></script>
 @endsection

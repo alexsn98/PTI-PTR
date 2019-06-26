@@ -18,8 +18,6 @@ class CreateSalaTable extends Migration
             $table->unsignedInteger('edificio');
             $table->unsignedInteger('piso');
             $table->unsignedInteger('num_sala');
-            $table->time('abertura')->nullable();
-            $table->time('encerramento')->nullable();
             $table->unsignedInteger('num_lugares');
             $table->timestamps();
         });

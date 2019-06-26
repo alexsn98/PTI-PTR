@@ -121,20 +121,49 @@ class InformacoesController extends Controller
 
     public function getAulaTipoInfo($idAulaTipo) {
         $aulaTipo = AulaTipo::find($idAulaTipo);
+        $aulas = [];
+
+        
+        foreach ($aulaTipo->aulas as $aula) {
+            $aulaInfo = [];
+            
+            $aulaInfo['data'] = $aula->data;
+            $aulaInfo['sumario'] = $aula->sumario;
+            
+            $aulaInfo['presencas'] = $aula->presencas->map(function ($presenca) {
+                return $presenca->aluno->id;
+            });
+        
+            $aulas[] = $aulaInfo;
+        }
 
         return response()->json([
-            'aulas' => $aulaTipo->aulas
+            'aulas' => $aulas
         ]);
     }
 
     public function getAulasAluno($idAluno) {
         $turmas = [];
-        
-        $cadeirasTurmas = Aluno::find($idAluno)->cadeiras->map(function ($cadeira) {
+
+        if (date('m') > 1 && date('m') < 9) {
+            $cadeiras = Aluno::find($idAluno)->cadeiras->filter(function ($cadeira) {
+                return $cadeira->semestre == 2;
+            });
+        }
+
+        else {
+            $cadeiras = Aluno::find($idAluno)->cadeiras->filter(function ($cadeira) {
+                return $cadeira->semestre == 1;
+            });
+        }
+
+        $cadeirasTurmas = $cadeiras->map(function ($cadeira) {
             return $cadeira->turmas;
         });
 
+        
         foreach ($cadeirasTurmas as $cadeiraTurma) {
+
             foreach ($cadeiraTurma as $turma) {
                 
                 $turmaInfo = [];
@@ -151,7 +180,7 @@ class InformacoesController extends Controller
                     $turmaPratica = $pivotAlunoCadeira->turma_pratica_id == $aulaTipo->turma_id;
 
                     $turmaTeorica = $pivotAlunoCadeira->turma_teorica_id == $aulaTipo->turma_id;
-
+                    
                     if ($turmaPratica || $turmaTeorica) {
                         $aulaTipoInfo->put('nomeCadeira', $nomeCadeira);   
                         $aulaTipoInfo->put('siglaCadeira', $siglaCadeira);                   
@@ -161,6 +190,7 @@ class InformacoesController extends Controller
                         $aulaTipoInfo->put('tipo', $turmaPratica ? 'TP' : 'T');
 
                         $turmaInfo[] = $aulaTipoInfo;
+
                     }
                 }
                 $turmas[] = $turmaInfo;

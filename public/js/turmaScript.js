@@ -23,27 +23,49 @@ function selecionarAulaTipo(aulaTipoId) {
             for (const aula of resposta.aulas) {
                 let aulaItem = document.createElement("li");
 
-                aulaItem.appendChild(document.createTextNode('Data: ' + aula.data));
+                aulaItem.appendChild(document.createTextNode('Data: ' + aula['data']));
                 aulaItem.appendChild(document.createElement("br"));
                 
-                aulaItem.appendChild(document.createTextNode('Sumário: '+ aula.sumario));
+                aulaItem.appendChild(document.createTextNode('Sumário: '+ aula['sumario']));
                 aulaItem.appendChild(document.createElement("br"));
                 
-                let aulaPresencas = document.createElement("a");
+                if (utilizadorAluno) {
+                    if (aula['presencas'].includes(utilizadorAluno.id)) {
+                        aulaItem.appendChild(document.createTextNode('Presente'));
+                    } 
 
-                aulaPresencas.appendChild(document.createTextNode('Presenças'))
-                aulaPresencas.setAttribute('href', "aula/" + aula.id);
+                    else {
+                        aulaItem.appendChild(document.createTextNode('Não presente'));
+                    }
+                } 
 
-                aulaItem.appendChild(aulaPresencas);
-    
+                else {
+                    let aulaPresencas = document.createElement("a");
+
+                    aulaPresencas.appendChild(document.createTextNode('Presenças'))
+                    aulaPresencas.setAttribute('href', "aula/" + aula.id);
+
+                    aulaItem.appendChild(aulaPresencas);
+                }
+
                 aulasLista.appendChild(aulaItem);
             }
 
-            document.getElementById('view1').getElementsByTagName('h3')[0].style.display = 'block';
+            if (!utilizadorAluno) {
+                document.getElementById('view1').getElementsByTagName('h3')[0].style.display = 'block';
                         
-            aulaForm.style.display = 'block';
-            
-            aulaForm.getElementsByTagName('input')[1].value = aulaTipoId;
+                aulaForm.style.display = 'block';
+                
+                aulaForm.getElementsByTagName('input')[1].value = aulaTipoId;
+    
+                //definir data default como hoje
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0');
+                var yyyy = today.getFullYear();          
+    
+                aulaForm.getElementsByTagName('input')[2].defaultValue = yyyy + '-' +  mm + '-' + dd;
+            }
         }
     }
 }
