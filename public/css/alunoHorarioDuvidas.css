@@ -54,4 +54,8 @@ form > button{
         height: 80%;
         width: 97%;
     }
+
+    label{
+        margin-left: 1%;
+    }
 }
