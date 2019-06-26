@@ -561,3 +561,25 @@ html{
     
 }
 
+@media only screen and (max-width: 1200px) {
+    .contai > h2{
+        font-size: 40px !important;
+    }
+
+    .contai1 > h2{
+        font-size: 40px !important;
+    }
+
+    #buttonIr > h3{
+        font-size: 15px;
+    }
+
+    #buttonIr > i{
+
+        font-size: 15px;
+    }
+
+    #title > h2{
+        font-size: 50px;
+    }
+}
