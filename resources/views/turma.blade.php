@@ -8,20 +8,19 @@
 @endsection
 
 @section('content')
-    <div id="turmaInfo">
-        <h2>Aulas Tipo:</h2>
-        <h2>Turma
-            @if ($turma->tipo == 1)
-                Teórica
-            @else
-                Prática
-            @endif
-            {{$turma->numero}}
-        </h2>
-        <h2>Vagas: {{$turma->numVagas}} </h2>
-    </div>
-    
     <div id="leftContent">
+            <div id="turmaInfo">
+                <h2>Aulas Tipo:</h2>
+                <h2>Turma
+                    @if ($turma->tipo == 1)
+                        Teórica
+                    @else
+                        Prática
+                    @endif
+                    {{$turma->numero}}
+                </h2>
+                <h2>Vagas: {{$turma->numVagas}} </h2>
+            </div>
         <div id="view">
             <ul>
                 @for ($i = 0; $i < count($aulasTipo); $i++)
@@ -121,6 +120,7 @@
     </div>
 
     <script type="text/javascript"> var utilizadorAluno = @json(Auth::user()->aluno); </script>
+    <script type="text/javascript"> var utilizadorDocente = @json(Auth::user()->docente); </script>
     <script type="text/javascript"> var salas = @json($salas); </script>
     <script src="{{asset('js/turmaScript.js')}}"></script>
 @endsection

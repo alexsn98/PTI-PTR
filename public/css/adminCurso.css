@@ -20,7 +20,7 @@
 
 #view{
     width: 90%;
-    height: 85%;
+    height: 85% ;
     margin-left: 5%;
     background-color: white;
     display: inline-block
@@ -28,7 +28,7 @@
 
 #view1{
     width: 90%;
-    height: 33%;
+    height: 40%;
     margin-left: 5%;
     background-color: white;
     display: inline-block;
@@ -54,7 +54,7 @@
 
 #viewCurso{
     width: 90%;
-    height: 50%;
+    height: 43.5%;
     margin-left: 5%;
     margin-top: 2%;
     background-color: white;

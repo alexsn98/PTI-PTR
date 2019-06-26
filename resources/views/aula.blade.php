@@ -13,7 +13,7 @@
         <form action="{{$aula->id}}/submeterPresencas/" method="POST">
             @csrf
 
-            <div>
+            <div id="alunosinscritos">
                 @foreach ($alunosInscritos as $aluno)
                     <label> 
                         {{$aluno->utilizador->nome}}
@@ -26,8 +26,9 @@
                     <br>
                 @endforeach
             </div>
-            
-            <button type="submit" class="btn btn-primary">Submeter</button>
+            <div id="butt">
+                <button type="submit" class="btn btn-primary">Submeter</button>
+            </div>
         </form>
     </div>
 

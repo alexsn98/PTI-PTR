@@ -12,7 +12,8 @@ class ReservaSala extends Model
         'sala_id',
         'utilizador_id',
         'inicio',
-        'fim'
+        'fim',
+        'data'
     ];
 
     public function utilizador() {

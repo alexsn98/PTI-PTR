@@ -179,12 +179,10 @@
     <div id="avisos">
             <h3> Avisos: </h3>
             <ul>
-                @foreach ($pedidosMudancaTurma as $pedido)
-                    <li> 
-                        Pedido feito por: {{$pedido->aluno->utilizador->nome}} <br>
-                        Cadeira: {{$pedido->turmaPedida->cadeira->nome}} <br>
-                        Para a turma: TP-{{$pedido->turmaPedida->numero}} <br>
-                        <a href="/pedido/mudancaTurma/{{$pedido->id}}">Aceitar</a>
+                @foreach ($alunosSemTurma as $alunoSemTurma)
+                    <li class="this1"> 
+                        Aluno: {{$alunoSemTurma['aluno']}} ||
+                        Cadeira: {{$alunoSemTurma['cadeira']}}
                     </li>
                 @endforeach
             </ul>

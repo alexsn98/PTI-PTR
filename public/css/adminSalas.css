@@ -60,6 +60,28 @@
     text-align: center;
 }
 
+.this:hover{
+    transform: none;
+    background-color: rgba(3, 53, 62,0.5);
+    cursor: default;
+    text-decoration: none;
+    color: white;
+}
+
+.this > form{
+    margin-left: 3%;
+}
+
+.this > form > div{
+    margin-left: 2% !important;
+}
+
+.this > form > button{
+    margin-top: -9%;
+    width: 50%;
+    margin-left: 25%;
+}
+
 
 /* Mobile device */
 @media only screen and (max-device-width: 480px) {
