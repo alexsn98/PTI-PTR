@@ -26,9 +26,10 @@
                             <input type="hidden" name="_method" value="PUT">
                     
                             <div class="form-group">
-                                <textarea rows="3" cols="40" name="textoResposta">
+                                <label>
                                     Texto da resposta ...
-                                </textarea>
+                                    <textarea rows="3" cols="40" name="textoResposta"></textarea>
+                                </label>
                             </div>
                     
                             <button type="submit" class="btn btn-primary">Enviar</button>

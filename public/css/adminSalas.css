@@ -60,6 +60,14 @@
     text-align: center;
 }
 
+.this:hover{
+    transform: none;
+    background-color: rgba(3, 53, 62,0.5);
+    cursor: default;
+    text-decoration: none;
+    color: white;
+}
+
 
 /* Mobile device */
 @media only screen and (max-device-width: 480px) {

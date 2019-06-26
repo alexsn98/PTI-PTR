@@ -13,6 +13,7 @@ class PedidoReservaSala extends Model
         'sala_id',
         'inicio',
         'fim',
+        'data',
         'descricao'
     ];
 

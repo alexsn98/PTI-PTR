@@ -9,10 +9,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.20.0/slimselect.min.css" rel="stylesheet"></link>
 @endsection
 
-@section('cadeirasAtive') 
-    style= "opacity: 1; background: rgba(255, 255, 255, 0.1); cursor: pointer;"
-@endsection
-
 @section('content')
     <div id="cadeiraInfo">
         <h2>{{$cadeira->nome}}</h2>
@@ -110,13 +106,6 @@
             <script src="{{asset('js/selectSearch.js')}}"></script>
         @endif
     </div>
-
-    @if (Auth::user()->docente)
-        <h2>Alunos sem Turma</h2>
-        @foreach ($alunosSemTurma as $aluno)
-            {{$aluno->utilizador->nome}} - {{$aluno->numero}}
-        @endforeach
-    @endif
 
     @if (Auth::user()->aluno)
         <script> var turmasAtuais = @json($turmasAtuais)</script>

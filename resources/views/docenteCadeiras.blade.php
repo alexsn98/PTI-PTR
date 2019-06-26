@@ -19,7 +19,7 @@
         <div id="view">
             <ul>
                 @foreach ($cadeiras as $cadeira)
-                    <li class="this" onclick="selecionarUtilizador({{$cadeira->id}})"> 
+                    <li class="this" onclick="selecionarCadeira({{$cadeira->id}})"> 
                         <span> {{$cadeira->nome}} <span>
                     </li>
                 @endforeach
@@ -32,10 +32,13 @@
         </div>
         <div id="view1">
             <h2>Nome:</h2>
+            <h2>ECTs:</h2>
             <h2>Curso:</h2>
-            <h2>Turmas:</h2>
+            <h2>Semestre:</h2>
+            <h2>Ciclo:</h2>
+            <h2>Ano letivo:</h2>
         </div>
     </div>
-    <script src="{{asset('js/adminScript.js')}}"></script>
+    <script src="{{asset('js/docenteScript.js')}}"></script>
     <script src="{{asset('js/selectSearch.js')}}"></script>
 @endsection
