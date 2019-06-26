@@ -177,7 +177,7 @@
     </div>
 
     <div id="avisos">
-            <h3> Avisos: </h3>
+            <h3> Alunos sem turma: </h3>
             <ul>
                 @foreach ($alunosSemTurma as $alunoSemTurma)
                     <li class="this1"> 
