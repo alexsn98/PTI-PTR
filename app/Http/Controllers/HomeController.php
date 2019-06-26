@@ -151,17 +151,34 @@ class HomeController extends Controller
         $turmas = $docente->turmas;
         $pedidosMudancaTurma = $docente->pedidosMudancaTurma;
         $salas = Sala::all();
-
         
-        $avisos = $turmas->map(function ($turma) {
-            return $turma->alunos;
-        });
+        $cadeiras = $turmas->map(function ($turma) {
+            return $turma->cadeira;
+        })->unique();
+
+        $alunosSemTurma = [];
+        foreach ($cadeiras as $cadeira) {
+            $alunos = $cadeira->alunos;
+            
+            foreach ($alunos as $aluno) {
+                $alunoTurmaTeorica = $aluno->pivot->turma_teorica_id;
+                $alunoTurmaPratica = $aluno->pivot->turma_pratica_id;
+                
+                if ($alunoTurmaTeorica == null || $alunoTurmaPratica == null) {
+                    $alunosSemTurma[] = [
+                        'aluno' => $aluno->utilizador->nome, 
+                        'cadeira' => $cadeira->nome
+                    ];
+                }
+            }
+        }
         
         return view('docenteHome',[
             'curso' => $curso,
             'turmas'=> $turmas,
             'pedidosMudancaTurma' => $pedidosMudancaTurma,
-            'salas' => $salas
+            'salas' => $salas,
+            'alunosSemTurma' => $alunosSemTurma
         ]); 
     }
 
