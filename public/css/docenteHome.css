@@ -122,3 +122,13 @@
     }
 }
 
+/* Mobile device */
+@media only screen and (max-width: 780px) {
+    #title1{
+        width: 23%;
+    }
+
+    #pedidosTurma{
+        height: 40%;
+    }
+}
