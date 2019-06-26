@@ -55,7 +55,7 @@
                 @csrf
 
                 <div class="form-group">
-                    <label>
+                    <label id="label1">
                         Cadeira: 
                         <select name="cadeira" onchange="turmasDeCadeira()">
                             @foreach ($cadeiras as $cadeira)
@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>
+                    <label id="label2">
                         Turma: 
                         <select name="turma">
                             @foreach ($cadeiras[0]->turmas as $turma)
