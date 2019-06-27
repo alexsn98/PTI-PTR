@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>
+                    <label style="margin-top:-2%;">
                         Nome:
                         <input type="text" class="form-control" name="nome" required>
                     </label>
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>
+                    <label style="margin-top:0%;">
                         Ano letivo:
                         <select name="anoLetivo">
                             <option value='2018/2019'> 2018/2019 </option>
