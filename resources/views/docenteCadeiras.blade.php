@@ -18,10 +18,21 @@
         </div>
         <div id="view">
             <ul>
+                <h3>1º Semestre</h3>
                 @foreach ($cadeiras as $cadeira)
-                    <li class="this" onclick="selecionarCadeira({{$cadeira->id}})"> 
-                        <span> {{$cadeira->nome}} <span>
-                    </li>
+                    @if ($cadeira->semestre == 1)
+                        <li class="this" onclick="selecionarCadeira({{$cadeira->id}})"> 
+                            <span> {{$cadeira->nome}} <span>
+                        </li>
+                    @endif
+                @endforeach
+                <h3>2º Semestre</h3>
+                @foreach ($cadeiras as $cadeira)
+                    @if ($cadeira->semestre == 2)
+                        <li class="this" onclick="selecionarCadeira({{$cadeira->id}})"> 
+                            <span> {{$cadeira->nome}} <span>
+                        </li>
+                    @endif
                 @endforeach
             </ul>
         </div>
