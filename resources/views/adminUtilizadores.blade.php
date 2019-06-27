@@ -48,45 +48,50 @@
             <h2>Cadeiras:</h2>
             <h2>Turmas:</h2>
         </div>
-        <div id="operacoesUtilizador">
-            <h4> Relacionar docente com turma: </h4>
 
-            <form action="/pedido/associarTurma" method="POST">
-                @csrf
-
-                <div class="form-group">
-                    <label id="label1">
-                        Cadeira: 
-                        <select name="cadeira" onchange="turmasDeCadeira()">
-                            @foreach ($cadeiras as $cadeira)
-                                <option value="{{$cadeira->id}}"> {{$cadeira->nome}} </option>
-                            @endforeach  
-                        </select>
-                    </label>
-                </div>
-
-                <div class="form-group">
-                    <label id="label2">
-                        Turma: 
-                        <select name="turma">
-                            @foreach ($cadeiras[0]->turmas as $turma)
-                                <option value="{{$turma->id}}"> 
-                                        @if ($turma->tipo == 0)
-                                            Pratica -
-                                        @else
-                                            Teórica -
-                                        @endIf
-                                        {{$turma->numero}}
-                                </option>                                
-                            @endforeach
-                        </select>
-                    </label>
-                </div>
-
-                <button type="submit" class="btn btn-primary" disabled>Adicionar</button>
-            </form>
-        </div>
+        @if ($cadeiras->count() > 0)
+            <div id="operacoesUtilizador">
+                <h4> Relacionar docente com turma: </h4>
+    
+                <form action="/pedido/associarTurma" method="POST">
+                    @csrf
+    
+                    <div class="form-group">
+                        <label id="label1">
+                            Cadeira: 
+                            <select name="cadeira" onchange="turmasDeCadeira()">
+                                @foreach ($cadeiras as $cadeira)
+                                    <option value="{{$cadeira->id}}"> {{$cadeira->nome}} </option>
+                                @endforeach  
+                            </select>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label id="label2">
+                            Turma: 
+                            <select name="turma">
+                                @foreach ($cadeiras[0]->turmas as $turma)
+                                    <option value="{{$turma->id}}"> 
+                                            @if ($turma->tipo == 0)
+                                                Pratica -
+                                            @else
+                                                Teórica -
+                                            @endIf
+                                            {{$turma->numero}}
+                                    </option>                                
+                                @endforeach
+                            </select>
+                        </label>
+                    </div>
+    
+                    <button type="submit" class="btn btn-primary" disabled>Adicionar</button>
+                </form>
+            </div>      
+            <script src="{{asset('js/selectSearch.js')}}"></script>
+        @endif
     </div>
+    
+    <script type="text/javascript"> var relacionar = @json($cadeiras->count() > 0); </script>
     <script src="{{asset('js/adminScript.js')}}"></script>
-    <script src="{{asset('js/selectSearch.js')}}"></script>
 @endsection

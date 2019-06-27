@@ -1,10 +1,14 @@
 function selecionarUtilizador(utilizadorId) {
   let info = document.getElementById('view1').getElementsByTagName('h2');
-  let relacionarCadeira = document.getElementById('operacoesUtilizador').getElementsByTagName('form')[0];
-  let campoUtilizador = document.getElementById("campoUtilizador");
+  
+  if (relacionar) {
+    let relacionarCadeira = document.getElementById('operacoesUtilizador').getElementsByTagName('form')[0];
+    relacionarCadeira.removeAttribute('action');
+    
+    relacionarCadeira.getElementsByTagName('button')[0].disabled = true;
+  }
 
-  relacionarCadeira.removeAttribute('action');
-  relacionarCadeira.getElementsByTagName('button')[0].disabled = true;
+  let campoUtilizador = document.getElementById("campoUtilizador");
 
   let url = 'utilizadorInfo/' + utilizadorId;
   
