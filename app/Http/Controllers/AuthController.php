@@ -16,6 +16,10 @@ class AuthController extends Controller
         return view('login');
     }
 
+    public function getLoginIngles() {
+        return view('loginIngles');
+    }
+
     public function getRegistar() {
         return view('registar');
     }

@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', 'AuthController@getLogin')->name('login')->middleware('guest');
+Route::get('/ingles', 'AuthController@getLoginIngles')->name('login')->middleware('guest');
 Route::post('/', 'AuthController@login');
 
 Route::get('/registar', 'AuthController@getRegistar');

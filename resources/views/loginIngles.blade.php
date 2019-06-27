@@ -24,14 +24,14 @@
                 <input type="password" class="form-control" name="password" placeholder="Palavra-passe">
             </div>
             <div class="form-group">
-                <input type="checkbox" name="rememberMe" value="rememberMe">Lembrar-me<br>
+                <input type="checkbox" name="rememberMe" value="rememberMe">Remind me<br>
             </div>
-            <button type="submit" class="btn btn-primary">Entrar</button>
+            <button type="submit" class="btn btn-primary">Login</button>
         </form>
         <hr style="height: 1px; border:0; width: 100%; color:#333;background-color:#0C4DA2; margin-top: 20px; margin-bottom: 6px;">
-        <a href="home/visitante" style="color: #0C4DA2; font-size:12px;margin-top:1%; float:left; width:45%;">Entrar como visitante</a>
+        <a href="home/visitante" style="color: #0C4DA2; font-size:12px;margin-top:1%; float:left; width:45%;">Log in as visitor</a>
         <div id="bandeirinha">
-            <a href=""><img style="width:30%; margin-left:30%;" src={{ asset('img/portugal.png') }}></a>
+            <a href="/"><img style="width:30%; margin-left:30%;" src={{ asset('img/portugal.png') }}></a>
             <a href="/ingles"><img style="width:30%; margin-left:5%;" src={{ asset('img/reinounido.png') }}></a>
         </div>
         <br>
