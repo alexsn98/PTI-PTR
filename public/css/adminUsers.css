@@ -57,6 +57,7 @@
 #operacoesUtilizador {
     background-color: white;
     width: 90%;
+    height: 23%;
     margin-left: 5%;
     border-top: 25px solid #EDF0F5;
 }
@@ -81,7 +82,19 @@
 } 
 
 #operacoesUtilizador button {
-    margin-top: 1.5%;
+    width: 50%;
+    margin-left: 25%;
+}
+
+#label1{
+    display: flex;
+    margin-right: 2%;
+}
+
+#label2{
+    margin-top: 3%;
+    display: flex;
+    margin-right: 2%;
 }
 
 
