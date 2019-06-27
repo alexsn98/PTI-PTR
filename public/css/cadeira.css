@@ -54,7 +54,7 @@
 #view1 > div:last-child {
     border-top: 6px solid #EDF0F5;
     border-bottom: 6px solid #EDF0F5;
-    height: 27%
+    height: 29%;
 }
 
 #view1 > div:last-child > a {
@@ -66,6 +66,7 @@
     width: 90%;
     height: 30.5%;
     margin-left: 5%;
+    margin-bottom: 4%;
     background-color: white;
 }
 
