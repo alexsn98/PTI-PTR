@@ -9,7 +9,7 @@
 @section('content')
 
     <div class="alunosLista">
-        <h3 class="this">Alunos inscritos: </h3>
+        <h3 class="this">Alunos inscritos na turma: </h3>
         <form action="{{$aula->id}}/submeterPresencas/" method="POST">
             @csrf
 

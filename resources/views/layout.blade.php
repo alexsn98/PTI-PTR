@@ -74,6 +74,7 @@
                     @endif
                    
                     <a class="noDecoration" href="/home/docente/salas"><li class="navv" @yield('salasAtive')><span class="material-icons">meeting_room</span>Salas</li></a>
+                    <a class="noDecoration" href="/home/docente/horarioDuvidas"><li class="navv" @yield('horarioDuvidasAtive')><span class="material-icons">schedule</span>Horário de dúvidas</li></a>
                     <a class="noDecoration" href="/home/docente/ajuda"><li class="navv" @yield('ajudaAtive')><span class="material-icons">help</span>Ajuda</li></a>
                 @endif
 
