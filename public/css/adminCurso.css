@@ -124,3 +124,11 @@ label{
         margin-top: 2%;
     }
 }
+
+@media only screen and (max-width: 1200px) {
+    label{
+        margin-left: 2%;
+        margin-top: 0%;
+        font-size: 20px;
+    }
+}

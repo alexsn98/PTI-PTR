@@ -129,3 +129,29 @@
         margin-left: 5%;
     }
 }
+
+@media only screen and (max-width: 1200px) {
+    #label1{
+        height: 20%;
+        font-size: 10px;
+    }
+    
+    #label2{
+        height: 20%;
+        font-size: 10px;
+    }
+
+    #filtrar > h1{
+        font-size:30px;
+    }
+
+    #operacoesUtilizador > h4{
+        font-size: 10px;
+    }
+
+    #operacoesUtilizador button {
+        width: 50%;
+        margin-left: 25%;
+        font-size: 5px;
+    }
+}
