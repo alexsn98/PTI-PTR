@@ -1,17 +1,17 @@
 #cadeiraInfo {
     margin-top: 1%;
     margin-left: 2.5%;
-    width: 75%;
+    width: 85%;
+    height: 5%;
 }
 
 #cadeiraInfo > h2:first-child {
     float: left;
-    margin-left: 12%;
 }
 
 #cadeiraInfo > h2:nth-child(2) {
     float: right;
-    margin-right: 2.5%;
+    margin-right: 33.5%;
 }
 
 #leftContent {
