@@ -113,10 +113,9 @@ class InformacoesController extends Controller
 
         $eRegente = False;
 
-        if (Auth::user()->docente && Auth::user()->docente->id ==  $turma->cadeira->regente->id) {
+        if (Auth::user()->docente && Auth::user()->docente->id == $turma->cadeira->regente->id) {
             $eRegente = True;
         }
-
 
         return response()->json([
             'numero' => $turma->numero,
@@ -133,11 +132,11 @@ class InformacoesController extends Controller
     public function getAulaTipoInfo($idAulaTipo) {
         $aulaTipo = AulaTipo::find($idAulaTipo);
         $aulas = [];
-
         
         foreach ($aulaTipo->aulas as $aula) {
             $aulaInfo = [];
             
+            $aulaInfo['id'] = $aula->id;
             $aulaInfo['data'] = $aula->data;
             $aulaInfo['sumario'] = $aula->sumario;
             

@@ -17,7 +17,7 @@ class CreateCadeiraTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('sigla');
-            $table->unsignedInteger('faculdade');
+            $table->string('faculdade');
             $table->unsignedInteger('ECTS');
             $table->unsignedInteger('regente_id');
             $table->unsignedInteger('curso_id')->nullable();
