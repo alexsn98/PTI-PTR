@@ -30,8 +30,11 @@ function selecionarSala(selectAlterado) {
         salaSelect.removeChild(salaSelect.firstChild);
     }
 
+    pisosAdicionados = [];
     for (const sala of salas) {
-        if (sala.edificio == edificioSelect.value && selectAlterado == 'edificio') {            
+        if (sala.edificio == edificioSelect.value && selectAlterado == 'edificio' && !pisosAdicionados.includes(sala.piso)) {       
+            pisosAdicionados.push(sala.piso);
+
             let pisoOption = document.createElement("option");
 
             pisoOption.setAttribute('value', sala.piso);

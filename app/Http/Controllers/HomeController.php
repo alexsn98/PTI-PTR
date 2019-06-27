@@ -136,7 +136,7 @@ class HomeController extends Controller
     public function getAlunoAjuda() {
         $docentes = Docente::all();
 
-        $pedidosFechados = Auth::user()->pedidosAjuda->where('resposta', '!=',null);
+        $pedidosFechados = Auth::user()->pedidosAjuda->where('resposta', '!=', null);
         
         return view('alunoAjuda', [
             'docentes' => $docentes,
