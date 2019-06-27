@@ -17,8 +17,8 @@ class PedidosController extends Controller
 {
     public function associarDocenteTurma() {
         $utilizador = Utilizador::find(request('utilizador'));
-        $turma = Cadeira::find(request('cadeira'));
-        $cadeira = Turma::find(request('turma'));
+        $cadeira = Cadeira::find(request('cadeira'));
+        $turma = Turma::find(request('turma'));
 
         $turma->docente_id = $utilizador->docente->id;
         $turma->save();

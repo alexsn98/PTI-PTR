@@ -5,10 +5,14 @@ function selecionarUtilizador(utilizadorId) {
     let relacionarCadeira = document.getElementById('operacoesUtilizador').getElementsByTagName('form')[0];
     relacionarCadeira.removeAttribute('action');
     
-    relacionarCadeira.getElementsByTagName('button')[0].disabled = true;
-  }
+    relacionarCadeira.getElementsByTagName('button')[0].disabled = true;7
 
-  let campoUtilizador = document.getElementById("campoUtilizador");
+    let campoUtilizador = document.getElementById("campoUtilizador");
+    
+    if (campoUtilizador != null) {
+      relacionarCadeira.removeChild(campoUtilizador);
+    }
+  }
 
   let url = 'utilizadorInfo/' + utilizadorId;
   
@@ -19,10 +23,6 @@ function selecionarUtilizador(utilizadorId) {
   info[4].textContent = 'Curso:';
   info[5].textContent = 'Cadeiras:'; 
   info[6].textContent = 'Turmas:';      
-
-  if (campoUtilizador != null) {
-    relacionarCadeira.removeChild(campoUtilizador);
-  }
 
   let xhttp = new XMLHttpRequest();
 
