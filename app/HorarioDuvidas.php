@@ -17,10 +17,10 @@ class HorarioDuvidas extends Model
     ];
 
     public function aluno() {
-        return $this->belongsTo('App\Utilizador');
+        return $this->belongsTo('App\Aluno');
     }
 
     public function docente() {
-        return $this->belongsTo('App\Utilizador');
+        return $this->belongsTo('App\Docente');
     }
 }

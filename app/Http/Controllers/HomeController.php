@@ -11,6 +11,7 @@ use App\PedidoMudancaTurma;
 use App\PedidoReservaSala;
 use App\ReservaSala;
 use App\PedidoAjuda;
+use App\HorarioDuvidas;
 use Auth;
 class HomeController extends Controller
 {
@@ -181,6 +182,7 @@ class HomeController extends Controller
 
         foreach ($alunosSemTurma as $alunoSemTurma) {
             $aluno = $alunoSemTurma['aluno'];
+            $aulaSobreposta = False;
 
             $turmasTeoricas = $aluno->cadeiras->map(function ($cadeira) {
                return Turma::find($cadeira->pivot->turma_teorica_id); 
@@ -278,6 +280,14 @@ class HomeController extends Controller
         return view('docenteCurso',[
             'curso' => $curso
         ]); 
+    }
+
+    public function getDocenteHorarioDuvidas() {
+        $horarios = HorarioDuvidas::where('id', Auth::user()->docente->id)->get();
+
+        return view('docenteHorarioDuvidas', [
+            'horarios' => $horarios
+        ]);
     }
 
     public function getDocenteAjuda() {
