@@ -152,11 +152,13 @@ class HomeController extends Controller
         $pedidosMudancaTurma = $docente->pedidosMudancaTurma;
         $salas = Sala::all();
         
-        // $cadeiras = $turmas->map(function ($turma) {
-        //     return $turma->cadeira;
-        // })->unique();
-
         $cadeiras = $docente->cadeiras;
+
+        $aulasTipoCadeiras = $cadeiras->flatMap(function ($cadeira) {
+            return $cadeira->turmas; 
+            })->flatMap(function ($turma) {
+                return $turma->aulasTipo;
+            }); 
 
         $alunosSemTurma = [];
         foreach ($cadeiras as $cadeira) {
@@ -168,19 +170,78 @@ class HomeController extends Controller
                 
                 if ($alunoTurmaTeorica == null || $alunoTurmaPratica == null) {
                     $alunosSemTurma[] = [
-                        'aluno' => $aluno->utilizador->nome, 
+                        'aluno' => $aluno, 
                         'cadeira' => $cadeira->nome
                     ];
                 }
             }
         }
-        
+
+        $alunosComSobreposicao = [];
+
+        foreach ($alunosSemTurma as $alunoSemTurma) {
+            $aluno = $alunoSemTurma['aluno'];
+
+            $turmasTeoricas = $aluno->cadeiras->map(function ($cadeira) {
+               return Turma::find($cadeira->pivot->turma_teorica_id); 
+                })->filter(function ($turma) {
+                    return $turma != null;
+                }); 
+
+            $turmasPraticas = $aluno->cadeiras->map(function ($cadeira) {
+                return Turma::find($cadeira->pivot->turma_pratica_id); 
+                })->filter(function ($turma) {
+                    return $turma != null;
+                }); 
+
+            $aulasTipoTeoricas = $turmasTeoricas->flatMap(function ($turma) {
+                return $turma->aulasTipo;
+            });
+
+            foreach ($aulasTipoTeoricas as $aulaTipoTeorica) {
+                $inicioAula = strtotime($aulaTipoTeorica->inicio);
+                $fimAula = strtotime($aulaTipoTeorica->fim);
+                $diaAula = $aulaTipoTeorica->dia_semana;
+                $aulaSobreposta = False;
+
+                foreach ($aulasTipoCadeiras as $aulaTipoCadeiras) {
+                    $inicioAulaCadeira = strtotime($aulaTipoTeorica->inicio);
+                    $fimAulaCadeira = strtotime($aulaTipoTeorica->fim);
+                    $diaAulaCadeira = $aulaTipoTeorica->dia_semana;
+
+                    if ($diaAula == $diaAulaCadeira && $inicioAula >= $inicioAulaCadeira && $inicioAula <= $fimAulaCadeira) {
+                        $aulaSobreposta = True;
+                    }
+
+                    if ($diaAula == $diaAulaCadeira && $fimAula >= $inicioAulaCadeira && $fimAula <= $fimAulaCadeira) {
+                        $aulaSobreposta = True;
+                    }
+                }
+            }
+
+            if ($aulaSobreposta) {
+                $alunosComSobreposicao[] = [
+                    'aluno' => $aluno, 
+                    'cadeira' => $cadeira->nome,
+                    'incompatibilidade' => True
+                ];
+            }
+
+            else {
+                $alunosComSobreposicao[] = [
+                    'aluno' => $aluno, 
+                    'cadeira' => $cadeira->nome,
+                    'incompatibilidade' => False
+                ];
+            }
+        }
+
         return view('docenteHome',[
             'curso' => $curso,
             'turmas'=> $turmas,
             'pedidosMudancaTurma' => $pedidosMudancaTurma,
             'salas' => $salas,
-            'alunosSemTurma' => $alunosSemTurma
+            'alunosSemTurma' => $alunosComSobreposicao
         ]); 
     }
 

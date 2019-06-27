@@ -46,7 +46,7 @@ function selecionarTurma(turmaId) {
 
             if (resposta.eRegente) {
                 fecharTurma.style.display = "block";
-                paginaTurma.setAttribute("href", "/home/cadeira/fecharTurma/" + turmaId);
+                fecharTurma.setAttribute("href", "/home/cadeira/turma/fecharTurma/" + turmaId);
             }
                         
             if (resposta.aulasTipo.length > 0) {

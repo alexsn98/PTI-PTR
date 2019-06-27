@@ -181,8 +181,11 @@
             <ul>
                 @foreach ($alunosSemTurma as $alunoSemTurma)
                     <li class="this1"> 
-                        Aluno: {{$alunoSemTurma['aluno']}} ||
+                        Aluno: {{$alunoSemTurma['aluno']->utilizador->nome}} ||
                         Cadeira: {{$alunoSemTurma['cadeira']}}
+                        @if ($alunoSemTurma['incompatibilidade'])
+                            || Incompatibilidade de horário
+                        @endif
                     </li>
                 @endforeach
             </ul>

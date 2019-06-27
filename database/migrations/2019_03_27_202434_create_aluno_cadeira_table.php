@@ -26,8 +26,8 @@ class CreateAlunoCadeiraTable extends Migration
         Schema::table('aluno_cadeira', function (Blueprint $table) {
             $table->foreign('aluno_id')->references('id')->on('aluno')->onDelete('cascade');
             $table->foreign('cadeira_id')->references('id')->on('cadeira')->onDelete('cascade');
-            $table->foreign('turma_pratica_id')->references('id')->on('turma');
-            $table->foreign('turma_teorica_id')->references('id')->on('turma');
+            $table->foreign('turma_pratica_id')->references('id')->on('turma')->onDelete('set null'); 
+            $table->foreign('turma_teorica_id')->references('id')->on('turma')->onDelete('set null');
         });
     }
 
