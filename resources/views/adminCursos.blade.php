@@ -55,6 +55,10 @@
                 </div>
 
                 <div class="form-group">
+                    <input type="text" class="form-control" name="faculdade" placeholder="Faculdade" required>
+                </div>
+
+                <div class="form-group">
                     <label>
                         Ano letivo:
                         <select name="anoLetivo">
@@ -74,6 +78,7 @@
         <div id="viewCurso">
             <h3>Nome:</h3>
             <h3>Coordenador:</h3>
+            <h3>Faculdade:</h3>
             <h3>Cadeiras:</h3>
         </div>
     </div>

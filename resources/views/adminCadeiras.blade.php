@@ -58,6 +58,10 @@
                 </div>
 
                 <div class="form-group">
+                    <input type="text" class="form-control" name="faculdade" placeholder="Faculdade" required>
+                </div>
+
+                <div class="form-group">
                     <label>
                         Regente: 
                         <select name="regente">

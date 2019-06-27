@@ -118,7 +118,9 @@ function selecionarCurso(cursoId) {
   
   info[0].textContent = 'Nome:'
   info[1].textContent = 'Coordenador:';
-  info[2].textContent = 'Cadeiras:';
+  info[2].textContent = 'Faculdade:';
+  info[3].textContent = 'Cadeiras:';
+
 
   let xhttp = new XMLHttpRequest();
 
@@ -133,7 +135,9 @@ function selecionarCurso(cursoId) {
 
         info[1].textContent += ' ' + resposta.coordenador;
         
-        info[2].textContent += ' ' + resposta.cadeiras; 
+        info[2].textContent += ' ' + resposta.faculdade; 
+
+        info[3].textContent += ' ' + resposta.cadeiras; 
       }
   };
 }

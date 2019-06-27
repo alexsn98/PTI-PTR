@@ -11,7 +11,8 @@ class Curso extends Model
     protected $fillable = [
         'coordenador_id',
         'nome',
-        'ano_letivo'
+        'ano_letivo',
+        'faculdade'
     ];
 
     public function cadeiras() {

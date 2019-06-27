@@ -15,12 +15,14 @@ class CriacoesController extends Controller
         request()->validate([
             'coordenador' => ['required'],
             'nome' => ['required'],
+            'faculdade' => ['required'],
             'anoLetivo' => ['required']
         ]); 
         
         Curso::create([
             'coordenador_id' => request('coordenador'),
             'nome' => request('nome'),
+            'faculdade' => request('faculdade'),
             'ano_letivo' => request('anoLetivo')
         ]);
 
@@ -32,6 +34,7 @@ class CriacoesController extends Controller
         request()->validate([
             'nome' => ['required'],
             'sigla' => ['required'],
+            'faculdade' => ['required'],
             'ects' => ['required'],
             'regente' => ['required'],
             'curso' => ['required'],
@@ -45,6 +48,7 @@ class CriacoesController extends Controller
         Cadeira::create([
             'nome' => request('nome'),
             'sigla' => request('sigla'),
+            'faculdade' => request('faculdade'),
             'ECTS' => request('ects'),
             'regente_id' => request('regente'),
             'curso_id' => $curso,

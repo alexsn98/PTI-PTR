@@ -18,6 +18,7 @@ class CreateCursoTable extends Migration
             $table->unsignedInteger('coordenador_id');
             $table->string('nome');
             $table->string('ano_letivo');
+            $table->string('faculdade');
             $table->timestamps();            
         });
 

@@ -100,7 +100,6 @@
         $(document).ready(function(){
             $('.menu-toggle').click(function(){
                 if($('#nav').css('display') == 'none'){
-                    console.log("pau");
                     $("#nav").css({"display": "block"});
                     $("#logout").css({"display": "block"});
                     $("#navbar").css({"background-color": "#03353E"});
@@ -109,7 +108,6 @@
                     $("button").css({"display": "none"});
                 }
                 else{
-                    console.log("pauBack");
                     $("#nav").css({"display": "none"});
                     $("#logout").css({"display": "none"});
                     $("#navbar").css({"background-color": "transparent"});

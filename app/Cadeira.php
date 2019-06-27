@@ -16,7 +16,8 @@ class Cadeira extends Model
         'curso_id',
         'semestre',
         'ciclo',
-        'ano_letivo'
+        'ano_letivo',
+        'faculdade'
     ];
 
     public function curso() {
