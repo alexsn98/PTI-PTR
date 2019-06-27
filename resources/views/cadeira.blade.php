@@ -48,6 +48,7 @@
         <div id="theCadeira">
             <div id="left">
                 <h4>Professor:</h4>
+                <h4>Horário dúvidas:</h4>
             </div>
             <div id="right">
                 <h4>Tipo:</h4>
@@ -58,6 +59,10 @@
             <div>
                 @if (Auth::user()->aluno)
                     <a id="inscreverTurmaButton" class="btn btn-primary">Inscrever na turma</a>
+                @endif
+
+                @if (Auth::user()->docente)
+                    <a id="fecharTurmaButton" class="btn btn-primary">Fechar a turma</a>
                 @endif
                 
                 <a id="paginaTurmaButton" class="btn btn-primary">Página da turma</a>

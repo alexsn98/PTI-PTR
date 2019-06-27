@@ -19,7 +19,7 @@
                     @endif
                     {{$turma->numero}}
                 </h2>
-                <h2>Vagas: {{$turma->numVagas}} </h2>
+                <h2>Vagas: {{$turma->num_vagas - $turma->num_alunos_inscritos}} </h2>
             </div>
         <div id="view">
             <ul>

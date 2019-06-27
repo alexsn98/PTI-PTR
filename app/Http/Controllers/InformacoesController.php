@@ -11,6 +11,7 @@ use App\Cadeira;
 use App\Turma;
 use App\AulaTipo;
 use App\Sala;
+use Auth;
 
 class InformacoesController extends Controller
 {
@@ -109,11 +110,20 @@ class InformacoesController extends Controller
         $turma = Turma::find($idTurma);
         $estadoTurma = ($turma->num_alunos_inscritos < $turma->num_vagas) ? 'comVagas' : 'cheia';
 
+        $eRegente = False;
+
+        if (Auth::user()->docente && Auth::user()->docente->id ==  $turma->cadeira->regente->id) {
+            $eRegente = True;
+        }
+
+
         return response()->json([
             'numero' => $turma->numero,
             'cadeira' => $turma->cadeira->nome,
             'aulasTipo' => $turma->aulasTipo,
             'docente' => $turma->docente->utilizador->nome,
+            'eRegente' => $eRegente,
+            'horarioDuvidas' => $turma->docente->inicio_horario_duvidas . " até " . $turma->docente->fim_horario_duvidas,
             'tipo' => $turma->tipo,
             'estado' => $estadoTurma
         ]);
@@ -193,6 +203,7 @@ class InformacoesController extends Controller
 
                     }
                 }
+
                 $turmas[] = $turmaInfo;
             }    
         }
